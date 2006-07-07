@@ -1,0 +1,85 @@
+<menuItems>
+	<menuItem>
+		<title>OVERVIEW</title>
+		<order>0</order>
+		<clickable>
+			<template>
+				<type>A</type>
+				<title>LABORATORY for UBIQUITOUS COMPUTING and INTERACTION</title>
+				<url>websiteContent/overview/overviewContent.xml</url>
+			</template>
+			<sidebar>
+				<type>SA</type>
+				<title>UBICOMP NEWS</title>
+				<url>http://luci.ics.uci.edu/blog/index.rdf</url>
+			</sidebar>
+		</clickable>
+		<breakBelow/>
+	</menuItem>
+	<menuItem>
+		<title>WE ARE LUCI</title>
+		<order>1</order>
+	</menuItem>
+	<menuItem>
+		<title>PROJECTS</title>
+		<order>2</order>
+		<indent>1</indent>
+		<clickable>
+			<template>
+				<type>B</type>
+				<title>WE ARE LUCI: PROJECTS</title>
+				<url>websiteContent/weAreLuci/projects.xml</url>
+			</template>
+		</clickable>
+		<breakBelow/>
+	</menuItem>
+	<!--
+	<menuItem>
+		<title>COURSES</title>
+		<order>2</order>
+		<indent>1</indent>
+		<clickable>
+		</clickable>
+	</menuItem>
+	<menuItem>
+		<title>BIOS</title>
+		<order>4</order>
+		<indent>1</indent>
+		<clickable>
+		</clickable>
+		<breakBelow/>
+	</menuItem>
+	<menuItem>
+		<title>NEWS</title>
+		<order>5</order>
+	</menuItem>
+	<menuItem>
+		<title>LOCAL</title>
+		<order>6</order>
+		<indent>1</indent>
+		<clickable>
+		</clickable>
+	</menuItem>
+	<menuItem>
+		<title>REGIONAL</title>
+		<order>7</order>
+		<indent>1</indent>
+		<clickable>
+		</clickable>
+	</menuItem>
+	<menuItem>
+		<title>WORLD</title>
+		<order>8</order>
+		<indent>1</indent>
+		<clickable>
+		</clickable>
+		<breakBelow/>
+	</menuItem>
+	<menuItem>
+		<title>DATA REPOSITORY</title>
+		<order>9</order>
+		<indent>1</indent>
+		<clickable>
+		</clickable>
+	</menuItem>-->
+</menuItems>

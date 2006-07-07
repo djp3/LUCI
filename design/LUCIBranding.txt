@@ -1,0 +1,41 @@
+Here are the people who I want to be served by the website:
+
+* General Public
+	** Media that can help promote our work
+	** Prospective graduate students that are researching where to go to grad
+	school
+	** Prospective undergraduates that are researching where to go to grad
+	school
+
+* Lab Members	
+	** Faculty in the ICS school
+	** Grad students in ICS
+	** Undergrad students in ICS
+
+* External Researchers
+	** External Faculty
+	** External Grad Students
+
+
+
+
+* Things I want on the website:
+	* A description of the administrative structure of the school and the lab
+		This is confusing and needs to be clarified for people
+	* A list of research areas and what is going on with each piece.
+	* A list of recent publications by people affiliated with the lab
+		This is mostly for P.R. purposes
+	* A Data Repository 
+		This will also have papers associated with them.  Those papers which
+		used the data in the repository.
+		This data might be submitted by external researchers.
+		There should be a part of this that can be editted by people
+		independently like a wiki.  But the data itself needs to be secure from
+		that.
+	* Bios of lab members
+	* Lab news, local awards, local events, local speakers, local calendars etc.
+	* World news relevant to ubiquitous computing.  Probably blog format.
+		 Submitted by lots of contributers.
+	* A list of conferences and deadlines associated with them
+
+	
