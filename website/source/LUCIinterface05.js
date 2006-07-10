@@ -1,8 +1,5 @@
 function callMovie() { 
 	if (navigator.appName.indexOf('Microsoft') != -1) { 
-		if(window['LUCIinterfaceSafari'].animateOpen == null){
-			jsUpdateAddress('null windows thing');
-		}
 		return window['LUCIinterfaceSafari'];
 	}
 	else { 

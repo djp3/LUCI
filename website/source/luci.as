@@ -796,11 +796,9 @@ function clickListener(eventObj:Object):Void {
 
 
 // site opening animation
-function animateOpen() {
+function animateOpen(x:String) {
 
-	//ExternalInterface.call("jsUpdateAddress", x);
-	//ExternalInterface.call("jsUpdateAddress", System.security.sandboxType);
-	ExternalInterface.call("jsUpdateAddress", "Success");
+	ExternalInterface.call("jsUpdateAddress", "Success "+x);
 	clearAndResetPage();
 	initialBuild(loadBomb(animateOverview));
 
