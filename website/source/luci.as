@@ -71,17 +71,39 @@ var clearCurrentTemplate:Object = new Object();
 	clearCurrentTemplate.clearFunction= function(){trace(">> No template to clear");};
 	clearCurrentTemplate.whichMenuItem= new MovieClip();
 
-/*BGmenu_mc.menuOverviewWhite_mc._visible = false;
+// Initialize the stage
+image01_mc._visible=false;
+image02_mc._visible=false;
+image03_mc._visible=false;
 
-BGmenu_mc.menuCoursesWhite_mc._visible = false;
-BGmenu_mc.menuProjectsWhite_mc._visible = false;
-BGmenu_mc.menuBiosWhite_mc._visible = false;
+BGmenu_mc._visible=false;
+textBody_mc._visible=false;	
+scrollBar1_mc._visible=false;
 
-BGmenu_mc.menuLocalWhite_mc._visible = false;
-BGmenu_mc.menuRegionalWhite_mc._visible = false;
-BGmenu_mc.menuWorldWhite_mc._visible = false;
-BGmenu_mc.menuDataRepositoryWhite_mc._visible = false;
-*/
+BGsidebar_mc._visible=false;
+textSidebar_mc._visible=false;	
+scrollBar2_mc._visible=false;
+
+BGBodyMasked_mc._visible=false;
+whiteBlock_mc._visible=false;
+
+sectionImage_mc._visible = false;
+sectionTitle_mc._visible = false;
+sectionData_mc._visible = false;
+sectionListItem_mc1._visible = false;
+dividerVert_mc._visible = false;
+
+blindWhite_mc._visible = false;
+blindOrange_mc._visible = false;
+
+logo_mc._alpha=0;
+logo_mc._visible=true;
+
+skyline_mc._alpha=0;
+skyline_mc._visible=true;
+
+logo_mc.tween(["_alpha"],[100],1.0,"linear");
+skyline_mc.tween("_alpha",100,1.0,"linear");
 
 
 // parallax
@@ -1613,15 +1635,5 @@ function animateDataRepository()
 
 
 //Launch
-if(ExternalInterface.addCallback("animateOpen", this, animateOpen)){
-		image01_mc.tween("_y",underSkyline_y,5.0,"easeInSine");
-		image02_mc.tween("_y",underSkyline_y,5.0,"easeInSine");
-		image03_mc.tween("_y",underSkyline_y,5.0,"easeInSine");
-}
-else{
-		image01_mc.tween("_y",0,5.0,"easeInSine");
-		image02_mc.tween("_y",0,5.0,"easeInSine");
-		image03_mc.tween("_y",0,5.0,"easeInSine");
-}
-
+ExternalInterface.addCallback("animateOpen", this, animateOpen);
 //animateOpen();
