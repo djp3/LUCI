@@ -3,6 +3,7 @@
 import TextField.StyleSheet;
 import flash.display.*;
 import flash.filters.ColorMatrixFilter;
+import flash.external.*;
 
 
 
@@ -599,6 +600,7 @@ var menuItems:XML = new XML();
 							tempMenuItem_mc.templateType = "";
 							tempMenuItem_mc.templateTitle = "";
 							tempMenuItem_mc.templateURL = "";
+							tempMenuItem_mc.deepLink = "";
 							tempMenuItem_mc.sidebar = false;
 							tempMenuItem_mc.sidebarTemplateType = "";
 							tempMenuItem_mc.sidebarTemplateTitle = "";
@@ -664,6 +666,13 @@ var menuItems:XML = new XML();
 													}
 												}
 											}
+											else if(myArray3[k].nodeName == "deepLink"){
+												tempMenuItem_mc.deepLink=myArray3[k].firstChild.nodeValue;
+												trace(">> loaded deepLink"+ tempMenuItem_mc.deepLink);
+											}
+											else{
+												trace(">> Unknown XML "+myArray3[k].nodeName) ;
+											}
 									}
 								}
 								else if(myArray2[j].nodeName == "indent"){
@@ -700,6 +709,22 @@ var menuItems:XML = new XML();
 									tempMenuItem_mc.menuItemText_tx.textColor=menuTextFormatInactive;
 									tempMenuItem_mc.onRelease=function(){
 											trace(">> clicked on:"+ (this.templateTitle));
+											trace(">> deepLink "+this.deepLink);
+
+											//update the web page address
+    										ExternalInterface.call("jsUpdateAddress", this.deepLink);
+
+										/*	ExternalInterface.addCallback("asFunc", this, asFunc);
+											function asFunc(str:String):Void {
+											    in_ti.text = "JS > Hello " + str;
+											}*/
+
+/*send_button.addEventListener("click", clickListener);
+function clickListener(eventObj:Object):Void {
+    trace("click > " + out_ti.text);
+    ExternalInterface.call("jsFunc", out_ti.text);
+}*/
+
 
 											//Set up to clear last function and
 											//then us later
@@ -744,6 +769,11 @@ var menuItems:XML = new XML();
 											dispatchTemplate(this.templateType,this.templateTitle,this.templateURL);
 									};
 							}
+							/*else{
+								tempMenuItem_mc.onRelease=function(){
+									textBody_mc.textBody_tx.htmlText=_root._url;
+								}
+							}*/
 							tempMenuItem_mc = null;
 						}
 						else{
@@ -768,6 +798,9 @@ var menuItems:XML = new XML();
 // site opening animation
 function animateOpen() {
 
+	//ExternalInterface.call("jsUpdateAddress", x);
+	//ExternalInterface.call("jsUpdateAddress", System.security.sandboxType);
+	ExternalInterface.call("jsUpdateAddress", "Success");
 	clearAndResetPage();
 	initialBuild(loadBomb(animateOverview));
 
@@ -1582,5 +1615,15 @@ function animateDataRepository()
 
 
 //Launch
+if(ExternalInterface.addCallback("animateOpen", null, animateOpen)){
+		image01_mc.tween("_y",underSkyline_y,5.0,"easeInSine");
+		image02_mc.tween("_y",underSkyline_y,5.0,"easeInSine");
+		image03_mc.tween("_y",underSkyline_y,5.0,"easeInSine");
+}
+else{
+		image01_mc.tween("_y",0,5.0,"easeInSine");
+		image02_mc.tween("_y",0,5.0,"easeInSine");
+		image03_mc.tween("_y",0,5.0,"easeInSine");
+}
 
-animateOpen();
+//animateOpen();

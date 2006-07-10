@@ -3,6 +3,7 @@
 		<title>OVERVIEW</title>
 		<order>0</order>
 		<clickable>
+			<deepLink>overview</deepLink>
 			<template>
 				<type>A</type>
 				<title>LABORATORY for UBIQUITOUS COMPUTING and INTERACTION</title>
@@ -25,6 +26,7 @@
 		<order>2</order>
 		<indent>1</indent>
 		<clickable>
+			<deepLink>projects</deepLink>
 			<template>
 				<type>B</type>
 				<title>WE ARE LUCI: PROJECTS</title>
