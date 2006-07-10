@@ -8,6 +8,7 @@ function checkURLParameters() {
 }
 
 window.onload = function(){
-	callMovie().animateOpen(checkURLParameters());
+	//callMovie().animateOpen(checkURLParameters());
+	setTimeout("callMovie().animateOpen(checkURLParameters());",500);
 }
 

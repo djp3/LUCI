@@ -1,9 +1,11 @@
 ﻿//Code to manage animation sequences
 #include "bomb.as"
+
+import flash.external.*;
 import TextField.StyleSheet;
 import flash.display.*;
 import flash.filters.ColorMatrixFilter;
-import flash.external.*;
+
 
 
 
@@ -64,58 +66,163 @@ var underSkyline_y:Number=473;
 		delete(styleObj);
 
 
-// turn off active menu states
-var isBodyShrunk:Boolean=true;
-var isSidebarShrunk:Boolean=true;
-var clearCurrentTemplate:Object = new Object();
+var isBodyShrunk:Boolean;
+var isSidebarShrunk:Boolean;
+var clearCurrentTemplate:Object;
+
+function clearAndResetPage()
+{
+	// Initialize the stage
+	image01_mc._visible=false;
+	image02_mc._visible=false;
+	image03_mc._visible=false;
+
+	BGmenu_mc._visible=false;
+	titleBody_mc._visible=false;		
+	titleBody_mc.titleBody_tx.text = "";
+	textBody_mc._visible=false;	
+	textBody_mc.textBody_tx.text = "";
+	scrollBar1_mc._visible=false;
+
+	BGsidebar_mc._visible=false;
+	titleSidebar_mc._visible=false;		
+	titleSidebar_mc.titleSidebar_tx.text = "";
+	textSidebar_mc._visible=false;	
+	textSidebar_mc.textSidebar_tx.text = "";
+	scrollBar2_mc._visible=false;
+		
+	BGBodyMasked_mc._visible=false;
+	whiteBlock_mc._visible=false;
+
+	sectionImage_mc._visible = false;
+	sectionTitle_mc._visible = false;
+	sectionData_mc._visible = false;
+	sectionListItem_mc1._visible = false;
+	dividerVert_mc._visible = false;
+
+	blindWhite_mc._visible = false;
+	blindOrange_mc._visible = false;
+
+	logo_mc._alpha=0;
+	logo_mc._visible=true;
+
+	skyline_mc._alpha=0;
+	skyline_mc._visible=true;
+
+	isBodyShrunk = true;
+	isSidebarShrunk = true;
+	clearCurrentTemplate = new Object();
 	clearCurrentTemplate.clearFunction= function(){trace(">> No template to clear");};
 	clearCurrentTemplate.whichMenuItem= new MovieClip();
 
-// Initialize the stage
-image01_mc._visible=false;
-image02_mc._visible=false;
-image03_mc._visible=false;
-
-BGmenu_mc._visible=false;
-textBody_mc._visible=false;	
-scrollBar1_mc._visible=false;
-
-BGsidebar_mc._visible=false;
-textSidebar_mc._visible=false;	
-scrollBar2_mc._visible=false;
-
-BGBodyMasked_mc._visible=false;
-whiteBlock_mc._visible=false;
-
-sectionImage_mc._visible = false;
-sectionTitle_mc._visible = false;
-sectionData_mc._visible = false;
-sectionListItem_mc1._visible = false;
-dividerVert_mc._visible = false;
-
-blindWhite_mc._visible = false;
-blindOrange_mc._visible = false;
-
-logo_mc._alpha=0;
-logo_mc._visible=true;
-
-skyline_mc._alpha=0;
-skyline_mc._visible=true;
-
-logo_mc.tween(["_alpha"],[100],1.0,"linear");
-skyline_mc.tween("_alpha",100,1.0,"linear");
-
-
-// parallax
-var mouseListener:Object = new Object();
-mouseListener.onMouseMove = function() {
-	myX = _xmouse;
-	skyline_mc.skyline1_mc._x = 0-(myX/10);
-	skyline_mc.skyline2_mc._x = 0-(myX/20);
-	skyline_mc.skyline3_mc._x = 0-(myX/50);
+	turnOffActiveMenuStates();
 };
-Mouse.addListener(mouseListener);
+// run it immediately
+clearAndResetPage();
 
+
+
+
+function sidebarShrink(bomb:MovieClip)
+{
+var duration:Number=1.0;		
+
+	if(isSidebarShrunk != true){
+		loadSidebarTitle("");
+		loadSidebarHTMLText("");
+
+		//This is the orange sidebar
+		BGsidebar_mc.tween(["_y", "_alpha"], [underSkyline_y, 0], duration, "easeInSine");
+		scrollBar2_mc.tween(["_y", "_alpha"], [underSkyline_y, 0], duration, "easeInSine");
+
+		lightFusePayload(duration,function(){
+			textSidebar_mc._visible=false;	
+			BGsidebar_mc._visible = false;
+			scrollBar2._visible = false;
+			isSidebarShrunk=true;
+			triggerBomb(bomb);
+		});
+	}
+}
+
+function sidebarExpand(bomb:MovieClip)
+{
+var duration:Number;
+
+	if(isSidebarShrunk == true){
+		duration = 2.0;				
+		//This is the orange sidebar
+		BGsidebar_mc._alpha = 0;
+		BGsidebar_mc._visible = true;
+		BGsidebar_mc.tween(["_y", "_alpha"], [17, 100], duration, "easeOutSine");
+	
+		scrollBar2._alpha = 0;
+		scrollBar2._visible = true;
+		scrollBar2_mc.tween(["_y", "_alpha"], [17, 100], duration, "easeOutSine");
+
+		isSidebarShrunk=false;
+	}
+	else{
+		duration = noDuration;
+	}
+
+	textSidebar_mc.textSidebar_tx._x=0;
+	textSidebar_mc.textSidebar_tx._y=0;
+	textSidebar_mc.textSidebar_tx.wordWrap = true;
+	textSidebar_mc.textSidebar_tx.multiline = true;
+	textSidebar_mc.textSidebar_tx.html = true;
+	textSidebar_mc.textSidebar_tx.styleSheet = sidebarBody_styleSheet;
+
+
+	lightFuseBomb(duration,bomb);
+}
+
+
+function initialBuildMenu(bomb:MovieClip)
+{
+
+var duration:Number = 1.0;
+
+	//This is the menu on the left
+	BGmenu_mc._visible=false;
+	BGmenu_mc._alpha=0;
+	BGmenu_mc._x=anchorBGmenu_x;
+	BGmenu_mc._y=underSkyline_y;
+	BGmenu_mc._visible=true;
+	BGmenu_mc.tween(["_y", "_alpha"], [anchorBGmenu_y, 100], duration, "easeOutSine");
+
+	BGmenu_mc.menuActive_mc.menuActiveGray_mc._alpha= 0;
+	BGmenu_mc.menuActive_mc.menuActiveGray_mc._x= 0;
+	BGmenu_mc.menuActive_mc.menuActiveGray_mc._y= underSkyline_y;
+	BGmenu_mc.menuActive_mc.menuActiveGray_mc._width= BGmenu_mc._width;
+	BGmenu_mc.menuActive_mc.menuActiveGray_mc._height= 100;
+	BGmenu_mc.menuActive_mc.menuActiveGray_mc._visible= true;
+
+	BGmenu_mc.menuActive_mc.menuActiveOrange_mc._alpha= 0;
+	BGmenu_mc.menuActive_mc.menuActiveOrange_mc._x= 0;
+	BGmenu_mc.menuActive_mc.menuActiveOrange_mc._y= underSkyline_y;
+	BGmenu_mc.menuActive_mc.menuActiveOrange_mc._width= BGmenu_mc._width;
+	BGmenu_mc.menuActive_mc.menuActiveOrange_mc._visible= true;
+
+	//When animation is complete, load menu items, when that's done reveal them
+	lightFusePayload(duration, function(){
+		loadMenuItems(menuItemsURL,loadBomb(function()
+			{
+				var duration2:Number = 1.0;
+
+				for(var i in mainMenu){
+					mainMenu[i].menuItemText_tx._alpha=100;
+					mainMenu[i].tween("_alpha",100,duration2,"linear");
+
+					if(mainMenu[i]._order == 0){
+						mainMenu[i].onRelease();
+					}
+				}
+				triggerBomb(bomb);
+			}
+		));
+	});
+}
 
 function initialBuildOrangeSidebar(bomb:MovieClip)
 {
@@ -217,85 +324,6 @@ function initialBuildOrangeSidebar(bomb:MovieClip)
 
 
 	sidebarExpand(bomb);
-}
-
-function finalBuildOrangeSidebar(bomb:MovieClip)
-{
-	sidebarShrink(bomb);
-
-}
-
-function jumpToURL(URL:String)
-{
-	trace(">> jumping to "+URL);
-	finalBuild(loadBomb(function(){
-		getURL(URL,"_self");
-	}));
-}
-
-
-function initialBuildMenu(bomb:MovieClip)
-{
-
-var duration:Number = 1.0;
-
-	//This is the menu on the left
-	BGmenu_mc._visible=false;
-	BGmenu_mc._alpha=0;
-	BGmenu_mc._x=anchorBGmenu_x;
-	BGmenu_mc._y=underSkyline_y;
-	BGmenu_mc._visible=true;
-	BGmenu_mc.tween(["_y", "_alpha"], [anchorBGmenu_y, 100], duration, "easeOutSine");
-
-	BGmenu_mc.menuActive_mc.menuActiveGray_mc._alpha= 0;
-	BGmenu_mc.menuActive_mc.menuActiveGray_mc._x= 0;
-	BGmenu_mc.menuActive_mc.menuActiveGray_mc._y= underSkyline_y;
-	BGmenu_mc.menuActive_mc.menuActiveGray_mc._width= BGmenu_mc._width;
-	BGmenu_mc.menuActive_mc.menuActiveGray_mc._height= 100;
-	BGmenu_mc.menuActive_mc.menuActiveGray_mc._visible= true;
-
-	BGmenu_mc.menuActive_mc.menuActiveOrange_mc._alpha= 0;
-	BGmenu_mc.menuActive_mc.menuActiveOrange_mc._x= 0;
-	BGmenu_mc.menuActive_mc.menuActiveOrange_mc._y= underSkyline_y;
-	BGmenu_mc.menuActive_mc.menuActiveOrange_mc._width= BGmenu_mc._width;
-	BGmenu_mc.menuActive_mc.menuActiveOrange_mc._visible= true;
-
-	//When animation is complete, load menu items, when that's done reveal them
-	lightFusePayload(duration, function(){
-		loadMenuItems(menuItemsURL,loadBomb(function()
-			{
-				var duration2:Number = 1.0;
-
-				for(var i in mainMenu){
-					mainMenu[i].menuItemText_tx._alpha=100;
-					mainMenu[i].tween("_alpha",100,duration2,"linear");
-
-					if(mainMenu[i]._order == 0){
-						mainMenu[i].onRelease();
-					}
-				}
-				triggerBomb(bomb);
-			}
-		));
-	});
-}
-
-function finalBuildMenu(bomb:MovieClip)
-{
-
-var duration:Number = 0.5;
-
-	BGmenu_mc.menuActive_mc.menuActiveGray_mc.tween("_alpha",0,duration,"linear");
-	BGmenu_mc.menuActive_mc.menuActiveOrange_mc.tween("_alpha",0,duration,"linear");
-	for(var i in mainMenu){
-		mainMenu[i].tween("_alpha",0,duration,"linear");
-	}
-
-	//When animation is complete, load menu items, when that's done reveal them
-	lightFusePayload(duration, function(){
-		BGmenu_mc.tween(["_y", "_alpha"], [underSkyline_y, 0], duration, "easeInSine");
-		lightFuseBomb(duration,bomb);
-	});
 }
 
 function initialBuildCenterPane(bomb:MovieClip)
@@ -431,6 +459,44 @@ function initialBuildCenterPane(bomb:MovieClip)
 
 }
 
+function initialBuild(bomb:MovieClip)
+{
+	logo_mc.tween(["_alpha"],[100],1.0,"linear");
+	skyline_mc.tween("_alpha",100,1.0,"linear");
+
+	initialBuildMenu();
+
+	initialBuildOrangeSidebar();
+
+	initialBuildCenterPane(bomb);
+}
+
+// site opening animation
+function animateOpen(x:String) {
+	initialBuild(loadBomb(animateOverview));
+}
+ExternalInterface.addCallback("animateOpen", this, animateOpen);
+
+
+function finalBuildMenu(bomb:MovieClip)
+{
+
+var duration:Number = 0.5;
+
+	BGmenu_mc.menuActive_mc.menuActiveGray_mc.tween("_alpha",0,duration,"linear");
+	BGmenu_mc.menuActive_mc.menuActiveOrange_mc.tween("_alpha",0,duration,"linear");
+	for(var i in mainMenu){
+		mainMenu[i].tween("_alpha",0,duration,"linear");
+	}
+
+	//When animation is complete, load menu items, when that's done reveal them
+	lightFusePayload(duration, function(){
+		BGmenu_mc.tween(["_y", "_alpha"], [underSkyline_y, 0], duration, "easeInSine");
+		lightFuseBomb(duration,bomb);
+	});
+}
+
+
 function finalBuildCenterPane(bomb:MovieClip)
 {
 	var duration:Number = 1.0;
@@ -452,58 +518,50 @@ function finalBuildCenterPane(bomb:MovieClip)
 
 }
 
-function initialBuild(bomb:MovieClip){
+function finalBuildOrangeSidebar(bomb:MovieClip)
+{
+	sidebarShrink(bomb);
 
-	//Immediately clear some items
-	image01_mc._visible=false;
-	image01_mc._alpha=0;
-	image02_mc._visible=false;
-	image02_mc._alpha=0;
-	image03_mc._visible=false;
-	image03_mc._alpha=0;
-
-	initialBuildMenu();
-
-	initialBuildOrangeSidebar();
-
-	initialBuildCenterPane(bomb);
 }
+
 
 function finalBuild(bomb:MovieClip)
 {
-	finalBuildOrangeSidebar();			
 	finalBuildCenterPane(loadBomb(function(){
-		logo_mc.tween(["_alpha"],[0],1.0,"easeInSine");
-	skyline_mc.tween("_alpha",0,0.5,"linear");
-		lightFuseBomb(1.0,bomb);
+		var duration:Number= 0.5;
+		logo_mc.tween(["_alpha"],[0],duration,"linear");
+		skyline_mc.tween("_alpha",0,duration,"linear");
+		lightFuseBomb(duration,bomb);
 	}));
+	finalBuildOrangeSidebar();			
 	finalBuildMenu();
 }
 
+// parallax
+var mouseListener:Object = new Object();
+mouseListener.onMouseMove = function() {
+	myX = _xmouse;
+	skyline_mc.skyline1_mc._x = 0-(myX/10);
+	skyline_mc.skyline2_mc._x = 0-(myX/20);
+	skyline_mc.skyline3_mc._x = 0-(myX/50);
+};
+Mouse.addListener(mouseListener);
 
 
 
-function clearAndResetPage(){
-	// remove content & unused interface pieces:
-	// blank out text boxes
 
-	titleBody_mc.titleBody_tx.text = "";
-	textBody_mc.textBody_tx.text = "";
-
-	titleSidebar_mc.titleSidebar_tx.text = "";
-	textSidebar_mc.textSidebar_tx.text = "";
-
-	blindWhite_mc._visible = false;
-	blindOrange_mc._visible = false;
-
-	sectionImage_mc._visible = false;
-	sectionTitle_mc._visible = false;
-	sectionData_mc._visible = false;
-	sectionListItem_mc1._visible = false; //same for additional list items
-	dividerVert_mc._visible = false;
-
-	turnOffActiveMenuStates();
+function jumpToURL(URL:String)
+{
+	trace(">> jumping to "+URL);
+	finalBuild(loadBomb(function(){
+		getURL(URL,"_self");
+	}));
 }
+
+
+
+
+
 
 function turnOffActiveMenuStates(){
 	BGmenu_mc.menuOverviewWhite_mc._visible = false;
@@ -531,59 +589,6 @@ var moveDuration:Number = 0.5;
 	BGmenu_mc.menuActive_mc.menuActiveOrange_mc.tween (["_alpha","_x", "_y", "_width"], [100,orangeX, orangeY, orangeWidth],moveDuration , "easeOutSine");
 }
 
-function sidebarShrink(bomb:MovieClip)
-{
-var duration:Number=1.0;		
-
-	if(isSidebarShrunk != true){
-		loadSidebarTitle("");
-		loadSidebarHTMLText("");
-
-		//This is the orange sidebar
-		BGsidebar_mc.tween(["_y", "_alpha"], [underSkyline_y, 0], duration, "easeInSine");
-		scrollBar2_mc.tween(["_y", "_alpha"], [underSkyline_y, 0], duration, "easeInSine");
-
-		lightFusePayload(duration,function(){
-			textSidebar_mc._visible=false;	
-			BGsidebar_mc._visible = false;
-			scrollBar2._visible = false;
-			isSidebarShrunk=true;
-			triggerBomb(bomb);
-		});
-	}
-}
-
-function sidebarExpand(bomb:MovieClip)
-{
-var duration:Number;
-
-	if(isSidebarShrunk == true){
-		duration = 2.0;				
-		//This is the orange sidebar
-		BGsidebar_mc._alpha = 0;
-		BGsidebar_mc._visible = true;
-		BGsidebar_mc.tween(["_y", "_alpha"], [17, 100], duration, "easeOutSine");
-	
-		scrollBar2._alpha = 0;
-		scrollBar2._visible = true;
-		scrollBar2_mc.tween(["_y", "_alpha"], [17, 100], duration, "easeOutSine");
-
-		isSidebarShrunk=false;
-	}
-	else{
-		duration = noDuration;
-	}
-
-	textSidebar_mc.textSidebar_tx._x=0;
-	textSidebar_mc.textSidebar_tx._y=0;
-	textSidebar_mc.textSidebar_tx.wordWrap = true;
-	textSidebar_mc.textSidebar_tx.multiline = true;
-	textSidebar_mc.textSidebar_tx.html = true;
-	textSidebar_mc.textSidebar_tx.styleSheet = sidebarBody_styleSheet;
-
-
-	lightFuseBomb(duration,bomb);
-}
 
 
 var mainMenu:Array = new Array();
@@ -816,15 +821,6 @@ function clickListener(eventObj:Object):Void {
 	menuItems.load(url);
 }
 
-
-// site opening animation
-function animateOpen(x:String) {
-
-	ExternalInterface.call("jsUpdateAddress", "Success "+x);
-	clearAndResetPage();
-	initialBuild(loadBomb(animateOverview));
-
-}
 
 
 // luci nav functions
@@ -1633,7 +1629,5 @@ function animateDataRepository()
 	}
 }
 
-
 //Launch
-ExternalInterface.addCallback("animateOpen", this, animateOpen);
 //animateOpen();
