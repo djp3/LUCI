@@ -1615,7 +1615,7 @@ function animateDataRepository()
 
 
 //Launch
-if(ExternalInterface.addCallback("animateOpen", null, animateOpen)){
+if(ExternalInterface.addCallback("animateOpen", this, animateOpen)){
 		image01_mc.tween("_y",underSkyline_y,5.0,"easeInSine");
 		image02_mc.tween("_y",underSkyline_y,5.0,"easeInSine");
 		image03_mc.tween("_y",underSkyline_y,5.0,"easeInSine");

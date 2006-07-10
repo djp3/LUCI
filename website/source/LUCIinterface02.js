@@ -1,13 +1,3 @@
-// Globals
-// Major version of Flash required
-var requiredMajorVersion = 8;
-// Minor version of Flash required
-var requiredMinorVersion = 0;
-// Revision of Flash required
-var requiredRevision = 0;
-// the version of javascript supported
-var jsVersion = 1.0;
-// 
 
 // Detect Client Browser type
 var isIE  = (navigator.appVersion.indexOf("MSIE") != -1) ? true : false;
@@ -57,7 +47,7 @@ function DetectFlashVer(reqMajorVer, reqMinorVer, reqRevision)
 {
  	reqVer = parseFloat(reqMajorVer + "." + reqRevision);
    	// loop backwards through the versions until we find the newest version	
-	for (i=25;i>0;i=i-1) {	
+	for (i=25;i>0;i--) {	
 		if (isIE && isWin && !isOpera) {
 			versionStr = VBGetSwfVer(i);
 		} else {
@@ -90,48 +80,3 @@ function DetectFlashVer(reqMajorVer, reqMinorVer, reqRevision)
 	return (reqVer ? false : 0.0);
 }
 
-function jsUpdateAddress(x) {
-	var f = document.getElementById('debugText');
-	f.value=x;
-    //window.location.hash = x;
-}
-
-function checkURLParameters() {
-	var query = window.location.hash.substring(1);
-	//var f = document.getElementById('debugText');
-	//f.value=query;
-	return query;
-}
-
-
-function callMovie(movieName) { 
-   if (navigator.appName.indexOf("Microsoft") != -1) { 
-      return window[movieName] 
-   } else { 
-      return document[movieName] 
-   } 
-}; 
-
-
-
-var hasRightVersion = DetectFlashVer(requiredMajorVersion, requiredMinorVersion, requiredRevision);
-if(hasRightVersion) {  // if we've detected an acceptable version
-    var oeTags = '<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"'
-    + 'width="100%" height="100%"'
-    + 'codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab">'
-    + '<param name="movie" value="LUCIinterface.swf" /><param name="loop" value="false" /><param name="quality" value="high" /><param name="bgcolor" value="#ffffff" />'
-    + '<embed src="LUCIinterface.swf" loop="false" quality="high" bgcolor="#ffffff" '
-    + 'width="970px" height="600px" name="LUCIinterface" align="bottom"'
-    + 'play="true"'
-    + 'loop="false"'
-    + 'quality="high"'
-    + 'allowScriptAccess="sameDomain"'
-    + 'type="application/x-shockwave-flash"'
-    + 'pluginspage="http://www.macromedia.com/go/getflashplayer">'
-    + '<\/embed>'
-    + '<\/object>';
-    document.write(oeTags);   // embed the flash movie
-  } else {  // flash is too old or we can't detect the plugin
-    var alternateContent = 'This site was designed for viewing with the Macromedia Flash Player.<br/>  <a href="http://www.macromedia.com/go/getflash/">Get Flash here</a>.<br/>  Alternatively we are working on a lightweight HTML version of the site <a href="http://luci.ics.uci.edu/lightweight">here</a>.';
-    document.write(alternateContent);  // insert non-flash content
-  }
