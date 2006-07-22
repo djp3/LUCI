@@ -540,7 +540,13 @@ function finalBuild(bomb:MovieClip)
 // parallax
 var mouseListener:Object = new Object();
 mouseListener.onMouseMove = function() {
-	myX = _xmouse;
+	var myX = _xmouse;
+	if(myX < 0){
+		myX=0;
+	}
+	if(myX > 1024){
+		myX = 1024;
+	}
 	skyline_mc.skyline1_mc._x = 0-(myX/10);
 	skyline_mc.skyline2_mc._x = 0-(myX/20);
 	skyline_mc.skyline3_mc._x = 0-(myX/50);
@@ -695,7 +701,6 @@ var menuItems:XML = new XML();
 											}
 											else if(myArray3[k].nodeName == "deepLink"){
 												tempMenuItem_mc.deepLink=myArray3[k].firstChild.nodeValue;
-												trace(">> loaded deepLink"+ tempMenuItem_mc.deepLink);
 											}
 											else{
 												trace(">> Unknown XML "+myArray3[k].nodeName) ;
@@ -735,29 +740,18 @@ var menuItems:XML = new XML();
 							if(clickable){
 									tempMenuItem_mc.menuItemText_tx.textColor=menuTextFormatInactive;
 									tempMenuItem_mc.onRelease=function(){
-											trace(">> clicked on:"+ (this.templateTitle));
-											trace(">> deepLink "+this.deepLink);
+											trace(">> clicked on:"+ (this.templateTitle)+ ": deepLink "+this.deepLink);
 
 											//update the web page address
     										ExternalInterface.call("jsUpdateAddress", this.deepLink);
 
-										/*	ExternalInterface.addCallback("asFunc", this, asFunc);
-											function asFunc(str:String):Void {
-											    in_ti.text = "JS > Hello " + str;
-											}*/
-
-/*send_button.addEventListener("click", clickListener);
-function clickListener(eventObj:Object):Void {
-    trace("click > " + out_ti.text);
-    ExternalInterface.call("jsFunc", out_ti.text);
-}*/
-
-
-											//Set up to clear last function and
-											//then us later
+											////////////////////////////////////////////////////
+											//Set up to clear last function and then us later
+											////////////////////////////////////////////////////
 											var temp_mc=clearCurrentTemplate.whichMenuItem;
 											var tempFunction:Function = clearCurrentTemplate.clearFunction;
 
+											// Make this menu item not clickable
 											this.enabled=false;
 											clearCurrentTemplate.whichMenuItem = this;
 
@@ -768,7 +762,7 @@ function clickListener(eventObj:Object):Void {
 
 											tempFunction();
 											temp_mc.enabled=true;
-
+											////////////////////////////////////////////////////
 
 
 											//Move the menu indicator
@@ -779,21 +773,29 @@ function clickListener(eventObj:Object):Void {
 												relocateActiveMenuIndicator(25*this._order+6,25,17+this._indent,25-2,this._width-1);
 											}
 
+											////////////////////////////////////////////////////
 											//Bring in the sidebar and content as necessary
+											var a = this.templateType;
+											var b = this.templateTitle;
+											var c = this.templateURL;
+											var myMainTemplateFunction()={
+												//Load main content
+												dispatchTemplate(a,b,c);
+											}
+											editting here
+
 											if(this.sidebar == true){
-													var x = this.sidebarTemplateType;
-													var y = this.sidebarTemplateTitle;
-													var z = this.sidebarTemplateURL;
-													var myFunction= function(){
-														dispatchTemplate(x,y,z);
-													};
-													bodyShrink(loadBomb(sidebarExpand(loadBomb(myFunction))));
+												var x = this.sidebarTemplateType;
+												var y = this.sidebarTemplateTitle;
+												var z = this.sidebarTemplateURL;
+												var myFunction= function(){
+													dispatchTemplate(x,y,z);
+												};
+												bodyShrink(loadBomb(sidebarExpand(loadBomb(myFunction))));
 											}
 											else{
-													sidebarShrink(loadBomb(bodyExpand));
+												sidebarShrink(loadBomb(bodyExpand));
 											}
-											//Load main content
-											dispatchTemplate(this.templateType,this.templateTitle,this.templateURL);
 									};
 							}
 							/*else{
@@ -846,7 +848,6 @@ var duration:Number;
 	}
 	isBodyShrunk = true;
 
-	trace(">> bodyShrink "+duration.toString());
 
 	lightFuseBomb(duration,bomb1);
 	lightFuseBomb(duration,bomb2);
@@ -860,11 +861,6 @@ var duration:Number;
 		duration = 0.5;
 		scrollBar1_mc.tween("_x", 931,duration , "easeInOutSine");
 		whiteBlock_mc.tween("_x", 208+722, duration, "easeInOutSine");
-		lightFusePayload(duration,function(){
-				/*Adjust size of textBody */
-				textBody_mc.tween(["_x","_y"],[565,80],duration,"easeInOutSine");
-				textBody_mc.textBody_tx.tween(["_x","_y","_width","_height"],[0,0,357,380],duration,"easeInOutSine");
-		});
 	}
 	else{
 		duration = noDuration;
@@ -1028,13 +1024,107 @@ function addSidebarText(text:String)
 }
 
 
-function templateA(title:String,URL:String)
+function templateA(title:String,URL:String,bomb:MovieClip)
 {
 var document:XML = new XML();
 	
 
 
 	loadTitle(title);
+
+	document.ignoreWhite = true;
+	document.onData = function(src:String){
+
+		loadHTMLText(src);
+
+		//Cause scrollBar1._x is in the middle of the scrollbar somewhere
+		var scrollBar1Pad:Number = 18;
+		var gap = (((scrollBar1_mc._x-scrollBar1Pad)-BGBodyMasked_mc._x)/3);
+		var image01_pad= (gap - image01_mc._width)/2; 
+		image01_mc._x= BGBodyMasked_mc._x+0*gap + image01_pad;
+		image01_mc._y=underSkyline_y;
+		image01_mc._alpha=0;
+		image01_mc._visible=true;
+		var image02_pad= (gap - image02_mc._width)/2; 
+		image02_mc._x= BGBodyMasked_mc._x+1*gap + image02_pad;
+		image02_mc._y=underSkyline_y;
+		image02_mc._alpha=0;
+		image02_mc._visible=true;
+		var image03_pad= (gap - image03_mc._width)/2; 
+		image03_mc._x= BGBodyMasked_mc._x+2*gap + image03_pad;
+		image03_mc._y=underSkyline_y;
+		image03_mc._alpha=0;
+		image03_mc._visible=true;
+
+		var loadListener:Object = new Object();
+
+		loadListener.onLoadComplete = function(target_mc:MovieClip, httpStatus:Number):Void {
+			target_mc.tween(["_alpha","_y"],[100,350],3.0,"easeOutSine");
+			image01_mc.onRelease=function(){
+					jumpToURL("http://82.198.155.50/congestionMap.htm");
+			}
+			image02_mc.onRelease=function(){
+					jumpToURL("http://springerlink.metapress.com/openurl.asp?genre=article&issn=0302-9743&volume=3205&spage=433");
+			}
+			image03_mc.onRelease=function(){
+					jumpToURL("http://www.flickr.com/photos/julianbleecker/87099551/");
+			}
+			triggerBomb(bomb);
+		}
+
+		loadListener.onLoadInit = function(target_mc:MovieClip):Void {
+			var myDropFilter = new flash.filters.DropShadowFilter();
+			myDropFilter.distance = 0;
+			myDropFilter.inner = true;
+			var myFilters:Array = target_mc.filters;
+			myFilters.push(myDropFilter);
+			target_mc.filters = myFilters;
+		}
+
+		var mcLoader1:MovieClipLoader = new MovieClipLoader();
+		mcLoader1.addListener(loadListener);
+		mcLoader1.loadClip("websiteContent/overview/overviewPhoto03.jpg",image01_mc);
+
+		var mcLoader2:MovieClipLoader = new MovieClipLoader();
+		mcLoader2.addListener(loadListener);
+		mcLoader2.loadClip("websiteContent/overview/overviewPhoto02.jpg",image02_mc);
+
+		var mcLoader3:MovieClipLoader = new MovieClipLoader();
+		mcLoader3.addListener(loadListener);
+		mcLoader3.loadClip("websiteContent/overview/overviewPhoto01.jpg",image03_mc);
+
+	}
+	document.load(URL);
+}
+
+function clearTemplateA()
+{
+var duration:Number = 0.5;
+
+	image01_mc.tween(["_x","_y","_alpha"],[214,underSkyline_y,0],duration,"easeInSine");
+	image02_mc.tween(["_x","_y","_alpha"],[395,underSkyline_y,0],duration,"easeInSine");
+	image03_mc.tween(["_x","_y","_alpha"],[576,underSkyline_y,0],duration,"easeInSine");
+
+}
+
+function templateB(title:String,URL:String)
+{
+var document:XML = new XML();
+var duration = 0.5;
+
+	loadTitle(title);
+	/*Adjust size of textBody */
+	textBody_mc.tween(["_x","_y"],[565,80],duration,"easeInOutSine");
+	textBody_mc.textBody_tx.tween(["_x","_y","_width","_height"],[0,0,357,380],duration,"easeInOutSine");
+	sectionImage_mc._visible= true;
+	sectionTitle_mc._visible = true;
+	sectionData_mc._visible = true;
+	sectionListItem_mc1._visible = true; //same for additional list items
+				
+	dividerVert_mc._visible = true;
+	dividerVert_mc.tween(["_x","_y","_alpha"],[376,83,100],duration,"easeInOutSine");
+
+	//image01_mc.tween([ "_y","_alpha"], [underSkyline_y,0], duration, "easeInSine");
 
 	document.ignoreWhite = true;
 	document.onData = function(src:String){
@@ -1097,17 +1187,7 @@ var document:XML = new XML();
 		mcLoader3.loadClip("websiteContent/overview/overviewPhoto01.jpg",image03_mc);
 
 	}
-	document.load(URL);
-}
-
-function clearTemplateA()
-{
-var duration:Number = 0.5;
-
-	image01_mc.tween(["_x","_y","_alpha"],[214,underSkyline_y,0],duration,"easeInSine");
-	image02_mc.tween(["_x","_y","_alpha"],[395,underSkyline_y,0],duration,"easeInSine");
-	image03_mc.tween(["_x","_y","_alpha"],[576,underSkyline_y,0],duration,"easeInSine");
-
+	//document.load(URL);
 }
 
 function templateSA(title,URL)
@@ -1179,17 +1259,20 @@ var document:XML = new XML();
 	document.load(URL);
 }
 
-function dispatchTemplate(type:String,title:String,URL:String)
+function dispatchTemplate(type:String,title:String,URL:String,bomb:MovieClip)
 {
 		trace(">> Dispatch Template "+type+" "+title+" "+URL);
 		if(type=="A"){
-			templateA(title,URL);
+			templateA(title,URL,bomb);
 		}
 		else if(type=="SA"){
-			templateSA(title,URL);
+			templateSA(title,URL,bomb);
+		}
+		else if(type=="B"){
+			templateB(title,URL,bomb);
 		}
 		else{
-			trace(">> Unknown Template");
+			trace(">> Can't Dispatch This Template");
 		}
 }
 
@@ -1200,7 +1283,10 @@ function undispatchTemplate(type:String)
 			clearTemplateA(title,URL);
 		}
 		else if(type=="SA"){
-			templateSA(title,URL);
+			clearTemplateSA(title,URL);
+		}
+		else if(type=="B"){
+			clearTemplateB(title,URL);
 		}
 		else{
 			trace(">> Unknown Template");
@@ -1629,5 +1715,6 @@ function animateDataRepository()
 	}
 }
 
+//Comment this out if it's being run from in a web browser
 //Launch
-//animateOpen();
+animateOpen();
