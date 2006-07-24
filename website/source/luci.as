@@ -121,24 +121,19 @@ function clearAndResetPage()
 clearAndResetPage();
 
 
-
-
 function sidebarShrink(bomb:MovieClip)
 {
 var duration:Number=1.0;		
 
 	if(isSidebarShrunk != true){
-		loadSidebarTitle("");
-		loadSidebarHTMLText("");
+		titleSidebar_mc.tween("_alpha",0,0.5,"linear");
+		textSidebar_mc.tween("_alpha",0,0.5,"linear");
 
 		//This is the orange sidebar
 		BGsidebar_mc.tween(["_y", "_alpha"], [underSkyline_y, 0], duration, "easeInSine");
 		scrollBar2_mc.tween(["_y", "_alpha"], [underSkyline_y, 0], duration, "easeInSine");
 
 		lightFusePayload(duration,function(){
-			textSidebar_mc._visible=false;	
-			BGsidebar_mc._visible = false;
-			scrollBar2._visible = false;
 			isSidebarShrunk=true;
 			triggerBomb(bomb);
 		});
@@ -204,28 +199,20 @@ var duration:Number = 1.0;
 	BGmenu_mc.menuActive_mc.menuActiveOrange_mc._width= BGmenu_mc._width;
 	BGmenu_mc.menuActive_mc.menuActiveOrange_mc._visible= true;
 
-	//When animation is complete, load menu items, when that's done reveal them
-	lightFusePayload(duration, function(){
-		loadMenuItems(menuItemsURL,loadBomb(function()
-			{
-				var duration2:Number = 1.0;
-
-				for(var i in mainMenu){
-					mainMenu[i].menuItemText_tx._alpha=100;
-					mainMenu[i].tween("_alpha",100,duration2,"linear");
-
-					if(mainMenu[i]._order == 0){
-						mainMenu[i].onRelease();
-					}
-				}
-				triggerBomb(bomb);
-			}
-		));
-	});
+	lightFuseBomb(duration, bomb);
 }
 
 function initialBuildOrangeSidebar(bomb:MovieClip)
 {
+	titleSidebar_mc._alpha = 0;
+	titleSidebar_mc.titleSidebar_tx._alpha = 100;
+	titleSidebar_mc._visible = true;
+	titleSidebar_mc.titleSidebar_tx._visible = true;
+
+	textSidebar_mc._alpha = 0;
+	textSidebar_mc.textSidebar_tx._alpha = 100;
+	textSidebar_mc._visible = true;
+	textSidebar_mc.textSidebar_tx._visible = true;
 
 	BGsidebar_mc._visible=false;
 	BGsidebar_mc._alpha=0;
@@ -345,6 +332,15 @@ function initialBuildCenterPane(bomb:MovieClip)
 	whiteBlock_mc.tween(["_y"],[17],duration, "easeOutSine");
 	BGBodyMasked_mc.tween([ "_y","_alpha"], [17,100], duration, "easeOutSine");
 
+	sectionImage_mc._alpha= 0;
+	sectionTitle_mc._alpha = 0;
+	sectionData_mc._alpha = 0;
+	sectionListItem_mc1._alpha = 0; 
+	sectionImage_mc._visible= true;
+	sectionTitle_mc._visible = true;
+	sectionData_mc._visible = true;
+	sectionListItem_mc1._visible = true; 
+
 	//This is the center pane's scrollbar
 	isBodyShrunk = true;
 
@@ -355,17 +351,24 @@ function initialBuildCenterPane(bomb:MovieClip)
 	scrollBar1_mc._visible=true;
 	scrollBar1_mc.tween(["_y", "_alpha"], [17, 100], duration, "easeOutSine");
 
+	titleBody_mc._visible=true;		
+	titleBody_mc.textBody_tx._visible=true;		
+	titleBody_mc._alpha=0;		
+	titleBody_mc.textBody_tx._alpha=100;		
+
+	textBody_mc._alpha=0;		
 	textBody_mc._visible=true;		
+	textBody_mc._x=216;
+	textBody_mc._y=80;
+
+	textBody_mc.textBody_tx._visible=true;		
 	textBody_mc.textBody_tx.embedFonts=true;
 	textBody_mc.textBody_tx.html = true;
 	textBody_mc.textBody_tx.wordWrap = true;
 	textBody_mc.textBody_tx.multiline = true;
 	textBody_mc.textBody_tx.styleSheet = textBody_styleSheet;
 
-	textBody_mc._x=216;
-	textBody_mc._y=80;
-
-	textBody_mc.textBody_tx._alpha=0;
+	textBody_mc.textBody_tx._alpha=100;
 	textBody_mc.textBody_tx._x=0;
 	textBody_mc.textBody_tx._y=0;
 	textBody_mc.textBody_tx._width=534;
@@ -453,28 +456,40 @@ function initialBuildCenterPane(bomb:MovieClip)
 
     textBody_mc.textBody_tx.onScroller(0);
 
-
 	//When animation is complete
 	lightFuseBomb(duration, bomb);
-
 }
 
-function initialBuild(bomb:MovieClip)
+// site opening animation
+function animateOpen()
 {
 	logo_mc.tween(["_alpha"],[100],1.0,"linear");
 	skyline_mc.tween("_alpha",100,1.0,"linear");
 
-	initialBuildMenu();
-
 	initialBuildOrangeSidebar();
 
-	initialBuildCenterPane(bomb);
+	initialBuildMenu();
+
+	//When the center pane is done, load the menuitems and fire off the first
+	//one
+	initialBuildCenterPane(loadBomb(function(){
+		loadMenuItems(menuItemsURL,loadBomb(function()
+			{
+				var duration2:Number = 1.0;
+
+				for(var i in mainMenu){
+					mainMenu[i].menuItemText_tx._alpha=100;
+					mainMenu[i].tween("_alpha",100,duration2,"linear");
+
+					if(mainMenu[i]._order == 0){
+						mainMenu[i].onRelease();
+					}
+				}
+			}
+		));
+	}));
 }
 
-// site opening animation
-function animateOpen(x:String) {
-	initialBuild(loadBomb(animateOverview));
-}
 ExternalInterface.addCallback("animateOpen", this, animateOpen);
 
 
@@ -501,8 +516,8 @@ function finalBuildCenterPane(bomb:MovieClip)
 {
 	var duration:Number = 1.0;
 
-	loadTitle("");
-	loadHTMLText("");
+	loadTitle("",true,duration);
+	loadHTMLText("",true,duration);
 
 	lightFusePayload(duration, function(){
 		scrollBar1_mc.tween(["_y", "_alpha"], [underSkyline_y, 0], duration, "easeInSine");
@@ -521,20 +536,19 @@ function finalBuildCenterPane(bomb:MovieClip)
 function finalBuildOrangeSidebar(bomb:MovieClip)
 {
 	sidebarShrink(bomb);
-
 }
 
 
 function finalBuild(bomb:MovieClip)
 {
+	finalBuildOrangeSidebar();			
+	finalBuildMenu();
 	finalBuildCenterPane(loadBomb(function(){
 		var duration:Number= 0.5;
 		logo_mc.tween(["_alpha"],[0],duration,"linear");
 		skyline_mc.tween("_alpha",0,duration,"linear");
 		lightFuseBomb(duration,bomb);
 	}));
-	finalBuildOrangeSidebar();			
-	finalBuildMenu();
 }
 
 // parallax
@@ -778,23 +792,31 @@ var menuItems:XML = new XML();
 											var a = this.templateType;
 											var b = this.templateTitle;
 											var c = this.templateURL;
-											var myMainTemplateFunction()={
+											var mainTemplateFunction:Function=function(){
 												//Load main content
 												dispatchTemplate(a,b,c);
-											}
-											editting here
+											};
 
 											if(this.sidebar == true){
 												var x = this.sidebarTemplateType;
 												var y = this.sidebarTemplateTitle;
 												var z = this.sidebarTemplateURL;
-												var myFunction= function(){
+												var function04= function(){
 													dispatchTemplate(x,y,z);
 												};
-												bodyShrink(loadBomb(sidebarExpand(loadBomb(myFunction))));
+
+												var function03=function(){
+													mainTemplateFunction();
+													sidebarExpand(loadBomb(function04));
+												};
+
+												bodyShrink(loadBomb(function03));
 											}
 											else{
-												sidebarShrink(loadBomb(bodyExpand));
+												var function03=function(){
+													bodyExpand(loadBomb(mainTemplateFunction));
+												}
+												sidebarShrink(loadBomb(function03));
 											}
 									};
 							}
@@ -833,15 +855,11 @@ var duration:Number;
 
 	if(isBodyShrunk == false){
 		duration = 0.5;
-		textBody_mc._x=216;
-		textBody_mc._y=80;
+		textBody_mc._alpha=0;
 
 		//shorten body section
 		scrollBar1_mc.tween("_x", 757, duration, "easeInOutSine");
 		whiteBlock_mc.tween("_x", 208+548, duration, "easeInOutSine");
-
-		textBody_mc.textBody_tx.tween(["_x","_y","_width","_height"],[0,0,534,300],duration,"easeInOutSine");
-
 	}
 	else{
 		duration = noDuration;
@@ -859,6 +877,9 @@ var duration:Number;
 
 	if(isBodyShrunk == true){
 		duration = 0.5;
+		textBody_mc._alpha=0;
+
+		//expand body section
 		scrollBar1_mc.tween("_x", 931,duration , "easeInOutSine");
 		whiteBlock_mc.tween("_x", 208+722, duration, "easeInOutSine");
 	}
@@ -871,17 +892,24 @@ var duration:Number;
 	lightFuseBomb(duration,bomb2);
 }
 
-function loadTitle(myText:String){
-	var duration:Number = 0.5;
-	titleBody_mc._visible=true;		
-	titleBody_mc.titleBody_tx.tween("_alpha",0,duration,"linear");
-	lightFusePayload(duration,function(){
+
+function loadTitle(myText:String,fadeOut:Boolean,duration:Number)
+{
+	if(fadeOut){
+		titleBody_mc.titleBody_tx.tween("_alpha",0,duration,"linear");
+		lightFusePayload(duration,function(){
 			titleBody_mc.titleBody_tx.text = myText;
-			titleBody_mc.titleBody_tx.tween("_alpha",100,duration,"linear");
-	});
+			titleBody_mc.tween("_alpha",100,duration,"linear");
+		});
+	}
+	else{
+		titleBody_mc.titleBody_tx.text = myText;
+		titleBody_mc.tween("_alpha",100,duration,"linear");
+	}
 }
 
 
+/*
 function loadText(myText:String)
 {
 		trace(">> Huge Error");
@@ -902,17 +930,21 @@ function loadText(myText:String)
 			textBody_mc.textBody_tx.tween(["_alpha","_x","_y","_width","_height"],[100,0,0,357,380],duration,"linear");
 	});
 }
+*/
 
-function loadHTMLText(myText:String)
+function loadHTMLText(myText:String,fadeOut:Boolean,duration:Number)
 {
-	var duration:Number = 0.5;
-
-	textBody_mc.textBody_tx.tween(["_alpha"],[0],duration,"linear");
-
-	lightFusePayload(duration,function(){
+	if(fadeOut){
+		textBody_mc.textBody_tx.tween("_alpha",0,duration,"linear");
+		lightFusePayload(duration,function(){
 			textBody_mc.textBody_tx.htmlText = myText;
 			textBody_mc.textBody_tx.tween("_alpha",100,duration,"linear");
-	});
+		});
+	}
+	else{
+		textBody_mc.textBody_tx.htmlText = myText;
+		textBody_mc.tween("_alpha",100,duration,"linear");
+	}
 }
 
 function blindWhite(){
@@ -955,51 +987,15 @@ function unblindWhite(bomb:MovieClip){
 }
 
 
-function animateOverview() {
-		/*
-	trace(">> animateOverview");
-
-	clearAndResetPage();
-	
-	relocateActiveMenuIndicator(0,32,19,30,58);
-	BGmenu_mc.menuOverviewWhite_mc._visible = true;
-
-	var bomb1,bomb2,bomb3:MovieClip;
-
-	// Chain events In reverse order
-	bomb1 = loadBomb(loadOverviewContent);
-	bomb2 = loadBomb(loadSidebarContent);
-
-	if(BGsidebar_mc._visible == false){
-		bomb3 = bomb2;
-		bomb2 = loadBomb(function(){sidebarExpand(bomb3)});
-	}
-
-	bodyShrink(bomb1,bomb2);
-	*/
-
-};
-
-
-function loadOverviewContent(){
-	loadTitle("LABORATORY for UBIQUITOUS COMPUTING and INTERACTION");
-
-	blindWhite();
-	loadOverviewText();
-	unblindWhite();
-}
-
 function loadSidebarTitle(title:String)
 {
 var duration:Number = 0.5;
 
-	titleSidebar_mc._visible = true;
-	titleSidebar_mc.titleSidebar_tx.tween("_alpha",0,duration,"linear");
+	titleSidebar_mc.tween("_alpha",0,duration,"linear");
 
 	lightFusePayload(duration,function(){
-			titleSidebar_mc.titleSidebar_tx.text = title;
-			titleSidebar_mc.titleSidebar_tx.tween("_alpha",100,duration,"linear");
-			titleBody_mc.titleBody_tx.tween("_alpha",100,duration,"linear");
+		titleSidebar_mc.titleSidebar_tx.text = title;
+		titleSidebar_mc.tween("_alpha",100,duration,"linear");
 	});
 }
 
@@ -1029,13 +1025,19 @@ function templateA(title:String,URL:String,bomb:MovieClip)
 var document:XML = new XML();
 	
 
-
-	loadTitle(title);
+	loadTitle(title,false);
 
 	document.ignoreWhite = true;
 	document.onData = function(src:String){
 
-		loadHTMLText(src);
+
+		textBody_mc._x=216;
+		textBody_mc._y=80;
+		textBody_mc.textBody_tx._x = 0;
+		textBody_mc.textBody_tx._y = 0;
+		textBody_mc.textBody_tx._width = 534;
+		textBody_mc.textBody_tx._height = 300;
+		loadHTMLText(src,false,0.5);
 
 		//Cause scrollBar1._x is in the middle of the scrollbar somewhere
 		var scrollBar1Pad:Number = 18;
@@ -1101,6 +1103,9 @@ function clearTemplateA()
 {
 var duration:Number = 0.5;
 
+	titleBody_mc.tween("_alpha",0,duration,"linear");
+	textBody_mc.tween("_alpha",0,duration,"linear");
+
 	image01_mc.tween(["_x","_y","_alpha"],[214,underSkyline_y,0],duration,"easeInSine");
 	image02_mc.tween(["_x","_y","_alpha"],[395,underSkyline_y,0],duration,"easeInSine");
 	image03_mc.tween(["_x","_y","_alpha"],[576,underSkyline_y,0],duration,"easeInSine");
@@ -1112,14 +1117,13 @@ function templateB(title:String,URL:String)
 var document:XML = new XML();
 var duration = 0.5;
 
-	loadTitle(title);
-	/*Adjust size of textBody */
-	textBody_mc.tween(["_x","_y"],[565,80],duration,"easeInOutSine");
-	textBody_mc.textBody_tx.tween(["_x","_y","_width","_height"],[0,0,357,380],duration,"easeInOutSine");
-	sectionImage_mc._visible= true;
-	sectionTitle_mc._visible = true;
-	sectionData_mc._visible = true;
-	sectionListItem_mc1._visible = true; //same for additional list items
+	loadTitle(title,false);
+	titleBody_mc.tween("_alpha",100,duration,"linear");
+
+	sectionImage_mc.tween("_alpha",100,duration,"linear");
+	sectionTitle_mc.tween("_alpha",100,duration,"linear");
+	sectionData_mc.tween("_alpha",100,duration,"linear");
+	sectionListItem_mc1.tween("_alpha",100,duration,"linear");
 				
 	dividerVert_mc._visible = true;
 	dividerVert_mc.tween(["_x","_y","_alpha"],[376,83,100],duration,"easeInOutSine");
@@ -1129,7 +1133,120 @@ var duration = 0.5;
 	document.ignoreWhite = true;
 	document.onData = function(src:String){
 
-		loadHTMLText(src);
+		textBody_mc._x=565;
+		textBody_mc._x=80;
+		textBody_mc.textBody_tx._x = 0;
+		textBody_mc.textBody_tx._y = 0;
+		textBody_mc.textBody_tx._width = 357;
+		textBody_mc.textBody_tx._height = 380;
+		loadHTMLText(src,false,duration);
+
+		//Cause scrollBar1._x is in the middle of the scrollbar somewhere
+		var scrollBar1Pad:Number = 18;
+		var gap = (((scrollBar1_mc._x-scrollBar1Pad)-BGBodyMasked_mc._x)/3);
+		var image01_pad= (gap - image01_mc._width)/2; 
+		image01_mc._x= BGBodyMasked_mc._x+0*gap + image01_pad;
+		image01_mc._y=underSkyline_y;
+		image01_mc._alpha=0;
+		image01_mc._visible=true;
+		var image02_pad= (gap - image02_mc._width)/2; 
+		image02_mc._x= BGBodyMasked_mc._x+1*gap + image02_pad;
+		image02_mc._y=underSkyline_y;
+		image02_mc._alpha=0;
+		image02_mc._visible=true;
+		var image03_pad= (gap - image03_mc._width)/2; 
+		image03_mc._x= BGBodyMasked_mc._x+2*gap + image03_pad;
+		image03_mc._y=underSkyline_y;
+		image03_mc._alpha=0;
+		image03_mc._visible=true;
+
+		var loadListener:Object = new Object();
+
+		loadListener.onLoadComplete = function(target_mc:MovieClip, httpStatus:Number):Void {
+			target_mc.tween(["_alpha","_y"],[100,350],3.0,"easeOutSine");
+			image01_mc.onRelease=function(){
+					jumpToURL("http://82.198.155.50/congestionMap.htm");
+			}
+			image02_mc.onRelease=function(){
+					jumpToURL("http://springerlink.metapress.com/openurl.asp?genre=article&issn=0302-9743&volume=3205&spage=433");
+			}
+			image03_mc.onRelease=function(){
+					jumpToURL("http://www.flickr.com/photos/julianbleecker/87099551/");
+			}
+		}
+
+		loadListener.onLoadInit = function(target_mc:MovieClip):Void {
+			var myDropFilter = new flash.filters.DropShadowFilter();
+			myDropFilter.distance = 0;
+			myDropFilter.inner = true;
+			var myFilters:Array = target_mc.filters;
+			myFilters.push(myDropFilter);
+			target_mc.filters = myFilters;
+		}
+
+		var mcLoader1:MovieClipLoader = new MovieClipLoader();
+		mcLoader1.addListener(loadListener);
+		mcLoader1.loadClip("websiteContent/overview/overviewPhoto03.jpg",image01_mc);
+
+		var mcLoader2:MovieClipLoader = new MovieClipLoader();
+		mcLoader2.addListener(loadListener);
+		mcLoader2.loadClip("websiteContent/overview/overviewPhoto02.jpg",image02_mc);
+
+		var mcLoader3:MovieClipLoader = new MovieClipLoader();
+		mcLoader3.addListener(loadListener);
+		mcLoader3.loadClip("websiteContent/overview/overviewPhoto01.jpg",image03_mc);
+
+	}
+	document.load(URL);
+}
+
+function clearTemplateB(title:String,URL:String)
+{
+var document:XML = new XML();
+var duration = 0.5;
+
+	titleBody_mc.tween("_alpha",0,duration,"linear");
+	textBody_mc.tween("_alpha",0,duration,"linear");
+
+	sectionImage_mc.tween("_alpha",0,duration,"linear");
+	sectionTitle_mc.tween("_alpha",0,duration,"linear");
+	sectionData_mc.tween("_alpha",0,duration,"linear");
+	sectionListItem_mc1.tween("_alpha",0,duration,"linear");
+				
+	dividerVert_mc.tween("_alpha",0,duration,"linear");
+	dividerVert_mc.tween("_alpha",0,duration,"linear");
+
+}
+
+//Used for people bios
+function templateC(title:String,URL:String)
+{
+var document:XML = new XML();
+var duration = 0.5;
+
+	loadTitle(title,false);
+	titleBody_mc.tween("_alpha",100,duration,"linear");
+
+	sectionImage_mc.tween("_alpha",100,duration,"linear");
+	sectionTitle_mc.tween("_alpha",100,duration,"linear");
+	sectionData_mc.tween("_alpha",100,duration,"linear");
+	sectionListItem_mc1.tween("_alpha",100,duration,"linear");
+				
+	dividerVert_mc._visible = true;
+	dividerVert_mc.tween(["_x","_y","_alpha"],[376,83,100],duration,"easeInOutSine");
+
+	//image01_mc.tween([ "_y","_alpha"], [underSkyline_y,0], duration, "easeInSine");
+
+	document.ignoreWhite = true;
+	document.onData = function(src:String){
+
+		textBody_mc._x=565;
+		textBody_mc._x=80;
+		textBody_mc.textBody_tx._x = 0;
+		textBody_mc.textBody_tx._y = 0;
+		textBody_mc.textBody_tx._width = 357;
+		textBody_mc.textBody_tx._height = 380;
+		loadHTMLText(src,false,duration);
 
 		//Cause scrollBar1._x is in the middle of the scrollbar somewhere
 		var scrollBar1Pad:Number = 18;
@@ -1190,7 +1307,25 @@ var duration = 0.5;
 	//document.load(URL);
 }
 
-function templateSA(title,URL)
+function clearTemplateC(title:String,URL:String)
+{
+var document:XML = new XML();
+var duration = 0.5;
+
+	titleBody_mc.tween("_alpha",0,duration,"linear");
+	textBody_mc.tween("_alpha",0,duration,"linear");
+
+	sectionImage_mc.tween("_alpha",0,duration,"linear");
+	sectionTitle_mc.tween("_alpha",0,duration,"linear");
+	sectionData_mc.tween("_alpha",0,duration,"linear");
+	sectionListItem_mc1.tween("_alpha",0,duration,"linear");
+				
+	dividerVert_mc.tween("_alpha",0,duration,"linear");
+	dividerVert_mc.tween("_alpha",0,duration,"linear");
+
+}
+
+function templateSA(title,URL,bomb)
 {
 var document:XML = new XML();
 
@@ -1255,6 +1390,8 @@ var document:XML = new XML();
 			trace(">> Trouble loading XML in templateSA");
 		}
 
+		triggerBomb(bomb);
+
 	}
 	document.load(URL);
 }
@@ -1270,6 +1407,9 @@ function dispatchTemplate(type:String,title:String,URL:String,bomb:MovieClip)
 		}
 		else if(type=="B"){
 			templateB(title,URL,bomb);
+		}
+		else if(type=="C"){
+			templateC(title,URL,bomb);
 		}
 		else{
 			trace(">> Can't Dispatch This Template");
@@ -1287,6 +1427,9 @@ function undispatchTemplate(type:String)
 		}
 		else if(type=="B"){
 			clearTemplateB(title,URL);
+		}
+		else if(type=="C"){
+			clearTemplateC(title,URL);
 		}
 		else{
 			trace(">> Unknown Template");
@@ -1318,25 +1461,6 @@ function loadWeAreCoursesText(){
 	sectionTitle_mc.sectionTitle_tx.text = "Course One"
 	sectionData_mc.sectionData_tx.text = "This is the section Data for course one."
 	textBody_mc.textBody_tx.text = "This is course1 text. This is course1 text. This is course1 text. This is course1 text. This is course1 text. This is course1 text."
-}
-
-function loadWeAreCoursesContent(){
-	loadTitle("WE ARE LUCI: COURSES");
-
-	blindWhite("loadWeAreCourses");
-
-	sectionImage_mc._visible = true;
-	sectionTitle_mc._visible = true;
-	sectionData_mc._visible = true;
-	sectionListItem_mc1._visible = true; //same for additional list items
-			
-	dividerVert_mc._x = 376;
-	dividerVert_mc._y = 83;
-	dividerVert_mc._visible = true;
-	dividerVert_mc._alpha = 100;
-				
-	loadWeAreCoursesText();
-	unblindWhite();
 }
 
 
