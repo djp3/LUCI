@@ -77,27 +77,59 @@ function clearAndResetPage()
 	image02_mc._visible=false;
 	image03_mc._visible=false;
 
+
 	BGmenu_mc._visible=false;
 	titleBody_mc._visible=false;		
 	titleBody_mc.titleBody_tx.text = "";
-	textBody_mc._visible=false;	
-	textBody_mc.textBody_tx.text = "";
+
+	textBody_mc._alpha=0;		
+	textBody_mc._visible=true;		
+
+	textBody_mc.textBody_tx._alpha=100;
+	textBody_mc.textBody_tx._visible=true;		
+	textBody_mc.textBody_tx.html = true;
+	textBody_mc.textBody_tx.htmlText = "";
+	textBody_mc.textBody_tx.embedFonts=true;
+	textBody_mc.textBody_tx.wordWrap = true;
+	textBody_mc.textBody_tx.multiline = true;
+	textBody_mc.textBody_tx.styleSheet = textBody_styleSheet;
+
+
 	scrollBar1_mc._visible=false;
 
 	BGsidebar_mc._visible=false;
 	titleSidebar_mc._visible=false;		
 	titleSidebar_mc.titleSidebar_tx.text = "";
+
 	textSidebar_mc._visible=false;	
-	textSidebar_mc.textSidebar_tx.text = "";
+	textSidebar_mc.textSidebar_tx.htmlText = "";
+	textSidebar_mc.textSidebar_tx.wordWrap = true;
+	textSidebar_mc.textSidebar_tx.multiline = true;
+	textSidebar_mc.textSidebar_tx.html = true;
+	textSidebar_mc.textSidebar_tx.styleSheet = sidebarBody_styleSheet;
+
 	scrollBar2_mc._visible=false;
 		
 	BGBodyMasked_mc._visible=false;
 	whiteBlock_mc._visible=false;
 
-	sectionImage_mc._visible = false;
-	sectionTitle_mc._visible = false;
-	sectionData_mc._visible = false;
-	sectionListItem_mc1._visible = false;
+	sectionImage_mc._alpha= 0;
+	sectionTitle_mc._alpha = 0;
+	sectionData_mc._alpha = 0;
+	sectionImage_mc._visible= true;
+	sectionTitle_mc._visible = true;
+	sectionData_mc._visible = true;
+
+	sectionListItem_mc1._alpha = 0; 
+	sectionListItem_mc1._visible = true; 
+	sectionListItem_mc1.sectionListItem_tx.html = true;
+	sectionListItem_mc1.sectionListItem_tx.htmlText = "";
+	sectionListItem_mc1.sectionListItem_tx.embedFonts=true;
+	sectionListItem_mc1.sectionListItem_tx.wordWrap = true;
+	sectionListItem_mc1.sectionListItem_tx.multiline = true;
+	sectionListItem_mc1.sectionListItem_tx.styleSheet = textBody_styleSheet;
+	sectionListItem_mc1.sectionListItem_tx.autoSize="left";
+
 	dividerVert_mc._visible = false;
 
 	blindWhite_mc._visible = false;
@@ -126,8 +158,8 @@ function sidebarShrink(bomb:MovieClip)
 var duration:Number=1.0;		
 
 	if(isSidebarShrunk != true){
-		titleSidebar_mc.tween("_alpha",0,0.5,"linear");
-		textSidebar_mc.tween("_alpha",0,0.5,"linear");
+		textSidebar_mc.tween("_alpha",0,0.1,"linear");
+		titleSidebar_mc.tween("_alpha",0,0.1,"linear");
 
 		//This is the orange sidebar
 		BGsidebar_mc.tween(["_y", "_alpha"], [underSkyline_y, 0], duration, "easeInSine");
@@ -145,7 +177,8 @@ function sidebarExpand(bomb:MovieClip)
 var duration:Number;
 
 	if(isSidebarShrunk == true){
-		duration = 2.0;				
+		duration = 1.0;				
+
 		//This is the orange sidebar
 		BGsidebar_mc._alpha = 0;
 		BGsidebar_mc._visible = true;
@@ -155,6 +188,11 @@ var duration:Number;
 		scrollBar2._visible = true;
 		scrollBar2_mc.tween(["_y", "_alpha"], [17, 100], duration, "easeOutSine");
 
+		lightFusePayload(duration,function(){
+			textSidebar_mc.tween("_alpha",100,0.1,"linear");
+			titleSidebar_mc.tween("_alpha",100,0.1,"linear");
+		});
+
 		isSidebarShrunk=false;
 	}
 	else{
@@ -163,10 +201,6 @@ var duration:Number;
 
 	textSidebar_mc.textSidebar_tx._x=0;
 	textSidebar_mc.textSidebar_tx._y=0;
-	textSidebar_mc.textSidebar_tx.wordWrap = true;
-	textSidebar_mc.textSidebar_tx.multiline = true;
-	textSidebar_mc.textSidebar_tx.html = true;
-	textSidebar_mc.textSidebar_tx.styleSheet = sidebarBody_styleSheet;
 
 
 	lightFuseBomb(duration,bomb);
@@ -332,14 +366,6 @@ function initialBuildCenterPane(bomb:MovieClip)
 	whiteBlock_mc.tween(["_y"],[17],duration, "easeOutSine");
 	BGBodyMasked_mc.tween([ "_y","_alpha"], [17,100], duration, "easeOutSine");
 
-	sectionImage_mc._alpha= 0;
-	sectionTitle_mc._alpha = 0;
-	sectionData_mc._alpha = 0;
-	sectionListItem_mc1._alpha = 0; 
-	sectionImage_mc._visible= true;
-	sectionTitle_mc._visible = true;
-	sectionData_mc._visible = true;
-	sectionListItem_mc1._visible = true; 
 
 	//This is the center pane's scrollbar
 	isBodyShrunk = true;
@@ -356,19 +382,9 @@ function initialBuildCenterPane(bomb:MovieClip)
 	titleBody_mc._alpha=0;		
 	titleBody_mc.textBody_tx._alpha=100;		
 
-	textBody_mc._alpha=0;		
-	textBody_mc._visible=true;		
 	textBody_mc._x=216;
 	textBody_mc._y=80;
 
-	textBody_mc.textBody_tx._visible=true;		
-	textBody_mc.textBody_tx.embedFonts=true;
-	textBody_mc.textBody_tx.html = true;
-	textBody_mc.textBody_tx.wordWrap = true;
-	textBody_mc.textBody_tx.multiline = true;
-	textBody_mc.textBody_tx.styleSheet = textBody_styleSheet;
-
-	textBody_mc.textBody_tx._alpha=100;
 	textBody_mc.textBody_tx._x=0;
 	textBody_mc.textBody_tx._y=0;
 	textBody_mc.textBody_tx._width=534;
@@ -461,7 +477,7 @@ function initialBuildCenterPane(bomb:MovieClip)
 }
 
 // site opening animation
-function animateOpen()
+function animateOpen(deepLink:String)
 {
 	logo_mc.tween(["_alpha"],[100],1.0,"linear");
 	skyline_mc.tween("_alpha",100,1.0,"linear");
@@ -932,13 +948,27 @@ function loadText(myText:String)
 }
 */
 
+function loadHTMLURL(myURL:String)
+{
+var duration:Number = 0.5;
+var document:XML = new XML();
+	
+
+	document.ignoreWhite = true;
+	document.onData = function(src:String){
+		loadHTMLText(src,true,duration);
+	}
+	document.load(myURL);
+	trace(">> loading HTML URL "+myURL);
+}
+
 function loadHTMLText(myText:String,fadeOut:Boolean,duration:Number)
 {
 	if(fadeOut){
-		textBody_mc.textBody_tx.tween("_alpha",0,duration,"linear");
+		textBody_mc.tween("_alpha",0,duration,"linear");
 		lightFusePayload(duration,function(){
 			textBody_mc.textBody_tx.htmlText = myText;
-			textBody_mc.textBody_tx.tween("_alpha",100,duration,"linear");
+			textBody_mc.tween("_alpha",100,duration,"linear");
 		});
 	}
 	else{
@@ -987,43 +1017,14 @@ function unblindWhite(bomb:MovieClip){
 }
 
 
-function loadSidebarTitle(title:String)
-{
-var duration:Number = 0.5;
-
-	titleSidebar_mc.tween("_alpha",0,duration,"linear");
-
-	lightFusePayload(duration,function(){
-		titleSidebar_mc.titleSidebar_tx.text = title;
-		titleSidebar_mc.tween("_alpha",100,duration,"linear");
-	});
-}
-
-
-
-function loadSidebarHTMLText(text:String)
-{
-var duration:Number = 0.5;
-			
-	textSidebar_mc._visible = true;
-	textSidebar_mc.tween("_alpha",0,duration,"linear");
-
-	lightFusePayload(duration,function(){
-			textSidebar_mc.textSidebar_tx.htmlText = text;
-			textSidebar_mc.tween("_alpha",100,duration,"linear");
-	});
-}; 
-
-function addSidebarText(text:String)
-{
-	textSidebar_mc.textSidebar_tx.text += text;
-}
-
-
 function templateA(title:String,URL:String,bomb:MovieClip)
 {
 var document:XML = new XML();
 	
+
+	//These should be alpha = 0 from the last clear
+	titleBody_mc._visible=true;
+	textBody_mc._visible=true;
 
 	loadTitle(title,false);
 
@@ -1105,6 +1106,10 @@ var duration:Number = 0.5;
 
 	titleBody_mc.tween("_alpha",0,duration,"linear");
 	textBody_mc.tween("_alpha",0,duration,"linear");
+	lightFusePayload(duration,function(){
+		titleBody_mc._visible=false;
+		textBody_mc._visible=false;
+	});
 
 	image01_mc.tween(["_x","_y","_alpha"],[214,underSkyline_y,0],duration,"easeInSine");
 	image02_mc.tween(["_x","_y","_alpha"],[395,underSkyline_y,0],duration,"easeInSine");
@@ -1117,10 +1122,19 @@ function templateB(title:String,URL:String)
 var document:XML = new XML();
 var duration = 0.5;
 
-	loadTitle(title,false);
-	titleBody_mc.tween("_alpha",100,duration,"linear");
+	//These should be alpha = 0 from the last clear
+	titleBody_mc._visible=true;
+	textBody_mc._visible=true;
 
-	sectionImage_mc.tween("_alpha",100,duration,"linear");
+	textBody_mc._x=565;
+	textBody_mc._y=80;
+	textBody_mc.textBody_tx._x = 0;
+	textBody_mc.textBody_tx._y = 0;
+	textBody_mc.textBody_tx._width = 357;
+	textBody_mc.textBody_tx._height = 380;
+
+	loadTitle(title,false);
+
 	sectionTitle_mc.tween("_alpha",100,duration,"linear");
 	sectionData_mc.tween("_alpha",100,duration,"linear");
 	sectionListItem_mc1.tween("_alpha",100,duration,"linear");
@@ -1131,14 +1145,64 @@ var duration = 0.5;
 	//image01_mc.tween([ "_y","_alpha"], [underSkyline_y,0], duration, "easeInSine");
 
 	document.ignoreWhite = true;
-	document.onData = function(src:String){
+	document.onLoad = function(success:Boolean){
+		if(success){
+			var projects:Array = new Array();
+			sectionListItem_mc1.sectionListItem_tx.htmlText=""
+			var myArray:Array = document.firstChild.childNodes;
+			for (i in myArray){
+				if(myArray[i].nodeName == "project"){
+					var order = 0;
+					var title = "";
+					var url = "";
+					var imageURL = "";
+					var myArray2:Array = myArray[i].childNodes;
+					for (j in myArray2){
+						if(myArray2[j].nodeName == "order"){
+							order= myArray2[j].firstChild.nodeValue;
+						}
+						else if(myArray2[j].nodeName == "url"){
+							url= myArray2[j].firstChild.nodeValue;
+						}
+						else if(myArray2[j].nodeName == "launchURL"){
+							loadHTMLURL(myArray2[j].firstChild.nodeValue);
+						}
+						else if(myArray2[j].nodeName == "title"){
+							title= myArray2[j].firstChild.nodeValue;
+						}
+						else if(myArray2[j].nodeName == "image"){
+							imageURL= myArray2[j].firstChild.nodeValue;
+							var loadListener:Object = new Object();
 
-		textBody_mc._x=565;
-		textBody_mc._x=80;
-		textBody_mc.textBody_tx._x = 0;
-		textBody_mc.textBody_tx._y = 0;
-		textBody_mc.textBody_tx._width = 357;
-		textBody_mc.textBody_tx._height = 380;
+							loadListener.onLoadComplete = function(target_mc:MovieClip, httpStatus:Number):Void {
+								target_mc.tween("_alpha",100,1.0,"linear");
+							}
+
+							loadListener.onLoadInit = function(target_mc:MovieClip):Void {
+								var myDropFilter = new flash.filters.DropShadowFilter();
+								myDropFilter.distance = 0;
+								myDropFilter.inner = true;
+								var myFilters:Array = target_mc.filters;
+								myFilters.push(myDropFilter);
+								target_mc.filters = myFilters;
+							}
+
+							var mcLoader1:MovieClipLoader = new MovieClipLoader();
+							mcLoader1.addListener(loadListener);
+							mcLoader1.loadClip(imageURL,sectionImage_mc);
+						}
+						else{
+							trace(">> trouble parsing templateB"+myArray2[j].nodeName);
+						}
+					}
+					projects[order] = "<b><a href=\""+url+"\">"+title+"</a></b><br/>";
+				}
+			}
+			for(i in projects){
+				sectionListItem_mc1.sectionListItem_tx.htmlText += projects[i];
+			}
+		}
+/*
 		loadHTMLText(src,false,duration);
 
 		//Cause scrollBar1._x is in the middle of the scrollbar somewhere
@@ -1160,42 +1224,8 @@ var duration = 0.5;
 		image03_mc._alpha=0;
 		image03_mc._visible=true;
 
-		var loadListener:Object = new Object();
 
-		loadListener.onLoadComplete = function(target_mc:MovieClip, httpStatus:Number):Void {
-			target_mc.tween(["_alpha","_y"],[100,350],3.0,"easeOutSine");
-			image01_mc.onRelease=function(){
-					jumpToURL("http://82.198.155.50/congestionMap.htm");
-			}
-			image02_mc.onRelease=function(){
-					jumpToURL("http://springerlink.metapress.com/openurl.asp?genre=article&issn=0302-9743&volume=3205&spage=433");
-			}
-			image03_mc.onRelease=function(){
-					jumpToURL("http://www.flickr.com/photos/julianbleecker/87099551/");
-			}
-		}
-
-		loadListener.onLoadInit = function(target_mc:MovieClip):Void {
-			var myDropFilter = new flash.filters.DropShadowFilter();
-			myDropFilter.distance = 0;
-			myDropFilter.inner = true;
-			var myFilters:Array = target_mc.filters;
-			myFilters.push(myDropFilter);
-			target_mc.filters = myFilters;
-		}
-
-		var mcLoader1:MovieClipLoader = new MovieClipLoader();
-		mcLoader1.addListener(loadListener);
-		mcLoader1.loadClip("websiteContent/overview/overviewPhoto03.jpg",image01_mc);
-
-		var mcLoader2:MovieClipLoader = new MovieClipLoader();
-		mcLoader2.addListener(loadListener);
-		mcLoader2.loadClip("websiteContent/overview/overviewPhoto02.jpg",image02_mc);
-
-		var mcLoader3:MovieClipLoader = new MovieClipLoader();
-		mcLoader3.addListener(loadListener);
-		mcLoader3.loadClip("websiteContent/overview/overviewPhoto01.jpg",image03_mc);
-
+*/
 	}
 	document.load(URL);
 }
@@ -1329,7 +1359,7 @@ function templateSA(title,URL,bomb)
 {
 var document:XML = new XML();
 
-	loadSidebarTitle(title);
+	titleSidebar_mc.titleSidebar_tx.text = title;
 	
 	document.ignoreWhite = true;
 	document.onLoad = function(success:Boolean){
@@ -1379,7 +1409,7 @@ var document:XML = new XML();
 					}
 					//trace(">> "+runningText);
 				}
-				loadSidebarHTMLText(runningText);
+				textSidebar_mc.textSidebar_tx.htmlText = runningText;
 
 			}
 			else{
