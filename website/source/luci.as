@@ -6,7 +6,24 @@ import TextField.StyleSheet;
 import flash.display.*;
 import flash.filters.ColorMatrixFilter;
 
+//Check to
+var launchFromWebsite:Boolean = ExternalInterface.available;
+if(ExternalInterface.available){
+	var response:Object;
+	response = ExternalInterface.call("jsAvailable", null);
+	if(response == null){
+		launchFromWebsite = false;
+	}
+	else{
+		launchFromWebsite = true;
+	}
+}
+else{
+	launchFromWebsite = false;
+}
 
+
+trace(">> launchFromWebsite is "+launchFromWebsite);
 
 
 // init site
@@ -172,12 +189,18 @@ var duration:Number=1.0;
 	}
 }
 
-function sidebarExpand(bomb:MovieClip)
+function sidebarExpand(bomb:MovieClip,d:Number)
 {
 var duration:Number;
 
+	if(d == null){
+		duration = 1.0;
+	}
+	else{
+		duration = d;
+	}
+
 	if(isSidebarShrunk == true){
-		duration = 1.0;				
 
 		//This is the orange sidebar
 		BGsidebar_mc._alpha = 0;
@@ -207,10 +230,17 @@ var duration:Number;
 }
 
 
-function initialBuildMenu(bomb:MovieClip)
+function initialBuildMenu(bomb:MovieClip,d:Number)
 {
 
 var duration:Number = 1.0;
+
+	if(d == null){
+		duration = 1.0;
+	}
+	else{
+		duration = d;
+	}
 
 	//This is the menu on the left
 	BGmenu_mc._visible=false;
@@ -236,7 +266,7 @@ var duration:Number = 1.0;
 	lightFuseBomb(duration, bomb);
 }
 
-function initialBuildOrangeSidebar(bomb:MovieClip)
+function initialBuildOrangeSidebar(bomb:MovieClip,duration:Number)
 {
 	titleSidebar_mc._alpha = 0;
 	titleSidebar_mc.titleSidebar_tx._alpha = 100;
@@ -344,12 +374,20 @@ function initialBuildOrangeSidebar(bomb:MovieClip)
 
 
 
-	sidebarExpand(bomb);
+	sidebarExpand(bomb,duration);
 }
 
-function initialBuildCenterPane(bomb:MovieClip)
+function initialBuildCenterPane(bomb:MovieClip,d:Number)
 {
 	var duration:Number = 2.0;
+
+	if(d == null){
+		duration = 2.0;
+	}
+	else{
+		duration = d;
+	}
+
 
 	//This is the center pane frame
 	BGBodyMasked_mc._visible=false;
@@ -479,31 +517,64 @@ function initialBuildCenterPane(bomb:MovieClip)
 // site opening animation
 function animateOpen(deepLink:String)
 {
-	logo_mc.tween(["_alpha"],[100],1.0,"linear");
-	skyline_mc.tween("_alpha",100,1.0,"linear");
+	//If we are deepLinking in, make the initial Build Fast!
+	var duration:Number;
+	if(deepLink == null){
+		duration = 1.0;
+	}
+	else{
+		duration = noDuration;		
+	}
 
-	initialBuildOrangeSidebar();
+	logo_mc.tween(["_alpha"],[100],duration,"linear");
+	skyline_mc.tween("_alpha",100,duration,"linear");
 
-	initialBuildMenu();
+	initialBuildOrangeSidebar(null,duration);
+
+	initialBuildMenu(null,duration);
 
 	//When the center pane is done, load the menuitems and fire off the first
 	//one
 	initialBuildCenterPane(loadBomb(function(){
 		loadMenuItems(menuItemsURL,loadBomb(function()
 			{
-				var duration2:Number = 1.0;
+				//Once menuItems are loaded, launch the appropriate section
 
 				for(var i in mainMenu){
 					mainMenu[i].menuItemText_tx._alpha=100;
-					mainMenu[i].tween("_alpha",100,duration2,"linear");
+					mainMenu[i].tween("_alpha",100,duration,"linear");
+				}
 
-					if(mainMenu[i]._order == 0){
-						mainMenu[i].onRelease();
+				var launched:Boolean = false;
+				if(deepLink != null){
+					var first:String;							
+
+					if(deepLink.indexOf("&") == -1){
+						first = deepLink;
+					}
+					else{
+						first = deepLink.substring(0,deepLink.indexOf("&"))
+					}
+					for(var i in mainMenu){
+						if(mainMenu[i].deepLink == first){
+							mainMenu[i].onRelease(deepLink.substring(indexOf("&")+1,deepLength.length));
+							launched = true;
+						}
+					}
+					//If we couldn't find a target for the deepLink, just load
+					//up the order 0 item
+				}
+
+				if(launched == false){
+					for(var i in mainMenu){
+						if(mainMenu[i].order == 0){
+							mainMenu[i].onRelease();
+						}
 					}
 				}
 			}
 		));
-	}));
+	}), duration);
 }
 
 ExternalInterface.addCallback("animateOpen", this, animateOpen);
@@ -584,6 +655,16 @@ mouseListener.onMouseMove = function() {
 Mouse.addListener(mouseListener);
 
 
+function deSandboxURL(URL:String):String
+{
+	if(launchFromWebsite == true){
+		if(URL.indexOf("myProxy")== -1){
+			return("http://luci.ics.uci.edu/myProxy.php?"+URL);
+		}
+	}
+	return(URL);
+}
+
 
 
 function jumpToURL(URL:String)
@@ -655,7 +736,7 @@ var menuItems:XML = new XML();
 							tempMenuItem_mc._alpha=0;
 							tempMenuItem_mc._x=anchorBGmenu_x + 15;
 							tempMenuItem_mc._y=underSkyline_y;
-							tempMenuItem_mc._order=99;
+							tempMenuItem_mc.order=99;
 							tempMenuItem_mc._indent=0;
 
 							var breakBelow:Boolean = false;
@@ -680,7 +761,7 @@ var menuItems:XML = new XML();
 								}
 								else if(myArray2[j].nodeName == "order"){
 									var index=Number(myArray2[j].firstChild.nodeValue);
-									tempMenuItem_mc._order=index;
+									tempMenuItem_mc.order=index;
 									tempMenuItem_mc._y=anchorBGmenu_y + 25*index+12;
 								}
 								else if(myArray2[j].nodeName == "clickable"){
@@ -758,9 +839,9 @@ var menuItems:XML = new XML();
 								line_mc._visible=true;
 								line_mc._alpha=0;
 								line_mc._x=anchorBGmenu_x + 15;
-								line_mc._y=anchorBGmenu_y+25*tempMenuItem_mc._order+30;
+								line_mc._y=anchorBGmenu_y+25*tempMenuItem_mc.order+30;
 								line_mc._height=3;
-								line_mc._order = tempMenuItem_mc._order+0.5;
+								line_mc.order = tempMenuItem_mc.order+0.5;
 								var h:Number = 20;
 								line_mc.lineStyle(2.0, 0xFFFFFF, 100);
 								line_mc.moveTo(-15, h);
@@ -796,11 +877,11 @@ var menuItems:XML = new XML();
 
 
 											//Move the menu indicator
-											if(this._order == 0){
-												relocateActiveMenuIndicator(25*this._order,25+5,17+this._indent,25+3,this._width-1);
+											if(this.order == 0){
+												relocateActiveMenuIndicator(25*this.order,25+5,17+this._indent,25+3,this._width-1);
 											}
 											else{
-												relocateActiveMenuIndicator(25*this._order+6,25,17+this._indent,25-2,this._width-1);
+												relocateActiveMenuIndicator(25*this.order+6,25,17+this._indent,25-2,this._width-1);
 											}
 
 											////////////////////////////////////////////////////
@@ -912,7 +993,7 @@ var duration:Number;
 function loadTitle(myText:String,fadeOut:Boolean,duration:Number)
 {
 	if(fadeOut){
-		titleBody_mc.titleBody_tx.tween("_alpha",0,duration,"linear");
+		titleBody_mc.tween("_alpha",0,duration,"linear");
 		lightFusePayload(duration,function(){
 			titleBody_mc.titleBody_tx.text = myText;
 			titleBody_mc.tween("_alpha",100,duration,"linear");
@@ -921,6 +1002,37 @@ function loadTitle(myText:String,fadeOut:Boolean,duration:Number)
 	else{
 		titleBody_mc.titleBody_tx.text = myText;
 		titleBody_mc.tween("_alpha",100,duration,"linear");
+	}
+}
+
+function loadSidebarTitle(myText:String,fadeOut:Boolean,duration:Number)
+{
+	if(fadeOut){
+		titleSidebar_mc.tween("_alpha",0,duration,"linear");
+		lightFusePayload(duration,function(){
+			titleSidebar_mc.titleSidebar_tx.text = myText;
+			titleSidebar_mc.tween("_alpha",100,duration,"linear");
+		});
+	}
+	else{
+		titleSidebar_mc.titleSidebar_tx.text = myText;
+		titleSidebar_mc.tween("_alpha",100,duration,"linear");
+	}
+}
+
+
+function loadSidebarText(myText:String,fadeOut:Boolean,duration:Number)
+{
+	if(fadeOut){
+		textSidebar_mc.tween("_alpha",0,duration,"linear");
+		lightFusePayload(duration,function(){
+			textSidebar_mc.textSidebar_tx.text = myText;
+			textSidebar_mc.tween("_alpha",100,duration,"linear");
+		});
+	}
+	else{
+		textSidebar_mc.textSidebar_tx.text = myText;
+		textSidebar_mc.tween("_alpha",100,duration,"linear");
 	}
 }
 
@@ -1359,11 +1471,11 @@ function templateSA(title,URL,bomb)
 {
 var document:XML = new XML();
 
-	titleSidebar_mc.titleSidebar_tx.text = title;
+	loadSidebarTitle(title,false,0.5);
 	
 	document.ignoreWhite = true;
 	document.onLoad = function(success:Boolean){
-		if(success){				
+		if(success){
 			if(document.firstChild.nodeName == "rdf:RDF"){
 				var runningText:String = "";
 				var i:String;
@@ -1409,7 +1521,7 @@ var document:XML = new XML();
 					}
 					//trace(">> "+runningText);
 				}
-				textSidebar_mc.textSidebar_tx.htmlText = runningText;
+				loadSidebarText(runningText,false,0.5);
 
 			}
 			else{
@@ -1423,7 +1535,7 @@ var document:XML = new XML();
 		triggerBomb(bomb);
 
 	}
-	document.load(URL);
+	document.load(deSandboxURL(URL));
 }
 
 function dispatchTemplate(type:String,title:String,URL:String,bomb:MovieClip)
@@ -1871,4 +1983,14 @@ function animateDataRepository()
 
 //Comment this out if it's being run from in a web browser
 //Launch
-animateOpen();
+if(launchFromWebsite == false){
+	animateOpen();
+}
+
+var x:String = "abc&def&ghi";
+trace(">> "+x.indexOf("&")+":"+x.substring(0,x.indexOf("&"))+":"+x.substring(x.indexOf("&")+1,x.length));
+
+
+
+
+

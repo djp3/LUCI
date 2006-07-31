@@ -1,3 +1,8 @@
+//This function is used by ActionScript to see if it's launched from a browser
+function jsAvailable() {
+	return true;
+}
+
 function jsUpdateAddress(x) {
     window.location.hash = x;
 }
