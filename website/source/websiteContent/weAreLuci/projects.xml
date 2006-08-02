@@ -5,12 +5,14 @@
 		<image>websiteContent/overview/overviewPhoto03.jpg</image>
 		<deepLink>nomaticGaim</deepLink>
 		<textURL>websiteContent/weAreLuci/tempText.txt</textURL>
+		<menuItemURL>asfunction:_root.loadHTMLURL,websiteContent/weAreLuci/tempText.txt</menuItemURL>
 		<sectionDataURL>websiteContent/weAreLuci/tempText.txt</sectionDataURL>
-		<launchURL>websiteContent/weAreLuci/tempText.txt</launchURL>
+		<launchURL></launchURL>
 	</project>
 	<project>
 		<order>1</order>
 		<title>Nomatic*AID</title>
-		<url>asfunction:_root.loadHTMLURL,projects.xml</url>
+		<deepLink>nomaticAID</deepLink>
+		<textURL>asfunction:_root.loadHTMLURL,projects.xml</textURL>
 	</project>
 </projects>

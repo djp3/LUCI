@@ -10,7 +10,7 @@ import flash.filters.ColorMatrixFilter;
 var launchFromWebsite:Boolean = ExternalInterface.available;
 if(ExternalInterface.available){
 	var response:Object;
-	response = ExternalInterface.call("jsAvailable", null);
+	response = ExternalInterface.call("jsAvailable", undefined);
 	if(response == null){
 		launchFromWebsite = false;
 	}
@@ -21,9 +21,7 @@ if(ExternalInterface.available){
 else{
 	launchFromWebsite = false;
 }
-
-
-trace(">> launchFromWebsite is "+launchFromWebsite);
+//trace(">> launch From Website is "+launchFromWebsite);
 
 
 // init site
@@ -137,15 +135,15 @@ function clearAndResetPage()
 	sectionTitle_mc._visible = true;
 	sectionData_mc._visible = true;
 
-	sectionListItem_mc1._alpha = 0; 
-	sectionListItem_mc1._visible = true; 
-	sectionListItem_mc1.sectionListItem_tx.html = true;
-	sectionListItem_mc1.sectionListItem_tx.htmlText = "";
-	sectionListItem_mc1.sectionListItem_tx.embedFonts=true;
-	sectionListItem_mc1.sectionListItem_tx.wordWrap = true;
-	sectionListItem_mc1.sectionListItem_tx.multiline = true;
-	sectionListItem_mc1.sectionListItem_tx.styleSheet = textBody_styleSheet;
-	sectionListItem_mc1.sectionListItem_tx.autoSize="left";
+	sectionListItem_mc._alpha = 0; 
+	sectionListItem_mc._visible = true; 
+	sectionListItem_mc.sectionListItem_tx.html = true;
+	sectionListItem_mc.sectionListItem_tx.htmlText = "";
+	sectionListItem_mc.sectionListItem_tx.embedFonts=true;
+	sectionListItem_mc.sectionListItem_tx.wordWrap = true;
+	sectionListItem_mc.sectionListItem_tx.multiline = true;
+	sectionListItem_mc.sectionListItem_tx.styleSheet = textBody_styleSheet;
+	sectionListItem_mc.sectionListItem_tx.autoSize="left";
 
 	dividerVert_mc._visible = false;
 
@@ -193,7 +191,7 @@ function sidebarExpand(bomb:MovieClip,d:Number)
 {
 var duration:Number;
 
-	if(d == null){
+	if(d == undefined){
 		duration = 1.0;
 	}
 	else{
@@ -235,7 +233,7 @@ function initialBuildMenu(bomb:MovieClip,d:Number)
 
 var duration:Number = 1.0;
 
-	if(d == null){
+	if(d == undefined){
 		duration = 1.0;
 	}
 	else{
@@ -381,7 +379,7 @@ function initialBuildCenterPane(bomb:MovieClip,d:Number)
 {
 	var duration:Number = 2.0;
 
-	if(d == null){
+	if(d == undefined){
 		duration = 2.0;
 	}
 	else{
@@ -519,19 +517,23 @@ function animateOpen(deepLink:String)
 {
 	//If we are deepLinking in, make the initial Build Fast!
 	var duration:Number;
-	if(deepLink == null){
+	//Got to check lots of possibilities based on what any container
+	//(Javascript, FlashPlayer) might send
+	if((deepLink == undefined)||(deepLink == null) || (deepLink == "null")){
 		duration = 1.0;
+		//	loadTitle(":"+deepLink+":"+true,false,duration);
 	}
 	else{
 		duration = noDuration;		
+		//	loadTitle("^"+deepLink+"^"+false,false,duration);
 	}
 
 	logo_mc.tween(["_alpha"],[100],duration,"linear");
 	skyline_mc.tween("_alpha",100,duration,"linear");
 
-	initialBuildOrangeSidebar(null,duration);
+	initialBuildOrangeSidebar(undefined,duration);
 
-	initialBuildMenu(null,duration);
+	initialBuildMenu(undefined,duration);
 
 	//When the center pane is done, load the menuitems and fire off the first
 	//one
@@ -546,18 +548,21 @@ function animateOpen(deepLink:String)
 				}
 
 				var launched:Boolean = false;
-				if(deepLink != null){
+				if(deepLink != undefined){
 					var first:String;							
+					var last:String;
 
 					if(deepLink.indexOf("&") == -1){
 						first = deepLink;
+						last = undefined;
 					}
 					else{
 						first = deepLink.substring(0,deepLink.indexOf("&"))
+						last = deepLink.substring(indexOf("&")+1,deepLink.length);
 					}
 					for(var i in mainMenu){
 						if(mainMenu[i].deepLink == first){
-							mainMenu[i].onRelease(deepLink.substring(indexOf("&")+1,deepLength.length));
+							mainMenu[i].onRelease(last,duration);
 							launched = true;
 						}
 					}
@@ -568,7 +573,7 @@ function animateOpen(deepLink:String)
 				if(launched == false){
 					for(var i in mainMenu){
 						if(mainMenu[i].order == 0){
-							mainMenu[i].onRelease();
+							mainMenu[i].onRelease(undefined,duration);
 						}
 					}
 				}
@@ -694,16 +699,21 @@ function turnOffActiveMenuStates(){
 
 function relocateActiveMenuIndicator(baseY,grayHeight,orangeX,orangeY,orangeWidth)
 {
-var moveDuration:Number = 0.5;
+var moveDuration:Number;
+
+	moveDuration = Math.abs(BGmenu_mc.menuActive_mc._y - baseY)/100;
+	if(moveDuration > 2.0){
+			moveDuration = 2.0;
+	}
 
 	BGmenu_mc.menuActive_mc._visible=true;
 	BGmenu_mc.menuActive_mc._x=0;
 
-	BGmenu_mc.menuActive_mc.tween(["_alpha","_y"],[100, baseY], moveDuration, "easeOutSine");
+	BGmenu_mc.menuActive_mc.tween(["_alpha","_y"],[100, baseY], moveDuration, "easeInOutSine");
 
-	BGmenu_mc.menuActive_mc.menuActiveGray_mc.tween(["_alpha","_y","_height"],[100,0,grayHeight],moveDuration,"easeOutSine");
+	BGmenu_mc.menuActive_mc.menuActiveGray_mc.tween(["_alpha","_y","_height"],[100,0,grayHeight],moveDuration,"easeInOutSine");
 
-	BGmenu_mc.menuActive_mc.menuActiveOrange_mc.tween (["_alpha","_x", "_y", "_width"], [100,orangeX, orangeY, orangeWidth],moveDuration , "easeOutSine");
+	BGmenu_mc.menuActive_mc.menuActiveOrange_mc.tween (["_alpha","_x", "_y", "_width"], [100,orangeX, orangeY, orangeWidth],moveDuration , "easeInOutSine");
 }
 
 
@@ -850,11 +860,11 @@ var menuItems:XML = new XML();
 							}
 							if(clickable){
 									tempMenuItem_mc.menuItemText_tx.textColor=menuTextFormatInactive;
-									tempMenuItem_mc.onRelease=function(){
-											trace(">> clicked on:"+ (this.templateTitle)+ ": deepLink "+this.deepLink);
+									tempMenuItem_mc.onRelease=function(deepLinkEntry:String,duration:Number){
+											trace(">> clicked on:"+ this.templateTitle);
 
 											//update the web page address
-    										ExternalInterface.call("jsUpdateAddress", this.deepLink);
+    										ExternalInterface.call("jsSetLocation", this.deepLink);
 
 											////////////////////////////////////////////////////
 											//Set up to clear last function and then us later
@@ -876,6 +886,7 @@ var menuItems:XML = new XML();
 											////////////////////////////////////////////////////
 
 
+											////////////////////////////////////////////////////
 											//Move the menu indicator
 											if(this.order == 0){
 												relocateActiveMenuIndicator(25*this.order,25+5,17+this._indent,25+3,this._width-1);
@@ -891,7 +902,7 @@ var menuItems:XML = new XML();
 											var c = this.templateURL;
 											var mainTemplateFunction:Function=function(){
 												//Load main content
-												dispatchTemplate(a,b,c);
+												dispatchTemplate(a,b,c,undefined,deepLinkEntry,duration);
 											};
 
 											if(this.sidebar == true){
@@ -899,7 +910,7 @@ var menuItems:XML = new XML();
 												var y = this.sidebarTemplateTitle;
 												var z = this.sidebarTemplateURL;
 												var function04= function(){
-													dispatchTemplate(x,y,z);
+													dispatchTemplate(x,y,z,undefined,deepLinkEntry,duration);
 												};
 
 												var function03=function(){
@@ -917,12 +928,7 @@ var menuItems:XML = new XML();
 											}
 									};
 							}
-							/*else{
-								tempMenuItem_mc.onRelease=function(){
-									textBody_mc.textBody_tx.htmlText=_root._url;
-								}
-							}*/
-							tempMenuItem_mc = null;
+							tempMenuItem_mc = undefined;
 						}
 						else{
 							trace(">> Didn't find menuItems:item " + i);
@@ -1070,7 +1076,7 @@ var document:XML = new XML();
 	document.onData = function(src:String){
 		loadHTMLText(src,true,duration);
 	}
-	document.load(myURL);
+	document.load(deSandboxURL(myURL));
 	trace(">> loading HTML URL "+myURL);
 }
 
@@ -1129,42 +1135,51 @@ function unblindWhite(bomb:MovieClip){
 }
 
 
-function templateA(title:String,URL:String,bomb:MovieClip)
+function templateA(title:String,URL:String,bomb:MovieClip,deepLink:String,duration:Number)
 {
 var document:XML = new XML();
-	
+
+	trace(">> templateA deepLink "+deepLink);
+	if(deepLink != undefined){
+		// Update the browser
+		ExternalInterface.call("jsUpdateLocation", deepLink);
+	}
+	if(duration ==undefined){
+		duration = 1.0;
+	}
 
 	//These should be alpha = 0 from the last clear
 	titleBody_mc._visible=true;
 	textBody_mc._visible=true;
 
-	loadTitle(title,false);
+	loadTitle(title,false,duration);
 
 	document.ignoreWhite = true;
 	document.onData = function(src:String){
-
-
 		textBody_mc._x=216;
 		textBody_mc._y=80;
 		textBody_mc.textBody_tx._x = 0;
 		textBody_mc.textBody_tx._y = 0;
 		textBody_mc.textBody_tx._width = 534;
 		textBody_mc.textBody_tx._height = 300;
-		loadHTMLText(src,false,0.5);
+		loadHTMLText(src,false,duration);
 
 		//Cause scrollBar1._x is in the middle of the scrollbar somewhere
 		var scrollBar1Pad:Number = 18;
-		var gap = (((scrollBar1_mc._x-scrollBar1Pad)-BGBodyMasked_mc._x)/3);
-		var image01_pad= (gap - image01_mc._width)/2; 
+		var gap:Number = ((scrollBar1_mc._x - scrollBar1Pad) - BGBodyMasked_mc._x)/3;
+
+		var image01_pad:Number = (gap - image01_mc._width)/2; 
 		image01_mc._x= BGBodyMasked_mc._x+0*gap + image01_pad;
 		image01_mc._y=underSkyline_y;
 		image01_mc._alpha=0;
 		image01_mc._visible=true;
+
 		var image02_pad= (gap - image02_mc._width)/2; 
 		image02_mc._x= BGBodyMasked_mc._x+1*gap + image02_pad;
 		image02_mc._y=underSkyline_y;
 		image02_mc._alpha=0;
 		image02_mc._visible=true;
+
 		var image03_pad= (gap - image03_mc._width)/2; 
 		image03_mc._x= BGBodyMasked_mc._x+2*gap + image03_pad;
 		image03_mc._y=underSkyline_y;
@@ -1174,7 +1189,7 @@ var document:XML = new XML();
 		var loadListener:Object = new Object();
 
 		loadListener.onLoadComplete = function(target_mc:MovieClip, httpStatus:Number):Void {
-			target_mc.tween(["_alpha","_y"],[100,350],3.0,"easeOutSine");
+			target_mc.tween(["_alpha","_y"],[100,350],3*duration,"easeOutSine");
 			image01_mc.onRelease=function(){
 					jumpToURL("http://82.198.155.50/congestionMap.htm");
 			}
@@ -1229,65 +1244,118 @@ var duration:Number = 0.5;
 
 }
 
-function templateB(title:String,URL:String)
+function templateB(title:String,URL:String,bomb:MovieClip,deepLink:String,duration:Number)
 {
 var document:XML = new XML();
-var duration = 0.5;
+	var leftBase:Number=216;
+	var menuWidth:Number = 120;
+	var buffer:Number = 10;
+	var sectionDataWidth:Number=155;
+
+	trace(">> templateB deepLink "+deepLink);
+
+	if(deepLink != undefined){
+		// Update the browser
+		ExternalInterface.call("jsUpdateLocation", deepLink);
+	}
+	if(duration == undefined){
+		duration = 1.0;
+	}
 
 	//These should be alpha = 0 from the last clear
 	titleBody_mc._visible=true;
 	textBody_mc._visible=true;
 
-	textBody_mc._x=565;
+	textBody_mc._x=leftBase+menuWidth+buffer+buffer+sectionDataWidth+buffer;
 	textBody_mc._y=80;
 	textBody_mc.textBody_tx._x = 0;
 	textBody_mc.textBody_tx._y = 0;
-	textBody_mc.textBody_tx._width = 357;
+	textBody_mc.textBody_tx._width = 400;
 	textBody_mc.textBody_tx._height = 380;
+
+	titleBody_mc.titleBody_tx.border=true;
+	textBody_mc.textBody_tx.border = true;
+	sectionTitle_mc.sectionTitle_tx.border = true;
+	sectionListItem_mc.sectionListItem_tx.border = true;
+	sectionData_mc.sectionData_tx.border = true;
+	trace(">> sectionListItem "+sectionListItem_mc1._width+","+sectionListItem_mc1._height);
+	trace(">> sectionData_mc "+sectionData_mc._x+","+sectionData_mc._y);
 
 	loadTitle(title,false);
 
-	sectionTitle_mc.tween("_alpha",100,duration,"linear");
-	sectionData_mc.tween("_alpha",100,duration,"linear");
-	sectionListItem_mc1.tween("_alpha",100,duration,"linear");
+	sectionListItem_mc.tween(["_x","_y","_alpha"],[leftBase,80,100],duration,"easeOutSine");
 				
 	dividerVert_mc._visible = true;
-	dividerVert_mc.tween(["_x","_y","_alpha"],[376,83,100],duration,"easeInOutSine");
+	dividerVert_mc.tween(["_x","_y","_alpha"],[leftBase+menuWidth,83,100],duration,"easeInOutSine");
 
-	//image01_mc.tween([ "_y","_alpha"], [underSkyline_y,0], duration, "easeInSine");
+	sectionImage_mc.tween(["_x","_y"],[leftBase+menuWidth,80],duration,"easeOutSine");
+
+	sectionTitle_mc.tween(["_x","_y","_alpha"],[leftBase+menuWidth,226,100],duration,"easeOutSine");
+	sectionData_mc.tween(["_x","_y","_alpha"],[leftBase+menuWidth,244,100],duration,"easeOutSine");
 
 	document.ignoreWhite = true;
 	document.onLoad = function(success:Boolean){
 		if(success){
 			var projects:Array = new Array();
-			sectionListItem_mc1.sectionListItem_tx.htmlText=""
+			var uniqueID:Number = 0;
+			sectionListItem_mc.sectionListItem_tx.htmlText=""
 			var myArray:Array = document.firstChild.childNodes;
 			for (i in myArray){
 				if(myArray[i].nodeName == "project"){
-					var order = 0;
-					var title = "";
-					var url = "";
-					var imageURL = "";
+					var newProject = new Object();
+					newProject.order = 0;
+					newProject.title = "";
+					newProject.textURL = "";
+					newProject.launchURL = false;
+					newProject.imageURL = "";
+					//Create a new menu item 
+					newProject.menuItem_mc = _root.attachMovie("sectionListItem","sectionListItem_"+uniqueID.toString()+"_mc", _root.getNextHighestDepth());
+					newProject.menuItem_mc.uniqueID = uniqueID++;
+					trace(">> here "+newProject.menuItem_mc);
+					newProject.menuItem_mc._visible = true;
+					newProject.menuItem_mc._alpha = 100;
+					newProject.menuItem_mc.tween(["_x","_y"],[100,100],5.0,"linear");
+					newProject.menuItem_mc.sectionListItem_tx.tween(["_x","_y"],[100,100],5.0,"linear");
+					newProject.menuItem_mc.sectionListItem_tx._width = 100;
+					newProject.menuItem_mc.sectionListItem_tx._height = 100;
+					newProject.menuItem_mc._width = 100;
+					newProject.menuItem_mc._height = 100;
+					newProject.menuItem_mc.sectionListItem_tx._visible = true;
+					newProject.menuItem_mc.sectionListItem_tx._alpha = 100;
+					newProject.menuItem_mc.sectionListItem_tx.text = "foo";
+					newProject.menuItem_mc.sectionListItem_tx.htmlText = "foo";
+					newProject.menuItem_mc.sectionListItem_tx.border = true;
+					newProject.menuItem_mc.tween("_y",500,10.0,"linear");
+
 					var myArray2:Array = myArray[i].childNodes;
 					for (j in myArray2){
 						if(myArray2[j].nodeName == "order"){
-							order= myArray2[j].firstChild.nodeValue;
-						}
-						else if(myArray2[j].nodeName == "url"){
-							url= myArray2[j].firstChild.nodeValue;
-						}
-						else if(myArray2[j].nodeName == "launchURL"){
-							loadHTMLURL(myArray2[j].firstChild.nodeValue);
+							newProject.order= myArray2[j].firstChild.nodeValue;
+							newProject.menuItem_mc._y = order*15;
 						}
 						else if(myArray2[j].nodeName == "title"){
-							title= myArray2[j].firstChild.nodeValue;
+							newProject.title= myArray2[j].firstChild.nodeValue;
+							newProject.menuItem_mc.sectionListItem_tx.htmlText = newProject.title;
+							newProject.menuItem_mc.tween("_y",500,10.0,"linear");
+						}
+						else if(myArray2[j].nodeName == "deepLink"){
+							newProject.deepLink= myArray2[j].firstChild.nodeValue;
+						}
+						else if(myArray2[j].nodeName == "textURL"){
+							newProject.textURL= myArray2[j].firstChild.nodeValue;
+						}
+						else if(myArray2[j].nodeName == "menuItemURL"){
+							newProject.menuItemURL= myArray2[j].firstChild.nodeValue;
+						}
+						else if(myArray2[j].nodeName == "launchURL"){
+							newProject.launchURL= true;
 						}
 						else if(myArray2[j].nodeName == "image"){
-							imageURL= myArray2[j].firstChild.nodeValue;
+							newProject.imageURL= myArray2[j].firstChild.nodeValue;
 							var loadListener:Object = new Object();
 
 							loadListener.onLoadComplete = function(target_mc:MovieClip, httpStatus:Number):Void {
-								target_mc.tween("_alpha",100,1.0,"linear");
+								target_mc.tween("_alpha",100,duration,"linear");
 							}
 
 							loadListener.onLoadInit = function(target_mc:MovieClip):Void {
@@ -1301,18 +1369,41 @@ var duration = 0.5;
 
 							var mcLoader1:MovieClipLoader = new MovieClipLoader();
 							mcLoader1.addListener(loadListener);
-							mcLoader1.loadClip(imageURL,sectionImage_mc);
+							mcLoader1.loadClip(newProject.imageURL,sectionImage_mc);
 						}
 						else{
-							trace(">> trouble parsing templateB"+myArray2[j].nodeName);
+							trace(">> trouble parsing templateB "+myArray2[j].nodeName);
 						}
 					}
-					projects[order] = "<b><a href=\""+url+"\">"+title+"</a></b><br/>";
+					projects[newProject.order] = newProject;
 				}
 			}
+			/*
 			for(i in projects){
-				sectionListItem_mc1.sectionListItem_tx.htmlText += projects[i];
+				sectionListItem_mc1.sectionListItem_tx.htmlText += projects[i].menuItem;
+			}*/
+
+			/*Deal with deep linking*/
+			var launched:Boolean = false;
+
+			if(deepLink != undefined){
+				for(i in projects){
+					if((projects[i].deepLink == deepLink)&&(launched == false)){
+						loadHTMLURL(projects[i].textURL);
+						launched = true;
+					}
+				}
 			}
+
+			if(launched == false){
+				for(i in projects){
+					if((projects[i].launchURL == true)&&(launched == false)){
+						loadHTMLURL(projects[i].textURL);
+						launched = true;
+					}
+				}
+			}
+				
 		}
 /*
 		loadHTMLText(src,false,duration);
@@ -1538,20 +1629,20 @@ var document:XML = new XML();
 	document.load(deSandboxURL(URL));
 }
 
-function dispatchTemplate(type:String,title:String,URL:String,bomb:MovieClip)
+function dispatchTemplate(type:String,title:String,URL:String,bomb:MovieClip,deepLink:String,duration:Number)
 {
 		trace(">> Dispatch Template "+type+" "+title+" "+URL);
 		if(type=="A"){
-			templateA(title,URL,bomb);
+			templateA(title,URL,bomb,deepLink,duration);
 		}
 		else if(type=="SA"){
-			templateSA(title,URL,bomb);
+			templateSA(title,URL,bomb,deepLink,duration);
 		}
 		else if(type=="B"){
-			templateB(title,URL,bomb);
+			templateB(title,URL,bomb,deepLink,duration);
 		}
 		else if(type=="C"){
-			templateC(title,URL,bomb);
+			templateC(title,URL,bomb,deepLink,duration);
 		}
 		else{
 			trace(">> Can't Dispatch This Template");
@@ -1984,11 +2075,11 @@ function animateDataRepository()
 //Comment this out if it's being run from in a web browser
 //Launch
 if(launchFromWebsite == false){
-	animateOpen();
+	animateOpen("projects");
 }
 
-var x:String = "abc&def&ghi";
-trace(">> "+x.indexOf("&")+":"+x.substring(0,x.indexOf("&"))+":"+x.substring(x.indexOf("&")+1,x.length));
+//var x:String = "abc&def&ghi";
+//trace(">> "+x.indexOf("&")+":"+x.substring(0,x.indexOf("&"))+":"+x.substring(x.indexOf("&")+1,x.length));
 
 
 

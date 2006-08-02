@@ -3,8 +3,12 @@ function jsAvailable() {
 	return true;
 }
 
-function jsUpdateAddress(x) {
+function jsSetLocation(x) {
     window.location.hash = x;
+}
+
+function jsUpdateLocation(x) {
+    window.location.hash = window.location.hash.substring(1)+"&"+x;
 }
 
 function checkURLParameters() {
