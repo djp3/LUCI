@@ -129,14 +129,28 @@ function clearAndResetPage()
 	whiteBlock_mc._visible=false;
 
 	sectionImage_mc._alpha= 0;
-	sectionTitle_mc._alpha = 0;
-	sectionData_mc._alpha = 0;
 	sectionImage_mc._visible= true;
-	sectionTitle_mc._visible = true;
-	sectionData_mc._visible = true;
 
+	sectionTitle_mc._alpha = 0;
+	sectionTitle_mc._visible = true;
+
+	sectionData_mc._alpha = 0;
+	sectionData_mc._visible = false; 
+	sectionData_mc.sectionData_tx._alpha = 100;
+	sectionData_mc.sectionData_tx.text = "";
+	sectionData_mc.sectionData_tx._visible = true;
+	sectionData_mc.sectionData_tx.html = true;
+	sectionData_mc.sectionData_tx.htmlText = "";
+	sectionData_mc.sectionData_tx.embedFonts=true;
+	sectionData_mc.sectionData_tx.wordWrap = true;
+	sectionData_mc.sectionData_tx.multiline = true;
+	sectionData_mc.sectionData_tx.styleSheet = textBody_styleSheet;
+	//sectionData_mc.sectionData_tx.autoSize=true;
+	//sectionData_mc._visible = true;
+
+	
 	sectionListItem_mc._alpha = 0; 
-	sectionListItem_mc._visible = true; 
+	sectionListItem_mc._visible = false; 
 	sectionListItem_mc.sectionListItem_tx.html = true;
 	sectionListItem_mc.sectionListItem_tx.htmlText = "";
 	sectionListItem_mc.sectionListItem_tx.embedFonts=true;
@@ -558,7 +572,7 @@ function animateOpen(deepLink:String)
 					}
 					else{
 						first = deepLink.substring(0,deepLink.indexOf("&"))
-						last = deepLink.substring(indexOf("&")+1,deepLink.length);
+						last = deepLink.substring(deepLink.indexOf("&")+1,deepLink.length);
 					}
 					for(var i in mainMenu){
 						if(mainMenu[i].deepLink == first){
@@ -609,7 +623,7 @@ function finalBuildCenterPane(bomb:MovieClip)
 	var duration:Number = 1.0;
 
 	loadTitle("",true,duration);
-	loadHTMLText("",true,duration);
+	loadHTMLText(textBody_mc,textBody_mc.textBody_tx,"",true,duration);
 
 	lightFusePayload(duration, function(){
 		scrollBar1_mc.tween(["_y", "_alpha"], [underSkyline_y, 0], duration, "easeInSine");
@@ -1066,32 +1080,43 @@ function loadText(myText:String)
 }
 */
 
-function loadHTMLURL(myURL:String)
+function loadHTMLURL(myMovieClip:MovieClip,myTextField:TextField,myURL:String,duration:Number)
 {
-var duration:Number = 0.5;
 var document:XML = new XML();
 	
+	if(duration == undefined){
+		duration = 0.5;
+	}
+	if(myMovieClip == undefined){
+		myMovieClip = textBody_mc;
+	}
+	if(myTextField == undefined){
+		myTextField = textBody_mc.textBody_tx;
+	}
 
 	document.ignoreWhite = true;
 	document.onData = function(src:String){
-		loadHTMLText(src,true,duration);
+		loadHTMLText(myMovieClip,myTextField,src,true,duration);
 	}
 	document.load(deSandboxURL(myURL));
 	trace(">> loading HTML URL "+myURL);
 }
 
-function loadHTMLText(myText:String,fadeOut:Boolean,duration:Number)
+function loadHTMLText(myMovieClip:MovieClip,myTextField:TextField,myText:String,fadeOut:Boolean,duration:Number)
 {
+	var myFunction:Function = function(){
+		myTextField.htmlText = myText;
+		myMovieClip.tween("_alpha",100,duration,"linear");
+	};
+
 	if(fadeOut){
-		textBody_mc.tween("_alpha",0,duration,"linear");
-		lightFusePayload(duration,function(){
-			textBody_mc.textBody_tx.htmlText = myText;
-			textBody_mc.tween("_alpha",100,duration,"linear");
-		});
+		myMovieClip.tween("_alpha",0,duration,"linear");
+		lightFusePayload(duration,myFunction);
 	}
 	else{
-		textBody_mc.textBody_tx.htmlText = myText;
-		textBody_mc.tween("_alpha",100,duration,"linear");
+		myFunction();
+		//textBody_mc.textBody_tx.htmlText = myText;
+		//textBody_mc.tween("_alpha",100,duration,"linear");
 	}
 }
 
@@ -1162,7 +1187,7 @@ var document:XML = new XML();
 		textBody_mc.textBody_tx._y = 0;
 		textBody_mc.textBody_tx._width = 534;
 		textBody_mc.textBody_tx._height = 300;
-		loadHTMLText(src,false,duration);
+		loadHTMLText(textBody_mc,textBody_mc.textBody_tx,src,false,duration);
 
 		//Cause scrollBar1._x is in the middle of the scrollbar somewhere
 		var scrollBar1Pad:Number = 18;
@@ -1252,6 +1277,8 @@ var document:XML = new XML();
 	var buffer:Number = 10;
 	var sectionDataWidth:Number=155;
 
+	var topBase:Number=80;
+
 	trace(">> templateB deepLink "+deepLink);
 
 	if(deepLink != undefined){
@@ -1266,98 +1293,143 @@ var document:XML = new XML();
 	titleBody_mc._visible=true;
 	textBody_mc._visible=true;
 
+	sectionTitle_mc._alpha=0;
+	sectionTitle_mc._visible=true;
+	sectionTitle_mc._x=leftBase+menuWidth+buffer;
+
+	sectionData_mc._alpha=0;
+	sectionData_mc._visible=true;
+	sectionData_mc.tween._x=leftBase+menuWidth+buffer;
+
+	sectionImage_mc._alpha=0;
+	sectionImage_mc._visible=true;
+
 	textBody_mc._x=leftBase+menuWidth+buffer+buffer+sectionDataWidth+buffer;
-	textBody_mc._y=80;
+	textBody_mc._y=topBase;
 	textBody_mc.textBody_tx._x = 0;
 	textBody_mc.textBody_tx._y = 0;
 	textBody_mc.textBody_tx._width = 400;
 	textBody_mc.textBody_tx._height = 380;
 
-	titleBody_mc.titleBody_tx.border=true;
+	/*titleBody_mc.titleBody_tx.border=true;
 	textBody_mc.textBody_tx.border = true;
 	sectionTitle_mc.sectionTitle_tx.border = true;
 	sectionListItem_mc.sectionListItem_tx.border = true;
 	sectionData_mc.sectionData_tx.border = true;
 	trace(">> sectionListItem "+sectionListItem_mc1._width+","+sectionListItem_mc1._height);
-	trace(">> sectionData_mc "+sectionData_mc._x+","+sectionData_mc._y);
+	trace(">> sectionData_mc "+sectionData_mc._x+","+sectionData_mc._y);*/
 
 	loadTitle(title,false);
 
-	sectionListItem_mc.tween(["_x","_y","_alpha"],[leftBase,80,100],duration,"easeOutSine");
-				
+	dividerVert_mc._x=leftBase+menuWidth;
 	dividerVert_mc._visible = true;
 	dividerVert_mc.tween(["_x","_y","_alpha"],[leftBase+menuWidth,83,100],duration,"easeInOutSine");
-
-	sectionImage_mc.tween(["_x","_y"],[leftBase+menuWidth,80],duration,"easeOutSine");
-
-	sectionTitle_mc.tween(["_x","_y","_alpha"],[leftBase+menuWidth,226,100],duration,"easeOutSine");
-	sectionData_mc.tween(["_x","_y","_alpha"],[leftBase+menuWidth,244,100],duration,"easeOutSine");
 
 	document.ignoreWhite = true;
 	document.onLoad = function(success:Boolean){
 		if(success){
 			var projects:Array = new Array();
 			var uniqueID:Number = 0;
-			sectionListItem_mc.sectionListItem_tx.htmlText=""
 			var myArray:Array = document.firstChild.childNodes;
 			for (i in myArray){
 				if(myArray[i].nodeName == "project"){
-					var newProject = new Object();
-					newProject.order = 0;
-					newProject.title = "";
-					newProject.textURL = "";
-					newProject.launchURL = false;
-					newProject.imageURL = "";
+					////////////////////////////////
 					//Create a new menu item 
-					newProject.menuItem_mc = _root.attachMovie("sectionListItem","sectionListItem_"+uniqueID.toString()+"_mc", _root.getNextHighestDepth());
-					newProject.menuItem_mc.uniqueID = uniqueID++;
-					trace(">> here "+newProject.menuItem_mc);
-					newProject.menuItem_mc._visible = true;
-					newProject.menuItem_mc._alpha = 100;
-					newProject.menuItem_mc.tween(["_x","_y"],[100,100],5.0,"linear");
-					newProject.menuItem_mc.sectionListItem_tx.tween(["_x","_y"],[100,100],5.0,"linear");
-					newProject.menuItem_mc.sectionListItem_tx._width = 100;
-					newProject.menuItem_mc.sectionListItem_tx._height = 100;
-					newProject.menuItem_mc._width = 100;
-					newProject.menuItem_mc._height = 100;
-					newProject.menuItem_mc.sectionListItem_tx._visible = true;
-					newProject.menuItem_mc.sectionListItem_tx._alpha = 100;
-					newProject.menuItem_mc.sectionListItem_tx.text = "foo";
-					newProject.menuItem_mc.sectionListItem_tx.htmlText = "foo";
-					newProject.menuItem_mc.sectionListItem_tx.border = true;
-					newProject.menuItem_mc.tween("_y",500,10.0,"linear");
+					var menuItem_mc:MovieClip = _root.attachMovie("sectionListItem","sectionListItem_"+uniqueID.toString()+"_mc", _root.getNextHighestDepth());
+					menuItem_mc.order = 0;
+					menuItem_mc.title = "";
+					menuItem_mc.textURL = "";
+					menuItem_mc.sectionDataURL = "";
+					menuItem_mc.launchURL = false;
+					menuItem_mc.imageURL = "";
+					menuItem_mc.uniqueID = uniqueID++;
+					menuItem_mc._alpha = 0;
+					menuItem_mc.sectionListItem_tx._x=0;
+					menuItem_mc.sectionListItem_tx._y=0;
+					menuItem_mc.sectionListItem_tx._visible = true;
+					menuItem_mc.sectionListItem_tx._alpha = 100;
+					menuItem_mc.sectionListItem_tx.html = true;
+					menuItem_mc.sectionListItem_tx.htmlText = "";
+					menuItem_mc.sectionListItem_tx.embedFonts=true;
+					menuItem_mc.sectionListItem_tx.wordWrap = true;
+					menuItem_mc.sectionListItem_tx.multiline = true;
+					menuItem_mc.sectionListItem_tx.styleSheet = textBody_styleSheet;
+					menuItem_mc.sectionListItem_tx.autoSize=true;
+
+					menuItem_mc._visible = true;
+					menuItem_mc.sectionListItem_tx.border = true;
+					////////////////////////////////
 
 					var myArray2:Array = myArray[i].childNodes;
 					for (j in myArray2){
 						if(myArray2[j].nodeName == "order"){
-							newProject.order= myArray2[j].firstChild.nodeValue;
-							newProject.menuItem_mc._y = order*15;
+							menuItem_mc.order= myArray2[j].firstChild.nodeValue;
+							menuItem_mc._x=leftBase;
+							menuItem_mc._y=topBase+15*menuItem_mc.order;
+							menuItem_mc.tween(["_alpha"],[100],duration,"easeOutSine");
 						}
 						else if(myArray2[j].nodeName == "title"){
-							newProject.title= myArray2[j].firstChild.nodeValue;
-							newProject.menuItem_mc.sectionListItem_tx.htmlText = newProject.title;
-							newProject.menuItem_mc.tween("_y",500,10.0,"linear");
+							menuItem_mc.title= myArray2[j].firstChild.nodeValue;
+							menuItem_mc.sectionListItem_tx.htmlText = menuItem_mc.title;
 						}
 						else if(myArray2[j].nodeName == "deepLink"){
-							newProject.deepLink= myArray2[j].firstChild.nodeValue;
+							menuItem_mc.deepLink= myArray2[j].firstChild.nodeValue;
 						}
 						else if(myArray2[j].nodeName == "textURL"){
-							newProject.textURL= myArray2[j].firstChild.nodeValue;
+							menuItem_mc.textURL= myArray2[j].firstChild.nodeValue;
+						}
+						else if(myArray2[j].nodeName == "sectionDataURL"){
+							menuItem_mc.sectionDataURL= myArray2[j].firstChild.nodeValue;
 						}
 						else if(myArray2[j].nodeName == "menuItemURL"){
-							newProject.menuItemURL= myArray2[j].firstChild.nodeValue;
+							menuItem_mc.menuItemURL= myArray2[j].firstChild.nodeValue;
 						}
 						else if(myArray2[j].nodeName == "launchURL"){
-							newProject.launchURL= true;
+							menuItem_mc.launchURL= true;
 						}
 						else if(myArray2[j].nodeName == "image"){
-							newProject.imageURL= myArray2[j].firstChild.nodeValue;
+							menuItem_mc.imageURL= myArray2[j].firstChild.nodeValue;
+						}
+						else{
+							trace(">> trouble parsing templateB "+myArray2[j].nodeName);
+						}
+					}
+					//What to do when the menu item is clicked
+					menuItem_mc.onRelease= function(){
+						//Load the section details
+						if(this.title != ""){
+							loadHTMLText(sectionTitle_mc,sectionTitle_mc.sectionTitle_tx,this.title,true,duration);
+						}
+						else{
+							loadHTMLText(sectionTitle_mc,sectionTitle_mc.sectionTitle_tx,"",true,duration);
+						}
+
+						if(this.sectionDataURL != ""){
+							//trace(">> loading this sectionData "+this.sectionDataURL);
+							loadHTMLURL(sectionData_mc,sectionData_mc.sectionData_tx,this.sectionDataURL,duration);
+						}
+						else{
+							loadHTMLText(sectionData_mc,sectionData_mc.sectionData_tx,"",true,duration);
+						}
+
+						//Load the text
+						if(this.textURL != ""){
+							//trace(">> loading this textBody "+this.textURL);
+							loadHTMLURL(textBody_mc,textBody_mc.textBody_tx,this.textURL,duration);
+						}
+						else{
+							loadHTMLText(textBody_mc,textBody_mc.textBody_tx,"",true,duration);
+						}
+
+						//Load the image
+						if(this.imageURL != ""){
 							var loadListener:Object = new Object();
 
 							loadListener.onLoadComplete = function(target_mc:MovieClip, httpStatus:Number):Void {
+								target_mc._visible= true;
 								target_mc.tween("_alpha",100,duration,"linear");
 							}
-
+	
 							loadListener.onLoadInit = function(target_mc:MovieClip):Void {
 								var myDropFilter = new flash.filters.DropShadowFilter();
 								myDropFilter.distance = 0;
@@ -1366,16 +1438,54 @@ var document:XML = new XML();
 								myFilters.push(myDropFilter);
 								target_mc.filters = myFilters;
 							}
-
+	
 							var mcLoader1:MovieClipLoader = new MovieClipLoader();
 							mcLoader1.addListener(loadListener);
-							mcLoader1.loadClip(newProject.imageURL,sectionImage_mc);
+
+							sectionImage_mc.tween("_alpha",0,duration,"linear");
+							sectionTitle_mc.tween("_alpha",0,duration,"linear");
+							sectionData_mc.tween("_alpha",0,duration,"linear");
+
+
+							var foo=this.imageURL;
+							lightFusePayload(duration,function(){
+									sectionImage_mc._x=leftBase+menuWidth+buffer;
+									sectionImage_mc._y=topBase;
+
+									//Position title
+									sectionTitle_mc._x=leftBase+menuWidth+buffer;
+									sectionTitle_mc._y=topBase+sectionImage_mc._height;
+									sectionData_mc._x=leftBase+menuWidth+buffer;
+									sectionData_mc._y=topBase+sectionImage_mc._height+sectionTitle_mc._height;
+									sectionData_mc.sectionData_tx._height=textBody_mc._height-sectionTitle_mc._height-sectionImage_mc._height;
+									mcLoader1.loadClip(foo,sectionImage_mc);
+									trace(">>loading image "+foo);
+									});
 						}
 						else{
-							trace(">> trouble parsing templateB "+myArray2[j].nodeName);
+							sectionImage_mc.tween("_alpha",0,duration,"linear");
+							sectionTitle_mc.tween("_alpha",0,duration,"linear");
+							sectionData_mc.tween("_alpha",0,duration,"linear");
+
+							lightFusePayload(duration,function(){
+								sectionImage_mc._visible = false;
+								//Position title
+								sectionTitle_mc._x=leftBase+menuWidth+buffer;
+								sectionTitle_mc._y=topBase;
+								sectionData_mc._x=leftBase+menuWidth+buffer;
+								sectionData_mc._y=topBase+sectionTitle_mc._height;
+								sectionData_mc.sectionData_tx._height=textBody_mc._height-sectionTitle_mc._height;
+								sectionImage_mc.tween("_alpha",100,duration,"linear");
+								sectionTitle_mc.tween("_alpha",100,duration,"linear");
+								sectionData_mc.tween("_alpha",100,duration,"linear");
+
+							});
 						}
+
 					}
-					projects[newProject.order] = newProject;
+							
+
+					projects[menuItem_mc.order] = menuItem_mc;
 				}
 			}
 			/*
@@ -1389,8 +1499,9 @@ var document:XML = new XML();
 			if(deepLink != undefined){
 				for(i in projects){
 					if((projects[i].deepLink == deepLink)&&(launched == false)){
-						loadHTMLURL(projects[i].textURL);
+						projects[i].onRelease();
 						launched = true;
+						trace(">> launching projects with deepLink "+deepLink);
 					}
 				}
 			}
@@ -1398,15 +1509,15 @@ var document:XML = new XML();
 			if(launched == false){
 				for(i in projects){
 					if((projects[i].launchURL == true)&&(launched == false)){
-						loadHTMLURL(projects[i].textURL);
+						projects[i].onRelease();
 						launched = true;
+						trace(">> launching projects without deepLink " + deepLink);
 					}
 				}
 			}
-				
 		}
 /*
-		loadHTMLText(src,false,duration);
+		loadHTMLText(textBody_mc,textBody_mc.textBody_tx,src,false,duration);
 
 		//Cause scrollBar1._x is in the middle of the scrollbar somewhere
 		var scrollBar1Pad:Number = 18;
@@ -1479,7 +1590,7 @@ var duration = 0.5;
 		textBody_mc.textBody_tx._y = 0;
 		textBody_mc.textBody_tx._width = 357;
 		textBody_mc.textBody_tx._height = 380;
-		loadHTMLText(src,false,duration);
+		loadHTMLText(textBody_mc,textBody_mc.textBody_tx,src,false,duration);
 
 		//Cause scrollBar1._x is in the middle of the scrollbar somewhere
 		var scrollBar1Pad:Number = 18;
@@ -2075,7 +2186,8 @@ function animateDataRepository()
 //Comment this out if it's being run from in a web browser
 //Launch
 if(launchFromWebsite == false){
-	animateOpen("projects");
+	//animateOpen("projects&nomaticGaim");
+	animateOpen();
 }
 
 //var x:String = "abc&def&ghi";

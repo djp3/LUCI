@@ -1,1 +1,1 @@
-Nomatic*Gaim really rocks! <a href="asfunction:_root.loadHTMLURL,websiteContent/weAreLuci/tempText.txt"> click me </a>
+Nomatic*Gaim really rocks! <a href="asfunction:_root.loadHTMLURL,,,websiteContent/weAreLuci/tempText.txt"> click me </a>
