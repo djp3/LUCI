@@ -1,0 +1,3 @@
+<li><a href="asfunction:_root.loadHTMLURL,websiteContent/weAreLuci/nomaticGaim/overview.txt">Overview</a>
+<li><a href="asfunction:_root.loadHTMLURL,websiteContent/weAreLuci/nomaticGaim/privacy.txt">Privacy</a>
+<li><a href="asfunction:_root.loadHTMLURL,websiteContent/weAreLuci/nomaticGaim/faq.txt">FAQ</a>

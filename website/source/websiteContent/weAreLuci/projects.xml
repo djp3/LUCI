@@ -2,10 +2,10 @@
 	<project>
 		<order>0</order>
 		<title>Nomatic*Gaim</title>
-		<image>websiteContent/overview/overviewPhoto03.jpg</image>
+		<image>websiteContent/weAreLuci/nomaticGaim/laptopUserInHall.jpg</image>
 		<deepLink>nomaticGaim</deepLink>
-		<textURL>websiteContent/weAreLuci/tempText.txt</textURL>
-		<sectionDataURL>websiteContent/weAreLuci/tempText.txt</sectionDataURL>
+		<sectionDataURL>websiteContent/weAreLuci/nomaticGaim/menuItems.txt</sectionDataURL>
+		<textURL>websiteContent/weAreLuci/nomaticGaim/overview.txt</textURL>
 		<launchURL></launchURL>
 	</project>
 	<project>
