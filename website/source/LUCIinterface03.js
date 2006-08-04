@@ -7,8 +7,22 @@ function jsSetLocation(x) {
     window.location.hash = x;
 }
 
-function jsUpdateLocation(x) {
-    window.location.hash = window.location.hash.substring(1)+"&"+x;
+function jsUpdateLocation(x,level) {
+	var new = "";
+	var y = window.location.hash.substring(1);
+	while(level > 1){
+		end = y.indexOf("&");
+		if(end != -1){
+			new = new + y.substring(0,end) + "&"; 
+			y = y.substring(end+1);
+			level = level -1;
+		}
+		else{
+			new = new + y + "&";
+			level = 1;
+		}
+	}
+    window.location.hash = new + x;
 }
 
 function checkURLParameters() {

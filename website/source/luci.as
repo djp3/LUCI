@@ -186,7 +186,9 @@ function sidebarShrink(bomb:MovieClip)
 {
 var duration:Number=1.0;		
 
+
 	if(isSidebarShrunk != true){
+
 		textSidebar_mc.tween("_alpha",0,0.1,"linear");
 		titleSidebar_mc.tween("_alpha",0,0.1,"linear");
 
@@ -736,230 +738,243 @@ var mainMenu:Array = new Array();
 
 function loadMenuItems(url:String,bomb:MovieClip)
 {
-var menuItems:XML = new XML();
+	if(mainMenu == undefined){
+
+		var menuItems:XML = new XML();
+
+		menuItems.ignoreWhite = true;
+		menuItems.onLoad = function(success:Boolean){
+				if(success){
+					var uniqueID = 0;
+					if(menuItems.firstChild.nodeName == "menuItems"){
+						var i:String;
+						var myArray:Array = menuItems.childNodes;
+						myArray = menuItems.firstChild.childNodes;
+						for (i in myArray){
 	
-	menuItems.ignoreWhite = true;
-	menuItems.onLoad = function(success:Boolean){
-			if(success){
-				var uniqueID = 0;
-				if(menuItems.firstChild.nodeName == "menuItems"){
-					var i:String;
-					var myArray:Array = menuItems.childNodes;
-					myArray = menuItems.firstChild.childNodes;
-					for (i in myArray){
-
-						if(myArray[i].nodeName == "menuItem"){
-
-							//Create a new menu item
-							var tempMenuItem_mc = _root.attachMovie("menuItem","menuItem_"+uniqueID.toString()+"_mc", _root.getNextHighestDepth());
-							tempMenuItem_mc._uniqueID = uniqueID++;
-							mainMenu.push(tempMenuItem_mc);
-
-							tempMenuItem_mc.menuItemText_tx.textColor=menuTextFormatNotClickable;
-							tempMenuItem_mc._visible=true;
-							tempMenuItem_mc._alpha=0;
-							tempMenuItem_mc._x=anchorBGmenu_x + 15;
-							tempMenuItem_mc._y=underSkyline_y;
-							tempMenuItem_mc.order=99;
-							tempMenuItem_mc._indent=0;
-
-							var breakBelow:Boolean = false;
-							var clickable:Boolean = false;
-							tempMenuItem_mc.templateType = "";
-							tempMenuItem_mc.templateTitle = "";
-							tempMenuItem_mc.templateURL = "";
-							tempMenuItem_mc.deepLink = "";
-							tempMenuItem_mc.sidebar = false;
-							tempMenuItem_mc.sidebarTemplateType = "";
-							tempMenuItem_mc.sidebarTemplateTitle = "";
-							tempMenuItem_mc.sidebarTemplateURL = "";
-
-							var j:String;
-							var myArray2:Array = myArray[i].childNodes;
-							for (j in myArray2){
-								if(myArray2[j].nodeName == "title"){
-									tempMenuItem_mc.menuItemText_tx.embedFonts=true;
-									tempMenuItem_mc.menuItemText_tx.autoSize="left";
-
-									tempMenuItem_mc.menuItemText_tx.text= myArray2[j].firstChild.nodeValue;
-								}
-								else if(myArray2[j].nodeName == "order"){
-									var index=Number(myArray2[j].firstChild.nodeValue);
-									tempMenuItem_mc.order=index;
-									tempMenuItem_mc._y=anchorBGmenu_y + 25*index+12;
-								}
-								else if(myArray2[j].nodeName == "clickable"){
-									clickable = true;
-									var k:String;
-									var myArray3:Array = myArray2[j].childNodes;
-									for (k in myArray3){
-											if(myArray3[k].nodeName == "template"){
-												var l:String;
-												var myArray4:Array = myArray3[k].childNodes;
-												for (l in myArray4){
-													if(myArray4[l].nodeName == "type"){
-														tempMenuItem_mc.templateType=myArray4[l].firstChild.nodeValue;
-													}
-													else if(myArray4[l].nodeName == "url"){
-														tempMenuItem_mc.templateURL=myArray4[l].firstChild.nodeValue;
-													}
-													else if(myArray4[l].nodeName == "title"){
-														tempMenuItem_mc.templateTitle=myArray4[l].firstChild.nodeValue;
-													}
-													else{
-														trace(">> Unknown XML "+myArray4[l].nodeName) ;
-													}
-
-												}
-											}
-											else if(myArray3[k].nodeName == "sidebar"){
-												tempMenuItem_mc.sidebar = true;
-												var l:String;
-												var myArray4:Array = myArray3[k].childNodes;
-												for (l in myArray4){
-													if(myArray4[l].nodeName == "type"){
-														tempMenuItem_mc.sidebarTemplateType=myArray4[l].firstChild.nodeValue;
-														//trace(">> sidebarTemplateType "+ tempMenuItem_mc.sidebarTemplateType);
-													}
-													else if(myArray4[l].nodeName == "url"){
-														tempMenuItem_mc.sidebarTemplateURL=myArray4[l].firstChild.nodeValue;
-														//trace(">> sidebarTemplateURL "+ tempMenuItem_mc.sidebarTemplateURL);
-													}
-													else if(myArray4[l].nodeName == "title"){
-														tempMenuItem_mc.sidebarTemplateTitle=myArray4[l].firstChild.nodeValue;
-														//trace(">> sidebarTemplateTitle "+ tempMenuItem_mc.sidebarTemplateTitle);
-													}
-													else{
-														trace(">> Unknown XML "+myArray4[l].nodeName) ;
+							if(myArray[i].nodeName == "menuItem"){
+	
+								//Create a new menu item
+								var tempMenuItem_mc = _root.attachMovie("menuItem","menuItem_"+uniqueID.toString()+"_mc", _root.getNextHighestDepth());
+								tempMenuItem_mc._uniqueID = uniqueID++;
+								mainMenu.push(tempMenuItem_mc);
+	
+								tempMenuItem_mc.menuItemText_tx.textColor=menuTextFormatNotClickable;
+								tempMenuItem_mc._visible=true;
+								tempMenuItem_mc._alpha=0;
+								tempMenuItem_mc._x=anchorBGmenu_x + 15;
+								tempMenuItem_mc._y=underSkyline_y;
+								tempMenuItem_mc.order=99;
+								tempMenuItem_mc._indent=0;
+	
+								var breakBelow:Boolean = false;
+								var clickable:Boolean = false;
+								tempMenuItem_mc.templateType = "";
+								tempMenuItem_mc.templateTitle = "";
+								tempMenuItem_mc.templateURL = "";
+								tempMenuItem_mc.deepLink = "";
+								tempMenuItem_mc.sidebar = false;
+								tempMenuItem_mc.sidebarTemplateType = "";
+								tempMenuItem_mc.sidebarTemplateTitle = "";
+								tempMenuItem_mc.sidebarTemplateURL = "";
+								tempMenuItem_mc.enabled = false;
+	
+								var j:String;
+								var myArray2:Array = myArray[i].childNodes;
+								for (j in myArray2){
+									if(myArray2[j].nodeName == "title"){
+										tempMenuItem_mc.menuItemText_tx.embedFonts=true;
+										tempMenuItem_mc.menuItemText_tx.autoSize="left";
+	
+										tempMenuItem_mc.menuItemText_tx.text= myArray2[j].firstChild.nodeValue;
+									}
+									else if(myArray2[j].nodeName == "order"){
+										var index=Number(myArray2[j].firstChild.nodeValue);
+										tempMenuItem_mc.order=index;
+										tempMenuItem_mc._y=anchorBGmenu_y + 25*index+12;
+									}
+									else if(myArray2[j].nodeName == "clickable"){
+										clickable = true;
+										var k:String;
+										var myArray3:Array = myArray2[j].childNodes;
+										for (k in myArray3){
+												if(myArray3[k].nodeName == "template"){
+													var l:String;
+													var myArray4:Array = myArray3[k].childNodes;
+													for (l in myArray4){
+														if(myArray4[l].nodeName == "type"){
+															tempMenuItem_mc.templateType=myArray4[l].firstChild.nodeValue;
+														}
+														else if(myArray4[l].nodeName == "url"){
+															tempMenuItem_mc.templateURL=myArray4[l].firstChild.nodeValue;
+														}
+														else if(myArray4[l].nodeName == "title"){
+															tempMenuItem_mc.templateTitle=myArray4[l].firstChild.nodeValue;
+														}
+														else{
+															trace(">> Unknown XML "+myArray4[l].nodeName) ;
+														}
+	
 													}
 												}
-											}
-											else if(myArray3[k].nodeName == "deepLink"){
-												tempMenuItem_mc.deepLink=myArray3[k].firstChild.nodeValue;
-											}
-											else{
-												trace(">> Unknown XML "+myArray3[k].nodeName) ;
-											}
+												else if(myArray3[k].nodeName == "sidebar"){
+													tempMenuItem_mc.sidebar = true;
+													var l:String;
+													var myArray4:Array = myArray3[k].childNodes;
+													for (l in myArray4){
+														if(myArray4[l].nodeName == "type"){
+															tempMenuItem_mc.sidebarTemplateType=myArray4[l].firstChild.nodeValue;
+															//trace(">> sidebarTemplateType "+ tempMenuItem_mc.sidebarTemplateType);
+														}
+														else if(myArray4[l].nodeName == "url"){
+															tempMenuItem_mc.sidebarTemplateURL=myArray4[l].firstChild.nodeValue;
+															//trace(">> sidebarTemplateURL "+ tempMenuItem_mc.sidebarTemplateURL);
+														}
+														else if(myArray4[l].nodeName == "title"){
+															tempMenuItem_mc.sidebarTemplateTitle=myArray4[l].firstChild.nodeValue;
+															//trace(">> sidebarTemplateTitle "+ tempMenuItem_mc.sidebarTemplateTitle);
+														}
+														else{
+															trace(">> Unknown XML "+myArray4[l].nodeName) ;
+														}
+													}
+												}
+												else if(myArray3[k].nodeName == "deepLink"){
+													tempMenuItem_mc.deepLink=myArray3[k].firstChild.nodeValue;
+												}
+												else{
+													trace(">> Unknown XML "+myArray3[k].nodeName) ;
+												}
+										}
+									}
+									else if(myArray2[j].nodeName == "indent"){
+										var howMuch:Number = 10* myArray2[j].firstChild.nodeValue;
+										tempMenuItem_mc._indent=howMuch;
+										tempMenuItem_mc._x=anchorBGmenu_x + 15+howMuch;
+										tempMenuItem_mc.menuItemText_tx.textColor=menuTextFormatInactive;
+									}	
+									else if(myArray2[j].nodeName == "breakBelow"){
+										breakBelow=true;
+									}	
+									else{
+									 	trace(">>unknown XML tag:"+ myArray2[j].nodeName);
 									}
 								}
-								else if(myArray2[j].nodeName == "indent"){
-									var howMuch:Number = 10* myArray2[j].firstChild.nodeValue;
-									tempMenuItem_mc._indent=howMuch;
-									tempMenuItem_mc._x=anchorBGmenu_x + 15+howMuch;
-									tempMenuItem_mc.menuItemText_tx.textColor=menuTextFormatInactive;
-								}	
-								else if(myArray2[j].nodeName == "breakBelow"){
-									breakBelow=true;
-								}	
-								else{
-								 	trace(">>unknown XML tag:"+ myArray2[j].nodeName);
+								if(breakBelow) {
+									//Create a new menu item to be the line
+									var line_mc = _root.attachMovie("menuItem","menuItem_"+uniqueID.toString()+"_mc", _root.getNextHighestDepth());
+									line_mc._uniqueID = uniqueID++;
+									line_mc.menuItemText_tx.text= "";
+									line_mc._visible=true;
+									line_mc._alpha=0;
+									line_mc._x=anchorBGmenu_x + 15;
+									line_mc._y=anchorBGmenu_y+25*tempMenuItem_mc.order+30;
+									line_mc._height=3;
+									line_mc.order = tempMenuItem_mc.order+0.5;
+									var h:Number = 20;
+									line_mc.lineStyle(2.0, 0xFFFFFF, 100);
+									line_mc.moveTo(-15, h);
+									line_mc.lineTo(BGmenu_mc._width-75,h);
+									mainMenu.push(line_mc);
 								}
-							}
-							if(breakBelow) {
-								//Create a new menu item to be the line
-								var line_mc = _root.attachMovie("menuItem","menuItem_"+uniqueID.toString()+"_mc", _root.getNextHighestDepth());
-								line_mc._uniqueID = uniqueID++;
-								line_mc.menuItemText_tx.text= "";
-								line_mc._visible=true;
-								line_mc._alpha=0;
-								line_mc._x=anchorBGmenu_x + 15;
-								line_mc._y=anchorBGmenu_y+25*tempMenuItem_mc.order+30;
-								line_mc._height=3;
-								line_mc.order = tempMenuItem_mc.order+0.5;
-								var h:Number = 20;
-								line_mc.lineStyle(2.0, 0xFFFFFF, 100);
-								line_mc.moveTo(-15, h);
-								line_mc.lineTo(BGmenu_mc._width-75,h);
-								mainMenu.push(line_mc);
-							}
-							if(clickable){
-									tempMenuItem_mc.menuItemText_tx.textColor=menuTextFormatInactive;
-									tempMenuItem_mc.onRelease=function(deepLinkEntry:String,duration:Number){
-											trace(">> clicked on:"+ this.templateTitle);
+								if(clickable){
+										tempMenuItem_mc.menuItemText_tx.textColor=menuTextFormatInactive;
+										tempMenuItem_mc.onRelease=function(deepLinkEntry:String,duration:Number){
+												trace(">> clicked on:"+ this.templateTitle);
+	
+												//update the web page address
+	    										ExternalInterface.call("jsSetLocation", this.deepLink);
+	
+												////////////////////////////////////////////////////
+												//Set up to clear last function and then us later
+												////////////////////////////////////////////////////
+												var temp_mc=clearCurrentTemplate.whichMenuItem;
+												var tempFunction:Function = clearCurrentTemplate.clearFunction;
+	
+	when we last left our hero he was trying to get the thing to not run all
+	over itself with menu buttons clicked lots of times
 
-											//update the web page address
-    										ExternalInterface.call("jsSetLocation", this.deepLink);
-
-											////////////////////////////////////////////////////
-											//Set up to clear last function and then us later
-											////////////////////////////////////////////////////
-											var temp_mc=clearCurrentTemplate.whichMenuItem;
-											var tempFunction:Function = clearCurrentTemplate.clearFunction;
-
-											// Make this menu item not clickable
-											this.enabled=false;
-											clearCurrentTemplate.whichMenuItem = this;
-
-											var xx = this.templateType;
-											clearCurrentTemplate.clearFunction = function(){
-												undispatchTemplate(xx);
-											};
-
-											tempFunction();
-											temp_mc.enabled=true;
-											////////////////////////////////////////////////////
-
-
-											////////////////////////////////////////////////////
-											//Move the menu indicator
-											if(this.order == 0){
-												relocateActiveMenuIndicator(25*this.order,25+5,17+this._indent,25+3,this._width-1);
-											}
-											else{
-												relocateActiveMenuIndicator(25*this.order+6,25,17+this._indent,25-2,this._width-1);
-											}
-
-											////////////////////////////////////////////////////
-											//Bring in the sidebar and content as necessary
-											var a = this.templateType;
-											var b = this.templateTitle;
-											var c = this.templateURL;
-											var mainTemplateFunction:Function=function(){
-												//Load main content
-												dispatchTemplate(a,b,c,undefined,deepLinkEntry,duration);
-											};
-
-											if(this.sidebar == true){
-												var x = this.sidebarTemplateType;
-												var y = this.sidebarTemplateTitle;
-												var z = this.sidebarTemplateURL;
-												var function04= function(){
-													dispatchTemplate(x,y,z,undefined,deepLinkEntry,duration);
+												// Make this menu item not clickable
+												this.enabled=false;
+												clearCurrentTemplate.whichMenuItem = this;
+	
+												var xx = this.templateType;
+												var yy:Boolean = this.sidebar;
+												var zz = this.sidebarTemplateType;
+												clearCurrentTemplate.clearFunction = function(){
+													if(yy){
+														undispatchTemplate(zz);
+													}
+													undispatchTemplate(xx);
 												};
-
-												var function03=function(){
-													mainTemplateFunction();
-													sidebarExpand(loadBomb(function04));
-												};
-
-												bodyShrink(loadBomb(function03));
-											}
-											else{
-												var function03=function(){
-													bodyExpand(loadBomb(mainTemplateFunction));
+	
+												tempFunction();
+												temp_mc.enabled=true;
+												////////////////////////////////////////////////////
+	
+	
+												////////////////////////////////////////////////////
+												//Move the menu indicator
+												if(this.order == 0){
+													relocateActiveMenuIndicator(25*this.order,25+5,17+this._indent,25+3,this._width-1);
 												}
-												sidebarShrink(loadBomb(function03));
-											}
-									};
+												else{
+													relocateActiveMenuIndicator(25*this.order+6,25,17+this._indent,25-2,this._width-1);
+												}
+	
+												////////////////////////////////////////////////////
+												//Bring in the sidebar and content as necessary
+												var a = this.templateType;
+												var b = this.templateTitle;
+												var c = this.templateURL;
+												var mainTemplateFunction:Function=function(){
+													//Load main content
+													dispatchTemplate(a,b,c,undefined,deepLinkEntry,duration);
+												};
+	
+												if(this.sidebar == true){
+													var x = this.sidebarTemplateType;
+													var y = this.sidebarTemplateTitle;
+													var z = this.sidebarTemplateURL;
+													var function04= function(){
+														trace(">>Dispatching sidebar then template "+a);
+														dispatchTemplate(x,y,z,undefined,deepLinkEntry,duration);
+													};
+	
+													var function03=function(){
+														mainTemplateFunction();
+														sidebarExpand(loadBomb(function04));
+													};
+	
+													bodyShrink(loadBomb(function03));
+												}
+												else{
+													var function03=function(){
+														bodyExpand(loadBomb(mainTemplateFunction));
+													}
+													sidebarShrink(loadBomb(function03));
+												}
+										};
+								}
+								tempMenuItem_mc = undefined;
 							}
-							tempMenuItem_mc = undefined;
+							else{
+								trace(">> Didn't find menuItems:item " + i);
+							}
 						}
-						else{
-							trace(">> Didn't find menuItems:item " + i);
-						}
+					}
+					else{
+							trace(">> Didn't find menuItems as root tag :" + menuItems.firstChild.nodeName);
 					}
 				}
 				else{
-						trace(">> Didn't find menuItems as root tag :" + menuItems.firstChild.nodeName);
+					trace(">> error with Menu Items XML");
+					//menuItems.parseXML(defaultMenu);
 				}
-			}
-			else{
-				trace(">> error with Menu Items XML");
-				//menuItems.parseXML(defaultMenu);
-			}
-			triggerBomb(bomb);
+				triggerBomb(bomb);
+		}
+		menuItems.load(url);
 	}
-	menuItems.load(url);
 }
 
 
@@ -1080,10 +1095,12 @@ function loadText(myText:String)
 }
 */
 
-function loadHTMLURL(myMovieClip:MovieClip,myTextField:TextField,myURL:String,duration:Number)
+function loadHTMLURL(myURL:String,duration:Number,myMovieClip:MovieClip,myTextField:TextField)
 {
 var document:XML = new XML();
 	
+	trace(">> loading HTML URL "+myURL+":"+duration+":"+myMovieClip+":"+myTextField);
+
 	if(duration == undefined){
 		duration = 0.5;
 	}
@@ -1099,7 +1116,6 @@ var document:XML = new XML();
 		loadHTMLText(myMovieClip,myTextField,src,true,duration);
 	}
 	document.load(deSandboxURL(myURL));
-	trace(">> loading HTML URL "+myURL);
 }
 
 function loadHTMLText(myMovieClip:MovieClip,myTextField:TextField,myText:String,fadeOut:Boolean,duration:Number)
@@ -1160,14 +1176,16 @@ function unblindWhite(bomb:MovieClip){
 }
 
 
+var templateALoading:Boolean = false;
 function templateA(title:String,URL:String,bomb:MovieClip,deepLink:String,duration:Number)
 {
 var document:XML = new XML();
 
+	templateALoading = true;
 	trace(">> templateA deepLink "+deepLink);
 	if(deepLink != undefined){
 		// Update the browser
-		ExternalInterface.call("jsUpdateLocation", deepLink);
+		ExternalInterface.call("jsUpdateLocation", deepLink,2);
 	}
 	if(duration ==undefined){
 		duration = 1.0;
@@ -1225,6 +1243,7 @@ var document:XML = new XML();
 					jumpToURL("http://www.flickr.com/photos/julianbleecker/87099551/");
 			}
 			triggerBomb(bomb);
+			templateALoading = false;
 		}
 
 		loadListener.onLoadInit = function(target_mc:MovieClip):Void {
@@ -1256,6 +1275,8 @@ function clearTemplateA()
 {
 var duration:Number = 0.5;
 
+	while(templateALoading){
+	}
 	titleBody_mc.tween("_alpha",0,duration,"linear");
 	textBody_mc.tween("_alpha",0,duration,"linear");
 	lightFusePayload(duration,function(){
@@ -1269,9 +1290,9 @@ var duration:Number = 0.5;
 
 }
 
+var projects:Array;
 function templateB(title:String,URL:String,bomb:MovieClip,deepLink:String,duration:Number)
 {
-var document:XML = new XML();
 	var leftBase:Number=216;
 	var menuWidth:Number = 120;
 	var buffer:Number = 10;
@@ -1283,7 +1304,7 @@ var document:XML = new XML();
 
 	if(deepLink != undefined){
 		// Update the browser
-		ExternalInterface.call("jsUpdateLocation", deepLink);
+		ExternalInterface.call("jsUpdateLocation", deepLink,2);
 	}
 	if(duration == undefined){
 		duration = 1.0;
@@ -1325,223 +1346,214 @@ var document:XML = new XML();
 	dividerVert_mc._visible = true;
 	dividerVert_mc.tween(["_x","_y","_alpha"],[leftBase+menuWidth,83,100],duration,"easeInOutSine");
 
-	document.ignoreWhite = true;
-	document.onLoad = function(success:Boolean){
-		if(success){
-			var projects:Array = new Array();
-			var uniqueID:Number = 0;
-			var myArray:Array = document.firstChild.childNodes;
-			for (i in myArray){
-				if(myArray[i].nodeName == "project"){
-					////////////////////////////////
-					//Create a new menu item 
-					var menuItem_mc:MovieClip = _root.attachMovie("sectionListItem","sectionListItem_"+uniqueID.toString()+"_mc", _root.getNextHighestDepth());
-					menuItem_mc.order = 0;
-					menuItem_mc.title = "";
-					menuItem_mc.textURL = "";
-					menuItem_mc.sectionDataURL = "";
-					menuItem_mc.launchURL = false;
-					menuItem_mc.imageURL = "";
-					menuItem_mc.uniqueID = uniqueID++;
-					menuItem_mc._alpha = 0;
-					menuItem_mc.sectionListItem_tx._x=0;
-					menuItem_mc.sectionListItem_tx._y=0;
-					menuItem_mc.sectionListItem_tx._visible = true;
-					menuItem_mc.sectionListItem_tx._alpha = 100;
-					menuItem_mc.sectionListItem_tx.html = true;
-					menuItem_mc.sectionListItem_tx.htmlText = "";
-					menuItem_mc.sectionListItem_tx.embedFonts=true;
-					menuItem_mc.sectionListItem_tx.wordWrap = true;
-					menuItem_mc.sectionListItem_tx.multiline = true;
-					menuItem_mc.sectionListItem_tx.styleSheet = textBody_styleSheet;
-					menuItem_mc.sectionListItem_tx.autoSize=true;
+	if(projects == undefined){
+		projects = new Array();
+		var document:XML = new XML();
+		document.ignoreWhite = true;
+		document.onLoad = function(success:Boolean){
+			if(success){
+				var uniqueID:Number = 0;
+				var myArray:Array = document.firstChild.childNodes;
+				for (i in myArray){
+					if(myArray[i].nodeName == "project"){
+						////////////////////////////////
+						//Create a new menu item 
+						var menuItem_mc:MovieClip = _root.attachMovie("sectionListItem","sectionListItem_"+uniqueID.toString()+"_mc", _root.getNextHighestDepth());
+						menuItem_mc.order = 0;
+						menuItem_mc.title = "";
+						menuItem_mc.textURL = "";
+						menuItem_mc.sectionDataURL = "";
+						menuItem_mc.launchURL = false;
+						menuItem_mc.imageURL = "";
+						menuItem_mc.uniqueID = uniqueID++;
+						menuItem_mc._alpha = 0;
+						menuItem_mc.sectionListItem_tx._x=0;
+						menuItem_mc.sectionListItem_tx._y=0;
+						menuItem_mc.sectionListItem_tx._visible = true;
+						menuItem_mc.sectionListItem_tx._alpha = 100;
+						menuItem_mc.sectionListItem_tx.html = true;
+						menuItem_mc.sectionListItem_tx.htmlText = "";
+						menuItem_mc.sectionListItem_tx.embedFonts=true;
+						menuItem_mc.sectionListItem_tx.wordWrap = true;
+						menuItem_mc.sectionListItem_tx.multiline = true;
+						menuItem_mc.sectionListItem_tx.styleSheet = textBody_styleSheet;
+						menuItem_mc.sectionListItem_tx.autoSize=true;
+	
+						menuItem_mc._visible = true;
+						//menuItem_mc.sectionListItem_tx.border = true;
+						////////////////////////////////
+	
+						var myArray2:Array = myArray[i].childNodes;
+						for (j in myArray2){
+							if(myArray2[j].nodeName == "order"){
+								menuItem_mc.order= myArray2[j].firstChild.nodeValue;
+								menuItem_mc._x=leftBase;
+								menuItem_mc._y=topBase+15*menuItem_mc.order;
+								menuItem_mc.tween(["_alpha"],[100],duration,"easeOutSine");
+							}
+							else if(myArray2[j].nodeName == "title"){
+								menuItem_mc.title= myArray2[j].firstChild.nodeValue;
+								menuItem_mc.sectionListItem_tx.htmlText = menuItem_mc.title;
+							}
+							else if(myArray2[j].nodeName == "deepLink"){
+								menuItem_mc.deepLink= myArray2[j].firstChild.nodeValue;
+							}
+							else if(myArray2[j].nodeName == "textURL"){
+								menuItem_mc.textURL= myArray2[j].firstChild.nodeValue;
+							}
+							else if(myArray2[j].nodeName == "sectionDataURL"){
+								menuItem_mc.sectionDataURL= myArray2[j].firstChild.nodeValue;
+							}
+							else if(myArray2[j].nodeName == "menuItemURL"){
+								menuItem_mc.menuItemURL= myArray2[j].firstChild.nodeValue;
+							}
+							else if(myArray2[j].nodeName == "launchURL"){
+								menuItem_mc.launchURL= true;
+							}
+							else if(myArray2[j].nodeName == "image"){
+								menuItem_mc.imageURL= myArray2[j].firstChild.nodeValue;
+							}
+							else{
+								trace(">> trouble parsing templateB "+myArray2[j].nodeName);
+							}
+						}
+						//What to do when the menu item is clicked
+						menuItem_mc.onRelease= function(){
 
-					menuItem_mc._visible = true;
-					menuItem_mc.sectionListItem_tx.border = true;
-					////////////////////////////////
+							//Load the deepLink 
+							ExternalInterface.call("jsUpdateLocation",deepLink,2);
 
-					var myArray2:Array = myArray[i].childNodes;
-					for (j in myArray2){
-						if(myArray2[j].nodeName == "order"){
-							menuItem_mc.order= myArray2[j].firstChild.nodeValue;
-							menuItem_mc._x=leftBase;
-							menuItem_mc._y=topBase+15*menuItem_mc.order;
-							menuItem_mc.tween(["_alpha"],[100],duration,"easeOutSine");
-						}
-						else if(myArray2[j].nodeName == "title"){
-							menuItem_mc.title= myArray2[j].firstChild.nodeValue;
-							menuItem_mc.sectionListItem_tx.htmlText = menuItem_mc.title;
-						}
-						else if(myArray2[j].nodeName == "deepLink"){
-							menuItem_mc.deepLink= myArray2[j].firstChild.nodeValue;
-						}
-						else if(myArray2[j].nodeName == "textURL"){
-							menuItem_mc.textURL= myArray2[j].firstChild.nodeValue;
-						}
-						else if(myArray2[j].nodeName == "sectionDataURL"){
-							menuItem_mc.sectionDataURL= myArray2[j].firstChild.nodeValue;
-						}
-						else if(myArray2[j].nodeName == "menuItemURL"){
-							menuItem_mc.menuItemURL= myArray2[j].firstChild.nodeValue;
-						}
-						else if(myArray2[j].nodeName == "launchURL"){
-							menuItem_mc.launchURL= true;
-						}
-						else if(myArray2[j].nodeName == "image"){
-							menuItem_mc.imageURL= myArray2[j].firstChild.nodeValue;
-						}
-						else{
-							trace(">> trouble parsing templateB "+myArray2[j].nodeName);
-						}
-					}
-					//What to do when the menu item is clicked
-					menuItem_mc.onRelease= function(){
-						//Load the section details
-						if(this.title != ""){
-							loadHTMLText(sectionTitle_mc,sectionTitle_mc.sectionTitle_tx,this.title,true,duration);
-						}
-						else{
-							loadHTMLText(sectionTitle_mc,sectionTitle_mc.sectionTitle_tx,"",true,duration);
-						}
-
-						if(this.sectionDataURL != ""){
-							//trace(">> loading this sectionData "+this.sectionDataURL);
-							loadHTMLURL(sectionData_mc,sectionData_mc.sectionData_tx,this.sectionDataURL,duration);
-						}
-						else{
-							loadHTMLText(sectionData_mc,sectionData_mc.sectionData_tx,"",true,duration);
-						}
-
-						//Load the text
-						if(this.textURL != ""){
-							//trace(">> loading this textBody "+this.textURL);
-							loadHTMLURL(textBody_mc,textBody_mc.textBody_tx,this.textURL,duration);
-						}
-						else{
-							loadHTMLText(textBody_mc,textBody_mc.textBody_tx,"",true,duration);
-						}
-
-						//Load the image
-						if(this.imageURL != ""){
-							var loadListener:Object = new Object();
-
-							loadListener.onLoadComplete = function(target_mc:MovieClip, httpStatus:Number):Void {
-								target_mc._visible= true;
-								target_mc.tween("_alpha",100,duration,"linear");
+							//Load the section details
+							if(this.title != ""){
+								loadHTMLText(sectionTitle_mc,sectionTitle_mc.sectionTitle_tx,this.title,true,duration);
+							}
+							else{
+								loadHTMLText(sectionTitle_mc,sectionTitle_mc.sectionTitle_tx,"",true,duration);
 							}
 	
-							loadListener.onLoadInit = function(target_mc:MovieClip):Void {
-								var myDropFilter = new flash.filters.DropShadowFilter();
-								myDropFilter.distance = 0;
-								myDropFilter.inner = true;
-								var myFilters:Array = target_mc.filters;
-								myFilters.push(myDropFilter);
-								target_mc.filters = myFilters;
+							if(this.sectionDataURL != ""){
+								//trace(">> loading this sectionData "+this.sectionDataURL);
+								loadHTMLURL(this.sectionDataURL,duration,sectionData_mc,sectionData_mc.sectionData_tx);
+							}
+							else{
+								loadHTMLText(sectionData_mc,sectionData_mc.sectionData_tx,"",true,duration);
 							}
 	
-							var mcLoader1:MovieClipLoader = new MovieClipLoader();
-							mcLoader1.addListener(loadListener);
-
-							sectionImage_mc.tween("_alpha",0,duration,"linear");
-							sectionTitle_mc.tween("_alpha",0,duration,"linear");
-							sectionData_mc.tween("_alpha",0,duration,"linear");
-
-
-							var foo=this.imageURL;
-							lightFusePayload(duration,function(){
-									sectionImage_mc._x=leftBase+menuWidth+buffer;
-									sectionImage_mc._y=topBase;
-
+							//Load the text
+							if(this.textURL != ""){
+								//trace(">> loading this textBody "+this.textURL);
+								loadHTMLURL(this.textURL,duration,textBody_mc,textBody_mc.textBody_tx);
+							}
+							else{
+								loadHTMLText(textBody_mc,textBody_mc.textBody_tx,"",true,duration);
+							}
+	
+							//Load the image
+							if(this.imageURL != ""){
+								var loadListener:Object = new Object();
+	
+								loadListener.onLoadComplete = function(target_mc:MovieClip, httpStatus:Number):Void {
+									target_mc._visible= true;
+									target_mc.tween("_alpha",100,duration,"linear");
+								}
+		
+								loadListener.onLoadInit = function(target_mc:MovieClip):Void {
+									var myDropFilter = new flash.filters.DropShadowFilter();
+									myDropFilter.distance = 0;
+									myDropFilter.inner = true;
+									var myFilters:Array = target_mc.filters;
+									myFilters.push(myDropFilter);
+									target_mc.filters = myFilters;
+								}
+		
+								var mcLoader1:MovieClipLoader = new MovieClipLoader();
+								mcLoader1.addListener(loadListener);
+	
+								sectionImage_mc.tween("_alpha",0,duration,"linear");
+								sectionTitle_mc.tween("_alpha",0,duration,"linear");
+								sectionData_mc.tween("_alpha",0,duration,"linear");
+	
+	
+								var foo=this.imageURL;
+								lightFusePayload(duration,function(){
+										sectionImage_mc._x=leftBase+menuWidth+buffer;
+										sectionImage_mc._y=topBase;
+	
+										//Position title
+										sectionTitle_mc._x=leftBase+menuWidth+buffer;
+										sectionTitle_mc._y=topBase+sectionImage_mc._height;
+										sectionData_mc._x=leftBase+menuWidth+buffer;
+										sectionData_mc._y=topBase+sectionImage_mc._height+sectionTitle_mc._height;
+										sectionData_mc.sectionData_tx._height=textBody_mc._height-sectionTitle_mc._height-sectionImage_mc._height;
+										mcLoader1.loadClip(foo,sectionImage_mc);
+										trace(">>loading image "+foo);
+										});
+							}
+							else{
+								sectionImage_mc.tween("_alpha",0,duration,"linear");
+								sectionTitle_mc.tween("_alpha",0,duration,"linear");
+								sectionData_mc.tween("_alpha",0,duration,"linear");
+	
+								lightFusePayload(duration,function(){
+									sectionImage_mc._visible = false;
 									//Position title
 									sectionTitle_mc._x=leftBase+menuWidth+buffer;
-									sectionTitle_mc._y=topBase+sectionImage_mc._height;
+									sectionTitle_mc._y=topBase;
 									sectionData_mc._x=leftBase+menuWidth+buffer;
-									sectionData_mc._y=topBase+sectionImage_mc._height+sectionTitle_mc._height;
-									sectionData_mc.sectionData_tx._height=textBody_mc._height-sectionTitle_mc._height-sectionImage_mc._height;
-									mcLoader1.loadClip(foo,sectionImage_mc);
-									trace(">>loading image "+foo);
-									});
+									sectionData_mc._y=topBase+sectionTitle_mc._height;
+									sectionData_mc.sectionData_tx._height=textBody_mc._height-sectionTitle_mc._height;
+									sectionImage_mc.tween("_alpha",100,duration,"linear");
+									sectionTitle_mc.tween("_alpha",100,duration,"linear");
+									sectionData_mc.tween("_alpha",100,duration,"linear");
+	
+								});
+							}
+	
 						}
-						else{
-							sectionImage_mc.tween("_alpha",0,duration,"linear");
-							sectionTitle_mc.tween("_alpha",0,duration,"linear");
-							sectionData_mc.tween("_alpha",0,duration,"linear");
-
-							lightFusePayload(duration,function(){
-								sectionImage_mc._visible = false;
-								//Position title
-								sectionTitle_mc._x=leftBase+menuWidth+buffer;
-								sectionTitle_mc._y=topBase;
-								sectionData_mc._x=leftBase+menuWidth+buffer;
-								sectionData_mc._y=topBase+sectionTitle_mc._height;
-								sectionData_mc.sectionData_tx._height=textBody_mc._height-sectionTitle_mc._height;
-								sectionImage_mc.tween("_alpha",100,duration,"linear");
-								sectionTitle_mc.tween("_alpha",100,duration,"linear");
-								sectionData_mc.tween("_alpha",100,duration,"linear");
-
-							});
-						}
-
-					}
-							
-
-					projects[menuItem_mc.order] = menuItem_mc;
-				}
-			}
-			/*
-			for(i in projects){
-				sectionListItem_mc1.sectionListItem_tx.htmlText += projects[i].menuItem;
-			}*/
-
-			/*Deal with deep linking*/
-			var launched:Boolean = false;
-
-			if(deepLink != undefined){
-				for(i in projects){
-					if((projects[i].deepLink == deepLink)&&(launched == false)){
-						projects[i].onRelease();
-						launched = true;
-						trace(">> launching projects with deepLink "+deepLink);
+								
+	
+						projects[menuItem_mc.order] = menuItem_mc;
 					}
 				}
-			}
 
-			if(launched == false){
-				for(i in projects){
-					if((projects[i].launchURL == true)&&(launched == false)){
-						projects[i].onRelease();
-						launched = true;
-						trace(">> launching projects without deepLink " + deepLink);
+				/*Deal with deep linking*/
+				var launched:Boolean = false;
+
+				if(deepLink != undefined){
+					for(i in projects){
+						if((projects[i].deepLink == deepLink)&&(launched == false)){
+							projects[i].onRelease();
+							launched = true;
+							trace(">> launching projects with deepLink "+deepLink);
+						}
+					}
+				}
+	
+				if(launched == false){
+					for(i in projects){
+						if((projects[i].launchURL == true)&&(launched == false)){
+							projects[i].onRelease();
+							launched = true;
+							trace(">> launching projects without deepLink " + deepLink);
+						}
 					}
 				}
 			}
 		}
-/*
-		loadHTMLText(textBody_mc,textBody_mc.textBody_tx,src,false,duration);
-
-		//Cause scrollBar1._x is in the middle of the scrollbar somewhere
-		var scrollBar1Pad:Number = 18;
-		var gap = (((scrollBar1_mc._x-scrollBar1Pad)-BGBodyMasked_mc._x)/3);
-		var image01_pad= (gap - image01_mc._width)/2; 
-		image01_mc._x= BGBodyMasked_mc._x+0*gap + image01_pad;
-		image01_mc._y=underSkyline_y;
-		image01_mc._alpha=0;
-		image01_mc._visible=true;
-		var image02_pad= (gap - image02_mc._width)/2; 
-		image02_mc._x= BGBodyMasked_mc._x+1*gap + image02_pad;
-		image02_mc._y=underSkyline_y;
-		image02_mc._alpha=0;
-		image02_mc._visible=true;
-		var image03_pad= (gap - image03_mc._width)/2; 
-		image03_mc._x= BGBodyMasked_mc._x+2*gap + image03_pad;
-		image03_mc._y=underSkyline_y;
-		image03_mc._alpha=0;
-		image03_mc._visible=true;
-
-
-*/
+		document.load(URL);
 	}
-	document.load(URL);
+	/*If projects was already loaded */
+	else{
+		for(i in projects){
+			projects[i]._visible = true;
+			projects[i].tween("_alpha",100,duration,"linear");
+		}
+		for(i in projects){
+			if(projects[i].launchURL == true){
+				projects[i].onRelease();
+			}
+		}
+	}
 }
 
 function clearTemplateB(title:String,URL:String)
@@ -1555,10 +1567,15 @@ var duration = 0.5;
 	sectionImage_mc.tween("_alpha",0,duration,"linear");
 	sectionTitle_mc.tween("_alpha",0,duration,"linear");
 	sectionData_mc.tween("_alpha",0,duration,"linear");
-	sectionListItem_mc1.tween("_alpha",0,duration,"linear");
 				
 	dividerVert_mc.tween("_alpha",0,duration,"linear");
-	dividerVert_mc.tween("_alpha",0,duration,"linear");
+
+	for(i in projects){
+		projects[i].tween("_alpha",0,duration,"linear");
+		lightFusePayload(duration,function(){
+				projects[i]._visible = false;
+		});
+	}
 
 }
 
@@ -1669,9 +1686,15 @@ var duration = 0.5;
 
 }
 
+var templateSALoading:Number = 0;
 function templateSA(title,URL,bomb)
 {
 var document:XML = new XML();
+	//Wait for other instances to 
+	while(templateSALoading != 0 ){
+		trace(">> waiting"+1+1);
+	};
+	templateSALoading = 1;
 
 	loadSidebarTitle(title,false,0.5);
 	
@@ -1724,6 +1747,7 @@ var document:XML = new XML();
 					//trace(">> "+runningText);
 				}
 				loadSidebarText(runningText,false,0.5);
+				templateSALoading = 2;
 
 			}
 			else{
@@ -1739,6 +1763,19 @@ var document:XML = new XML();
 	}
 	document.load(deSandboxURL(URL));
 }
+
+
+function clearTemplateSA()
+{
+	while(templateSALoading != 2){
+		trace(">> waiting"+1+1);
+	}
+	loadSidebarTitle("",true,0.5);
+	loadSidebarText("",true,0.5);
+
+	templateSALoading = 0;
+}
+
 
 function dispatchTemplate(type:String,title:String,URL:String,bomb:MovieClip,deepLink:String,duration:Number)
 {
@@ -1764,10 +1801,10 @@ function undispatchTemplate(type:String)
 {
 		trace(">> Undispatch Template "+type);
 		if(type=="A"){
-			clearTemplateA(title,URL);
+			clearTemplateA();
 		}
 		else if(type=="SA"){
-			clearTemplateSA(title,URL);
+			clearTemplateSA();
 		}
 		else if(type=="B"){
 			clearTemplateB(title,URL);
