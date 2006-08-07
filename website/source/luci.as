@@ -181,9 +181,12 @@ function clearAndResetPage()
 clearAndResetPage();
 
 
-function sidebarShrink(bomb:MovieClip)
+function sidebarShrink(bomb:MovieClip,duration:Number)
 {
-var duration:Number=1.0;		
+
+	if(duration == undefined){
+		duration = 1.0;
+	}
 
 
 	if(isSidebarShrunk != true){
@@ -527,6 +530,9 @@ function initialBuildCenterPane(bomb:MovieClip,d:Number)
 	lightFuseBomb(duration, bomb);
 }
 
+
+//ExternalInterface.call("jsDebug","Adding callback was successful : "+ExternalInterface.addCallback("animateOpen", this, animateOpen));
+ExternalInterface.addCallback("animateOpen", this, animateOpen);
 // site opening animation
 function animateOpen(deepLink:String)
 {
@@ -597,7 +603,6 @@ function animateOpen(deepLink:String)
 	}), duration);
 }
 
-ExternalInterface.addCallback("animateOpen", this, animateOpen);
 
 
 function finalBuildMenu(bomb:MovieClip)
@@ -648,6 +653,8 @@ function finalBuildOrangeSidebar(bomb:MovieClip)
 
 function finalBuild(bomb:MovieClip)
 {
+	
+	clearCurrentTemplate.clearFunction();
 	finalBuildOrangeSidebar();			
 	finalBuildMenu();
 	finalBuildCenterPane(loadBomb(function(){
@@ -679,6 +686,7 @@ function deSandboxURL(URL:String):String
 {
 	if(launchFromWebsite == true){
 		if(URL.indexOf("myProxy")== -1){
+			//ExternalInterface.call("jsDebug","deSandbox returned "+"http://luci.ics.uci.edu/myProxy.php?"+URL);
 			return("http://luci.ics.uci.edu/myProxy.php?"+URL);
 		}
 	}
@@ -693,6 +701,12 @@ function jumpToURL(URL:String)
 	finalBuild(loadBomb(function(){
 		getURL(URL,"_self");
 	}));
+}
+
+function jumpToExternalURL(URL:String)
+{
+	trace(">> jumping to "+URL);
+	getURL(URL,"_blank");
 }
 
 
@@ -966,7 +980,7 @@ function loadMenuItems(url:String,bomb:MovieClip)
 	
 													var function03=function(){
 														mainTemplateFunction();
-														sidebarExpand(loadBomb(function04));
+														sidebarExpand(loadBomb(function04),duration);
 													};
 
 													//Make this process atomic
@@ -980,7 +994,7 @@ function loadMenuItems(url:String,bomb:MovieClip)
 													var function03=function(){
 														bodyExpand(loadBomb(mainTemplateFunction));
 													}
-													sidebarShrink(loadBomb(function03));
+													sidebarShrink(loadBomb(function03),duration);
 												}
 										};
 								}
@@ -1288,17 +1302,17 @@ var document:XML = new XML();
 		var mcLoader1:MovieClipLoader = new MovieClipLoader();
 		mcLoader1.addListener(loadListener);
 		_global.loadingTemplates++;
-		mcLoader1.loadClip("websiteContent/overview/overviewPhoto03.jpg",image01_mc);
+		mcLoader1.loadClip("http://luci.ics.uci.edu/websiteContent/overview/overviewPhoto03.jpg",image01_mc);
 
 		var mcLoader2:MovieClipLoader = new MovieClipLoader();
 		_global.loadingTemplates++;
 		mcLoader2.addListener(loadListener);
-		mcLoader2.loadClip("websiteContent/overview/overviewPhoto02.jpg",image02_mc);
+		mcLoader2.loadClip("http://luci.ics.uci.edu/websiteContent/overview/overviewPhoto02.jpg",image02_mc);
 
 		var mcLoader3:MovieClipLoader = new MovieClipLoader();
 		_global.loadingTemplates++;
 		mcLoader3.addListener(loadListener);
-		mcLoader3.loadClip("websiteContent/overview/overviewPhoto01.jpg",image03_mc);
+		mcLoader3.loadClip("http://luci.ics.uci.edu/websiteContent/overview/overviewPhoto01.jpg",image03_mc);
 
 		//This clears the lock for the whole template, individual loads have their own locks
 		_global.loadingTemplates--;
@@ -1334,10 +1348,6 @@ function templateB(title:String,URL:String,bomb:MovieClip,deepLink:String,durati
 
 	var topBase:Number=80;
 
-	if(deepLink != undefined){
-		// Update the browser
-		ExternalInterface.call("jsUpdateLocation", deepLink,2);
-	}
 	if(duration == undefined){
 		duration = 1.0;
 	}
@@ -1396,7 +1406,8 @@ function templateB(title:String,URL:String,bomb:MovieClip,deepLink:String,durati
 						menuItem_mc.textURL = "";
 						menuItem_mc.sectionDataURL = "";
 						menuItem_mc.launchURL = false;
-						menuItem_mc.imageURL = "";
+						menuItem_mc.imageLinkURL = "";
+						menuItem_mc.imageSourceURL = "";
 						menuItem_mc.uniqueID = uniqueID++;
 						menuItem_mc._alpha = 0;
 						menuItem_mc.sectionListItem_tx._x=0;
@@ -1442,8 +1453,11 @@ function templateB(title:String,URL:String,bomb:MovieClip,deepLink:String,durati
 							else if(myArray2[j].nodeName == "launchURL"){
 								menuItem_mc.launchURL= true;
 							}
-							else if(myArray2[j].nodeName == "image"){
-								menuItem_mc.imageURL= myArray2[j].firstChild.nodeValue;
+							else if(myArray2[j].nodeName == "imageSourceURL"){
+								menuItem_mc.imageSourceURL= myArray2[j].firstChild.nodeValue;
+							}
+							else if(myArray2[j].nodeName == "imageLinkURL"){
+								menuItem_mc.imageLinkURL= myArray2[j].firstChild.nodeValue;
 							}
 							else{
 								trace(">> trouble parsing templateB "+myArray2[j].nodeName);
@@ -1453,7 +1467,7 @@ function templateB(title:String,URL:String,bomb:MovieClip,deepLink:String,durati
 						menuItem_mc.onRelease= function(){
 
 							//Load the deepLink 
-							ExternalInterface.call("jsUpdateLocation",deepLink,2);
+							ExternalInterface.call("jsUpdateLocation",this.deepLink,2);
 
 							//Load the section details
 							if(this.title != ""){
@@ -1481,8 +1495,13 @@ function templateB(title:String,URL:String,bomb:MovieClip,deepLink:String,durati
 							}
 	
 							//Load the image
-							if(this.imageURL != ""){
+							if(this.imageSourceURL != ""){
+
+								var foo=this.imageSourceURL;
+								var bar=this.imageLinkURL;
+
 								var loadListener:Object = new Object();
+								
 	
 								loadListener.onLoadComplete = function(target_mc:MovieClip, httpStatus:Number):Void {
 									target_mc._visible= true;
@@ -1496,29 +1515,35 @@ function templateB(title:String,URL:String,bomb:MovieClip,deepLink:String,durati
 									var myFilters:Array = target_mc.filters;
 									myFilters.push(myDropFilter);
 									target_mc.filters = myFilters;
+
+									if(bar == ""){
+										target_mc.onRelease=undefined;
+									}
+									else{
+										target_mc.onRelease=function(){jumpToExternalURL(deSandboxURL(bar));};
+									}
+
+									//Position title
+									sectionTitle_mc._x=leftBase+menuWidth+buffer;
+									sectionTitle_mc._y=topBase+sectionImage_mc._height;
+									sectionData_mc._x=leftBase+menuWidth+buffer;
+									sectionData_mc._y=topBase+sectionImage_mc._height+sectionTitle_mc._height;
+									sectionData_mc.sectionData_tx._height=textBody_mc._height-sectionTitle_mc._height-sectionImage_mc._height;
 								}
 		
 								var mcLoader1:MovieClipLoader = new MovieClipLoader();
 								mcLoader1.addListener(loadListener);
 	
+								//Fade out existing imagery and text
 								sectionImage_mc.tween("_alpha",0,duration,"linear");
 								sectionTitle_mc.tween("_alpha",0,duration,"linear");
 								sectionData_mc.tween("_alpha",0,duration,"linear");
-	
-	
-								var foo=this.imageURL;
+
 								lightFusePayload(duration,function(){
 										sectionImage_mc._x=leftBase+menuWidth+buffer;
 										sectionImage_mc._y=topBase;
-	
-										//Position title
-										sectionTitle_mc._x=leftBase+menuWidth+buffer;
-										sectionTitle_mc._y=topBase+sectionImage_mc._height;
-										sectionData_mc._x=leftBase+menuWidth+buffer;
-										sectionData_mc._y=topBase+sectionImage_mc._height+sectionTitle_mc._height;
-										sectionData_mc.sectionData_tx._height=textBody_mc._height-sectionTitle_mc._height-sectionImage_mc._height;
-										mcLoader1.loadClip(foo,sectionImage_mc);
-										trace(">>loading image "+foo);
+
+										mcLoader1.loadClip(deSandboxURL(foo),sectionImage_mc);
 										});
 							}
 							else{
@@ -1688,15 +1713,15 @@ var duration = 0.5;
 
 		var mcLoader1:MovieClipLoader = new MovieClipLoader();
 		mcLoader1.addListener(loadListener);
-		mcLoader1.loadClip("websiteContent/overview/overviewPhoto03.jpg",image01_mc);
+		mcLoader1.loadClip("http://luci.ics.uci.edu/websiteContent/overview/overviewPhoto03.jpg",image01_mc);
 
 		var mcLoader2:MovieClipLoader = new MovieClipLoader();
 		mcLoader2.addListener(loadListener);
-		mcLoader2.loadClip("websiteContent/overview/overviewPhoto02.jpg",image02_mc);
+		mcLoader2.loadClip("http://luci.ics.uci.edu/websiteContent/overview/overviewPhoto02.jpg",image02_mc);
 
 		var mcLoader3:MovieClipLoader = new MovieClipLoader();
 		mcLoader3.addListener(loadListener);
-		mcLoader3.loadClip("websiteContent/overview/overviewPhoto01.jpg",image03_mc);
+		mcLoader3.loadClip("http://luci.ics.uci.edu/websiteContent/overview/overviewPhoto01.jpg",image03_mc);
 
 	}
 	//document.load(URL);

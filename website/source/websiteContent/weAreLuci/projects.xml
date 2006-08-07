@@ -2,17 +2,19 @@
 	<project>
 		<order>0</order>
 		<title>Nomatic*Gaim</title>
-		<image>websiteContent/weAreLuci/nomaticGaim/laptopUserInHall.jpg</image>
+		<imageSourceURL>http://luci.ics.uci.edu/websiteContent/weAreLuci/nomaticGaim/laptopUserInHall.jpg</imageSourceURL>
+		<imageLinkURL>http://www.flickr.com/photos/shapeshift/85220007/</imageLinkURL>
 		<deepLink>nomaticGaim</deepLink>
-		<sectionDataURL>websiteContent/weAreLuci/nomaticGaim/menuItems.txt</sectionDataURL>
-		<textURL>websiteContent/weAreLuci/nomaticGaim/overview.txt</textURL>
+		<sectionDataURL>http://luci.ics.uci.edu/websiteContent/weAreLuci/nomaticGaim/menuItems.txt</sectionDataURL>
+		<textURL>http://luci.ics.uci.edu/websiteContent/weAreLuci/nomaticGaim/overview.txt</textURL>
 		<launchURL></launchURL>
 	</project>
-	<project>
+<!--	<project>
 		<order>1</order>
 		<title>Nomatic*AID</title>
 		<deepLink>nomaticAID</deepLink>
-		<textURL>websiteContent/weAreLuci/tempText.txt</textURL>
-		<sectionDataURL>websiteContent/weAreLuci/tempText.txt</sectionDataURL>
+		<textURL>http://luci.ics.uci.edu/websiteContent/weAreLuci/tempText.txt</textURL>
+		<sectionDataURL>http://luci.ics.uci.edu/websiteContent/weAreLuci/tempText.txt</sectionDataURL>
 	</project>
+-->
 </projects>

@@ -9,28 +9,27 @@ function jsSetLocation(x) {
 
 function jsDebug(x) {
 	var f = document.getElementById('textField');
-	f.value = "Debug called with: "+x;
+	f.value = "Debug: "+x;
 }
 
 function jsUpdateLocation(x,level) {
-	var new = "";
+	var newThing = "";
 	var y = window.location.hash.substring(1);
 
-	var f = document.getElementById('textField')
-	f.value = "Called with: "+x + " " + level;
+	jsDebug("jsUpdateLocation called with: "+x + " " + level);
 	while(level > 1){
 		end = y.indexOf("&");
 		if(end != -1){
-			new = new + y.substring(0,end) + "&"; 
+			newThing = newThing + y.substring(0,end) + "&"; 
 			y = y.substring(end+1);
 			level = level -1;
 		}
 		else{
-			new = new + y + "&";
+			newThing = newThing + y + "&";
 			level = 1;
 		}
 	}
-    window.location.hash = new + x;
+    window.location.hash = newThing + x;
 }
 
 function checkURLParameters() {
@@ -40,7 +39,6 @@ function checkURLParameters() {
 
 window.onload = function(){
 	//callMovie().animateOpen(checkURLParameters());
-	jsDebug("Onload called");
 	setTimeout("callMovie().animateOpen(checkURLParameters());",500);
 }
 

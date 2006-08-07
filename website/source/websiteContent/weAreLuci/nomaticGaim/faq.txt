@@ -1,1 +1,5 @@
-This is the faq list.
+<b>Nomatic*Gaim : Frequently Asked Questions</b>
+<p>
+None yet.
+</p>
+
