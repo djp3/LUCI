@@ -174,7 +174,6 @@ function clearAndResetPage()
 	isSidebarShrunk = true;
 	clearCurrentTemplate = new Object();
 	clearCurrentTemplate.clearFunction= function(){trace(">> No template to clear");};
-	clearCurrentTemplate.whichMenuItem= new MovieClip();
 
 	turnOffActiveMenuStates();
 };
@@ -735,10 +734,41 @@ var moveDuration:Number;
 
 
 var mainMenu:Array = new Array();
+function disableAllMenuItems()
+{
+	for (i in mainMenu){
+		mainMenu[i].enabled=false;
+	}
+}
+
+function enableAllMenuItems()
+{
+	for (i in mainMenu){
+		mainMenu[i].enabled=true;
+	}
+}
+
+function enableAllButOneMenuItems()
+{
+	enableAllMenuItems();
+	clearCurrentTemplate.dontEnableMe.enabled=false;
+}
+
+function possiblyEnableAllButOneMenuItems()
+{
+	_global.loadingTemplates--;
+	if(_global.loadingTemplates == 0){
+		enableAllButOneMenuItems();
+	}
+	else{
+		trace(">> _global.loadingTemplates "+_global.loadingTemplates);
+	}
+}
 
 function loadMenuItems(url:String,bomb:MovieClip)
 {
-	if(mainMenu == undefined){
+	trace(">> loaded Menu Items "+mainMenu.length);
+	if(mainMenu.length == 0){
 
 		var menuItems:XML = new XML();
 
@@ -880,7 +910,10 @@ function loadMenuItems(url:String,bomb:MovieClip)
 								if(clickable){
 										tempMenuItem_mc.menuItemText_tx.textColor=menuTextFormatInactive;
 										tempMenuItem_mc.onRelease=function(deepLinkEntry:String,duration:Number){
-												trace(">> clicked on:"+ this.templateTitle);
+												trace(">> clicked on:"+ this.templateTitle +" loadingTemplates "+_global.loadingTemplates);
+
+												disableAllMenuItems();
+
 	
 												//update the web page address
 	    										ExternalInterface.call("jsSetLocation", this.deepLink);
@@ -888,15 +921,7 @@ function loadMenuItems(url:String,bomb:MovieClip)
 												////////////////////////////////////////////////////
 												//Set up to clear last function and then us later
 												////////////////////////////////////////////////////
-												var temp_mc=clearCurrentTemplate.whichMenuItem;
-												var tempFunction:Function = clearCurrentTemplate.clearFunction;
-	
-	when we last left our hero he was trying to get the thing to not run all
-	over itself with menu buttons clicked lots of times
-
-												// Make this menu item not clickable
-												this.enabled=false;
-												clearCurrentTemplate.whichMenuItem = this;
+												clearCurrentTemplate.clearFunction();
 	
 												var xx = this.templateType;
 												var yy:Boolean = this.sidebar;
@@ -907,9 +932,7 @@ function loadMenuItems(url:String,bomb:MovieClip)
 													}
 													undispatchTemplate(xx);
 												};
-	
-												tempFunction();
-												temp_mc.enabled=true;
+												clearCurrentTemplate.dontEnableMe=this;
 												////////////////////////////////////////////////////
 	
 	
@@ -937,15 +960,20 @@ function loadMenuItems(url:String,bomb:MovieClip)
 													var y = this.sidebarTemplateTitle;
 													var z = this.sidebarTemplateURL;
 													var function04= function(){
-														trace(">>Dispatching sidebar then template "+a);
 														dispatchTemplate(x,y,z,undefined,deepLinkEntry,duration);
+														possiblyEnableAllButOneMenuItems();
 													};
 	
 													var function03=function(){
 														mainTemplateFunction();
 														sidebarExpand(loadBomb(function04));
 													};
-	
+
+													//Make this process atomic
+													//before a new choice can be
+													//made
+													_global.loadingTemplates++;
+
 													bodyShrink(loadBomb(function03));
 												}
 												else{
@@ -1176,16 +1204,16 @@ function unblindWhite(bomb:MovieClip){
 }
 
 
-var templateALoading:Boolean = false;
 function templateA(title:String,URL:String,bomb:MovieClip,deepLink:String,duration:Number)
 {
 var document:XML = new XML();
 
-	templateALoading = true;
-	trace(">> templateA deepLink "+deepLink);
 	if(deepLink != undefined){
 		// Update the browser
 		ExternalInterface.call("jsUpdateLocation", deepLink,2);
+	}
+	else{
+		ExternalInterface.call("jsDebug","templateA called with "+deepLink);
 	}
 	if(duration ==undefined){
 		duration = 1.0;
@@ -1243,7 +1271,8 @@ var document:XML = new XML();
 					jumpToURL("http://www.flickr.com/photos/julianbleecker/87099551/");
 			}
 			triggerBomb(bomb);
-			templateALoading = false;
+
+			possiblyEnableAllButOneMenuItems();
 		}
 
 		loadListener.onLoadInit = function(target_mc:MovieClip):Void {
@@ -1253,19 +1282,26 @@ var document:XML = new XML();
 			var myFilters:Array = target_mc.filters;
 			myFilters.push(myDropFilter);
 			target_mc.filters = myFilters;
+
 		}
 
 		var mcLoader1:MovieClipLoader = new MovieClipLoader();
 		mcLoader1.addListener(loadListener);
+		_global.loadingTemplates++;
 		mcLoader1.loadClip("websiteContent/overview/overviewPhoto03.jpg",image01_mc);
 
 		var mcLoader2:MovieClipLoader = new MovieClipLoader();
+		_global.loadingTemplates++;
 		mcLoader2.addListener(loadListener);
 		mcLoader2.loadClip("websiteContent/overview/overviewPhoto02.jpg",image02_mc);
 
 		var mcLoader3:MovieClipLoader = new MovieClipLoader();
+		_global.loadingTemplates++;
 		mcLoader3.addListener(loadListener);
 		mcLoader3.loadClip("websiteContent/overview/overviewPhoto01.jpg",image03_mc);
+
+		//This clears the lock for the whole template, individual loads have their own locks
+		_global.loadingTemplates--;
 
 	}
 	document.load(URL);
@@ -1275,8 +1311,6 @@ function clearTemplateA()
 {
 var duration:Number = 0.5;
 
-	while(templateALoading){
-	}
 	titleBody_mc.tween("_alpha",0,duration,"linear");
 	textBody_mc.tween("_alpha",0,duration,"linear");
 	lightFusePayload(duration,function(){
@@ -1299,8 +1333,6 @@ function templateB(title:String,URL:String,bomb:MovieClip,deepLink:String,durati
 	var sectionDataWidth:Number=155;
 
 	var topBase:Number=80;
-
-	trace(">> templateB deepLink "+deepLink);
 
 	if(deepLink != undefined){
 		// Update the browser
@@ -1539,6 +1571,7 @@ function templateB(title:String,URL:String,bomb:MovieClip,deepLink:String,durati
 					}
 				}
 			}
+			possiblyEnableAllButOneMenuItems();
 		}
 		document.load(URL);
 	}
@@ -1553,6 +1586,7 @@ function templateB(title:String,URL:String,bomb:MovieClip,deepLink:String,durati
 				projects[i].onRelease();
 			}
 		}
+		possiblyEnableAllButOneMenuItems();
 	}
 }
 
@@ -1686,15 +1720,9 @@ var duration = 0.5;
 
 }
 
-var templateSALoading:Number = 0;
 function templateSA(title,URL,bomb)
 {
 var document:XML = new XML();
-	//Wait for other instances to 
-	while(templateSALoading != 0 ){
-		trace(">> waiting"+1+1);
-	};
-	templateSALoading = 1;
 
 	loadSidebarTitle(title,false,0.5);
 	
@@ -1747,7 +1775,6 @@ var document:XML = new XML();
 					//trace(">> "+runningText);
 				}
 				loadSidebarText(runningText,false,0.5);
-				templateSALoading = 2;
 
 			}
 			else{
@@ -1757,8 +1784,9 @@ var document:XML = new XML();
 		else{
 			trace(">> Trouble loading XML in templateSA");
 		}
-
 		triggerBomb(bomb);
+
+		possiblyEnableAllButOneMenuItems();
 
 	}
 	document.load(deSandboxURL(URL));
@@ -1767,19 +1795,18 @@ var document:XML = new XML();
 
 function clearTemplateSA()
 {
-	while(templateSALoading != 2){
-		trace(">> waiting"+1+1);
-	}
 	loadSidebarTitle("",true,0.5);
 	loadSidebarText("",true,0.5);
 
-	templateSALoading = 0;
 }
 
 
+_global.loadingTemplates = 0;
+
 function dispatchTemplate(type:String,title:String,URL:String,bomb:MovieClip,deepLink:String,duration:Number)
 {
-		trace(">> Dispatch Template "+type+" "+title+" "+URL);
+		_global.loadingTemplates++;
+		trace(">> dispatching template "+type);
 		if(type=="A"){
 			templateA(title,URL,bomb,deepLink,duration);
 		}
@@ -1794,12 +1821,13 @@ function dispatchTemplate(type:String,title:String,URL:String,bomb:MovieClip,dee
 		}
 		else{
 			trace(">> Can't Dispatch This Template");
+			loadTemplates--;
 		}
 }
 
 function undispatchTemplate(type:String)
 {
-		trace(">> Undispatch Template "+type);
+		trace(">> Undispatching template "+type);
 		if(type=="A"){
 			clearTemplateA();
 		}

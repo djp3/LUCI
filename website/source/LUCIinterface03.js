@@ -7,9 +7,17 @@ function jsSetLocation(x) {
     window.location.hash = x;
 }
 
+function jsDebug(x) {
+	var f = document.getElementById('textField');
+	f.value = "Debug called with: "+x;
+}
+
 function jsUpdateLocation(x,level) {
 	var new = "";
 	var y = window.location.hash.substring(1);
+
+	var f = document.getElementById('textField')
+	f.value = "Called with: "+x + " " + level;
 	while(level > 1){
 		end = y.indexOf("&");
 		if(end != -1){
@@ -32,6 +40,7 @@ function checkURLParameters() {
 
 window.onload = function(){
 	//callMovie().animateOpen(checkURLParameters());
+	jsDebug("Onload called");
 	setTimeout("callMovie().animateOpen(checkURLParameters());",500);
 }
 
