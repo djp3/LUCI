@@ -312,7 +312,7 @@ function initialBuildOrangeSidebar(bomb:MovieClip,duration:Number)
 		var x:Number;
 
 		x= scrollBar2_mc.scrollThumb_mc._y;
-		x= _ymouse - x;
+		x= (_ymouse -scrollBar2_mc._y) - x;
 		textSidebar_mc.textSidebar_tx.onScroller(x);
 	}
 
@@ -320,14 +320,12 @@ function initialBuildOrangeSidebar(bomb:MovieClip,duration:Number)
 		{
 			var base:Number;
 			var step:Number;
-			var current:Number;
 
 			base = scrollBar2_mc.scrollUp_but._y+ scrollBar2_mc.scrollUp_but._height;
 			step = (scrollBar2_mc.scrollDown_but._y - base)/(textSidebar_mc.textSidebar_tx.maxscroll+1);
-			current = textSidebar_mc.textSidebar_tx.scroll;
 
 			if(typeof(delta) == typeof(0)){
-				var x:Number= textSidebar_mc.textSidebar_tx.scroll + delta/step;
+				var x:Number= textSidebar_mc.textSidebar_tx.scroll + Math.floor(delta/step);
 				if(x<1){
 					textSidebar_mc.textSidebar_tx.scroll = 1;
 				}
@@ -337,37 +335,28 @@ function initialBuildOrangeSidebar(bomb:MovieClip,duration:Number)
 				else{
 					textSidebar_mc.textSidebar_tx.scroll=x;
 				}
-				current = x;
 			}
 			else{
-				scrollBar2_mc.scrollThumb_mc.tween(["_y","_height"],[current*step+base,step],0.5,"easeOutSine");
+				var current:Number;
+				current = textSidebar_mc.textSidebar_tx.scroll;
+				scrollBar2_mc.scrollThumb_mc.tween(["_y"],[(current-1)*step+base],0.5,"easeOutSine");
 			}
 
-
-			if(textSidebar_mc.textSidebar_tx.scroll == 1){
+			if(textSidebar_mc.textSidebar_tx.maxscroll == 1){
 				scrollBar2_mc.scrollUp_but.enabled =false;
 	 			scrollBar2_mc.scrollUp_but._alpha=0;
-			}
-			else{
-				scrollBar2_mc.scrollUp_but.enabled =true;
-				scrollBar2_mc.scrollUp_but._alpha=100;
-			}
-			if(textSidebar_mc.textSidebar_tx.scroll == textSidebar_mc.textSidebar_tx.maxscroll) {
+				scrollBar2_mc.scrollThumb_mc._enabled=false;
+				scrollBar2_mc.scrollThumb_mc._alpha=0;
 				scrollBar2_mc.scrollDown_but.enabled =false;
 				scrollBar2_mc.scrollDown_but._alpha=0;
 			}
 			else{
-				scrollBar2_mc.scrollDown_but.enabled =true;
-				scrollBar2_mc.scrollDown_but._alpha=100;
-			}
-
-			if(textSidebar_mc.textSidebar_tx.maxscroll == 1){
-				scrollBar2_mc.scrollThumb_mc._enabled=false;
-				scrollBar2_mc.scrollThumb_mc._alpha=0;
-			}
-			else{
+				scrollBar2_mc.scrollUp_but.enabled =true;
+				scrollBar2_mc.scrollUp_but._alpha=100;
 				scrollBar2_mc.scrollThumb_mc._enabled=true;
 				scrollBar2_mc.scrollThumb_mc._alpha=100;
+				scrollBar2_mc.scrollDown_but.enabled =true;
+				scrollBar2_mc.scrollDown_but._alpha=100;
 			}
 	};
 
@@ -450,7 +439,7 @@ function initialBuildCenterPane(bomb:MovieClip,d:Number)
 		var x:Number;
 
 		x= scrollBar1_mc.scrollThumb_mc._y;
-		x= _ymouse - x;
+		x= (_ymouse -scrollBar1_mc._y) - x;
 		textBody_mc.textBody_tx.onScroller(x);
 	}
 
@@ -458,14 +447,12 @@ function initialBuildCenterPane(bomb:MovieClip,d:Number)
 		{
 			var base:Number;
 			var step:Number;
-			var current:Number;
 
 			base = scrollBar1_mc.scrollUp_but._y+ scrollBar1_mc.scrollUp_but._height;
 			step = (scrollBar1_mc.scrollDown_but._y - base)/(textBody_mc.textBody_tx.maxscroll+1);
-			current = textBody_mc.textBody_tx.scroll;
 
 			if(typeof(delta) == typeof(0)){
-				var x:Number= textBody_mc.textBody_tx.scroll + delta/step;
+				var x:Number = textBody_mc.textBody_tx.scroll + Math.floor(delta/step);
 				if(x<1){
 					textBody_mc.textBody_tx.scroll = 1;
 				}
@@ -475,37 +462,28 @@ function initialBuildCenterPane(bomb:MovieClip,d:Number)
 				else{
 					textBody_mc.textBody_tx.scroll=x;
 				}
-				current = x;
 			}
 			else{
-				scrollBar1_mc.scrollThumb_mc.tween(["_y","_height"],[current*step+base,step],0.5,"easeOutSine");
+				var current:Number;
+				current = textBody_mc.textBody_tx.scroll;
+				scrollBar1_mc.scrollThumb_mc.tween(["_y"],[(current-1)*step+base],0.5,"easeOutSine");
 			}
 
-
-			if(textBody_mc.textBody_tx.scroll == 1){
+			if(textBody_mc.textBody_tx.maxscroll == 1){
 				scrollBar1_mc.scrollUp_but.enabled =false;
 	 			scrollBar1_mc.scrollUp_but._alpha=0;
-			}
-			else{
-				scrollBar1_mc.scrollUp_but.enabled =true;
-				scrollBar1_mc.scrollUp_but._alpha=100;
-			}
-			if(textBody_mc.textBody_tx.scroll == textBody_mc.textBody_tx.maxscroll) {
+				scrollBar1_mc.scrollThumb_mc._enabled=false;
+				scrollBar1_mc.scrollThumb_mc._alpha=0;
 				scrollBar1_mc.scrollDown_but.enabled =false;
 				scrollBar1_mc.scrollDown_but._alpha=0;
 			}
 			else{
-				scrollBar1_mc.scrollDown_but.enabled =true;
-				scrollBar1_mc.scrollDown_but._alpha=100;
-			}
-
-			if(textBody_mc.textBody_tx.maxscroll == 1){
-				scrollBar1_mc.scrollThumb_mc._enabled=false;
-				scrollBar1_mc.scrollThumb_mc._alpha=0;
-			}
-			else{
+				scrollBar1_mc.scrollUp_but.enabled =true;
+				scrollBar1_mc.scrollUp_but._alpha=100;
 				scrollBar1_mc.scrollThumb_mc._enabled=true;
 				scrollBar1_mc.scrollThumb_mc._alpha=100;
+				scrollBar1_mc.scrollDown_but.enabled =true;
+				scrollBar1_mc.scrollDown_but._alpha=100;
 			}
 					
 	};
@@ -773,9 +751,6 @@ function possiblyEnableAllButOneMenuItems()
 	_global.loadingTemplates--;
 	if(_global.loadingTemplates == 0){
 		enableAllButOneMenuItems();
-	}
-	else{
-		trace(">> _global.loadingTemplates "+_global.loadingTemplates);
 	}
 }
 
@@ -1562,9 +1537,9 @@ function templateB(title:String,URL:String,bomb:MovieClip,deepLink:String,durati
 									sectionImage_mc._visible = false;
 									//Position title
 									sectionTitle_mc._x=leftBase+menuWidth+buffer;
-									sectionTitle_mc._y=topBase+buffer;
+									sectionTitle_mc._y=topBase;
 									sectionData_mc._x=leftBase+menuWidth+buffer;
-									sectionData_mc._y=topBase+buffer+sectionTitle_mc._height;
+									sectionData_mc._y=topBase+sectionTitle_mc._height;
 									sectionData_mc.sectionData_tx._height=textBody_mc._height-sectionTitle_mc._height;
 									sectionImage_mc.tween("_alpha",100,duration,"linear");
 									sectionTitle_mc.tween("_alpha",100,duration,"linear");
