@@ -1469,6 +1469,13 @@ function templateB(title:String,URL:String,bomb:MovieClip,deepLink:String,durati
 							//Load the deepLink 
 							ExternalInterface.call("jsUpdateLocation",this.deepLink,2);
 
+							//Disable this item
+							for ( i in projects){
+								projects[i].enabled = true;
+							}
+							this.enabled = false;
+
+
 							//Load the section details
 							if(this.title != ""){
 								loadHTMLText(sectionTitle_mc,sectionTitle_mc.sectionTitle_tx,this.title,true,duration);
@@ -1525,9 +1532,9 @@ function templateB(title:String,URL:String,bomb:MovieClip,deepLink:String,durati
 
 									//Position title
 									sectionTitle_mc._x=leftBase+menuWidth+buffer;
-									sectionTitle_mc._y=topBase+sectionImage_mc._height;
+									sectionTitle_mc._y=topBase+sectionImage_mc._height+buffer;
 									sectionData_mc._x=leftBase+menuWidth+buffer;
-									sectionData_mc._y=topBase+sectionImage_mc._height+sectionTitle_mc._height;
+									sectionData_mc._y=topBase+sectionImage_mc._height+buffer+sectionTitle_mc._height;
 									sectionData_mc.sectionData_tx._height=textBody_mc._height-sectionTitle_mc._height-sectionImage_mc._height;
 								}
 		
@@ -1555,9 +1562,9 @@ function templateB(title:String,URL:String,bomb:MovieClip,deepLink:String,durati
 									sectionImage_mc._visible = false;
 									//Position title
 									sectionTitle_mc._x=leftBase+menuWidth+buffer;
-									sectionTitle_mc._y=topBase;
+									sectionTitle_mc._y=topBase+buffer;
 									sectionData_mc._x=leftBase+menuWidth+buffer;
-									sectionData_mc._y=topBase+sectionTitle_mc._height;
+									sectionData_mc._y=topBase+buffer+sectionTitle_mc._height;
 									sectionData_mc.sectionData_tx._height=textBody_mc._height-sectionTitle_mc._height;
 									sectionImage_mc.tween("_alpha",100,duration,"linear");
 									sectionTitle_mc.tween("_alpha",100,duration,"linear");
