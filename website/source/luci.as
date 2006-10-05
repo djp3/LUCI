@@ -6,8 +6,6 @@ import TextField.StyleSheet;
 import flash.display.*;
 import flash.filters.ColorMatrixFilter;
 
-ExternalInterface.call("jsDebug","test ");
-
 //Check to
 var launchFromWebsite:Boolean = ExternalInterface.available;
 if(ExternalInterface.available){
@@ -19,7 +17,7 @@ if(ExternalInterface.available){
 	else{
 		launchFromWebsite = true;
 	}
-	ExternalInterface.call("jsDebug","Got here");
+	//ExternalInterface.call("jsDebug","Got here");
 }
 else{
 	launchFromWebsite = false;
@@ -512,11 +510,12 @@ function initialBuildCenterPane(bomb:MovieClip,d:Number)
 }
 
 
-//ExternalInterface.call("jsDebug","Adding callback was successful : "+ExternalInterface.addCallback("animateOpen", this, animateOpen));
+ExternalInterface.call("jsDebug","Adding callback was successful : "+ExternalInterface.addCallback("animateOpen", this, animateOpen));
 //ExternalInterface.addCallback("animateOpen", this, animateOpen);
 // site opening animation
 function animateOpen(deepLink:String)
 {
+	ExternalInterface.call("jsDebug", "From inside animateOpen");
 	//If we are deepLinking in, make the initial Build Fast!
 	var duration:Number;
 	//Got to check lots of possibilities based on what any container
@@ -545,6 +544,7 @@ function animateOpen(deepLink:String)
 				//Once menuItems are loaded, launch the appropriate section
 
 				for(var i in mainMenu){
+					ExternalInterface.call("jsDebug","Making menu items visible");
 					mainMenu[i].menuItemText_tx._alpha=100;
 					mainMenu[i].tween("_alpha",100,duration,"linear");
 				}
@@ -577,7 +577,13 @@ function animateOpen(deepLink:String)
 						if(mainMenu[i].order == 0){
 							mainMenu[i].onRelease(undefined,duration);
 						}
+						ExternalInterface.call("jsDebug","MainMenu.order is "+mainMenu[i].order);
 					}
+				}
+				if(launched == false){
+					ExternalInterface.call("jsDebug","Launched is false ");
+				}else{
+					ExternalInterface.call("jsDebug","Launched is true ");
 				}
 			}
 		));
@@ -760,6 +766,7 @@ function possiblyEnableAllButOneMenuItems()
 function loadMenuItems(url:String,bomb:MovieClip)
 {
 	trace(">> loaded Menu Items "+mainMenu.length);
+	ExternalInterface.call("jsDebug","In load MenuItems");
 	if(mainMenu.length == 0){
 
 		var menuItems:XML = new XML();
@@ -767,6 +774,7 @@ function loadMenuItems(url:String,bomb:MovieClip)
 		menuItems.ignoreWhite = true;
 		menuItems.onLoad = function(success:Boolean){
 				if(success){
+					ExternalInterface.call("jsDebug","In menuItems.onLoad with success");
 					var uniqueID = 0;
 					if(menuItems.firstChild.nodeName == "menuItems"){
 						var i:String;
@@ -775,9 +783,15 @@ function loadMenuItems(url:String,bomb:MovieClip)
 						for (i in myArray){
 	
 							if(myArray[i].nodeName == "menuItem"){
+								ExternalInterface.call("jsDebug","In menuItems.onLoad: menuItem");
 	
 								//Create a new menu item
 								var tempMenuItem_mc = _root.attachMovie("menuItem","menuItem_"+uniqueID.toString()+"_mc", _root.getNextHighestDepth());
+								if(tempMenuItem_mc == null){
+									ExternalInterface.call("jsDebug","In menuItems.onLoad tempMenuItem_mc is null");
+								}else{
+									ExternalInterface.call("jsDebug","In menuItems.onLoad tempMenuItem_mc is not null");
+								}
 								tempMenuItem_mc._uniqueID = uniqueID++;
 								mainMenu.push(tempMenuItem_mc);
 	
@@ -809,11 +823,15 @@ function loadMenuItems(url:String,bomb:MovieClip)
 										tempMenuItem_mc.menuItemText_tx.autoSize="left";
 	
 										tempMenuItem_mc.menuItemText_tx.text= myArray2[j].firstChild.nodeValue;
+										ExternalInterface.call("jsDebug","In menuItems.onLoad: menuItem title "+ myArray2[j].firstChild.nodeValue);
 									}
 									else if(myArray2[j].nodeName == "order"){
 										var index=Number(myArray2[j].firstChild.nodeValue);
 										tempMenuItem_mc.order=index;
+										ExternalInterface.call("jsDebug","In menuItems.onLoad: menuItem y "+tempMenuItem_mc._y);
 										tempMenuItem_mc._y=anchorBGmenu_y + 25*index+12;
+										ExternalInterface.call("jsDebug","In menuItems.onLoad: menuItem y "+tempMenuItem_mc._y);
+										ExternalInterface.call("jsDebug","In menuItems.onLoad: menuItem order "+tempMenuItem_mc.order);
 									}
 									else if(myArray2[j].nodeName == "clickable"){
 										clickable = true;
@@ -900,9 +918,11 @@ function loadMenuItems(url:String,bomb:MovieClip)
 									mainMenu.push(line_mc);
 								}
 								if(clickable){
+										ExternalInterface.call("jsDebug","In menuItems.onLoad: if clickable ");
 										tempMenuItem_mc.menuItemText_tx.textColor=menuTextFormatInactive;
 										tempMenuItem_mc.onRelease=function(deepLinkEntry:String,duration:Number){
 												trace(">> clicked on:"+ this.templateTitle +" loadingTemplates "+_global.loadingTemplates);
+												ExternalInterface.call("jsDebug","Menu Items clicked "+this.deepLink);
 
 												disableAllMenuItems();
 
@@ -991,6 +1011,9 @@ function loadMenuItems(url:String,bomb:MovieClip)
 					trace(">> error with Menu Items XML");
 					//menuItems.parseXML(defaultMenu);
 				}
+					for(var i in mainMenu){
+						ExternalInterface.call("jsDebug","Testing MainMenu.order is "+mainMenu[i].order);
+					}
 				triggerBomb(bomb);
 		}
 		menuItems.load(url);
@@ -2241,8 +2264,10 @@ function animateDataRepository()
 	//animateOpen("projects&nomaticGaim");
 	//animateOpen();
 //}
-//ExternalInterface.call("jsStartFromActionScript", undefined);
-animateOpen();
+ExternalInterface.call("jsStartFromActionScript", undefined);
+//ExternalInterface.call("jsDebug", "From inside luci.as");
+//animateOpen();
+//animateOpen("projects&nomaticGaim");
 
 
 //var x:String = "abc&def&ghi";

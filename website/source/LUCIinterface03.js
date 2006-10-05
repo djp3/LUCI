@@ -8,8 +8,10 @@ function jsSetLocation(x) {
 }
 
 function jsDebug(x) {
-	var f = document.getElementById('textField');
-	f.value = "Debug: "+x;
+   	var foo = document.getElementById("form");
+    var child = document.createElement("div");
+	child.innerHTML = "Debug: "+x;
+	foo.appendChild(child);
 }
 
 function jsUpdateLocation(x,level) {
@@ -44,7 +46,7 @@ function jsStartFromActionScript(){
 }
 
 window.onload = function(){
-		jsDebug("Onload called");
+	jsDebug("Onload called");
 	//callMovie().animateOpen(checkURLParameters());
 }
 
