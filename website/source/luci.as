@@ -6,6 +6,8 @@ import TextField.StyleSheet;
 import flash.display.*;
 import flash.filters.ColorMatrixFilter;
 
+ExternalInterface.call("jsDebug","test ");
+
 //Check to
 var launchFromWebsite:Boolean = ExternalInterface.available;
 if(ExternalInterface.available){
@@ -17,6 +19,7 @@ if(ExternalInterface.available){
 	else{
 		launchFromWebsite = true;
 	}
+	ExternalInterface.call("jsDebug","Got here");
 }
 else{
 	launchFromWebsite = false;
@@ -510,7 +513,7 @@ function initialBuildCenterPane(bomb:MovieClip,d:Number)
 
 
 //ExternalInterface.call("jsDebug","Adding callback was successful : "+ExternalInterface.addCallback("animateOpen", this, animateOpen));
-ExternalInterface.addCallback("animateOpen", this, animateOpen);
+//ExternalInterface.addCallback("animateOpen", this, animateOpen);
 // site opening animation
 function animateOpen(deepLink:String)
 {
@@ -1089,29 +1092,6 @@ function loadSidebarText(myText:String,fadeOut:Boolean,duration:Number)
 }
 
 
-/*
-function loadText(myText:String)
-{
-		trace(">> Huge Error");
-	var duration:Number = 0.5;
-
-	textBody_mc._visible=true;		
-	textBody_mc._x = 0;
-	textBody_mc._y = 0;
-	textBody_mc.textBody_tx._x=0;
-	textBody_mc.textBody_tx._y=0;
-	textBody_mc.textBody_tx._width=200;
-	textBody_mc.textBody_tx._height=200;
-
-	textBody_mc.textBody_tx.tween("_alpha",0,duration,"linear");
-	trace(">> text going down");
-	lightFusePayload(duration,function(){
-			textBody_mc.textBody_tx.text = myText;
-			textBody_mc.textBody_tx.tween(["_alpha","_x","_y","_width","_height"],[100,0,0,357,380],duration,"linear");
-	});
-}
-*/
-
 function loadHTMLURL(myURL:String,duration:Number,myMovieClip:MovieClip,myTextField:TextField)
 {
 var document:XML = new XML();
@@ -1347,7 +1327,7 @@ function templateB(title:String,URL:String,bomb:MovieClip,deepLink:String,durati
 	textBody_mc.textBody_tx._x = 0;
 	textBody_mc.textBody_tx._y = 0;
 	textBody_mc.textBody_tx._width = 400;
-	textBody_mc.textBody_tx._height = 380;
+	textBody_mc.textBody_tx._height = 410;
 
 	/*titleBody_mc.titleBody_tx.border=true;
 	textBody_mc.textBody_tx.border = true;
@@ -2257,15 +2237,13 @@ function animateDataRepository()
 
 //Comment this out if it's being run from in a web browser
 //Launch
-if(launchFromWebsite == false){
+//if(launchFromWebsite == false){
 	//animateOpen("projects&nomaticGaim");
-	animateOpen();
-}
+	//animateOpen();
+//}
+//ExternalInterface.call("jsStartFromActionScript", undefined);
+animateOpen();
+
 
 //var x:String = "abc&def&ghi";
 //trace(">> "+x.indexOf("&")+":"+x.substring(0,x.indexOf("&"))+":"+x.substring(x.indexOf("&")+1,x.length));
-
-
-
-
-

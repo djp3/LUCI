@@ -37,8 +37,14 @@ function checkURLParameters() {
 	return query;
 }
 
+function jsStartFromActionScript(){
+	jsDebug("jsStartFromActionScript called");
+	callMovie().animateOpen(checkURLParameters());
+	//setTimeout("callMovie().animateOpen(checkURLParameters());",500);
+}
+
 window.onload = function(){
+		jsDebug("Onload called");
 	//callMovie().animateOpen(checkURLParameters());
-	setTimeout("callMovie().animateOpen(checkURLParameters());",500);
 }
 

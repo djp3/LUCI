@@ -9,12 +9,12 @@
 		<textURL>http://luci.ics.uci.edu/websiteContent/weAreLuci/nomaticGaim/overview.txt</textURL>
 		<launchURL></launchURL>
 	</project>
-	<project>
+<!--	<project>
 		<order>1</order>
 		<title>Nomatic*AID</title>
 		<deepLink>nomaticAID</deepLink>
 		<sectionDataURL>http://luci.ics.uci.edu/websiteContent/weAreLuci/nomaticGaim/menuItems.txt</sectionDataURL>
 		<textURL>http://luci.ics.uci.edu/websiteContent/weAreLuci/nomaticGaim/overview.txt</textURL>
-	</project>
+	</project>-->
 
 </projects>
