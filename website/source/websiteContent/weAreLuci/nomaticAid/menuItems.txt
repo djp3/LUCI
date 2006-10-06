@@ -1,0 +1,5 @@
+<li><a href="asfunction:_root.loadHTMLURL,http://luci.ics.uci.edu/websiteContent/weAreLuci/nomaticGaim/overview.txt">Overview</a>
+<li><a href="asfunction:_root.loadHTMLURL,http://luci.ics.uci.edu/websiteContent/weAreLuci/nomaticGaim/privacy.txt">Privacy</a>
+<li><a href="asfunction:_root.loadHTMLURL,http://luci.ics.uci.edu/websiteContent/weAreLuci/nomaticGaim/faq.txt">FAQ</a>
+<li><a href="asfunction:_root.loadHTMLURL,http://luci.ics.uci.edu/websiteContent/weAreLuci/nomaticGaim/links.txt">Links</a>
+<li><a href="asfunction:_root.loadHTMLURL,http://luci.ics.uci.edu/websiteContent/weAreLuci/nomaticGaim/contact.txt">Contact Information </a>
