@@ -1,0 +1,24 @@
+<b>Nomatic*Gaim : Privacy Statement</b>
+
+<p>Nomatic*Gaim changes the privacy landscape that we are used to.  Because of this, we need to make clear what the principles of this software are so that potential users can understand what they are doing when they use our software.  </p>
+<p> For starters, here are the ways in which your personal information is captured and used:</p>
+<li>Nomatic*Gaim tries to locate you by using GPS, if available, and Wi-Fi beacon positioning otherwise.</li> <li>Nomatic*Gaim tries to understand what you are doing by collecting sensor information from your computing platform.  Temperature, sound, light, motion, etc.</li> <li>If you are on-line, this information is reported to a central server over a secure connection where it is recorded in a database.</li>
+<p>The foundation of our privacy statement, therefore, is that you trust us to hold your data.  Given those facts, here are our privacy principles.  These principles apply, unless you are using this software under the auspices of a <a href="asfunction:_root.jumpToExternalURL,http://www.uci.edu/">UCI</a> <a href="asfunction:_root.jumpToExternalURL,http://www.rgs.uci.edu/ora/rp/hrpp/">IRB</a> approved Human Subjects research study which has obtained your written consent to break them.</p>
+<li>We obtain consent through <b>opt-in</b> techniques not opt-out.</li>
+<li>We never reveal your exact latitude and longitude or sensor data without your explicit consent.</li>
+<li>We never reveal your "place" or other semantic context interpretation without first letting you know under what circumstances it is revealed and then getting your explicit approval for those circumstances.</li>
+<li>Your data belongs to you.</li>
+
+<p>Here are some particular ways that we fulfill the principles above.</p>
+<li>You may delete your data from our database at any time.</li>
+<li>You may anonymize your old data at any time. This will leave your old data in the database, but disassociate that data from you.</li>
+<li>We do not keep track of, store, or know whose data belongs to whom. We require your assistance in order to do anything to your data.</li>
+<li>When your context data is submitted to our database it is stored with an anonymous code. That anonymous code is based on your Nomatic*Gaim registration, but we cannot determine which anonymous code came from which Nomatic*Gaim registration. (This is accomplished with a one-way hash called md5sum)</li>
+<li>Even information that contains your anonymous code is not released without your consent.</li>
+<li>If our database is stolen or subpoenaed your anonymous code is still fundamentally not traceable back to you unless someone has obtained a copy of our database *and* you reveal your anonymous code to someone in a different way. Here are some ways that might happen: You give your registration name and password to someone else. That information can be used to generate your anonymous code. Rather than submitting "place" information, you enter information like "I am Joe Doughnut" into the database. Doing such a thing would increase the chances that the anonymous code associated with "I am Joe Doughnut" came from Joe Doughnut. You enter information like "home" into the "place" database and someone can figure out who lives at that location. Then the anonymous code associated with the "home" entry is more likely to belong to the person that lives there.  </li>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
