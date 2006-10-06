@@ -1,0 +1,2 @@
+<b>Nomatic*Gaim : Links</b>
+<a href="asfunction:_root.jumpToExternalURL,http://sourceforge.net/projects/nomatic">Sourceforge Development Page</a><br/>

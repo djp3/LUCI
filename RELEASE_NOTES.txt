@@ -1,0 +1,6 @@
+v1.2 Added Bio sections
+
+v1.1 Added projects sections.
+	 Added a wrapper which provided "Loading information" with a percentage
+
+v1.0 had basic overview
