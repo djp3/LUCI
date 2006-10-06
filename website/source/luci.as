@@ -1,5 +1,6 @@
 ﻿//Code to manage animation sequences
 #include "bomb.as"
+#include "common.as"
 
 import flash.external.*;
 import TextField.StyleSheet;
@@ -510,12 +511,12 @@ function initialBuildCenterPane(bomb:MovieClip,d:Number)
 }
 
 
-ExternalInterface.call("jsDebug","Adding callback was successful : "+ExternalInterface.addCallback("animateOpen", this, animateOpen));
-//ExternalInterface.addCallback("animateOpen", this, animateOpen);
+//ExternalInterface.call("jsDebug","Adding callback was successful : "+ExternalInterface.addCallback("animateOpen", this, animateOpen));
+ExternalInterface.addCallback("animateOpen", this, animateOpen);
 // site opening animation
 function animateOpen(deepLink:String)
 {
-	ExternalInterface.call("jsDebug", "From inside animateOpen");
+	//ExternalInterface.call("jsDebug", "From inside animateOpen");
 	//If we are deepLinking in, make the initial Build Fast!
 	var duration:Number;
 	//Got to check lots of possibilities based on what any container
@@ -544,7 +545,7 @@ function animateOpen(deepLink:String)
 				//Once menuItems are loaded, launch the appropriate section
 
 				for(var i in mainMenu){
-					ExternalInterface.call("jsDebug","Making menu items visible");
+					//ExternalInterface.call("jsDebug","Making menu items visible");
 					mainMenu[i].menuItemText_tx._alpha=100;
 					mainMenu[i].tween("_alpha",100,duration,"linear");
 				}
@@ -577,13 +578,7 @@ function animateOpen(deepLink:String)
 						if(mainMenu[i].order == 0){
 							mainMenu[i].onRelease(undefined,duration);
 						}
-						ExternalInterface.call("jsDebug","MainMenu.order is "+mainMenu[i].order);
 					}
-				}
-				if(launched == false){
-					ExternalInterface.call("jsDebug","Launched is false ");
-				}else{
-					ExternalInterface.call("jsDebug","Launched is true ");
 				}
 			}
 		));
@@ -682,19 +677,6 @@ function deSandboxURL(URL:String):String
 
 
 
-function jumpToURL(URL:String)
-{
-	trace(">> jumping to "+URL);
-	finalBuild(loadBomb(function(){
-		getURL(URL,"_self");
-	}));
-}
-
-function jumpToExternalURL(URL:String)
-{
-	trace(">> jumping to "+URL);
-	getURL(URL,"_blank");
-}
 
 
 
@@ -766,7 +748,7 @@ function possiblyEnableAllButOneMenuItems()
 function loadMenuItems(url:String,bomb:MovieClip)
 {
 	trace(">> loaded Menu Items "+mainMenu.length);
-	ExternalInterface.call("jsDebug","In load MenuItems");
+	//ExternalInterface.call("jsDebug","In load MenuItems");
 	if(mainMenu.length == 0){
 
 		var menuItems:XML = new XML();
@@ -774,7 +756,7 @@ function loadMenuItems(url:String,bomb:MovieClip)
 		menuItems.ignoreWhite = true;
 		menuItems.onLoad = function(success:Boolean){
 				if(success){
-					ExternalInterface.call("jsDebug","In menuItems.onLoad with success");
+					//ExternalInterface.call("jsDebug","In menuItems.onLoad with success");
 					var uniqueID = 0;
 					if(menuItems.firstChild.nodeName == "menuItems"){
 						var i:String;
@@ -783,15 +765,15 @@ function loadMenuItems(url:String,bomb:MovieClip)
 						for (i in myArray){
 	
 							if(myArray[i].nodeName == "menuItem"){
-								ExternalInterface.call("jsDebug","In menuItems.onLoad: menuItem");
+								//ExternalInterface.call("jsDebug","In menuItems.onLoad: menuItem");
 	
 								//Create a new menu item
 								var tempMenuItem_mc = _root.attachMovie("menuItem","menuItem_"+uniqueID.toString()+"_mc", _root.getNextHighestDepth());
-								if(tempMenuItem_mc == null){
+								/*if(tempMenuItem_mc == null){
 									ExternalInterface.call("jsDebug","In menuItems.onLoad tempMenuItem_mc is null");
 								}else{
 									ExternalInterface.call("jsDebug","In menuItems.onLoad tempMenuItem_mc is not null");
-								}
+								}*/
 								tempMenuItem_mc._uniqueID = uniqueID++;
 								mainMenu.push(tempMenuItem_mc);
 	
@@ -823,15 +805,11 @@ function loadMenuItems(url:String,bomb:MovieClip)
 										tempMenuItem_mc.menuItemText_tx.autoSize="left";
 	
 										tempMenuItem_mc.menuItemText_tx.text= myArray2[j].firstChild.nodeValue;
-										ExternalInterface.call("jsDebug","In menuItems.onLoad: menuItem title "+ myArray2[j].firstChild.nodeValue);
 									}
 									else if(myArray2[j].nodeName == "order"){
 										var index=Number(myArray2[j].firstChild.nodeValue);
 										tempMenuItem_mc.order=index;
-										ExternalInterface.call("jsDebug","In menuItems.onLoad: menuItem y "+tempMenuItem_mc._y);
 										tempMenuItem_mc._y=anchorBGmenu_y + 25*index+12;
-										ExternalInterface.call("jsDebug","In menuItems.onLoad: menuItem y "+tempMenuItem_mc._y);
-										ExternalInterface.call("jsDebug","In menuItems.onLoad: menuItem order "+tempMenuItem_mc.order);
 									}
 									else if(myArray2[j].nodeName == "clickable"){
 										clickable = true;
@@ -918,11 +896,9 @@ function loadMenuItems(url:String,bomb:MovieClip)
 									mainMenu.push(line_mc);
 								}
 								if(clickable){
-										ExternalInterface.call("jsDebug","In menuItems.onLoad: if clickable ");
 										tempMenuItem_mc.menuItemText_tx.textColor=menuTextFormatInactive;
 										tempMenuItem_mc.onRelease=function(deepLinkEntry:String,duration:Number){
 												trace(">> clicked on:"+ this.templateTitle +" loadingTemplates "+_global.loadingTemplates);
-												ExternalInterface.call("jsDebug","Menu Items clicked "+this.deepLink);
 
 												disableAllMenuItems();
 
@@ -1011,9 +987,6 @@ function loadMenuItems(url:String,bomb:MovieClip)
 					trace(">> error with Menu Items XML");
 					//menuItems.parseXML(defaultMenu);
 				}
-					for(var i in mainMenu){
-						ExternalInterface.call("jsDebug","Testing MainMenu.order is "+mainMenu[i].order);
-					}
 				triggerBomb(bomb);
 		}
 		menuItems.load(url);
@@ -1379,6 +1352,12 @@ function templateB(title:String,URL:String,bomb:MovieClip,deepLink:String,durati
 						////////////////////////////////
 						//Create a new menu item 
 						var menuItem_mc:MovieClip = _root.attachMovie("sectionListItem","sectionListItem_"+uniqueID.toString()+"_mc", _root.getNextHighestDepth());
+						if(menuItem_mc == null){
+							ExternalInterface.call("jsDebug", "menuItem for sectionListItem is null");
+						}
+						else{
+							ExternalInterface.call("jsDebug", "menuItem for sectionListItem is not null");
+						}
 						menuItem_mc.order = 0;
 						menuItem_mc.title = "";
 						menuItem_mc.textURL = "";
@@ -1387,6 +1366,7 @@ function templateB(title:String,URL:String,bomb:MovieClip,deepLink:String,durati
 						menuItem_mc.imageLinkURL = "";
 						menuItem_mc.imageSourceURL = "";
 						menuItem_mc.uniqueID = uniqueID++;
+						menuItem_mc._visible = true;
 						menuItem_mc._alpha = 0;
 						menuItem_mc.sectionListItem_tx._x=0;
 						menuItem_mc.sectionListItem_tx._y=0;
@@ -1407,17 +1387,20 @@ function templateB(title:String,URL:String,bomb:MovieClip,deepLink:String,durati
 						var myArray2:Array = myArray[i].childNodes;
 						for (j in myArray2){
 							if(myArray2[j].nodeName == "order"){
-								menuItem_mc.order= myArray2[j].firstChild.nodeValue;
+								menuItem_mc.order= Number(myArray2[j].firstChild.nodeValue);
 								menuItem_mc._x=leftBase;
 								menuItem_mc._y=topBase+15*menuItem_mc.order;
 								menuItem_mc.tween(["_alpha"],[100],duration,"easeOutSine");
+								ExternalInterface.call("jsDebug","In project load order = "+menuItem_mc.order);
 							}
 							else if(myArray2[j].nodeName == "title"){
 								menuItem_mc.title= myArray2[j].firstChild.nodeValue;
 								menuItem_mc.sectionListItem_tx.htmlText = menuItem_mc.title;
+								ExternalInterface.call("jsDebug","In project load title = "+menuItem_mc.title);
 							}
 							else if(myArray2[j].nodeName == "deepLink"){
 								menuItem_mc.deepLink= myArray2[j].firstChild.nodeValue;
+								ExternalInterface.call("jsDebug","In project load deepLink = "+menuItem_mc.deepLink);
 							}
 							else if(myArray2[j].nodeName == "textURL"){
 								menuItem_mc.textURL= myArray2[j].firstChild.nodeValue;
@@ -1438,6 +1421,7 @@ function templateB(title:String,URL:String,bomb:MovieClip,deepLink:String,durati
 								menuItem_mc.imageLinkURL= myArray2[j].firstChild.nodeValue;
 							}
 							else{
+								ExternalInterface.call("jsDebug","Trouble parsing project item");
 								trace(">> trouble parsing templateB "+myArray2[j].nodeName);
 							}
 						}
@@ -1448,7 +1432,7 @@ function templateB(title:String,URL:String,bomb:MovieClip,deepLink:String,durati
 							ExternalInterface.call("jsUpdateLocation",this.deepLink,2);
 
 							//Disable this item
-							for ( i in projects){
+							for (i in projects){
 								projects[i].enabled = true;
 							}
 							this.enabled = false;
@@ -1579,6 +1563,15 @@ function templateB(title:String,URL:String,bomb:MovieClip,deepLink:String,durati
 							trace(">> launching projects without deepLink " + deepLink);
 						}
 					}
+				}
+				if(launched == true){
+					ExternalInterface.call("jsDebug","In project launch it's true");
+				}
+				else{
+					ExternalInterface.call("jsDebug","In project launch it's false");
+				}
+				for(i in projects){
+					ExternalInterface.call("jsDebug","In project launch "+projects[i].title);
 				}
 			}
 			possiblyEnableAllButOneMenuItems();
@@ -2264,9 +2257,9 @@ function animateDataRepository()
 	//animateOpen("projects&nomaticGaim");
 	//animateOpen();
 //}
-ExternalInterface.call("jsStartFromActionScript", undefined);
+//ExternalInterface.call("jsStartFromActionScript", undefined);
 //ExternalInterface.call("jsDebug", "From inside luci.as");
-//animateOpen();
+animateOpen();
 //animateOpen("projects&nomaticGaim");
 
 

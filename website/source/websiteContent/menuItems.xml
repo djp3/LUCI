@@ -7,7 +7,7 @@
 			<template>
 				<type>A</type>
 				<title>LABORATORY for UBIQUITOUS COMPUTING and INTERACTION</title>
-				<url>http://luci.ics.uci.edu/websiteContent/overview/overviewContent.xml</url>
+				<url>websiteContent/overview/overviewContent.xml</url>
 			</template>
 			<sidebar>
 				<type>SA</type>
@@ -30,7 +30,7 @@
 			<template>
 				<type>B</type>
 				<title>WE ARE LUCI: PROJECTS</title>
-				<url>http://luci.ics.uci.edu/websiteContent/weAreLuci/projects.xml</url>
+				<url>websiteContent/weAreLuci/projects.xml</url>
 			</template>
 		</clickable>
 		<breakBelow/>
