@@ -1,10 +1,33 @@
-#include "luci.as"
+#include "mc_tween2.as"
 #include "bomb.as"
 
-
+import flash.external.*;
 import TextField.StyleSheet;
 import flash.display.*;
 import flash.filters.ColorMatrixFilter;
+
+var launchFromWebsite:Boolean;
+
+if(ExternalInterface.available){
+	var response:Object;
+	response = ExternalInterface.call("jsAvailable", undefined);
+	if(response == null){
+		launchFromWebsite = false;
+	}
+	else{
+		launchFromWebsite = true;
+	}
+}
+else{
+	launchFromWebsite = false;
+}
+
+function debugMessage(x:String){
+	ExternalInterface.call("jsDebug",x);
+	trace(">> Debug: "+x);
+}
+
+debugMessage(">> launch From Website is "+launchFromWebsite);
 
 
 // init site
@@ -2262,11 +2285,13 @@ function animateDataRepository()
 
 //Comment this out if it's being run from in a web browser
 //Launch
-//if(launchFromWebsite == false){
-	//animateOpen("projects&nomaticGaim");
+if(launchFromWebsite == false){
+	animateOpen("projects&nomaticGaim");
 	//animateOpen();
-//}
-ExternalInterface.call("jsStartFromActionScript", undefined);
+}
+else{
+	ExternalInterface.call("jsStartFromActionScript", undefined);
+}
 //animateOpen();
 //animateOpen("projects&nomaticGaim");
 

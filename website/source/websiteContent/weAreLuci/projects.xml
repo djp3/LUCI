@@ -12,8 +12,8 @@
 	<project>
 		<order>1</order>
 		<title>Nomatic*AID</title>
-		<imageSourceURL>websiteContent/weAreLuci/nomaticGaim/laptopUserInHall.jpg</imageSourceURL>
-		<imageLinkURL>http://www.flickr.com/photos/shapeshift/85220007/</imageLinkURL>
+		<imageSourceURL>websiteContent/weAreLuci/nomaticAid/africa.jpg</imageSourceURL>
+		<imageLinkURL>http://www.flickr.com/photos/bohane/64495034/</imageLinkURL>
 		<deepLink>nomaticAID</deepLink>
 		<sectionDataURL>websiteContent/weAreLuci/nomaticAid/menuItems.txt</sectionDataURL>
 		<textURL>websiteContent/weAreLuci/nomaticAid/overview.txt</textURL>
