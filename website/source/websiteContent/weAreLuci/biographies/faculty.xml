@@ -1,11 +1,26 @@
-<projects>
-	<project>
+<biographies>
+	<biography>
 		<order>0</order>
+		<title>Paul Dourish</title>
+		<deepLink>jpd</deepLink>
+	</biography>
+	<biography>
+		<order>1</order>
+		<title>Crista Lopes</title>
+		<deepLink>lopes</deepLink>
+	</biography>
+	<biography>
+		<order>2</order>
 		<title>Donald J Patterson</title>
 		<imageSourceURL>websiteContent/weAreLuci/biographies/djp3/bioImage.jpg</imageSourceURL>
 		<deepLink>djp3</deepLink>
 		<sectionDataURL>websiteContent/weAreLuci/biographies/djp3/menuItems.txt</sectionDataURL>
 		<textURL>websiteContent/weAreLuci/biographies/djp3/overview.txt</textURL>
 		<launchURL></launchURL>
-	</project>
-</projects>
+	</biography>
+	<biography>
+		<order>3</order>
+		<title>Bill Tomlinson</title>
+		<deepLink>bill</deepLink>
+	</biography>
+</biographies>
