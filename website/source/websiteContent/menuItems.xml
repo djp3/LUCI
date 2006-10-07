@@ -33,6 +33,24 @@
 				<url>websiteContent/weAreLuci/projects.xml</url>
 			</template>
 		</clickable>
+	</menuItem>
+	<menuItem>
+		<title>BIOGRAPHIES</title>
+		<order>3</order>
+		<indent>1</indent>
+	</menuItem>
+	<menuItem>
+		<title>FACULTY</title>
+		<order>4</order>
+		<indent>2</indent>
+		<clickable>
+			<deepLink>bioFaculty</deepLink>
+			<template>
+				<type>C</type>
+				<title>WE ARE LUCI: BIOGRAPHIES: FACULTY</title>
+				<url>websiteContent/weAreLuci/biographies/faculty.xml</url>
+			</template>
+		</clickable>
 		<breakBelow/>
 	</menuItem>
 	<!--

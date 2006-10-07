@@ -3,9 +3,9 @@ function jsAvailable() {
 	return true;
 }
 
-function jsSetLocation(x) {
-    window.location.hash = x;
-}
+//function jsSetLocation(x) {
+//    window.location.hash = x;
+//}
 
 function jsDebug(x) {
    	var foo = document.getElementById("form");

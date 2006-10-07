@@ -351,7 +351,7 @@ function initialBuildOrangeSidebar(bomb:MovieClip,duration:Number)
 			if(textSidebar_mc.textSidebar_tx.maxscroll == 1){
 				scrollBar2_mc.scrollUp_but.enabled =false;
 	 			scrollBar2_mc.scrollUp_but._alpha=0;
-				scrollBar2_mc.scrollThumb_mc._enabled=false;
+				scrollBar2_mc.scrollThumb_mc.enabled=false;
 				scrollBar2_mc.scrollThumb_mc._alpha=0;
 				scrollBar2_mc.scrollDown_but.enabled =false;
 				scrollBar2_mc.scrollDown_but._alpha=0;
@@ -359,7 +359,7 @@ function initialBuildOrangeSidebar(bomb:MovieClip,duration:Number)
 			else{
 				scrollBar2_mc.scrollUp_but.enabled =true;
 				scrollBar2_mc.scrollUp_but._alpha=100;
-				scrollBar2_mc.scrollThumb_mc._enabled=true;
+				scrollBar2_mc.scrollThumb_mc.enabled=true;
 				scrollBar2_mc.scrollThumb_mc._alpha=100;
 				scrollBar2_mc.scrollDown_but.enabled =true;
 				scrollBar2_mc.scrollDown_but._alpha=100;
@@ -478,7 +478,7 @@ function initialBuildCenterPane(bomb:MovieClip,d:Number)
 			if(textBody_mc.textBody_tx.maxscroll == 1){
 				scrollBar1_mc.scrollUp_but.enabled =false;
 	 			scrollBar1_mc.scrollUp_but._alpha=0;
-				scrollBar1_mc.scrollThumb_mc._enabled=false;
+				scrollBar1_mc.scrollThumb_mc.enabled=false;
 				scrollBar1_mc.scrollThumb_mc._alpha=0;
 				scrollBar1_mc.scrollDown_but.enabled =false;
 				scrollBar1_mc.scrollDown_but._alpha=0;
@@ -486,7 +486,7 @@ function initialBuildCenterPane(bomb:MovieClip,d:Number)
 			else{
 				scrollBar1_mc.scrollUp_but.enabled =true;
 				scrollBar1_mc.scrollUp_but._alpha=100;
-				scrollBar1_mc.scrollThumb_mc._enabled=true;
+				scrollBar1_mc.scrollThumb_mc.enabled=true;
 				scrollBar1_mc.scrollThumb_mc._alpha=100;
 				scrollBar1_mc.scrollDown_but.enabled =true;
 				scrollBar1_mc.scrollDown_but._alpha=100;
@@ -698,12 +698,12 @@ function deSandboxURL(URL:String):String
 	if(launchFromWebsite == true){
 		if(URL.indexOf("myProxy")== -1){
 				if(URL.indexOf("http")!= -1){
-					ExternalInterface.call("jsDebug","deSandbox returned "+"http://luci.ics.uci.edu/myProxy.php?"+URL);
+					//debugMessage("deSandbox returned "+"http://luci.ics.uci.edu/myProxy.php?"+URL);
 					return("http://luci.ics.uci.edu/myProxy.php?"+URL);
 				}
 		}
 	}
-	ExternalInterface.call("jsDebug","deSandbox returned "+URL);
+	//debugMessage("deSandbox returned "+URL);
 	return(URL);
 }
 
@@ -779,8 +779,7 @@ function possiblyEnableAllButOneMenuItems()
 
 function loadMenuItems(url:String,bomb:MovieClip)
 {
-	trace(">> loaded Menu Items "+mainMenu.length);
-	//ExternalInterface.call("jsDebug","In load MenuItems");
+	debugMessage(">> loaded Menu Items "+mainMenu.length);
 	if(mainMenu.length == 0){
 
 		var menuItems:XML = new XML();
@@ -854,6 +853,7 @@ function loadMenuItems(url:String,bomb:MovieClip)
 													for (l in myArray4){
 														if(myArray4[l].nodeName == "type"){
 															tempMenuItem_mc.templateType=myArray4[l].firstChild.nodeValue;
+															//debugMessage("Clickable template read from xml "+tempMenuItem_mc.templateType);
 														}
 														else if(myArray4[l].nodeName == "url"){
 															tempMenuItem_mc.templateURL=myArray4[l].firstChild.nodeValue;
@@ -901,7 +901,6 @@ function loadMenuItems(url:String,bomb:MovieClip)
 										var howMuch:Number = 10* myArray2[j].firstChild.nodeValue;
 										tempMenuItem_mc._indent=howMuch;
 										tempMenuItem_mc._x=anchorBGmenu_x + 15+howMuch;
-										tempMenuItem_mc.menuItemText_tx.textColor=menuTextFormatInactive;
 									}	
 									else if(myArray2[j].nodeName == "breakBelow"){
 										breakBelow=true;
@@ -930,13 +929,15 @@ function loadMenuItems(url:String,bomb:MovieClip)
 								if(clickable){
 										tempMenuItem_mc.menuItemText_tx.textColor=menuTextFormatInactive;
 										tempMenuItem_mc.onRelease=function(deepLinkEntry:String,duration:Number){
-												trace(">> clicked on:"+ this.templateTitle +" loadingTemplates "+_global.loadingTemplates);
+												debugMessage(">> clicked on:"+ this.templateTitle +" loadingTemplates "+_global.loadingTemplates);
 
+												debugMessage(">> clicked on 1");
 												disableAllMenuItems();
-
+												debugMessage(">> clicked on 1.5 :"+this.deepLink);
 	
 												//update the web page address
-	    										ExternalInterface.call("jsSetLocation", this.deepLink);
+	    										ExternalInterface.call("jsUpdateLocation", this.deepLink,1);
+												debugMessage(">> clicked on 2");
 	
 												////////////////////////////////////////////////////
 												//Set up to clear last function and then us later
@@ -954,6 +955,7 @@ function loadMenuItems(url:String,bomb:MovieClip)
 												};
 												clearCurrentTemplate.dontEnableMe=this;
 												////////////////////////////////////////////////////
+												debugMessage(">> clicked on 3");
 	
 	
 												////////////////////////////////////////////////////
@@ -970,6 +972,7 @@ function loadMenuItems(url:String,bomb:MovieClip)
 												var a = this.templateType;
 												var b = this.templateTitle;
 												var c = this.templateURL;
+												debugMessage("Setting up click function "+a+":"+b+":"+c);
 												var mainTemplateFunction:Function=function(){
 													//Load main content
 													dispatchTemplate(a,b,c,undefined,deepLinkEntry,duration);
@@ -1209,9 +1212,6 @@ var document:XML = new XML();
 		// Update the browser
 		ExternalInterface.call("jsUpdateLocation", deepLink,2);
 	}
-	else{
-		ExternalInterface.call("jsDebug","templateA called with "+deepLink);
-	}
 	if(duration ==undefined){
 		duration = 1.0;
 	}
@@ -1384,12 +1384,14 @@ function templateB(title:String,URL:String,bomb:MovieClip,deepLink:String,durati
 						////////////////////////////////
 						//Create a new menu item 
 						var menuItem_mc:MovieClip = _root.attachMovie("sectionListItem","sectionListItem_"+uniqueID.toString()+"_mc", _root.getNextHighestDepth());
+						/*
 						if(menuItem_mc == null){
-							ExternalInterface.call("jsDebug", "menuItem for sectionListItem is null");
+							debugMessage("menuItem for sectionListItem is null");
 						}
 						else{
-							ExternalInterface.call("jsDebug", "menuItem for sectionListItem is not null");
+							debugMessage("menuItem for sectionListItem is not null");
 						}
+						*/
 						menuItem_mc.order = 0;
 						menuItem_mc.title = "";
 						menuItem_mc.textURL = "";
@@ -1423,16 +1425,13 @@ function templateB(title:String,URL:String,bomb:MovieClip,deepLink:String,durati
 								menuItem_mc._x=leftBase;
 								menuItem_mc._y=topBase+15*menuItem_mc.order;
 								menuItem_mc.tween(["_alpha"],[100],duration,"easeOutSine");
-								ExternalInterface.call("jsDebug","In project load order = "+menuItem_mc.order);
 							}
 							else if(myArray2[j].nodeName == "title"){
 								menuItem_mc.title= myArray2[j].firstChild.nodeValue;
 								menuItem_mc.sectionListItem_tx.htmlText = menuItem_mc.title;
-								ExternalInterface.call("jsDebug","In project load title = "+menuItem_mc.title);
 							}
 							else if(myArray2[j].nodeName == "deepLink"){
 								menuItem_mc.deepLink= myArray2[j].firstChild.nodeValue;
-								ExternalInterface.call("jsDebug","In project load deepLink = "+menuItem_mc.deepLink);
 							}
 							else if(myArray2[j].nodeName == "textURL"){
 								menuItem_mc.textURL= myArray2[j].firstChild.nodeValue;
@@ -1648,93 +1647,308 @@ var duration = 0.5;
 
 }
 
-//Used for people bios
-function templateC(title:String,URL:String)
+var biographies:Array;
+function templateC(title:String,URL:String,bomb:MovieClip,deepLink:String,duration:Number)
 {
-var document:XML = new XML();
-var duration = 0.5;
+	var leftBase:Number=216;
+	var menuWidth:Number = 120;
+	var buffer:Number = 10;
+	var sectionDataWidth:Number=155;
+
+	var topBase:Number=80;
+
+	if(duration == undefined){
+		duration = 1.0;
+	}
+
+	//These should be alpha = 0 from the last clear
+	titleBody_mc._visible=true;
+	textBody_mc._visible=true;
+
+	sectionTitle_mc._alpha=0;
+	sectionTitle_mc._visible=true;
+	sectionTitle_mc._x=leftBase+menuWidth+buffer;
+
+	sectionData_mc._alpha=0;
+	sectionData_mc._visible=true;
+	sectionData_mc.tween._x=leftBase+menuWidth+buffer;
+
+	sectionImage_mc._alpha=0;
+	sectionImage_mc._visible=true;
+
+	textBody_mc._x=leftBase+menuWidth+buffer+buffer+sectionDataWidth+buffer;
+	textBody_mc._y=topBase;
+	textBody_mc.textBody_tx._x = 0;
+	textBody_mc.textBody_tx._y = 0;
+	textBody_mc.textBody_tx._width = 400;
+	textBody_mc.textBody_tx._height = 410;
+
+	/*titleBody_mc.titleBody_tx.border=true;
+	textBody_mc.textBody_tx.border = true;
+	sectionTitle_mc.sectionTitle_tx.border = true;
+	sectionListItem_mc.sectionListItem_tx.border = true;
+	sectionData_mc.sectionData_tx.border = true;
+	trace(">> sectionListItem "+sectionListItem_mc1._width+","+sectionListItem_mc1._height);
+	trace(">> sectionData_mc "+sectionData_mc._x+","+sectionData_mc._y);*/
 
 	loadTitle(title,false);
-	titleBody_mc.tween("_alpha",100,duration,"linear");
 
-	sectionImage_mc.tween("_alpha",100,duration,"linear");
-	sectionTitle_mc.tween("_alpha",100,duration,"linear");
-	sectionData_mc.tween("_alpha",100,duration,"linear");
-	sectionListItem_mc1.tween("_alpha",100,duration,"linear");
-				
+	dividerVert_mc._x=leftBase+menuWidth;
 	dividerVert_mc._visible = true;
-	dividerVert_mc.tween(["_x","_y","_alpha"],[376,83,100],duration,"easeInOutSine");
+	dividerVert_mc.tween(["_x","_y","_alpha"],[leftBase+menuWidth,83,100],duration,"easeInOutSine");
 
-	//image01_mc.tween([ "_y","_alpha"], [underSkyline_y,0], duration, "easeInSine");
+	if(biographies == undefined){
+		biographies = new Array();
+		var document:XML = new XML();
+		document.ignoreWhite = true;
+		document.onLoad = function(success:Boolean){
+			if(success){
+				var uniqueID:Number = 0;
+				var myArray:Array = document.firstChild.childNodes;
+				for (i in myArray){
+					if(myArray[i].nodeName == "project"){
+						////////////////////////////////
+						//Create a new menu item 
+						var menuItem_mc:MovieClip = _root.attachMovie("sectionListItem","sectionListItem_"+uniqueID.toString()+"_mc", _root.getNextHighestDepth());
+						if(menuItem_mc == null){
+							debugMessage("menuItem for sectionListItem is null");
+						}
+						else{
+							debugMessage("menuItem for sectionListItem is not null");
+						}
+						menuItem_mc.order = 0;
+						menuItem_mc.title = "";
+						menuItem_mc.textURL = "";
+						menuItem_mc.sectionDataURL = "";
+						menuItem_mc.launchURL = false;
+						menuItem_mc.imageLinkURL = "";
+						menuItem_mc.imageSourceURL = "";
+						menuItem_mc.uniqueID = uniqueID++;
+						menuItem_mc._visible = true;
+						menuItem_mc._alpha = 0;
+						menuItem_mc.sectionListItem_tx._x=0;
+						menuItem_mc.sectionListItem_tx._y=0;
+						menuItem_mc.sectionListItem_tx._visible = true;
+						menuItem_mc.sectionListItem_tx._alpha = 100;
+						menuItem_mc.sectionListItem_tx.html = true;
+						menuItem_mc.sectionListItem_tx.htmlText = "";
+						menuItem_mc.sectionListItem_tx.embedFonts=true;
+						menuItem_mc.sectionListItem_tx.wordWrap = true;
+						menuItem_mc.sectionListItem_tx.multiline = true;
+						menuItem_mc.sectionListItem_tx.styleSheet = textBody_styleSheet;
+						menuItem_mc.sectionListItem_tx.autoSize=true;
+	
+						menuItem_mc._visible = true;
+						//menuItem_mc.sectionListItem_tx.border = true;
+						////////////////////////////////
+	
+						var myArray2:Array = myArray[i].childNodes;
+						for (j in myArray2){
+							if(myArray2[j].nodeName == "order"){
+								menuItem_mc.order= Number(myArray2[j].firstChild.nodeValue);
+								menuItem_mc._x=leftBase;
+								menuItem_mc._y=topBase+15*menuItem_mc.order;
+								menuItem_mc.tween(["_alpha"],[100],duration,"easeOutSine");
+								ExternalInterface.call("jsDebug","In project load order = "+menuItem_mc.order);
+							}
+							else if(myArray2[j].nodeName == "title"){
+								menuItem_mc.title= myArray2[j].firstChild.nodeValue;
+								menuItem_mc.sectionListItem_tx.htmlText = menuItem_mc.title;
+								ExternalInterface.call("jsDebug","In project load title = "+menuItem_mc.title);
+							}
+							else if(myArray2[j].nodeName == "deepLink"){
+								menuItem_mc.deepLink= myArray2[j].firstChild.nodeValue;
+								ExternalInterface.call("jsDebug","In project load deepLink = "+menuItem_mc.deepLink);
+							}
+							else if(myArray2[j].nodeName == "textURL"){
+								menuItem_mc.textURL= myArray2[j].firstChild.nodeValue;
+							}
+							else if(myArray2[j].nodeName == "sectionDataURL"){
+								menuItem_mc.sectionDataURL= myArray2[j].firstChild.nodeValue;
+							}
+							else if(myArray2[j].nodeName == "menuItemURL"){
+								menuItem_mc.menuItemURL= myArray2[j].firstChild.nodeValue;
+							}
+							else if(myArray2[j].nodeName == "launchURL"){
+								menuItem_mc.launchURL= true;
+							}
+							else if(myArray2[j].nodeName == "imageSourceURL"){
+								menuItem_mc.imageSourceURL= myArray2[j].firstChild.nodeValue;
+							}
+							else if(myArray2[j].nodeName == "imageLinkURL"){
+								menuItem_mc.imageLinkURL= myArray2[j].firstChild.nodeValue;
+							}
+							else{
+								ExternalInterface.call("jsDebug","Trouble parsing project item");
+								trace(">> trouble parsing templateB "+myArray2[j].nodeName);
+							}
+						}
+						//What to do when the menu item is clicked
+						menuItem_mc.onRelease= function(){
 
-	document.ignoreWhite = true;
-	document.onData = function(src:String){
+							//Load the deepLink 
+							ExternalInterface.call("jsUpdateLocation",this.deepLink,2);
 
-		textBody_mc._x=565;
-		textBody_mc._x=80;
-		textBody_mc.textBody_tx._x = 0;
-		textBody_mc.textBody_tx._y = 0;
-		textBody_mc.textBody_tx._width = 357;
-		textBody_mc.textBody_tx._height = 380;
-		loadHTMLText(textBody_mc,textBody_mc.textBody_tx,src,false,duration);
+							//Disable this item
+							for (i in biographies){
+								biographies[i].enabled = true;
+							}
+							this.enabled = false;
 
-		//Cause scrollBar1._x is in the middle of the scrollbar somewhere
-		var scrollBar1Pad:Number = 18;
-		var gap = (((scrollBar1_mc._x-scrollBar1Pad)-BGBodyMasked_mc._x)/3);
-		var image01_pad= (gap - image01_mc._width)/2; 
-		image01_mc._x= BGBodyMasked_mc._x+0*gap + image01_pad;
-		image01_mc._y=underSkyline_y;
-		image01_mc._alpha=0;
-		image01_mc._visible=true;
-		var image02_pad= (gap - image02_mc._width)/2; 
-		image02_mc._x= BGBodyMasked_mc._x+1*gap + image02_pad;
-		image02_mc._y=underSkyline_y;
-		image02_mc._alpha=0;
-		image02_mc._visible=true;
-		var image03_pad= (gap - image03_mc._width)/2; 
-		image03_mc._x= BGBodyMasked_mc._x+2*gap + image03_pad;
-		image03_mc._y=underSkyline_y;
-		image03_mc._alpha=0;
-		image03_mc._visible=true;
 
-		var loadListener:Object = new Object();
+							//Load the section details
+							if(this.title != ""){
+								loadHTMLText(sectionTitle_mc,sectionTitle_mc.sectionTitle_tx,this.title,true,duration);
+							}
+							else{
+								loadHTMLText(sectionTitle_mc,sectionTitle_mc.sectionTitle_tx,"",true,duration);
+							}
+	
+							if(this.sectionDataURL != ""){
+								//trace(">> loading this sectionData "+this.sectionDataURL);
+								loadHTMLURL(this.sectionDataURL,duration,sectionData_mc,sectionData_mc.sectionData_tx);
+							}
+							else{
+								loadHTMLText(sectionData_mc,sectionData_mc.sectionData_tx,"",true,duration);
+							}
+	
+							//Load the text
+							if(this.textURL != ""){
+								//trace(">> loading this textBody "+this.textURL);
+								loadHTMLURL(this.textURL,duration,textBody_mc,textBody_mc.textBody_tx);
+							}
+							else{
+								loadHTMLText(textBody_mc,textBody_mc.textBody_tx,"",true,duration);
+							}
+	
+							//Load the image
+							if(this.imageSourceURL != ""){
 
-		loadListener.onLoadComplete = function(target_mc:MovieClip, httpStatus:Number):Void {
-			target_mc.tween(["_alpha","_y"],[100,350],3.0,"easeOutSine");
-			image01_mc.onRelease=function(){
-					jumpToURL("http://82.198.155.50/congestionMap.htm");
+								var foo=this.imageSourceURL;
+								var bar=this.imageLinkURL;
+
+								var loadListener:Object = new Object();
+								
+	
+								loadListener.onLoadComplete = function(target_mc:MovieClip, httpStatus:Number):Void {
+									target_mc._visible= true;
+									target_mc.tween("_alpha",100,duration,"linear");
+								}
+		
+								loadListener.onLoadInit = function(target_mc:MovieClip):Void {
+									var myDropFilter = new flash.filters.DropShadowFilter();
+									myDropFilter.distance = 0;
+									myDropFilter.inner = true;
+									var myFilters:Array = target_mc.filters;
+									myFilters.push(myDropFilter);
+									target_mc.filters = myFilters;
+
+									if(bar == ""){
+										target_mc.onRelease=undefined;
+									}
+									else{
+										target_mc.onRelease=function(){jumpToExternalURL(deSandboxURL(bar));};
+									}
+
+									//Position title
+									sectionTitle_mc._x=leftBase+menuWidth+buffer;
+									sectionTitle_mc._y=topBase+sectionImage_mc._height+buffer;
+									sectionData_mc._x=leftBase+menuWidth+buffer;
+									sectionData_mc._y=topBase+sectionImage_mc._height+buffer+sectionTitle_mc._height;
+									sectionData_mc.sectionData_tx._height=textBody_mc._height-sectionTitle_mc._height-sectionImage_mc._height;
+								}
+		
+								var mcLoader1:MovieClipLoader = new MovieClipLoader();
+								mcLoader1.addListener(loadListener);
+	
+								//Fade out existing imagery and text
+								sectionImage_mc.tween("_alpha",0,duration,"linear");
+								sectionTitle_mc.tween("_alpha",0,duration,"linear");
+								sectionData_mc.tween("_alpha",0,duration,"linear");
+
+								lightFusePayload(duration,function(){
+										sectionImage_mc._x=leftBase+menuWidth+buffer;
+										sectionImage_mc._y=topBase;
+
+										mcLoader1.loadClip(deSandboxURL(foo),sectionImage_mc);
+										});
+							}
+							else{
+								sectionImage_mc.tween("_alpha",0,duration,"linear");
+								sectionTitle_mc.tween("_alpha",0,duration,"linear");
+								sectionData_mc.tween("_alpha",0,duration,"linear");
+	
+								lightFusePayload(duration,function(){
+									sectionImage_mc._visible = false;
+									//Position title
+									sectionTitle_mc._x=leftBase+menuWidth+buffer;
+									sectionTitle_mc._y=topBase;
+									sectionData_mc._x=leftBase+menuWidth+buffer;
+									sectionData_mc._y=topBase+sectionTitle_mc._height;
+									sectionData_mc.sectionData_tx._height=textBody_mc._height-sectionTitle_mc._height;
+									sectionImage_mc.tween("_alpha",100,duration,"linear");
+									sectionTitle_mc.tween("_alpha",100,duration,"linear");
+									sectionData_mc.tween("_alpha",100,duration,"linear");
+	
+								});
+							}
+	
+						}
+								
+	
+						biographies[menuItem_mc.order] = menuItem_mc;
+					}
+				}
+
+				/*Deal with deep linking*/
+				var launched:Boolean = false;
+
+				if(deepLink != undefined){
+					for(i in biographies){
+						if((biographies[i].deepLink == deepLink)&&(launched == false)){
+							biographies[i].onRelease();
+							launched = true;
+							trace(">> launching biographies with deepLink "+deepLink);
+						}
+					}
+				}
+	
+				if(launched == false){
+					for(i in biographies){
+						if((biographies[i].launchURL == true)&&(launched == false)){
+							biographies[i].onRelease();
+							launched = true;
+							trace(">> launching biographies without deepLink " + deepLink);
+						}
+					}
+				}
+				if(launched == true){
+					ExternalInterface.call("jsDebug","In project launch it's true");
+				}
+				else{
+					ExternalInterface.call("jsDebug","In project launch it's false");
+				}
+				for(i in biographies){
+					ExternalInterface.call("jsDebug","In project launch "+biographies[i].title);
+				}
 			}
-			image02_mc.onRelease=function(){
-					jumpToURL("http://springerlink.metapress.com/openurl.asp?genre=article&issn=0302-9743&volume=3205&spage=433");
-			}
-			image03_mc.onRelease=function(){
-					jumpToURL("http://www.flickr.com/photos/julianbleecker/87099551/");
-			}
+			possiblyEnableAllButOneMenuItems();
 		}
-
-		loadListener.onLoadInit = function(target_mc:MovieClip):Void {
-			var myDropFilter = new flash.filters.DropShadowFilter();
-			myDropFilter.distance = 0;
-			myDropFilter.inner = true;
-			var myFilters:Array = target_mc.filters;
-			myFilters.push(myDropFilter);
-			target_mc.filters = myFilters;
-		}
-
-		var mcLoader1:MovieClipLoader = new MovieClipLoader();
-		mcLoader1.addListener(loadListener);
-		mcLoader1.loadClip("http://luci.ics.uci.edu/websiteContent/overview/overviewPhoto03.jpg",image01_mc);
-
-		var mcLoader2:MovieClipLoader = new MovieClipLoader();
-		mcLoader2.addListener(loadListener);
-		mcLoader2.loadClip("http://luci.ics.uci.edu/websiteContent/overview/overviewPhoto02.jpg",image02_mc);
-
-		var mcLoader3:MovieClipLoader = new MovieClipLoader();
-		mcLoader3.addListener(loadListener);
-		mcLoader3.loadClip("http://luci.ics.uci.edu/websiteContent/overview/overviewPhoto01.jpg",image03_mc);
-
+		document.load(URL);
 	}
-	//document.load(URL);
+	/*If biographies was already loaded */
+	else{
+		for(i in biographies){
+			biographies[i]._visible = true;
+			biographies[i].tween("_alpha",100,duration,"linear");
+		}
+		for(i in biographies){
+			if(biographies[i].launchURL == true){
+				biographies[i].onRelease();
+			}
+		}
+		possiblyEnableAllButOneMenuItems();
+	}
 }
 
 function clearTemplateC(title:String,URL:String)
@@ -1748,12 +1962,18 @@ var duration = 0.5;
 	sectionImage_mc.tween("_alpha",0,duration,"linear");
 	sectionTitle_mc.tween("_alpha",0,duration,"linear");
 	sectionData_mc.tween("_alpha",0,duration,"linear");
-	sectionListItem_mc1.tween("_alpha",0,duration,"linear");
 				
 	dividerVert_mc.tween("_alpha",0,duration,"linear");
-	dividerVert_mc.tween("_alpha",0,duration,"linear");
+
+	for(i in biographies){
+		biographies[i].tween("_alpha",0,duration,"linear");
+		lightFusePayload(duration,function(){
+				biographies[i]._visible = false;
+		});
+	}
 
 }
+
 
 function templateSA(title,URL,bomb)
 {
@@ -1841,7 +2061,7 @@ _global.loadingTemplates = 0;
 function dispatchTemplate(type:String,title:String,URL:String,bomb:MovieClip,deepLink:String,duration:Number)
 {
 		_global.loadingTemplates++;
-		trace(">> dispatching template "+type);
+		debugMessage(">> dispatching template "+type);
 		if(type=="A"){
 			templateA(title,URL,bomb,deepLink,duration);
 		}
@@ -1855,14 +2075,14 @@ function dispatchTemplate(type:String,title:String,URL:String,bomb:MovieClip,dee
 			templateC(title,URL,bomb,deepLink,duration);
 		}
 		else{
-			trace(">> Can't Dispatch This Template");
+			debugMessage(">> Can't Dispatch This Template");
 			loadTemplates--;
 		}
 }
 
 function undispatchTemplate(type:String)
 {
-		trace(">> Undispatching template "+type);
+		debugMessage(">> Undispatching template "+type);
 		if(type=="A"){
 			clearTemplateA();
 		}
@@ -1876,7 +2096,7 @@ function undispatchTemplate(type:String)
 			clearTemplateC(title,URL);
 		}
 		else{
-			trace(">> Unknown Template");
+			debugMessage(">> Unknown Template");
 		}
 }
 

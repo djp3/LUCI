@@ -1,0 +1,11 @@
+<projects>
+	<project>
+		<order>0</order>
+		<title>Donald J Patterson</title>
+		<imageSourceURL>websiteContent/weAreLuci/biographies/djp3/bioImage.jpg</imageSourceURL>
+		<deepLink>djp3</deepLink>
+		<sectionDataURL>websiteContent/weAreLuci/biographies/djp3/menuItems.txt</sectionDataURL>
+		<textURL>websiteContent/weAreLuci/biographies/djp3/overview.txt</textURL>
+		<launchURL></launchURL>
+	</project>
+</projects>
