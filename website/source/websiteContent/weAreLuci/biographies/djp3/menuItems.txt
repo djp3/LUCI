@@ -1,4 +1,9 @@
-<li><a href="asfunction:_root.loadHTMLURL,websiteContent/weAreLuci/nomaticAid/overview.txt">Overview</a>
-<li><a href="asfunction:_root.loadHTMLURL,websiteContent/weAreLuci/nomaticAid/faq.txt">FAQ</a>
-<li><a href="asfunction:_root.loadHTMLURL,websiteContent/weAreLuci/nomaticAid/links.txt">Links</a>
-<li><a href="asfunction:_root.loadHTMLURL,websiteContent/weAreLuci/nomaticAid/contact.txt">Contact Information </a>
+<li><a href="asfunction:_root.loadHTMLURL,websiteContent/weAreLuci/biographies/djp3/contact.txt">Contact</a>
+<li><a href="asfunction:_root.loadHTMLURL,websiteContent/weAreLuci/biographies/djp3/biography.txt">Biography</a>
+<li><a href="asfunction:_root.loadHTMLURL,websiteContent/weAreLuci/biographies/djp3/projects.txt">Projects</a>
+<li><a href="asfunction:_root.loadHTMLURL,websiteContent/weAreLuci/biographies/djp3/publications.txt">Publications</a>
+<li><a href="asfunction:_root.loadHTMLURL,websiteContent/weAreLuci/biographies/djp3/collaborators.txt">Collaborators</a>
+<li><a href="asfunction:_root.loadHTMLURL,websiteContent/weAreLuci/biographies/djp3/classes.txt">Classes</a>
+<li><a href="asfunction:_root.loadHTMLURL,websiteContent/weAreLuci/biographies/djp3/service.txt">Service</a>
+<li><a href="asfunction:_root.loadHTMLURL,websiteContent/weAreLuci/biographies/djp3/etc.txt">etc.</a>
+
