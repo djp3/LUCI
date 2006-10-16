@@ -1,0 +1,33 @@
+<biographies>
+	<biography>
+		<order>0</order>
+		<title>Tosin Aiyelokun</title>
+		<deepLink>tosin</deepLink>
+		<launchURL></launchURL>
+	</biography>
+	<biography>
+		<order>1</order>
+		<title>Johanna Brewer</title>
+		<deepLink>jbrewer</deepLink>
+	</biography>
+	<biography>
+		<order>2</order>
+		<title>Sharon Xianghua Ding</title>
+		<deepLink>dingx</deepLink>
+	</biography>
+	<biography>
+		<order>3</order>
+		<title>Nick Noack</title>
+		<deepLink>nnoack</deepLink>
+	</biography>
+	<biography>
+		<order>4</order>
+		<title>Zubin Tiku</title>
+		<deepLink>zubin</deepLink>
+	</biography>
+	<biography>
+		<order>5</order>
+		<title>Amanda Williams</title>
+		<deepLink>awilliams</deepLink>
+	</biography>
+</biographies>

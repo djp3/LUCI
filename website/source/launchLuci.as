@@ -128,6 +128,8 @@ function clearAndResetPage()
 	textSidebar_mc.textSidebar_tx.multiline = true;
 	textSidebar_mc.textSidebar_tx.html = true;
 	textSidebar_mc.textSidebar_tx.styleSheet = sidebarBody_styleSheet;
+	textSidebar_mc.textSidebar_tx._x=0;
+	textSidebar_mc.textSidebar_tx._y=0;
 
 	scrollBar2_mc._visible=false;
 		
@@ -179,9 +181,10 @@ function clearAndResetPage()
 	isBodyShrunk = true;
 	isSidebarShrunk = true;
 	clearCurrentTemplate = new Object();
-	clearCurrentTemplate.clearFunction= function(){trace(">> No template to clear");};
+	clearCurrentTemplate.clearFunction= function(){debugMessage(">> No template to clear");};
 
 	turnOffActiveMenuStates();
+	whiteOut_mc._visible = false;
 };
 // run it immediately
 clearAndResetPage();
@@ -189,14 +192,11 @@ clearAndResetPage();
 
 function sidebarShrink(bomb:MovieClip,duration:Number)
 {
-
 	if(duration == undefined){
 		duration = 1.0;
 	}
 
-
-	if(isSidebarShrunk != true){
-
+	if(isSidebarShrunk == false){
 		textSidebar_mc.tween("_alpha",0,0.1,"linear");
 		titleSidebar_mc.tween("_alpha",0,0.1,"linear");
 
@@ -206,20 +206,21 @@ function sidebarShrink(bomb:MovieClip,duration:Number)
 
 		lightFusePayload(duration,function(){
 			isSidebarShrunk=true;
-			triggerBomb(bomb);
+			BGsidebar_mc._visible = false;
+			scrollBar2._visible = false;
 		});
 	}
+	else{
+		duration = noDuration;
+	}
+
+	lightFuseBomb(duration,bomb);
 }
 
-function sidebarExpand(bomb:MovieClip,d:Number)
+function sidebarExpand(bomb:MovieClip,duration:Number)
 {
-var duration:Number;
-
-	if(d == undefined){
+	if(duration == undefined){
 		duration = 1.0;
-	}
-	else{
-		duration = d;
 	}
 
 	if(isSidebarShrunk == true){
@@ -236,17 +237,12 @@ var duration:Number;
 		lightFusePayload(duration,function(){
 			textSidebar_mc.tween("_alpha",100,0.1,"linear");
 			titleSidebar_mc.tween("_alpha",100,0.1,"linear");
+			isSidebarShrunk=false;
 		});
-
-		isSidebarShrunk=false;
 	}
 	else{
 		duration = noDuration;
 	}
-
-	textSidebar_mc.textSidebar_tx._x=0;
-	textSidebar_mc.textSidebar_tx._y=0;
-
 
 	lightFuseBomb(duration,bomb);
 }
@@ -669,7 +665,7 @@ function finalBuild(bomb:MovieClip)
 	finalBuildOrangeSidebar();			
 	finalBuildMenu();
 	finalBuildCenterPane(loadBomb(function(){
-		var duration:Number= 0.5;
+		var duration:Number= 0.25;
 		logo_mc.tween(["_alpha"],[0],duration,"linear");
 		skyline_mc.tween("_alpha",0,duration,"linear");
 		lightFuseBomb(duration,bomb);
@@ -769,13 +765,6 @@ function enableAllButOneMenuItems()
 	clearCurrentTemplate.dontEnableMe.enabled=false;
 }
 
-function possiblyEnableAllButOneMenuItems()
-{
-	_global.loadingTemplates--;
-	if(_global.loadingTemplates == 0){
-		enableAllButOneMenuItems();
-	}
-}
 
 function loadMenuItems(url:String,bomb:MovieClip)
 {
@@ -930,13 +919,18 @@ function loadMenuItems(url:String,bomb:MovieClip)
 										tempMenuItem_mc.menuItemText_tx.textColor=menuTextFormatInactive;
 										tempMenuItem_mc.onRelease=function(deepLinkEntry:String,duration:Number){
 												debugMessage(">> clicked on:"+ this.templateTitle +" loadingTemplates "+_global.loadingTemplates);
+												if(duration == undefined){
+													duration = 1.0;
+												}
 
 												debugMessage(">> clicked on 1");
 												disableAllMenuItems();
 												debugMessage(">> clicked on 1.5 :"+this.deepLink);
 	
 												//update the web page address
-	    										ExternalInterface.call("jsUpdateLocation", this.deepLink,1);
+												if(launchFromWebsite == true){
+	    											ExternalInterface.call("jsUpdateLocation", this.deepLink,1);
+												}
 												debugMessage(">> clicked on 2");
 	
 												////////////////////////////////////////////////////
@@ -948,6 +942,7 @@ function loadMenuItems(url:String,bomb:MovieClip)
 												var yy:Boolean = this.sidebar;
 												var zz = this.sidebarTemplateType;
 												clearCurrentTemplate.clearFunction = function(){
+													debugMessage(">> Clearing Template "+xx+":"+yy+":"+zz);
 													if(yy){
 														undispatchTemplate(zz);
 													}
@@ -972,7 +967,7 @@ function loadMenuItems(url:String,bomb:MovieClip)
 												var a = this.templateType;
 												var b = this.templateTitle;
 												var c = this.templateURL;
-												debugMessage("Setting up click function "+a+":"+b+":"+c);
+												debugMessage("Setting up click function "+a+":"+b+":"+c+":"+duration+":"+this.sidebar);
 												var mainTemplateFunction:Function=function(){
 													//Load main content
 													dispatchTemplate(a,b,c,undefined,deepLinkEntry,duration);
@@ -984,7 +979,7 @@ function loadMenuItems(url:String,bomb:MovieClip)
 													var z = this.sidebarTemplateURL;
 													var function04= function(){
 														dispatchTemplate(x,y,z,undefined,deepLinkEntry,duration);
-														possiblyEnableAllButOneMenuItems();
+														unlockMenuChoices();
 													};
 	
 													var function03=function(){
@@ -995,7 +990,7 @@ function loadMenuItems(url:String,bomb:MovieClip)
 													//Make this process atomic
 													//before a new choice can be
 													//made
-													_global.loadingTemplates++;
+													lockMenuChoices();
 
 													bodyShrink(loadBomb(function03));
 												}
@@ -1127,7 +1122,7 @@ function loadHTMLURL(myURL:String,duration:Number,myMovieClip:MovieClip,myTextFi
 {
 var document:XML = new XML();
 	
-	trace(">> loading HTML URL "+myURL+":"+duration+":"+myMovieClip+":"+myTextField);
+	//debugMessage(">> loading HTML URL "+myURL+":"+duration+":"+myMovieClip+":"+myTextField);
 
 	if(duration == undefined){
 		duration = 0.5;
@@ -1269,7 +1264,7 @@ var document:XML = new XML();
 			}
 			triggerBomb(bomb);
 
-			possiblyEnableAllButOneMenuItems();
+			unlockMenuChoices();
 		}
 
 		loadListener.onLoadInit = function(target_mc:MovieClip):Void {
@@ -1283,24 +1278,23 @@ var document:XML = new XML();
 		}
 
 		var mcLoader1:MovieClipLoader = new MovieClipLoader();
+		lockMenuChoices();
 		mcLoader1.addListener(loadListener);
-		_global.loadingTemplates++;
 		mcLoader1.loadClip("http://luci.ics.uci.edu/websiteContent/overview/overviewPhoto03.jpg",image01_mc);
 
 		var mcLoader2:MovieClipLoader = new MovieClipLoader();
-		_global.loadingTemplates++;
+		lockMenuChoices();
 		mcLoader2.addListener(loadListener);
 		mcLoader2.loadClip("http://luci.ics.uci.edu/websiteContent/overview/overviewPhoto02.jpg",image02_mc);
 
 		var mcLoader3:MovieClipLoader = new MovieClipLoader();
-		_global.loadingTemplates++;
+		lockMenuChoices();
 		mcLoader3.addListener(loadListener);
 		mcLoader3.loadClip("http://luci.ics.uci.edu/websiteContent/overview/overviewPhoto01.jpg",image03_mc);
-
-		//This clears the lock for the whole template, individual loads have their own locks
-		_global.loadingTemplates--;
+		unlockMenuChoices();
 
 	}
+	lockMenuChoices(); //Unlocked after load is complete
 	document.load(URL);
 }
 
@@ -1371,8 +1365,324 @@ function templateB(title:String,URL:String,bomb:MovieClip,deepLink:String,durati
 	dividerVert_mc._visible = true;
 	dividerVert_mc.tween(["_x","_y","_alpha"],[leftBase+menuWidth,83,100],duration,"easeInOutSine");
 
-	if(projects == undefined){
-		projects = new Array();
+	projects = new Array();
+	var document:XML = new XML();
+	document.ignoreWhite = true;
+	document.onLoad = function(success:Boolean){
+		if(success){
+			var uniqueID:Number = 0;
+			var myArray:Array = document.firstChild.childNodes;
+			for (i in myArray){
+				if(myArray[i].nodeName == "project"){
+					////////////////////////////////
+					//Create a new menu item 
+					var menuItem_mc:MovieClip = _root.attachMovie("sectionListItem","sectionListItem_"+uniqueID.toString()+"_mc", _root.getNextHighestDepth());
+					/*
+					if(menuItem_mc == null){
+						debugMessage("menuItem for sectionListItem is null");
+					}
+					else{
+						debugMessage("menuItem for sectionListItem is not null");
+					}
+					*/
+					menuItem_mc.order = 0;
+					menuItem_mc.title = "";
+					menuItem_mc.textURL = "";
+					menuItem_mc.sectionDataURL = "";
+					menuItem_mc.launchURL = false;
+					menuItem_mc.imageLinkURL = "";
+					menuItem_mc.imageSourceURL = "";
+					menuItem_mc.uniqueID = uniqueID++;
+					menuItem_mc._visible = true;
+					menuItem_mc._alpha = 0;
+					menuItem_mc.sectionListItem_tx._x=0;
+					menuItem_mc.sectionListItem_tx._y=0;
+					menuItem_mc.sectionListItem_tx._visible = true;
+					menuItem_mc.sectionListItem_tx._alpha = 100;
+					menuItem_mc.sectionListItem_tx.html = true;
+					menuItem_mc.sectionListItem_tx.htmlText = "";
+					menuItem_mc.sectionListItem_tx.embedFonts=true;
+					menuItem_mc.sectionListItem_tx.wordWrap = true;
+					menuItem_mc.sectionListItem_tx.multiline = true;
+					menuItem_mc.sectionListItem_tx.styleSheet = textBody_styleSheet;
+					menuItem_mc.sectionListItem_tx.autoSize=true;
+
+					menuItem_mc._visible = true;
+					//menuItem_mc.sectionListItem_tx.border = true;
+					////////////////////////////////
+
+					var myArray2:Array = myArray[i].childNodes;
+					for (j in myArray2){
+						if(myArray2[j].nodeName == "order"){
+							menuItem_mc.order= Number(myArray2[j].firstChild.nodeValue);
+							menuItem_mc._x=leftBase;
+							menuItem_mc._y=topBase+15*menuItem_mc.order;
+							menuItem_mc.tween(["_alpha"],[100],duration,"easeOutSine");
+						}
+						else if(myArray2[j].nodeName == "title"){
+							menuItem_mc.title= myArray2[j].firstChild.nodeValue;
+							menuItem_mc.sectionListItem_tx.htmlText = menuItem_mc.title;
+						}
+						else if(myArray2[j].nodeName == "deepLink"){
+							menuItem_mc.deepLink= myArray2[j].firstChild.nodeValue;
+						}
+						else if(myArray2[j].nodeName == "textURL"){
+							menuItem_mc.textURL= myArray2[j].firstChild.nodeValue;
+						}
+						else if(myArray2[j].nodeName == "sectionDataURL"){
+							menuItem_mc.sectionDataURL= myArray2[j].firstChild.nodeValue;
+						}
+						else if(myArray2[j].nodeName == "menuItemURL"){
+							menuItem_mc.menuItemURL= myArray2[j].firstChild.nodeValue;
+						}
+						else if(myArray2[j].nodeName == "launchURL"){
+							menuItem_mc.launchURL= true;
+						}
+						else if(myArray2[j].nodeName == "imageSourceURL"){
+							menuItem_mc.imageSourceURL= myArray2[j].firstChild.nodeValue;
+						}
+						else if(myArray2[j].nodeName == "imageLinkURL"){
+							menuItem_mc.imageLinkURL= myArray2[j].firstChild.nodeValue;
+						}
+						else{
+							ExternalInterface.call("jsDebug","Trouble parsing project item");
+							trace(">> trouble parsing templateB "+myArray2[j].nodeName);
+						}
+					}
+					//What to do when the menu item is clicked
+					menuItem_mc.onRelease= function(){
+
+						//Load the deepLink 
+						ExternalInterface.call("jsUpdateLocation",this.deepLink,2);
+
+						//Disable this item
+						for (i in projects){
+							projects[i].enabled = true;
+							/* The color names are opposite what they look
+							 * like because the background is white */
+							projects[i].sectionListItem_tx.textColor= menuTextFormatNotClickable;
+						}
+						this.enabled = false;
+							/* The color names are opposite what they look
+							 * like because the background is white */
+						this.sectionListItem_tx.textColor= menuTextFormatInactive;
+
+
+						//Load the section details
+						if(this.title != ""){
+							loadHTMLText(sectionTitle_mc,sectionTitle_mc.sectionTitle_tx,this.title,true,duration);
+						}
+						else{
+							loadHTMLText(sectionTitle_mc,sectionTitle_mc.sectionTitle_tx,"",true,duration);
+						}
+
+						if(this.sectionDataURL != ""){
+							//trace(">> loading this sectionData "+this.sectionDataURL);
+							loadHTMLURL(this.sectionDataURL,duration,sectionData_mc,sectionData_mc.sectionData_tx);
+						}
+						else{
+							loadHTMLText(sectionData_mc,sectionData_mc.sectionData_tx,"",true,duration);
+						}
+
+						//Load the text
+						if(this.textURL != ""){
+							//trace(">> loading this textBody "+this.textURL);
+							loadHTMLURL(this.textURL,duration,textBody_mc,textBody_mc.textBody_tx);
+						}
+						else{
+							loadHTMLText(textBody_mc,textBody_mc.textBody_tx,"",true,duration);
+						}
+
+						//Load the image
+						if(this.imageSourceURL != ""){
+
+							var foo=this.imageSourceURL;
+							var bar=this.imageLinkURL;
+
+							var loadListener:Object = new Object();
+							
+
+							loadListener.onLoadComplete = function(target_mc:MovieClip, httpStatus:Number):Void {
+								target_mc._visible= true;
+								target_mc.tween("_alpha",100,duration,"linear");
+							}
+	
+							loadListener.onLoadInit = function(target_mc:MovieClip):Void {
+								var myDropFilter = new flash.filters.DropShadowFilter();
+								myDropFilter.distance = 0;
+								myDropFilter.inner = true;
+								var myFilters:Array = target_mc.filters;
+								myFilters.push(myDropFilter);
+								target_mc.filters = myFilters;
+
+								if(bar == ""){
+									target_mc.onRelease=undefined;
+								}
+								else{
+									target_mc.onRelease=function(){jumpToExternalURL(deSandboxURL(bar));};
+								}
+
+								//Position title
+								sectionTitle_mc._x=leftBase+menuWidth+buffer;
+								sectionTitle_mc._y=topBase+sectionImage_mc._height+buffer;
+								sectionData_mc._x=leftBase+menuWidth+buffer;
+								sectionData_mc._y=topBase+sectionImage_mc._height+buffer+sectionTitle_mc._height;
+								sectionData_mc.sectionData_tx._height=textBody_mc._height-sectionTitle_mc._height-sectionImage_mc._height;
+							}
+	
+							var mcLoader1:MovieClipLoader = new MovieClipLoader();
+							mcLoader1.addListener(loadListener);
+
+							//Fade out existing imagery and text
+							sectionImage_mc.tween("_alpha",0,duration,"linear");
+							sectionTitle_mc.tween("_alpha",0,duration,"linear");
+							sectionData_mc.tween("_alpha",0,duration,"linear");
+
+							lightFusePayload(duration,function(){
+									sectionImage_mc._x=leftBase+menuWidth+buffer;
+									sectionImage_mc._y=topBase;
+
+									mcLoader1.loadClip(deSandboxURL(foo),sectionImage_mc);
+									});
+						}
+						else{
+							sectionImage_mc.tween("_alpha",0,duration,"linear");
+							sectionTitle_mc.tween("_alpha",0,duration,"linear");
+							sectionData_mc.tween("_alpha",0,duration,"linear");
+
+							lightFusePayload(duration,function(){
+								sectionImage_mc._visible = false;
+								//Position title
+								sectionTitle_mc._x=leftBase+menuWidth+buffer;
+								sectionTitle_mc._y=topBase;
+								sectionData_mc._x=leftBase+menuWidth+buffer;
+								sectionData_mc._y=topBase+sectionTitle_mc._height;
+								sectionData_mc.sectionData_tx._height=textBody_mc._height-sectionTitle_mc._height;
+								sectionImage_mc.tween("_alpha",100,duration,"linear");
+								sectionTitle_mc.tween("_alpha",100,duration,"linear");
+								sectionData_mc.tween("_alpha",100,duration,"linear");
+
+							});
+						}
+
+					}
+							
+
+					projects[menuItem_mc.order] = menuItem_mc;
+				}
+			}
+
+			/*Deal with deep linking*/
+			var launched:Boolean = false;
+
+			if(deepLink != undefined){
+				for(i in projects){
+					if((projects[i].deepLink == deepLink)&&(launched == false)){
+						projects[i].onRelease();
+						launched = true;
+						trace(">> launching projects with deepLink "+deepLink);
+					}
+				}
+			}
+
+			if(launched == false){
+				for(i in projects){
+					if((projects[i].launchURL == true)&&(launched == false)){
+						projects[i].onRelease();
+						launched = true;
+						trace(">> launching projects without deepLink " + deepLink);
+					}
+				}
+			}
+			if(launched == true){
+				ExternalInterface.call("jsDebug","In project launch it's true");
+			}
+			else{
+				ExternalInterface.call("jsDebug","In project launch it's false");
+			}
+			for(i in projects){
+				ExternalInterface.call("jsDebug","In project launch "+projects[i].title);
+			}
+		}
+		unlockMenuChoices();
+	}
+	lockMenuChoices(); //Unlocked after document load
+	document.load(URL);
+}
+
+function clearTemplateB(title:String,URL:String)
+{
+var duration = 0.5;
+
+	titleBody_mc.tween("_alpha",0,duration,"linear");
+	textBody_mc.tween("_alpha",0,duration,"linear");
+
+	sectionImage_mc.tween("_alpha",0,duration,"linear");
+	sectionTitle_mc.tween("_alpha",0,duration,"linear");
+	sectionData_mc.tween("_alpha",0,duration,"linear");
+				
+	dividerVert_mc.tween("_alpha",0,duration,"linear");
+
+	for(i in projects){
+		projects[i].tween("_alpha",0,duration,"linear");
+		lightFusePayload(duration,function(){
+				projects[i]._visible = false;
+		});
+	}
+
+}
+
+var biographies:Array;
+function templateC(title:String,URL:String,bomb:MovieClip,deepLink:String,duration:Number)
+{
+	var leftBase:Number=216;
+	var menuWidth:Number = 120;
+	var buffer:Number = 10;
+	var sectionDataWidth:Number=155;
+
+	var topBase:Number=80;
+
+	if(duration == undefined){
+		duration = 1.0;
+	}
+
+	//These should be alpha = 0 from the last clear
+	titleBody_mc._visible=true;
+	textBody_mc._visible=true;
+
+	sectionTitle_mc._alpha=0;
+	sectionTitle_mc._visible=true;
+	sectionTitle_mc._x=leftBase+menuWidth+buffer;
+
+	sectionData_mc._alpha=0;
+	sectionData_mc._visible=true;
+	sectionData_mc.tween._x=leftBase+menuWidth+buffer;
+
+	sectionImage_mc._alpha=0;
+	sectionImage_mc._visible=true;
+
+	textBody_mc._x=leftBase+menuWidth+buffer+buffer+sectionDataWidth+buffer;
+	textBody_mc._y=topBase;
+	textBody_mc.textBody_tx._x = 0;
+	textBody_mc.textBody_tx._y = 0;
+	textBody_mc.textBody_tx._width = 400;
+	textBody_mc.textBody_tx._height = 410;
+
+	/*titleBody_mc.titleBody_tx.border=true;
+	textBody_mc.textBody_tx.border = true;
+	sectionTitle_mc.sectionTitle_tx.border = true;
+	sectionListItem_mc.sectionListItem_tx.border = true;
+	sectionData_mc.sectionData_tx.border = true;
+	trace(">> sectionListItem "+sectionListItem_mc1._width+","+sectionListItem_mc1._height);
+	trace(">> sectionData_mc "+sectionData_mc._x+","+sectionData_mc._y);*/
+
+	loadTitle(title,false);
+
+	dividerVert_mc._x=leftBase+menuWidth;
+	dividerVert_mc._visible = true;
+	dividerVert_mc.tween(["_x","_y","_alpha"],[leftBase+menuWidth,83,100],duration,"easeInOutSine");
+
+		biographies = new Array();
 		var document:XML = new XML();
 		document.ignoreWhite = true;
 		document.onLoad = function(success:Boolean){
@@ -1380,7 +1690,7 @@ function templateB(title:String,URL:String,bomb:MovieClip,deepLink:String,durati
 				var uniqueID:Number = 0;
 				var myArray:Array = document.firstChild.childNodes;
 				for (i in myArray){
-					if(myArray[i].nodeName == "project"){
+					if(myArray[i].nodeName == "biography"){
 						////////////////////////////////
 						//Create a new menu item 
 						var menuItem_mc:MovieClip = _root.attachMovie("sectionListItem","sectionListItem_"+uniqueID.toString()+"_mc", _root.getNextHighestDepth());
@@ -1463,337 +1773,16 @@ function templateB(title:String,URL:String,bomb:MovieClip,deepLink:String,durati
 							ExternalInterface.call("jsUpdateLocation",this.deepLink,2);
 
 							//Disable this item
-							for (i in projects){
-								projects[i].enabled = true;
-							}
-							this.enabled = false;
-
-
-							//Load the section details
-							if(this.title != ""){
-								loadHTMLText(sectionTitle_mc,sectionTitle_mc.sectionTitle_tx,this.title,true,duration);
-							}
-							else{
-								loadHTMLText(sectionTitle_mc,sectionTitle_mc.sectionTitle_tx,"",true,duration);
-							}
-	
-							if(this.sectionDataURL != ""){
-								//trace(">> loading this sectionData "+this.sectionDataURL);
-								loadHTMLURL(this.sectionDataURL,duration,sectionData_mc,sectionData_mc.sectionData_tx);
-							}
-							else{
-								loadHTMLText(sectionData_mc,sectionData_mc.sectionData_tx,"",true,duration);
-							}
-	
-							//Load the text
-							if(this.textURL != ""){
-								//trace(">> loading this textBody "+this.textURL);
-								loadHTMLURL(this.textURL,duration,textBody_mc,textBody_mc.textBody_tx);
-							}
-							else{
-								loadHTMLText(textBody_mc,textBody_mc.textBody_tx,"",true,duration);
-							}
-	
-							//Load the image
-							if(this.imageSourceURL != ""){
-
-								var foo=this.imageSourceURL;
-								var bar=this.imageLinkURL;
-
-								var loadListener:Object = new Object();
-								
-	
-								loadListener.onLoadComplete = function(target_mc:MovieClip, httpStatus:Number):Void {
-									target_mc._visible= true;
-									target_mc.tween("_alpha",100,duration,"linear");
-								}
-		
-								loadListener.onLoadInit = function(target_mc:MovieClip):Void {
-									var myDropFilter = new flash.filters.DropShadowFilter();
-									myDropFilter.distance = 0;
-									myDropFilter.inner = true;
-									var myFilters:Array = target_mc.filters;
-									myFilters.push(myDropFilter);
-									target_mc.filters = myFilters;
-
-									if(bar == ""){
-										target_mc.onRelease=undefined;
-									}
-									else{
-										target_mc.onRelease=function(){jumpToExternalURL(deSandboxURL(bar));};
-									}
-
-									//Position title
-									sectionTitle_mc._x=leftBase+menuWidth+buffer;
-									sectionTitle_mc._y=topBase+sectionImage_mc._height+buffer;
-									sectionData_mc._x=leftBase+menuWidth+buffer;
-									sectionData_mc._y=topBase+sectionImage_mc._height+buffer+sectionTitle_mc._height;
-									sectionData_mc.sectionData_tx._height=textBody_mc._height-sectionTitle_mc._height-sectionImage_mc._height;
-								}
-		
-								var mcLoader1:MovieClipLoader = new MovieClipLoader();
-								mcLoader1.addListener(loadListener);
-	
-								//Fade out existing imagery and text
-								sectionImage_mc.tween("_alpha",0,duration,"linear");
-								sectionTitle_mc.tween("_alpha",0,duration,"linear");
-								sectionData_mc.tween("_alpha",0,duration,"linear");
-
-								lightFusePayload(duration,function(){
-										sectionImage_mc._x=leftBase+menuWidth+buffer;
-										sectionImage_mc._y=topBase;
-
-										mcLoader1.loadClip(deSandboxURL(foo),sectionImage_mc);
-										});
-							}
-							else{
-								sectionImage_mc.tween("_alpha",0,duration,"linear");
-								sectionTitle_mc.tween("_alpha",0,duration,"linear");
-								sectionData_mc.tween("_alpha",0,duration,"linear");
-	
-								lightFusePayload(duration,function(){
-									sectionImage_mc._visible = false;
-									//Position title
-									sectionTitle_mc._x=leftBase+menuWidth+buffer;
-									sectionTitle_mc._y=topBase;
-									sectionData_mc._x=leftBase+menuWidth+buffer;
-									sectionData_mc._y=topBase+sectionTitle_mc._height;
-									sectionData_mc.sectionData_tx._height=textBody_mc._height-sectionTitle_mc._height;
-									sectionImage_mc.tween("_alpha",100,duration,"linear");
-									sectionTitle_mc.tween("_alpha",100,duration,"linear");
-									sectionData_mc.tween("_alpha",100,duration,"linear");
-	
-								});
-							}
-	
-						}
-								
-	
-						projects[menuItem_mc.order] = menuItem_mc;
-					}
-				}
-
-				/*Deal with deep linking*/
-				var launched:Boolean = false;
-
-				if(deepLink != undefined){
-					for(i in projects){
-						if((projects[i].deepLink == deepLink)&&(launched == false)){
-							projects[i].onRelease();
-							launched = true;
-							trace(">> launching projects with deepLink "+deepLink);
-						}
-					}
-				}
-	
-				if(launched == false){
-					for(i in projects){
-						if((projects[i].launchURL == true)&&(launched == false)){
-							projects[i].onRelease();
-							launched = true;
-							trace(">> launching projects without deepLink " + deepLink);
-						}
-					}
-				}
-				if(launched == true){
-					ExternalInterface.call("jsDebug","In project launch it's true");
-				}
-				else{
-					ExternalInterface.call("jsDebug","In project launch it's false");
-				}
-				for(i in projects){
-					ExternalInterface.call("jsDebug","In project launch "+projects[i].title);
-				}
-			}
-			possiblyEnableAllButOneMenuItems();
-		}
-		document.load(URL);
-	}
-	/*If projects was already loaded */
-	else{
-		for(i in projects){
-			projects[i]._visible = true;
-			projects[i].tween("_alpha",100,duration,"linear");
-		}
-		for(i in projects){
-			if(projects[i].launchURL == true){
-				projects[i].onRelease();
-			}
-		}
-		possiblyEnableAllButOneMenuItems();
-	}
-}
-
-function clearTemplateB(title:String,URL:String)
-{
-var document:XML = new XML();
-var duration = 0.5;
-
-	titleBody_mc.tween("_alpha",0,duration,"linear");
-	textBody_mc.tween("_alpha",0,duration,"linear");
-
-	sectionImage_mc.tween("_alpha",0,duration,"linear");
-	sectionTitle_mc.tween("_alpha",0,duration,"linear");
-	sectionData_mc.tween("_alpha",0,duration,"linear");
-				
-	dividerVert_mc.tween("_alpha",0,duration,"linear");
-
-	for(i in projects){
-		projects[i].tween("_alpha",0,duration,"linear");
-		lightFusePayload(duration,function(){
-				projects[i]._visible = false;
-		});
-	}
-
-}
-
-var biographies:Array;
-function templateC(title:String,URL:String,bomb:MovieClip,deepLink:String,duration:Number)
-{
-	var leftBase:Number=216;
-	var menuWidth:Number = 120;
-	var buffer:Number = 10;
-	var sectionDataWidth:Number=155;
-
-	var topBase:Number=80;
-
-	if(duration == undefined){
-		duration = 1.0;
-	}
-
-	//These should be alpha = 0 from the last clear
-	titleBody_mc._visible=true;
-	textBody_mc._visible=true;
-
-	sectionTitle_mc._alpha=0;
-	sectionTitle_mc._visible=true;
-	sectionTitle_mc._x=leftBase+menuWidth+buffer;
-
-	sectionData_mc._alpha=0;
-	sectionData_mc._visible=true;
-	sectionData_mc.tween._x=leftBase+menuWidth+buffer;
-
-	sectionImage_mc._alpha=0;
-	sectionImage_mc._visible=true;
-
-	textBody_mc._x=leftBase+menuWidth+buffer+buffer+sectionDataWidth+buffer;
-	textBody_mc._y=topBase;
-	textBody_mc.textBody_tx._x = 0;
-	textBody_mc.textBody_tx._y = 0;
-	textBody_mc.textBody_tx._width = 400;
-	textBody_mc.textBody_tx._height = 410;
-
-	/*titleBody_mc.titleBody_tx.border=true;
-	textBody_mc.textBody_tx.border = true;
-	sectionTitle_mc.sectionTitle_tx.border = true;
-	sectionListItem_mc.sectionListItem_tx.border = true;
-	sectionData_mc.sectionData_tx.border = true;
-	trace(">> sectionListItem "+sectionListItem_mc1._width+","+sectionListItem_mc1._height);
-	trace(">> sectionData_mc "+sectionData_mc._x+","+sectionData_mc._y);*/
-
-	loadTitle(title,false);
-
-	dividerVert_mc._x=leftBase+menuWidth;
-	dividerVert_mc._visible = true;
-	dividerVert_mc.tween(["_x","_y","_alpha"],[leftBase+menuWidth,83,100],duration,"easeInOutSine");
-
-	if(biographies == undefined){
-		biographies = new Array();
-		var document:XML = new XML();
-		document.ignoreWhite = true;
-		document.onLoad = function(success:Boolean){
-			if(success){
-				var uniqueID:Number = 0;
-				var myArray:Array = document.firstChild.childNodes;
-				for (i in myArray){
-					if(myArray[i].nodeName == "project"){
-						////////////////////////////////
-						//Create a new menu item 
-						var menuItem_mc:MovieClip = _root.attachMovie("sectionListItem","sectionListItem_"+uniqueID.toString()+"_mc", _root.getNextHighestDepth());
-						if(menuItem_mc == null){
-							debugMessage("menuItem for sectionListItem is null");
-						}
-						else{
-							debugMessage("menuItem for sectionListItem is not null");
-						}
-						menuItem_mc.order = 0;
-						menuItem_mc.title = "";
-						menuItem_mc.textURL = "";
-						menuItem_mc.sectionDataURL = "";
-						menuItem_mc.launchURL = false;
-						menuItem_mc.imageLinkURL = "";
-						menuItem_mc.imageSourceURL = "";
-						menuItem_mc.uniqueID = uniqueID++;
-						menuItem_mc._visible = true;
-						menuItem_mc._alpha = 0;
-						menuItem_mc.sectionListItem_tx._x=0;
-						menuItem_mc.sectionListItem_tx._y=0;
-						menuItem_mc.sectionListItem_tx._visible = true;
-						menuItem_mc.sectionListItem_tx._alpha = 100;
-						menuItem_mc.sectionListItem_tx.html = true;
-						menuItem_mc.sectionListItem_tx.htmlText = "";
-						menuItem_mc.sectionListItem_tx.embedFonts=true;
-						menuItem_mc.sectionListItem_tx.wordWrap = true;
-						menuItem_mc.sectionListItem_tx.multiline = true;
-						menuItem_mc.sectionListItem_tx.styleSheet = textBody_styleSheet;
-						menuItem_mc.sectionListItem_tx.autoSize=true;
-	
-						menuItem_mc._visible = true;
-						//menuItem_mc.sectionListItem_tx.border = true;
-						////////////////////////////////
-	
-						var myArray2:Array = myArray[i].childNodes;
-						for (j in myArray2){
-							if(myArray2[j].nodeName == "order"){
-								menuItem_mc.order= Number(myArray2[j].firstChild.nodeValue);
-								menuItem_mc._x=leftBase;
-								menuItem_mc._y=topBase+15*menuItem_mc.order;
-								menuItem_mc.tween(["_alpha"],[100],duration,"easeOutSine");
-								ExternalInterface.call("jsDebug","In project load order = "+menuItem_mc.order);
-							}
-							else if(myArray2[j].nodeName == "title"){
-								menuItem_mc.title= myArray2[j].firstChild.nodeValue;
-								menuItem_mc.sectionListItem_tx.htmlText = menuItem_mc.title;
-								ExternalInterface.call("jsDebug","In project load title = "+menuItem_mc.title);
-							}
-							else if(myArray2[j].nodeName == "deepLink"){
-								menuItem_mc.deepLink= myArray2[j].firstChild.nodeValue;
-								ExternalInterface.call("jsDebug","In project load deepLink = "+menuItem_mc.deepLink);
-							}
-							else if(myArray2[j].nodeName == "textURL"){
-								menuItem_mc.textURL= myArray2[j].firstChild.nodeValue;
-							}
-							else if(myArray2[j].nodeName == "sectionDataURL"){
-								menuItem_mc.sectionDataURL= myArray2[j].firstChild.nodeValue;
-							}
-							else if(myArray2[j].nodeName == "menuItemURL"){
-								menuItem_mc.menuItemURL= myArray2[j].firstChild.nodeValue;
-							}
-							else if(myArray2[j].nodeName == "launchURL"){
-								menuItem_mc.launchURL= true;
-							}
-							else if(myArray2[j].nodeName == "imageSourceURL"){
-								menuItem_mc.imageSourceURL= myArray2[j].firstChild.nodeValue;
-							}
-							else if(myArray2[j].nodeName == "imageLinkURL"){
-								menuItem_mc.imageLinkURL= myArray2[j].firstChild.nodeValue;
-							}
-							else{
-								ExternalInterface.call("jsDebug","Trouble parsing project item");
-								trace(">> trouble parsing templateB "+myArray2[j].nodeName);
-							}
-						}
-						//What to do when the menu item is clicked
-						menuItem_mc.onRelease= function(){
-
-							//Load the deepLink 
-							ExternalInterface.call("jsUpdateLocation",this.deepLink,2);
-
-							//Disable this item
 							for (i in biographies){
 								biographies[i].enabled = true;
+								/* The color names are opposite what they look
+								 * like because the background is white */
+								biographies[i].sectionListItem_tx.textColor= menuTextFormatNotClickable;
 							}
 							this.enabled = false;
+								/* The color names are opposite what they look
+								 * like because the background is white */
+							this.sectionListItem_tx.textColor= menuTextFormatInactive;
 
 
 							//Load the section details
@@ -1923,37 +1912,23 @@ function templateC(title:String,URL:String,bomb:MovieClip,deepLink:String,durati
 					}
 				}
 				if(launched == true){
-					ExternalInterface.call("jsDebug","In project launch it's true");
+					ExternalInterface.call("jsDebug","In biographies launch it's true");
 				}
 				else{
-					ExternalInterface.call("jsDebug","In project launch it's false");
+					ExternalInterface.call("jsDebug","In biographies launch it's false");
 				}
 				for(i in biographies){
-					ExternalInterface.call("jsDebug","In project launch "+biographies[i].title);
+					ExternalInterface.call("jsDebug","In biographies launch "+biographies[i].title);
 				}
 			}
-			possiblyEnableAllButOneMenuItems();
+			unlockMenuChoices();
 		}
+		lockMenuChoices(); //Unlocked after document load
 		document.load(URL);
-	}
-	/*If biographies was already loaded */
-	else{
-		for(i in biographies){
-			biographies[i]._visible = true;
-			biographies[i].tween("_alpha",100,duration,"linear");
-		}
-		for(i in biographies){
-			if(biographies[i].launchURL == true){
-				biographies[i].onRelease();
-			}
-		}
-		possiblyEnableAllButOneMenuItems();
-	}
 }
 
 function clearTemplateC(title:String,URL:String)
 {
-var document:XML = new XML();
 var duration = 0.5;
 
 	titleBody_mc.tween("_alpha",0,duration,"linear");
@@ -1967,12 +1942,11 @@ var duration = 0.5;
 
 	for(i in biographies){
 		biographies[i].tween("_alpha",0,duration,"linear");
-		lightFusePayload(duration,function(){
-				biographies[i]._visible = false;
-		});
+		biographies[i].enabled = false;
 	}
 
 }
+
 
 
 function templateSA(title,URL,bomb)
@@ -2041,8 +2015,6 @@ var document:XML = new XML();
 		}
 		triggerBomb(bomb);
 
-		possiblyEnableAllButOneMenuItems();
-
 	}
 	document.load(deSandboxURL(URL));
 }
@@ -2057,11 +2029,33 @@ function clearTemplateSA()
 
 
 _global.loadingTemplates = 0;
+function lockMenuChoices()
+{
+	if(_global.loadingTemplates == 0){
+		disableAllMenuItems();
+	}
+	_global.loadingTemplates++;
+	debugMessage("Locking Menu Choices "+_global.loadingTemplates);
+}
+
+function unlockMenuChoices()
+{
+	debugMessage("Unlocking Menu Choices "+_global.loadingTemplates);
+	_global.loadingTemplates--;
+	if(_global.loadingTemplates < 0){
+			debugMessage("_global.loadingTemplates is out of sync");
+			_global.loadingTemplates = 0;
+	}
+	if(_global.loadingTemplates == 0){
+		enableAllButOneMenuItems();
+	}
+}
+
 
 function dispatchTemplate(type:String,title:String,URL:String,bomb:MovieClip,deepLink:String,duration:Number)
 {
-		_global.loadingTemplates++;
-		debugMessage(">> dispatching template "+type);
+		lockMenuChoices()
+		debugMessage(">> dispatching template "+type+": locks = "+_global.loadingTemplates);
 		if(type=="A"){
 			templateA(title,URL,bomb,deepLink,duration);
 		}
@@ -2076,13 +2070,14 @@ function dispatchTemplate(type:String,title:String,URL:String,bomb:MovieClip,dee
 		}
 		else{
 			debugMessage(">> Can't Dispatch This Template");
-			loadTemplates--;
 		}
+		unlockMenuChoices();
 }
 
 function undispatchTemplate(type:String)
 {
-		debugMessage(">> Undispatching template "+type);
+		lockMenuChoices();
+		debugMessage(">> Undispatching template "+type+": locks = "+_global.loadingTemplates);
 		if(type=="A"){
 			clearTemplateA();
 		}
@@ -2098,6 +2093,7 @@ function undispatchTemplate(type:String)
 		else{
 			debugMessage(">> Unknown Template");
 		}
+		unlockMenuChoices();
 }
 
 
