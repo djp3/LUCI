@@ -3,12 +3,13 @@
 		<order>0</order>
 		<title>Kah Liu</title>
 		<deepLink>kahliu</deepLink>
-		<launchURL></launchURL>
 	</biography>
 	<biography>
 		<order>1</order>
 		<title>Nathaniel Marracco</title>
-		<deepLink>nmarraco</deepLink>
+		<imageSourceURL>websiteContent/weAreLuci/biographies/undergrads/nmarrocco/bioImage.jpg</imageSourceURL>
+		<deepLink>nmarracco</deepLink>
+		<launchURL></launchURL>
 	</biography>
 	<biography>
 		<order>2</order>
