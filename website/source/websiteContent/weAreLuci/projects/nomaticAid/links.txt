@@ -1,2 +1,0 @@
-<b>Nomatic*Aid : Links</b>
-<a href="asfunction:_root.jumpToExternalURL,http://www.ics.uci.edu/~oaiyelok/NomaticAid.pdf">White Paper/Extended Abstract more information about the project (PDF)</a><br/>

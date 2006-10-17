@@ -17,8 +17,8 @@ function jsDebug(x) {
 function jsUpdateLocation(x,level) {
 	var newThing = "";
 	var y = window.location.hash.substring(1);
+	jsDebug("jsUpdateLocation called with: "+x + " " + level +" current: "+y);
 
-	jsDebug("jsUpdateLocation called with: "+x + " " + level);
 	while(level > 1){
 		end = y.indexOf("&");
 		if(end != -1){
@@ -32,6 +32,7 @@ function jsUpdateLocation(x,level) {
 		}
 	}
     window.location.hash = newThing + x;
+	jsDebug("jsUpdateLocation TimeOut set");
 }
 
 function checkURLParameters() {
