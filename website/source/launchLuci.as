@@ -203,8 +203,18 @@ function sidebarShrink(bomb:MovieClip,duration:Number)
 
 		lightFusePayload(duration,function(){
 			isSidebarShrunk=true;
+
+			textSidebar_mc._visible = false;
+			textSidebar_mc.enabled=false;
+
+			titleSidebar_mc._visible = false;
+			titleSidebar_mc.enabled=false;
+
 			BGsidebar_mc._visible = false;
+			BGsidebar_mc.enabled=false;
+
 			scrollBar2._visible = false;
+			scrollBar2.enabled = false;
 		});
 	}
 	else{
@@ -225,15 +235,24 @@ function sidebarExpand(bomb:MovieClip,duration:Number)
 		//This is the orange sidebar
 		BGsidebar_mc._alpha = 0;
 		BGsidebar_mc._visible = true;
+		BGsidebar_mc.enabled = true;
 		BGsidebar_mc.tween(["_y", "_alpha"], [17, 100], duration, "easeOutSine");
 	
 		scrollBar2._alpha = 0;
 		scrollBar2._visible = true;
+		scrollBar2.enabled = true;
 		scrollBar2_mc.tween(["_y", "_alpha"], [17, 100], duration, "easeOutSine");
 
 		lightFusePayload(duration,function(){
+			textSidebar_mc._visible = true;
+			textSidebar_mc.enabled=true;
+
+			titleSidebar_mc._visible = true;
+			titleSidebar_mc.enabled=true;
+
 			textSidebar_mc.tween("_alpha",100,0.1,"linear");
 			titleSidebar_mc.tween("_alpha",100,0.1,"linear");
+
 			isSidebarShrunk=false;
 		});
 	}
@@ -587,19 +606,8 @@ function animateOpen(deepLink:String)
 	}), duration);
 }
 
-function jumpToBiographies(deepLink:String)
+function jumpToDeepLink(deepLink:String)
 {
-	var launched:Boolean = false;
-
-	debugMessage("jumpToBiographies to "+deepLink);
-	launchMainMenuFromDeepLink(deepLink);
-}
-
-function jumpToProjects(deepLink:String)
-{
-	var launched:Boolean = false;
-
-	debugMessage("jumpToProjects to "+deepLink);
 	launchMainMenuFromDeepLink(deepLink);
 }
 
@@ -1221,18 +1229,21 @@ var document:XML = new XML();
 		image01_mc._y=underSkyline_y;
 		image01_mc._alpha=0;
 		image01_mc._visible=true;
+		image01_mc.enabled=true;
 
 		var image02_pad= (gap - image02_mc._width)/2; 
 		image02_mc._x= BGBodyMasked_mc._x+1*gap + image02_pad;
 		image02_mc._y=underSkyline_y;
 		image02_mc._alpha=0;
 		image02_mc._visible=true;
+		image02_mc.enabled=true;
 
 		var image03_pad= (gap - image03_mc._width)/2; 
 		image03_mc._x= BGBodyMasked_mc._x+2*gap + image03_pad;
 		image03_mc._y=underSkyline_y;
 		image03_mc._alpha=0;
 		image03_mc._visible=true;
+		image03_mc.enabled=true;
 
 		var loadListener:Object = new Object();
 
@@ -1291,14 +1302,27 @@ function clearTemplateA(duration:Number)
 
 	titleBody_mc.tween("_alpha",0,duration,"linear");
 	textBody_mc.tween("_alpha",0,duration,"linear");
-	lightFusePayload(duration,function(){
-		titleBody_mc._visible=false;
-		textBody_mc._visible=false;
-	});
 
 	image01_mc.tween(["_x","_y","_alpha"],[214,underSkyline_y,0],duration,"easeInSine");
 	image02_mc.tween(["_x","_y","_alpha"],[395,underSkyline_y,0],duration,"easeInSine");
 	image03_mc.tween(["_x","_y","_alpha"],[576,underSkyline_y,0],duration,"easeInSine");
+
+	lightFusePayload(duration,function(){
+		titleBody_mc._visible=false;
+		titleBody_mc.enabled=false;
+
+		textBody_mc._visible=false;
+		textBody_mc.enabled=false;
+
+		image01_mc._visible=false;
+		image01_mc.enabled=false;
+
+		image02_mc._visible=false;
+		image02_mc.enabled=false;
+
+		image03_mc._visible=false;
+		image03_mc.enabled=false;
+	});
 
 }
 
@@ -1443,7 +1467,7 @@ function loadProjects(URL:String,duration:Number,bomb:MovieClip)
 									target_mc.onRelease=undefined;
 								}
 								else{
-									target_mc.onRelease=function(){jumpToURLNewWindow(deSandboxURL(bar));};
+									target_mc.onRelease=function(){jumpToURLNewWindow(bar);};
 								}
 
 							}
@@ -1496,6 +1520,7 @@ function loadProjects(URL:String,duration:Number,bomb:MovieClip)
 						}
 
 						if(this.sectionDataURL != ""){
+							loadHTMLText(sectionData_mc,sectionData_mc.sectionData_tx,"",true,noDuration);
 							loadHTMLURL(this.sectionDataURL,duration,sectionData_mc,sectionData_mc.sectionData_tx);
 						}
 						else{
@@ -1760,7 +1785,7 @@ function loadBiographies(URL:String,duration:Number,bomb:MovieClip)
 									target_mc.onRelease=undefined;
 								}
 								else{
-									target_mc.onRelease=function(){jumpToURLNewWindow(deSandboxURL(bar));};
+									target_mc.onRelease=function(){jumpToURLNewWindow(bar);};
 								}
 
 							}
@@ -1814,6 +1839,7 @@ function loadBiographies(URL:String,duration:Number,bomb:MovieClip)
 						}
 	
 						if(this.sectionDataURL != ""){
+							loadHTMLText(sectionData_mc,sectionData_mc.sectionData_tx,"",true,noDuration);
 							loadHTMLURL(this.sectionDataURL,duration,sectionData_mc,sectionData_mc.sectionData_tx);
 						}
 						else{
@@ -2119,33 +2145,6 @@ function undispatchTemplate(type:String,duration:Number)
 			debugMessage(">> Unknown Template");
 		}
 		unlockMenuChoices();
-}
-
-
-function animateWeAreCourses() 
-{
-	trace(">> We Are Courses");
-	clearAndResetPage();
-	BGmenu_mc.menuCoursesWhite_mc._visible = true;
-	relocateActiveMenuIndicator(57,28,29, 26, 52);
-
-	createGun("gunC01_mc");
-	createGun("gunC02_mc");
-
-	loadGun(gunC02_mc,loadWeAreCoursesContent);
-
-	loadGun(gunC01_mc,function(){bodyExpand(gunC02_mc)});
-
-	sidebarDisappear(gunC01_mc);
-}
-
-function loadWeAreCoursesText(){
-	// drop in XML text here. You will need to set up an array to take care of 
-	// course names and drop them into the sectionListItem movie clips.
-	sectionListItem_mc1.sectionListItem_tx.text = "Course One"
-	sectionTitle_mc.sectionTitle_tx.text = "Course One"
-	sectionData_mc.sectionData_tx.text = "This is the section Data for course one."
-	textBody_mc.textBody_tx.text = "This is course1 text. This is course1 text. This is course1 text. This is course1 text. This is course1 text. This is course1 text."
 }
 
 
