@@ -3,17 +3,19 @@
 		<order>0</order>
 		<title>Kah Liu</title>
 		<deepLink>kahliu</deepLink>
+		<sectionDataURL>websiteContent/weAreLuci/biographies/undergrads/kahliu/menuItems.html</sectionDataURL>
 	</biography>
 	<biography>
 		<order>1</order>
 		<title>Nathaniel Marrocco</title>
-		<imageSourceURL>websiteContent/weAreLuci/biographies/undergrads/nmarrocco/bioImage.jpg</imageSourceURL>
-		<deepLink>nmarrocco</deepLink>
+		<imageSourceURL>websiteContent/weAreLuci/biographies/undergrads/nmarrocc/bioImage.jpg</imageSourceURL>
+		<deepLink>nmarrocc</deepLink>
 		<launchURL></launchURL>
 	</biography>
 	<biography>
 		<order>2</order>
 		<title>Daniel Hwang</title>
-		<deepLink>dhwang</deepLink>
+		<deepLink>dkhwang</deepLink>
+		<sectionDataURL>websiteContent/weAreLuci/biographies/undergrads/dkhwang/menuItems.html</sectionDataURL>
 	</biography>
 </biographies>

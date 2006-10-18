@@ -2,32 +2,38 @@
 	<biography>
 		<order>0</order>
 		<title>Tosin Aiyelokun</title>
-		<deepLink>tosin</deepLink>
+		<deepLink>oaiyelok</deepLink>
+		<sectionDataURL>websiteContent/weAreLuci/biographies/gradstudents/oaiyelok/menuItems.html</sectionDataURL>
 		<launchURL></launchURL>
 	</biography>
 	<biography>
 		<order>1</order>
 		<title>Johanna Brewer</title>
-		<deepLink>jbrewer</deepLink>
+		<deepLink>johannab</deepLink>
+		<sectionDataURL>websiteContent/weAreLuci/biographies/gradstudents/johannab/menuItems.html</sectionDataURL>
 	</biography>
 	<biography>
 		<order>2</order>
 		<title>Sharon Xianghua Ding</title>
 		<deepLink>dingx</deepLink>
+		<sectionDataURL>websiteContent/weAreLuci/biographies/gradstudents/dingx/menuItems.html</sectionDataURL>
 	</biography>
 	<biography>
 		<order>3</order>
 		<title>Nick Noack</title>
 		<deepLink>nnoack</deepLink>
+		<sectionDataURL>websiteContent/weAreLuci/biographies/gradstudents/nnoack/menuItems.html</sectionDataURL>
 	</biography>
 	<biography>
 		<order>4</order>
 		<title>Zubin Tiku</title>
-		<deepLink>zubin</deepLink>
+		<deepLink>ztiku</deepLink>
+		<sectionDataURL>websiteContent/weAreLuci/biographies/gradstudents/ztiku/menuItems.html</sectionDataURL>
 	</biography>
 	<biography>
 		<order>5</order>
 		<title>Amanda Williams</title>
-		<deepLink>awilliams</deepLink>
+		<deepLink>amandamw</deepLink>
+		<sectionDataURL>websiteContent/weAreLuci/biographies/gradstudents/amandamw/menuItems.html</sectionDataURL>
 	</biography>
 </biographies>

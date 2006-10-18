@@ -3,11 +3,17 @@
 		<order>0</order>
 		<title>Paul Dourish</title>
 		<deepLink>jpd</deepLink>
+		<imageSourceURL>websiteContent/weAreLuci/biographies/faculty/jpd/bioImage.jpg</imageSourceURL>
+		<imageLinkURL>http://www.ics.uci.edu/~jpd</imageLinkURL>
+		<sectionDataURL>websiteContent/weAreLuci/biographies/faculty/jpd/menuItems.html</sectionDataURL>
 	</biography>
 	<biography>
 		<order>1</order>
 		<title>Crista Lopes</title>
 		<deepLink>lopes</deepLink>
+		<imageSourceURL>websiteContent/weAreLuci/biographies/faculty/lopes/bioImage.jpg</imageSourceURL>
+		<imageLinkURL>http://www.ics.uci.edu/~lopes</imageLinkURL>
+		<sectionDataURL>websiteContent/weAreLuci/biographies/faculty/lopes/menuItems.html</sectionDataURL>
 	</biography>
 	<biography>
 		<order>2</order>
@@ -21,6 +27,9 @@
 	<biography>
 		<order>3</order>
 		<title>Bill Tomlinson</title>
-		<deepLink>bill</deepLink>
+		<deepLink>wmt</deepLink>
+		<imageSourceURL>websiteContent/weAreLuci/biographies/faculty/wmt/bioImage.jpg</imageSourceURL>
+		<imageLinkURL>http://www.ics.uci.edu/~wmt</imageLinkURL>
+		<sectionDataURL>websiteContent/weAreLuci/biographies/faculty/wmt/menuItems.html</sectionDataURL>
 	</biography>
 </biographies>
