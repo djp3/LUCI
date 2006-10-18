@@ -1,4 +1,7 @@
-v1.2 Added Bio sections
+v1.2 Added Bio sections with sections for
+	Faculty
+	Grads
+	Undergrads
 
 v1.1 Added projects sections.
 	 Added a wrapper which provided "Loading information" with a percentage
