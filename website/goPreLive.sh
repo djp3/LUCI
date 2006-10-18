@@ -27,6 +27,5 @@ echo "+++ gsu sesweb;exit;"
 echo "+++ cd;cd htdocs/LUCI;./copyContent.sh;exit;"
 echo +++ 
 
-ssh djp3@calla.ics.uci.edu
-
-
+echo "Commented out"
+#ssh djp3@calla.ics.uci.edu

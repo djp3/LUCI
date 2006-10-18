@@ -1,0 +1,22 @@
+<projects>
+	<project>
+		<order>0</order>
+		<title>Nomatic*Gaim</title>
+		<imageSourceURL>websiteContent/weAreLuci/projects/nomaticGaim/laptopUserInHall.jpg</imageSourceURL>
+		<imageLinkURL>http://www.flickr.com/photos/shapeshift/85220007/</imageLinkURL>
+		<deepLink>nomaticGaim</deepLink>
+		<sectionDataURL>websiteContent/weAreLuci/projects/nomaticGaim/menuItems.html</sectionDataURL>
+		<textURL>websiteContent/weAreLuci/projects/nomaticGaim/overview.html</textURL>
+		<launchURL></launchURL>
+	</project>
+	<project>
+		<order>1</order>
+		<title>Nomatic*Aid</title>
+		<imageSourceURL>websiteContent/weAreLuci/projects/nomaticAid/africa.jpg</imageSourceURL>
+		<imageLinkURL>http://www.flickr.com/photos/bohane/64495034/</imageLinkURL>
+		<deepLink>nomaticAid</deepLink>
+		<sectionDataURL>websiteContent/weAreLuci/projects/nomaticAid/menuItems.html</sectionDataURL>
+		<textURL>websiteContent/weAreLuci/projects/nomaticAid/overview.html</textURL>
+	</project>
+
+</projects>

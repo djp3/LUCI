@@ -1,0 +1,35 @@
+<biographies>
+	<biography>
+		<order>0</order>
+		<title>Paul Dourish</title>
+		<deepLink>jpd</deepLink>
+		<imageSourceURL>websiteContent/weAreLuci/biographies/faculty/jpd/bioImage.jpg</imageSourceURL>
+		<imageLinkURL>http://www.ics.uci.edu/~jpd</imageLinkURL>
+		<sectionDataURL>websiteContent/weAreLuci/biographies/faculty/jpd/menuItems.html</sectionDataURL>
+	</biography>
+	<biography>
+		<order>1</order>
+		<title>Crista Lopes</title>
+		<deepLink>lopes</deepLink>
+		<imageSourceURL>websiteContent/weAreLuci/biographies/faculty/lopes/bioImage.jpg</imageSourceURL>
+		<imageLinkURL>http://www.ics.uci.edu/~lopes</imageLinkURL>
+		<sectionDataURL>websiteContent/weAreLuci/biographies/faculty/lopes/menuItems.html</sectionDataURL>
+	</biography>
+	<biography>
+		<order>2</order>
+		<title>Donald J Patterson</title>
+		<imageSourceURL>websiteContent/weAreLuci/biographies/faculty/djp3/bioImage.jpg</imageSourceURL>
+		<deepLink>djp3</deepLink>
+		<sectionDataURL>websiteContent/weAreLuci/biographies/faculty/djp3/menuItems.html</sectionDataURL>
+		<textURL>websiteContent/weAreLuci/biographies/faculty/djp3/contact.html</textURL>
+		<launchURL></launchURL>
+	</biography>
+	<biography>
+		<order>3</order>
+		<title>Bill Tomlinson</title>
+		<deepLink>wmt</deepLink>
+		<imageSourceURL>websiteContent/weAreLuci/biographies/faculty/wmt/bioImage.jpg</imageSourceURL>
+		<imageLinkURL>http://www.ics.uci.edu/~wmt</imageLinkURL>
+		<sectionDataURL>websiteContent/weAreLuci/biographies/faculty/wmt/menuItems.html</sectionDataURL>
+	</biography>
+</biographies>
