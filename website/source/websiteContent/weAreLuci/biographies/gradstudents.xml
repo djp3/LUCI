@@ -14,24 +14,36 @@
 	</biography>
 	<biography>
 		<order>2</order>
+		<title>Judy Chen</title>
+		<deepLink>judychen</deepLink>
+		<sectionDataURL>websiteContent/weAreLuci/biographies/gradstudents/judychen/menuItems.html</sectionDataURL>
+	</biography>
+	<biography>
+		<order>3</order>
 		<title>Sharon Xianghua Ding</title>
 		<deepLink>dingx</deepLink>
 		<sectionDataURL>websiteContent/weAreLuci/biographies/gradstudents/dingx/menuItems.html</sectionDataURL>
 	</biography>
 	<biography>
-		<order>3</order>
+		<order>4</order>
+		<title>Eric Kabisch</title>
+		<deepLink>ekabisch</deepLink>
+		<sectionDataURL>websiteContent/weAreLuci/biographies/gradstudents/ekabisch/menuItems.html</sectionDataURL>
+	</biography>
+	<biography>
+		<order>5</order>
 		<title>Nick Noack</title>
 		<deepLink>nnoack</deepLink>
 		<sectionDataURL>websiteContent/weAreLuci/biographies/gradstudents/nnoack/menuItems.html</sectionDataURL>
 	</biography>
 	<biography>
-		<order>4</order>
+		<order>6</order>
 		<title>Zubin Tiku</title>
 		<deepLink>ztiku</deepLink>
 		<sectionDataURL>websiteContent/weAreLuci/biographies/gradstudents/ztiku/menuItems.html</sectionDataURL>
 	</biography>
 	<biography>
-		<order>5</order>
+		<order>7</order>
 		<title>Amanda Williams</title>
 		<deepLink>amandamw</deepLink>
 		<sectionDataURL>websiteContent/weAreLuci/biographies/gradstudents/amandamw/menuItems.html</sectionDataURL>
