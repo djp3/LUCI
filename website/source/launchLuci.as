@@ -86,6 +86,7 @@ var underSkyline_y:Number=473;
 		sidebarBody_styleSheet.setStyle("a", styleObj);
 		delete(styleObj);
 
+var subMenuActive_mc:MovieClip;
 
 var isBodyShrunk:Boolean;
 var isSidebarShrunk:Boolean;
@@ -296,6 +297,13 @@ var duration:Number = 1.0;
 	BGmenu_mc.menuActive_mc.menuActiveOrange_mc._y= underSkyline_y;
 	BGmenu_mc.menuActive_mc.menuActiveOrange_mc._width= BGmenu_mc._width;
 	BGmenu_mc.menuActive_mc.menuActiveOrange_mc._visible= true;
+
+	subMenuActive_mc = _root.attachMovie("menuActive","subMenuActive_mc", _root.getNextHighestDepth());
+	subMenuActive_mc._x=216;
+	subMenuActive_mc._y=underSkyline_y;
+	subMenuActive_mc._alpha=0;
+	subMenuActive_mc._visible=false;
+	subMenuActive_mc.enabled=false;
 
 	lightFuseBomb(duration, bomb);
 }
@@ -749,13 +757,14 @@ function turnOffActiveMenuStates(){
 	BGmenu_mc.menuDataRepositoryWhite_mc._visible = false;
 }
 
-function relocateActiveMenuIndicator(baseY,grayHeight,orangeX,orangeY,orangeWidth)
+function relocateActiveMenuIndicator(baseY,grayHeight,orangeX,orangeY,orangeWidth,moveDuration:Number)
 {
-var moveDuration:Number;
 
-	moveDuration = Math.abs(BGmenu_mc.menuActive_mc._y - baseY)/100;
-	if(moveDuration > 2.0){
+	if(moveDuration == undefined){
+		moveDuration = Math.abs(BGmenu_mc.menuActive_mc._y - baseY)/100;
+		if(moveDuration > 2.0){
 			moveDuration = 2.0;
+		}
 	}
 
 	BGmenu_mc.menuActive_mc._visible=true;
@@ -1032,6 +1041,26 @@ function loadMenuItems(url:String,bomb:MovieClip)
 	    											debugMessage(">>> "+ExternalInterface.call("jsUpdateLocation", this.deepLink,1));
 												}
 										};
+								}
+								else{
+									tempMenuItem_mc.onRelease=function(deepLinkEntry:String,duration:Number){
+										////////////////////////////////////////////////////
+										//Move the menu indicator
+										if(this.order == 0){
+											relocateActiveMenuIndicator(25*this.order,25+5,17+this._indent,25+3,this._width-1,0.5);
+										}
+										else{
+											relocateActiveMenuIndicator(25*this.order+6,25,17+this._indent,25-2,this._width-1,0.5);
+										}
+										var x = this.order;
+										lightFusePayload(0.5,function(){
+											for(var i in mainMenu){
+												if(mainMenu[i].order == x+1){
+													mainMenu[i].onRelease(deepLinkEntry,duration);
+												}
+											}
+										});
+									};
 								}
 								tempMenuItem_mc = undefined;
 							}
@@ -1335,6 +1364,8 @@ function createNewMenuItem(uniqueID:Number):MovieClip
 	menuItem_mc.enabled = true;
 
 	menuItem_mc.order = -1;
+	menuItem_mc._x = 0;
+	menuItem_mc._y = 0;
 	menuItem_mc.title = "";
 	menuItem_mc.textURL = "";
 	menuItem_mc.sectionDataURL = "";
@@ -1344,15 +1375,19 @@ function createNewMenuItem(uniqueID:Number):MovieClip
 	menuItem_mc.uniqueID = uniqueID;
 	menuItem_mc.sectionListItem_tx._x=0;
 	menuItem_mc.sectionListItem_tx._y=0;
+	menuItem_mc.sectionListItem_tx._width=120;
+	menuItem_mc.sectionListItem_tx._height=15;
 	menuItem_mc.sectionListItem_tx._visible = true;
 	menuItem_mc.sectionListItem_tx._alpha = 100;
 	menuItem_mc.sectionListItem_tx.html = true;
 	menuItem_mc.sectionListItem_tx.htmlText = "";
+	menuItem_mc.sectionListItem_tx.background = false;
 	menuItem_mc.sectionListItem_tx.embedFonts=true;
 	menuItem_mc.sectionListItem_tx.wordWrap = true;
 	menuItem_mc.sectionListItem_tx.multiline = true;
-	menuItem_mc.sectionListItem_tx.styleSheet = textBody_styleSheet;
-	menuItem_mc.sectionListItem_tx.autoSize=true;
+	//menuItem_mc.sectionListItem_tx.styleSheet = textBody_styleSheet;
+	menuItem_mc.sectionListItem_tx.textColor = menuTextFormatInactive;
+	//menuItem_mc.sectionListItem_tx.autoSize=true;
 
 	menuItem_mc._visible = true;
 	return(menuItem_mc);
@@ -1378,6 +1413,10 @@ function loadProjects(URL:String,duration:Number,bomb:MovieClip)
 	document.ignoreWhite = true;
 	document.onLoad = function(success:Boolean){
 		if(success){
+
+			subMenuActive_mc._visible=true;
+			subMenuActive_mc.enabled=true;
+
 			var uniqueID:Number = 0;
 			var myArray:Array = document.firstChild.childNodes;
 			for (i in myArray){
@@ -1389,8 +1428,11 @@ function loadProjects(URL:String,duration:Number,bomb:MovieClip)
 					for (j in myArray2){
 						if(myArray2[j].nodeName == "order"){
 							menuItem_mc.order= Number(myArray2[j].firstChild.nodeValue);
-							menuItem_mc._x=leftBase;
-							menuItem_mc._y=topBase+15*menuItem_mc.order;
+							menuItem_mc._x+=leftBase;
+							menuItem_mc._y+=topBase+15*menuItem_mc.order;
+						}
+						else if(myArray2[j].nodeName == "indent"){
+							menuItem_mc.sectionListItem_tx._x += myArray2[j].firstChild.nodeValue * 5;
 						}
 						else if(myArray2[j].nodeName == "title"){
 							menuItem_mc.title= myArray2[j].firstChild.nodeValue;
@@ -1429,15 +1471,14 @@ function loadProjects(URL:String,duration:Number,bomb:MovieClip)
 
 						//Disable this item
 						for (i in projects){
+							projects[i].sectionListItem_tx.textColor= menuTextFormatInactive;
 							projects[i].enabled = true;
-							/* The color names are opposite what they look
-							 * like because the background is white */
-							projects[i].sectionListItem_tx.textColor= menuTextFormatNotClickable;
 						}
 						this.enabled = false;
-							/* The color names are opposite what they look
-							 * like because the background is white */
-						this.sectionListItem_tx.textColor= menuTextFormatInactive;
+						subMenuActive_mc.tween(["_x","_y","_alpha"],[this._x,this._y,100],duration,"easeOutSine");
+						subMenuActive_mc.menuActiveGray_mc.tween(["_x","_width","_height","_alpha"],[-7,this._width+7,this._height+1,50],duration,"easeOutSine");
+						subMenuActive_mc.menuActiveOrange_mc.tween(["_x","_y","_width"],[this.sectionListItem_tx._x+3,
+						this.sectionListItem_tx.textHeight,this.sectionListItem_tx.textWidth+1],duration,"easeOutSine");
 
 						//Fade out existing imagery and text
 						sectionImage_mc.tween("_alpha",0,duration,"linear");
@@ -1647,6 +1688,8 @@ function clearTemplateB(title:String,URL:String,duration:Number)
 				
 	dividerVert_mc.tween("_alpha",0,duration,"linear");
 
+	subMenuActive_mc.tween("_alpha",0,duration,"linear");
+
 	for(i in projects){
 		projects[i].tween("_alpha",0,duration,"linear");
 	}
@@ -1667,6 +1710,9 @@ function clearTemplateB(title:String,URL:String,duration:Number)
 
 			dividerVert_mc._visible=false;
 			dividerVert_mc.enabled=false;
+
+			subMenuActive_mc._visible = false;
+			subMenuActive_mc.enabled = false;
 
 			for(i in projects){
 				projects[i]._visible = false;
@@ -1696,6 +1742,10 @@ function loadBiographies(URL:String,duration:Number,bomb:MovieClip)
 	document.ignoreWhite = true;
 	document.onLoad = function(success:Boolean){
 		if(success){
+
+			subMenuActive_mc._visible=true;
+			subMenuActive_mc.enabled=true;
+
 			var uniqueID:Number = 0;
 			var myArray:Array = document.firstChild.childNodes;
 			for (i in myArray){
@@ -1707,8 +1757,11 @@ function loadBiographies(URL:String,duration:Number,bomb:MovieClip)
 					for (j in myArray2){
 						if(myArray2[j].nodeName == "order"){
 							menuItem_mc.order= Number(myArray2[j].firstChild.nodeValue);
-							menuItem_mc._x=Number(leftBase);
-							menuItem_mc._y=Number(topBase+15*menuItem_mc.order);
+							menuItem_mc._x+=Number(leftBase);
+							menuItem_mc._y+=Number(topBase+15*menuItem_mc.order);
+						}
+						else if(myArray2[j].nodeName == "indent"){
+							menuItem_mc.sectionListItem_tx._x += myArray2[j].firstChild.nodeValue * 5;
 						}
 						else if(myArray2[j].nodeName == "title"){
 							menuItem_mc.title= myArray2[j].firstChild.nodeValue;
@@ -1747,15 +1800,14 @@ function loadBiographies(URL:String,duration:Number,bomb:MovieClip)
 
 						//Disable this item
 						for (i in biographies){
+							biographies[i].sectionListItem_tx.textColor= menuTextFormatInactive;
 							biographies[i].enabled = true;
-							/* The color names are opposite what they look
-							 * like because the background is white */
-							biographies[i].sectionListItem_tx.textColor= menuTextFormatNotClickable;
 						}
 						this.enabled = false;
-							/* The color names are opposite what they look
-							 * like because the background is white */
-						this.sectionListItem_tx.textColor= menuTextFormatInactive;
+						subMenuActive_mc.tween(["_x","_y","_alpha"],[this._x,this._y,100],duration,"easeOutSine");
+						subMenuActive_mc.menuActiveGray_mc.tween(["_x","_width","_height","_alpha"],[-7,this._width+7,this._height+1,50],duration,"easeOutSine");
+						subMenuActive_mc.menuActiveOrange_mc.tween(["_x","_y","_width"],[this.sectionListItem_tx._x+3,
+						this.sectionListItem_tx.textHeight,this.sectionListItem_tx.textWidth+1],duration,"easeOutSine");
 
 						//Fade out existing imagery and text
 						sectionImage_mc.tween("_alpha",0,duration,"linear");
@@ -1966,6 +2018,8 @@ function clearTemplateC(title:String,URL:String,duration:Number)
 				
 	dividerVert_mc.tween("_alpha",0,duration,"linear");
 
+	subMenuActive_mc.tween("_alpha",0,duration,"linear");
+
 	for(i in biographies){
 		biographies[i].tween("_alpha",0,duration,"linear");
 	}
@@ -1986,6 +2040,9 @@ function clearTemplateC(title:String,URL:String,duration:Number)
 
 			dividerVert_mc._visible=false;
 			dividerVert_mc.enabled=false;
+
+			subMenuActive_mc._visible = false;
+			subMenuActive_mc.enabled = false;
 
 			for(i in biographies){
 				biographies[i]._visible = false;
@@ -2152,8 +2209,8 @@ function undispatchTemplate(type:String,duration:Number)
 //Comment this out if it's being run from in a web browser
 //Launch
 if(launchFromWebsite == false){
-	//animateOpen("projects&nomaticGaim");
-	animateOpen();
+	animateOpen("projects&nomaticGaim");
+	//animateOpen();
 }
 else{
 	ExternalInterface.call("jsStartFromActionScript", undefined);

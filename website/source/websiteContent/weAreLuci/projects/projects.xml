@@ -1,13 +1,15 @@
 <projects>
 	<project>
 		<order>0</order>
+		<indent>0</indent>
 		<title>Nomatic</title>
 		<deepLink>nomatic</deepLink>
 		<textURL>websiteContent/weAreLuci/projects/nomatic/overview.html</textURL>
 	</project>
 	<project>
 		<order>1</order>
-		<title>  Nomatic*Aid</title>
+		<indent>1</indent>
+		<title>Nomatic*Aid</title>
 		<imageSourceURL>websiteContent/weAreLuci/projects/nomatic/nomaticAid/africa.jpg</imageSourceURL>
 		<imageLinkURL>http://www.flickr.com/photos/bohane/64495034/</imageLinkURL>
 		<deepLink>nomaticAid</deepLink>
@@ -16,7 +18,8 @@
 	</project>
 	<project>
 		<order>2</order>
-		<title>  Nomatic*Gaim</title>
+		<indent>1</indent>
+		<title>Nomatic*Gaim</title>
 		<imageSourceURL>websiteContent/weAreLuci/projects/nomatic/nomaticGaim/laptopUserInHall.jpg</imageSourceURL>
 		<imageLinkURL>http://www.flickr.com/photos/shapeshift/85220007/</imageLinkURL>
 		<deepLink>nomaticGaim</deepLink>
@@ -26,13 +29,15 @@
 	</project>
 	<project>
 		<order>3</order>
+		<indent>0</indent>
 		<title>Project Ambient</title>
 		<deepLink>projectAmbient</deepLink>
 		<textURL>websiteContent/weAreLuci/projects/projectAmbient/overview.html</textURL>
 	</project>
 	<project>
 		<order>4</order>
-		<title>  Nimio</title>
+		<indent>1</indent>
+		<title>Nimio</title>
 		<deepLink>nimio</deepLink>
 		<sectionDataURL>websiteContent/weAreLuci/projects/projectAmbient/nimio/menuItems.html</sectionDataURL>
 		<textURL>websiteContent/weAreLuci/projects/projectAmbient/nimio/overview.html</textURL>
@@ -41,7 +46,8 @@
 	</project>
 	<project>
 		<order>5</order>
-		<title>  HotSpot Clocks</title>
+		<indent>1</indent>
+		<title>HotSpot Clocks</title>
 		<deepLink>hotspot</deepLink>
 		<sectionDataURL>websiteContent/weAreLuci/projects/projectAmbient/hotspot/menuItems.html</sectionDataURL>
 		<textURL>websiteContent/weAreLuci/projects/projectAmbient/hotspot/overview.html</textURL>
@@ -50,7 +56,8 @@
 	</project>
 	<project>
 		<order>6</order>
-		<title>  SignalPlay</title>
+		<indent>1</indent>
+		<title>SignalPlay</title>
 		<deepLink>signalPlay</deepLink>
 		<sectionDataURL>websiteContent/weAreLuci/projects/projectAmbient/signalPlay/menuItems.html</sectionDataURL>
 		<textURL>websiteContent/weAreLuci/projects/projectAmbient/signalPlay/overview.html</textURL>
@@ -59,7 +66,8 @@
 	</project>
 	<project>
 		<order>7</order>
-		<title>  Temporality+Rhythms</title>
+		<indent>1</indent>
+		<title>Temporality+Rhythms</title>
 		<deepLink>temporality</deepLink>
 		<sectionDataURL>websiteContent/weAreLuci/projects/projectAmbient/temporality/menuItems.html</sectionDataURL>
 		<textURL>websiteContent/weAreLuci/projects/projectAmbient/temporality/overview.html</textURL>
