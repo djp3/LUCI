@@ -30,7 +30,56 @@
 			<template>
 				<type>B</type>
 				<title>WE ARE LUCI: PROJECTS</title>
-				<url>websiteContent/weAreLuci/projects.xml</url>
+				<url>websiteContent/weAreLuci/projects/projects.xml</url>
+			</template>
+		</clickable>
+	</menuItem>
+	<menuItem>
+		<title>BIOGRAPHIES</title>
+		<order>3</order>
+		<indent>1</indent>
+	</menuItem>
+	<menuItem>
+		<title>FACULTY</title>
+		<order>4</order>
+		<indent>2</indent>
+		<clickable>
+			<deepLink>bioFaculty</deepLink>
+			<template>
+				<type>C</type>
+				<title>WE ARE LUCI: BIOGRAPHIES: FACULTY</title>
+				<url>websiteContent/weAreLuci/biographies/faculty.xml</url>
+			</template>
+		</clickable>
+	</menuItem>
+	<menuItem>
+		<title>STUDENTS</title>
+		<order>5</order>
+		<indent>2</indent>
+	</menuItem>
+	<menuItem>
+		<title>GRADUATE</title>
+		<order>6</order>
+		<indent>3</indent>
+		<clickable>
+			<deepLink>bioGrads</deepLink>
+			<template>
+				<type>C</type>
+				<title>WE ARE LUCI: BIOGRAPHIES: GRADUATE STUDENTS</title>
+				<url>websiteContent/weAreLuci/biographies/gradstudents.xml</url>
+			</template>
+		</clickable>
+	</menuItem>
+	<menuItem>
+		<title>UNDERGRADUATE</title>
+		<order>7</order>
+		<indent>3</indent>
+		<clickable>
+			<deepLink>bioUndergrads</deepLink>
+			<template>
+				<type>C</type>
+				<title>WE ARE LUCI: BIOGRAPHIES: UNDERGRADUATE STUDENTS</title>
+				<url>websiteContent/weAreLuci/biographies/undergradstudents.xml</url>
 			</template>
 		</clickable>
 		<breakBelow/>
