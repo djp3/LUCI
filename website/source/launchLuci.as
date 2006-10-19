@@ -961,7 +961,7 @@ function loadMenuItems(url:String,bomb:MovieClip)
 													duration = 1.0;
 												}
 
-												disableAllMenuItems();
+												lockMenuChoices();
 	
 	
 												////////////////////////////////////////////////////
@@ -1002,6 +1002,7 @@ function loadMenuItems(url:String,bomb:MovieClip)
 												var mainTemplateFunction:Function=function(){
 													//Load main content
 													dispatchTemplate(a,b,c,undefined,deepLinkEntry,duration);
+													unlockMenuChoices();
 												};
 	
 												if(this.sidebar == true){
@@ -1014,6 +1015,7 @@ function loadMenuItems(url:String,bomb:MovieClip)
 													};
 	
 													var function03=function(){
+														lockMenuChoices();
 														mainTemplateFunction();
 														sidebarExpand(loadBomb(function04),duration);
 													};
@@ -1021,7 +1023,6 @@ function loadMenuItems(url:String,bomb:MovieClip)
 													//Make this process atomic
 													//before a new choice can be
 													//made
-													lockMenuChoices();
 
 													lightFusePayload(clearDuration,function(){
 															bodyShrink(loadBomb(function03));
@@ -1031,6 +1032,7 @@ function loadMenuItems(url:String,bomb:MovieClip)
 													var function03=function(){
 														bodyExpand(loadBomb(mainTemplateFunction));
 													}
+													//Make this process atomic before a new choice can be made
 													lightFusePayload(clearDuration,function(){
 														sidebarShrink(loadBomb(function03),duration);
 													});
@@ -1436,6 +1438,8 @@ function loadProjects(URL:String,duration:Number,bomb:MovieClip)
 						}
 						else if(myArray2[j].nodeName == "indent"){
 							menuItem_mc.sectionListItem_tx._x += myArray2[j].firstChild.nodeValue * 5;
+							menuItem_mc.indent = myArray2[j].firstChild.nodeValue * 5;
+							menuItem_mc.sectionListItem_tx._width -= myArray2[j].firstChild.nodeValue * 5;
 						}
 						else if(myArray2[j].nodeName == "title"){
 							menuItem_mc.title= myArray2[j].firstChild.nodeValue;
@@ -1479,7 +1483,7 @@ function loadProjects(URL:String,duration:Number,bomb:MovieClip)
 						}
 						this.enabled = false;
 						subMenuActive_mc.tween(["_x","_y","_alpha"],[this._x,this._y,100],duration,"easeOutSine");
-						subMenuActive_mc.menuActiveGray_mc.tween(["_x","_width","_height","_alpha"],[-7,this._width+7,this._height+1,50],duration,"easeOutSine");
+						subMenuActive_mc.menuActiveGray_mc.tween(["_x","_width","_height","_alpha"],[-7,this._width+7.5+this.indent,this._height+1,50],duration,"easeOutSine");
 						subMenuActive_mc.menuActiveOrange_mc.tween(["_x","_y","_width"],[this.sectionListItem_tx._x+3,
 						this.sectionListItem_tx.textHeight,this.sectionListItem_tx.textWidth+1],duration,"easeOutSine");
 

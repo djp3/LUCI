@@ -2,9 +2,13 @@
 echo +++
 echo +++ Validate XML
 echo +++
-for i in `find . | grep "xml$"`;\
-do echo "++++++ Validating " $i;\
-xml val $i || exit;
+for i in `find . | grep "xml$" | grep -v svn`;\
+do echo "++++++ Validating XML" $i;\
+xml val -b $i || exit;
+done
+for i in `find . | grep "weAreLuci.*html$" | grep -v svn`;\
+do echo "++++++ Validating HTML" $i;\
+xml val -b $i || exit;
 done
 
 echo +++
