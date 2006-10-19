@@ -757,7 +757,7 @@ function turnOffActiveMenuStates(){
 	BGmenu_mc.menuDataRepositoryWhite_mc._visible = false;
 }
 
-function relocateActiveMenuIndicator(baseY,grayHeight,orangeX,orangeY,orangeWidth,moveDuration:Number)
+function relocateActiveMenuIndicator(baseY,grayHeight,orangeX,orangeY,orangeWidth,moveDuration:Number,animation:String)
 {
 
 	if(moveDuration == undefined){
@@ -766,15 +766,18 @@ function relocateActiveMenuIndicator(baseY,grayHeight,orangeX,orangeY,orangeWidt
 			moveDuration = 2.0;
 		}
 	}
+	if(animation == undefined){
+		animation = "easeInOutSine";	
+	}
 
 	BGmenu_mc.menuActive_mc._visible=true;
 	BGmenu_mc.menuActive_mc._x=0;
 
-	BGmenu_mc.menuActive_mc.tween(["_alpha","_y"],[100, baseY], moveDuration, "easeInOutSine");
+	BGmenu_mc.menuActive_mc.tween(["_alpha","_y","_x"],[100, baseY,BGmenu_mc.menuActive_mc._x], moveDuration, animation);
 
-	BGmenu_mc.menuActive_mc.menuActiveGray_mc.tween(["_alpha","_y","_height"],[100,0,grayHeight],moveDuration,"easeInOutSine");
+	BGmenu_mc.menuActive_mc.menuActiveGray_mc.tween(["_alpha","_y","_height"],[100,0,grayHeight],moveDuration,animation);
 
-	BGmenu_mc.menuActive_mc.menuActiveOrange_mc.tween (["_alpha","_x", "_y", "_width"], [100,orangeX, orangeY, orangeWidth],moveDuration , "easeInOutSine");
+	BGmenu_mc.menuActive_mc.menuActiveOrange_mc.tween (["_alpha","_x", "_y", "_width"], [100,orangeX, orangeY, orangeWidth],moveDuration , animation);
 }
 
 
@@ -1047,10 +1050,10 @@ function loadMenuItems(url:String,bomb:MovieClip)
 										////////////////////////////////////////////////////
 										//Move the menu indicator
 										if(this.order == 0){
-											relocateActiveMenuIndicator(25*this.order,25+5,17+this._indent,25+3,this._width-1,0.5);
+											relocateActiveMenuIndicator(25*this.order,25+5,17+this._indent,25+3,this._width-1,1.0,"easeOutElastic");
 										}
 										else{
-											relocateActiveMenuIndicator(25*this.order+6,25,17+this._indent,25-2,this._width-1,0.5);
+											relocateActiveMenuIndicator(25*this.order+6,25,17+this._indent,25-2,this._width-1,1.0,"easeOutElastic");
 										}
 										var x = this.order;
 										lightFusePayload(0.5,function(){
