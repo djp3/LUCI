@@ -1,7 +1,13 @@
+v1.3 Fixed the clickable areas on the project menu.
+	 Added some menu locking to prevent click-happy users from screwing things
+	 up.
+
 v1.2 Added Bio sections with sections for
 	Faculty
 	Grads
 	Undergrads
+
+	Plus nice menu highlight for submenu
 
 v1.1 Added projects sections.
 	 Added a wrapper which provided "Loading information" with a percentage
