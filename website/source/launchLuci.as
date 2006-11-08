@@ -171,7 +171,8 @@ function clearAndResetPage()
 
 	dividerVert_mc._visible = false;
 
-	logo_mc._alpha=0;
+	//Start the logo as visible because of the loading page
+	logo_mc._alpha=100;
 	logo_mc._visible=true;
 
 	skyline_mc._alpha=0;
