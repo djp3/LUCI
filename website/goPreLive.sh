@@ -1,4 +1,13 @@
 #!/bin/bash
+
+echo +++
+echo +++ Build Light Weight Site 
+echo +++
+pushd .
+cd source/lightweight
+./buildLightweight.pl
+popd
+
 echo +++
 echo +++ Validate XML
 echo +++
@@ -6,7 +15,7 @@ for i in `find . | grep "xml$" | grep -v svn`;\
 do echo "++++++ Validating XML" $i;\
 xml val -b $i || exit;
 done
-for i in `find . | grep "weAreLuci.*html$" | grep -v svn`;\
+for i in `find . | grep "^.*source.*html$" | grep -v svn`;\
 do echo "++++++ Validating HTML" $i;\
 xml val -b $i || exit;
 done
