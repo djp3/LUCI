@@ -13,6 +13,7 @@ sub outputHTMLHeader()
 	my $OUTFILE=$_[0];
 	my $filepath=$_[1];
 	my $deepLink=$_[2];
+	$deepLink =~ s/[&]/&amp;/g;
 	print $OUTFILE "<html>\n";
 	print $OUTFILE "<head>\n";
 	print $OUTFILE "<title>LUCI Light Weight</title>\n";
