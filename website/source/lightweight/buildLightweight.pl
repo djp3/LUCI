@@ -48,11 +48,71 @@ sub outputHTMLFooter()
 	print $OUTFILE "</body>\n";
 	print $OUTFILE "</html>\n";
 }
+
+
+sub outputSidebarHeader()
+{
+	my $OUTFILE=$_[0];
+	print $OUTFILE "<div class=\"sidebar\">\n";
+	print $OUTFILE "<div class=\"content\">\n";
+}
+
+sub outputSidebarFooter()
+{
+	my $OUTFILE=$_[0];
+	print $OUTFILE "</div>\n";
+	print $OUTFILE "</div>\n";
+}
+
+
+sub makeSidebarSA()
+{
+	my $OUTFILE = $_[0];
+	my $title = $_[1];
+	my $url = $_[2];
+
+	print $OUTFILE "<div class='sidebar'><div class='content'><b>LUCI Blog</b>\n";
+	my $doc = $parser->parsefile($url);
+	foreach my $items ($doc->getElementsByTagName('item')){
+		my $linkURL = $items->getElementsByTagName('link')->item(0)->getFirstChild->getNodeValue;
+		my $title = $items->getElementsByTagName('title')->item(0)->getFirstChild->getNodeValue;
+		print $OUTFILE "<p><a href=\"".$linkURL."\">".$title."</a></p>\n";
+	}
+	print $OUTFILE "</div></div>\n";
+}
+
+sub makeSidebar()
+{
+	my $OUTFILE = $_[0];
+	my $type = $_[1];
+	my $title = $_[2];
+	my $url = $_[3];
+	if($type eq "SA"){
+			&makeSidebarSA($OUTFILE,$title,$url);
+	}
+	else{
+			&outputSidebarHeader($OUTFILE);
+			print $OUTFILE "Sidebar template ".$type." not supported\n";
+			&outputSidebarFooter($OUTFILE);
+	}
+}
+
+
+
+
 sub makeTemplateAPage()
 {
 	my $OUTFILE = $_[0];
 	my $url = $_[1];
 	my $title = $_[2];
+	my $sidebar = $_[3];
+
+	if( $sidebar->hasChildNodes() != 0) {
+		my $sidebarType = $sidebar->getElementsByTagName('type')->item(0)->getFirstChild->getNodeValue;
+		my $sidebarTitle = $sidebar->getElementsByTagName('title')->item(0)->getFirstChild->getNodeValue;
+		my $sidebarURL = $sidebar->getElementsByTagName('url')->item(0)->getFirstChild->getNodeValue;
+		&makeSidebar($OUTFILE,$sidebarType,$sidebarTitle,$sidebarURL);
+	}
 
 	print $OUTFILE "<div class=\"container\">\n";
 	print $OUTFILE "<div class=\"content\">\n";
@@ -81,6 +141,7 @@ sub makeTemplateAPage()
 	print $OUTFILE "</div>\n";
 	print $OUTFILE "</div>\n";
 	print $OUTFILE "</div>\n";
+
 }
 
 sub makeSubpage()
@@ -97,7 +158,7 @@ sub makeSubpage()
 
 	if($template->getElementsByTagName('type')->item(0)->getFirstChild->getNodeValue eq "A"){
 		&outputHTMLHeader($OUTFILE,"../",$deepLink);
-		&makeTemplateAPage($OUTFILE,$root->getElementsByTagName('template')->item(0)->getElementsByTagName('url')->item(0)->getFirstChild->getNodeValue,$title.":".$templateTitle);
+		&makeTemplateAPage($OUTFILE,$root->getElementsByTagName('template')->item(0)->getElementsByTagName('url')->item(0)->getFirstChild->getNodeValue,$title.":".$templateTitle,$root->getElementsByTagName('sidebar'));
 		&outputHTMLFooter($OUTFILE);
 	}
 	else{
