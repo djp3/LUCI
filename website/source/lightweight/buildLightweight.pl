@@ -16,7 +16,7 @@ sub outputHTMLHeader()
 	$deepLink =~ s/[&]/&amp;/g;
 	print $OUTFILE "<html>\n";
 	print $OUTFILE "<head>\n";
-	print $OUTFILE "<title>LUCI Light Weight</title>\n";
+	print $OUTFILE "<title>Light Weight: LUCI: The Laboratory for Ubiquitous Computing and Interaction at UCI</title>\n";
 	print $OUTFILE "<link rel=\"stylesheet\" href=\"http://luci.ics.uci.edu/blog/styles-site.css\" type=\"text/css\" />\n";
 	print $OUTFILE "</head>\n";
 	print $OUTFILE "<body>\n";
