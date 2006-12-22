@@ -28,7 +28,8 @@ sub outputHTMLHeader()
 	print $OUTFILE "<img src=\"".$filepath."LUCIhorzTight.jpg\" alt=\"LUCI logo\"/>\n";
 	print $OUTFILE "</td>\n";
 	print $OUTFILE "<td>\n";
-	print $OUTFILE "<p><a href=\"http://luci.ics.uci.edu/#".$deepLink."\">Click Here to Switch to Interactive FlashVersion</a></p>\n";
+	print $OUTFILE "<h3>Lightweight Version</h3>\n";
+	print $OUTFILE "<p><a href=\"http://luci.ics.uci.edu/#".$deepLink."\">Interactive Flash Version</a></p>\n";
 	print $OUTFILE "</td>\n";
 	print $OUTFILE "</tr>\n";
 	print $OUTFILE "</table>\n";
@@ -143,6 +144,107 @@ sub makeTemplateAPage()
 	print $OUTFILE "</div>\n";
 
 }
+sub makeTemplateBPage()
+{
+	my $OUTFILE = $_[0];
+	my $url = $_[1];
+	my $title = $_[2];
+	my $filepath = $_[3];
+	my $previousDeeplink = $_[4];
+	my $sidebar = $_[5];
+
+	if( ($sidebar) && ($sidebar->hasChildNodes() != 0)) {
+		my $sidebarType = $sidebar->getElementsByTagName('type')->item(0)->getFirstChild->getNodeValue;
+		my $sidebarTitle = $sidebar->getElementsByTagName('title')->item(0)->getFirstChild->getNodeValue;
+		my $sidebarURL = $sidebar->getElementsByTagName('url')->item(0)->getFirstChild->getNodeValue;
+		&makeSidebar($OUTFILE,$sidebarType,$sidebarTitle,$sidebarURL);
+	}
+
+	print $OUTFILE "<div class=\"container\">\n";
+	print $OUTFILE "<div class=\"content\">\n";
+	print $OUTFILE "<a href=\"..\\index.html\">UP</a>\n";
+	print $OUTFILE "</div>\n";
+	print $OUTFILE "</div>\n";
+
+	print $OUTFILE "<div class=\"container\">\n";
+	print $OUTFILE "<div class=\"content\">\n";
+	print $OUTFILE $title."\n";
+	print $OUTFILE "</div>\n";
+	print $OUTFILE "</div>\n";
+
+	print $OUTFILE "<div class=\"container\">\n";
+	print $OUTFILE "<div class=\"content\">\n";
+	print $OUTFILE "<div style=\"text-align:left;\">\n";
+
+	my $doc = $parser->parsefile("../".$url);
+	foreach my $projects ($doc->getElementsByTagName('project')){
+		my $subtitle = $projects->getElementsByTagName('title')->item(0)->getFirstChild->getNodeValue;
+		my $textURL = $projects->getElementsByTagName('textURL')->item(0)->getFirstChild->getNodeValue;
+		my $indent = $projects->getElementsByTagName('indent')->item(0)->getFirstChild->getNodeValue;
+		my $deepLink = $projects->getElementsByTagName('deepLink')->item(0)->getFirstChild->getNodeValue;
+
+		for( my $i = 0; $i<$indent;$i ++){
+			print $OUTFILE "<div style=\"margin-left:20px;\">\n";
+		}
+
+		print $OUTFILE "<p><a href=\"./".$deepLink."/index.html\">".$subtitle."</a></p>\n";
+		makeTemplateBSubpage($title.":".$subtitle,$previousDeeplink."&".$deepLink,$textURL,$filepath);
+
+		for( my $i = 0; $i<$indent;$i ++){
+			print $OUTFILE "</div>\n";
+		}
+	}
+
+	print $OUTFILE "</div>\n";
+	print $OUTFILE "</div>\n";
+	print $OUTFILE "</div>\n";
+
+}
+
+sub makeTemplateBSubpage()
+{
+	my $title = $_[0];
+	my $deepLink = $_[1];
+	my $textURL = $_[2];
+	my $filepath = $_[3];
+	my $SUBPAGE;
+
+
+	my $filepathDeepLink = $deepLink;
+	$filepathDeepLink =~ s/[&]/\//g;
+	mkdir $filepathDeepLink || die;
+	open($SUBPAGE, "> $filepathDeepLink/index.html")||die;
+
+	&outputHTMLHeader($SUBPAGE,$filepath,$deepLink);
+
+	print $SUBPAGE "<div class=\"container\">\n";
+	print $SUBPAGE "<div class=\"content\">\n";
+	print $SUBPAGE "<a href=\"..\\index.html\">UP</a>\n";
+	print $SUBPAGE "</div>\n";
+	print $SUBPAGE "</div>\n";
+
+	print $SUBPAGE "<div class=\"container\">\n";
+	print $SUBPAGE "<div class=\"content\">\n";
+	print $SUBPAGE $title."\n";
+	print $SUBPAGE "</div>\n";
+	print $SUBPAGE "</div>\n";
+
+	print $SUBPAGE "<div class=\"container\">\n";
+	print $SUBPAGE "<div class=\"content\">\n";
+	print $SUBPAGE "<div style=\"text-align:left;\">\n";
+	my $PROJECT;
+	open ($PROJECT,"< ../".$textURL) || die;
+	while(<$PROJECT>){
+		s/asfunction:_root.jumpToURLNewWindow,//g;
+		print $SUBPAGE $_;
+	}
+	close($PROJECT);
+	print $SUBPAGE "</div>\n";
+	print $SUBPAGE "</div>\n";
+	print $SUBPAGE "</div>\n";
+	&outputHTMLFooter($SUBPAGE);
+	close($SUBPAGE);
+}
 
 sub makeSubpage()
 {
@@ -159,6 +261,11 @@ sub makeSubpage()
 	if($template->getElementsByTagName('type')->item(0)->getFirstChild->getNodeValue eq "A"){
 		&outputHTMLHeader($OUTFILE,"../",$deepLink);
 		&makeTemplateAPage($OUTFILE,$root->getElementsByTagName('template')->item(0)->getElementsByTagName('url')->item(0)->getFirstChild->getNodeValue,$title.":".$templateTitle,$root->getElementsByTagName('sidebar'));
+		&outputHTMLFooter($OUTFILE);
+	}
+	elsif($template->getElementsByTagName('type')->item(0)->getFirstChild->getNodeValue eq "B"){
+		&outputHTMLHeader($OUTFILE,"../",$deepLink);
+		&makeTemplateBPage($OUTFILE,$root->getElementsByTagName('template')->item(0)->getElementsByTagName('url')->item(0)->getFirstChild->getNodeValue,$title.":".$templateTitle,"../../",$deepLink,$root->getElementsByTagName('sidebar'));
 		&outputHTMLFooter($OUTFILE);
 	}
 	else{
