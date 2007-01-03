@@ -42,3 +42,9 @@ echo +++
 
 #echo "Commented out"
 ssh djp3@calla.ics.uci.edu
+
+echo "+++"
+echo "+++Check validity of links"
+echo "+++"
+echo "Commented out"
+#open "http://validator.w3.org/checklink?uri=http%3A%2F%2Fluci.ics.uci.edu%2Flightweight&hide_type=all&recursive=on&depth=4&check=Check"
