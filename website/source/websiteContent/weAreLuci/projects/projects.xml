@@ -74,4 +74,13 @@
 		<imageSourceURL>websiteContent/weAreLuci/projects/projectAmbient/temporality/headlineImage.jpg</imageSourceURL>
 		<imageLinkURL>http://drzaius.ics.uci.edu/meta/ambient/index.html</imageLinkURL>
 	</project>
+	<project>
+		<order>8</order>
+		<indent>0</indent>
+		<title>SALi</title>
+		<deepLink>sali</deepLink>
+		<sectionDataURL>websiteContent/weAreLuci/projects/SALi/menuItems.html</sectionDataURL>
+		<textURL>websiteContent/weAreLuci/projects/SALi/overview.html</textURL>
+		<imageSourceURL>websiteContent/weAreLuci/projects/SALi/headlineImage.jpg</imageSourceURL>
+	</project>
 </projects>

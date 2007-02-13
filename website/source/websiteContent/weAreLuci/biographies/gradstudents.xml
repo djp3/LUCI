@@ -4,7 +4,6 @@
 		<title>Tosin Aiyelokun</title>
 		<deepLink>oaiyelok</deepLink>
 		<sectionDataURL>websiteContent/weAreLuci/biographies/gradstudents/oaiyelok/menuItems.html</sectionDataURL>
-		<launchURL></launchURL>
 	</biography>
 	<biography>
 		<order>1</order>
@@ -22,7 +21,9 @@
 		<order>3</order>
 		<title>Sharon Xianghua Ding</title>
 		<deepLink>dingx</deepLink>
+		<imageSourceURL>websiteContent/weAreLuci/biographies/gradstudents/dingx/dingx.jpg</imageSourceURL>
 		<sectionDataURL>websiteContent/weAreLuci/biographies/gradstudents/dingx/menuItems.html</sectionDataURL>
+		<launchURL></launchURL>
 	</biography>
 	<biography>
 		<order>4</order>
@@ -34,6 +35,7 @@
 		<order>5</order>
 		<title>Nick Noack</title>
 		<deepLink>nnoack</deepLink>
+		<imageSourceURL>websiteContent/weAreLuci/biographies/gradstudents/nnoack/nnoack.jpg</imageSourceURL>
 		<sectionDataURL>websiteContent/weAreLuci/biographies/gradstudents/nnoack/menuItems.html</sectionDataURL>
 	</biography>
 	<biography>
