@@ -37,21 +37,21 @@
 	<project>
 		<order>4</order>
 		<indent>1</indent>
-		<title>Nimio</title>
-		<deepLink>nimio</deepLink>
-		<sectionDataURL>websiteContent/weAreLuci/projects/projectAmbient/nimio/menuItems.html</sectionDataURL>
-		<textURL>websiteContent/weAreLuci/projects/projectAmbient/nimio/overview.html</textURL>
-		<imageSourceURL>websiteContent/weAreLuci/projects/projectAmbient/nimio/headlineImage.jpg</imageSourceURL>
-		<imageLinkURL>http://drzaius.ics.uci.edu/meta/ambient/index.html</imageLinkURL>
-	</project>
-	<project>
-		<order>5</order>
-		<indent>1</indent>
 		<title>HotSpot Clocks</title>
 		<deepLink>hotspot</deepLink>
 		<sectionDataURL>websiteContent/weAreLuci/projects/projectAmbient/hotspot/menuItems.html</sectionDataURL>
 		<textURL>websiteContent/weAreLuci/projects/projectAmbient/hotspot/overview.html</textURL>
 		<imageSourceURL>websiteContent/weAreLuci/projects/projectAmbient/hotspot/headlineImage.jpg</imageSourceURL>
+		<imageLinkURL>http://drzaius.ics.uci.edu/meta/ambient/index.html</imageLinkURL>
+	</project>
+	<project>
+		<order>5</order>
+		<indent>1</indent>
+		<title>Nimio</title>
+		<deepLink>nimio</deepLink>
+		<sectionDataURL>websiteContent/weAreLuci/projects/projectAmbient/nimio/menuItems.html</sectionDataURL>
+		<textURL>websiteContent/weAreLuci/projects/projectAmbient/nimio/overview.html</textURL>
+		<imageSourceURL>websiteContent/weAreLuci/projects/projectAmbient/nimio/headlineImage.jpg</imageSourceURL>
 		<imageLinkURL>http://drzaius.ics.uci.edu/meta/ambient/index.html</imageLinkURL>
 	</project>
 	<project>
@@ -82,5 +82,15 @@
 		<sectionDataURL>websiteContent/weAreLuci/projects/SALi/menuItems.html</sectionDataURL>
 		<textURL>websiteContent/weAreLuci/projects/SALi/overview.html</textURL>
 		<imageSourceURL>websiteContent/weAreLuci/projects/SALi/headlineImage.jpg</imageSourceURL>
+	</project>
+	<project>
+		<order>9</order>
+		<indent>0</indent>
+		<title>undersound</title>
+		<deepLink>undersound</deepLink>
+		<sectionDataURL>websiteContent/weAreLuci/projects/undersound/menuItems.html</sectionDataURL>
+		<textURL>websiteContent/weAreLuci/projects/undersound/overview.html</textURL>
+		<imageSourceURL>websiteContent/weAreLuci/projects/undersound/undersound.jpg</imageSourceURL>
+		<imageLinkURL>http://www.undersound.org/</imageLinkURL>
 	</project>
 </projects>
