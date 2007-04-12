@@ -29,7 +29,9 @@
 		<order>4</order>
 		<title>Eric Kabisch</title>
 		<deepLink>ekabisch</deepLink>
-		<sectionDataURL>websiteContent/weAreLuci/biographies/gradstudents/ekabisch/menuItems.html</sectionDataURL>
+		<imageSourceURL>http://e.fluxt.com/luci/ek_web/bioImage.jpg</imageSourceURL>
+		<sectionDataURL>http://e.fluxt.com/luci/ek_web/menuItems.html</sectionDataURL>
+		<textURL>http://e.fluxt.com/luci/ek_web/contact.html</textURL>
 	</biography>
 	<biography>
 		<order>5</order>

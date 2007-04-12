@@ -82,6 +82,7 @@ sub makeSidebarSA()
 		my $linkURL = $items->getElementsByTagName('link')->item(0)->getFirstChild->getNodeValue;
 		my $title = $items->getElementsByTagName('title')->item(0)->getFirstChild->getNodeValue;
 		print $OUTFILE "<p><a href='".$linkURL."'>".$title."</a></p>\n";
+		#print $linkURL,":",$title,"\n";
 	}
 	print $OUTFILE "</div></div>\n";
 }
@@ -341,21 +342,41 @@ sub makeTemplateCSubpage()
 	print $SUBPAGE "<div class='content'>\n";
 	print $SUBPAGE "<div style='text-align:left;'>\n";
 	my $PROJECT;
-	open ($PROJECT,"< ../".$textURL) || die;
+	if($textURL =~ m/^http/){
+		system("wget -q -O /tmp/eraseme.html ".$textURL);
+		open ($PROJECT,"< /tmp/eraseme.html") || die;
+	}else{
+		open ($PROJECT,"< ../".$textURL) || die;
+	}
 	while(<$PROJECT>){
-		s/asfunction:_root.jumpToURLNewWindow,//g;
-		s/asfunction:_root.loadHTMLURL,//g;
 		if($_ =~ m/href/){
 			my @foo = ($_ =~ m/href="([^"]*)">([^<]*)</g);
 			for(my $i = 0; $i<= $#foo; $i+=2){
-				if($foo[$i] =~ m/websiteContent/){
+				if($foo[$i] =~ m/asfunction:_root.jumpToURLNewWindow,/){
+					$foo[$i] =~ s/asfunction:_root.jumpToURLNewWindow,//g;
+					print $SUBPAGE "<p><a href=\'",$foo[$i],"\'>",$foo[$i+1],"</a></p>\n";
+				}
+				elsif($foo[$i] =~ m/asfunction:_root.loadHTMLURL,/){
+					$foo[$i] =~	s/asfunction:_root.loadHTMLURL,//g;
 					(my $bar) = $foo[$i] =~ m/\/([^\/]*)$/;
-					print $SUBPAGE "<p><a href='",$bar,"\'>",$foo[$i+1],"</a></p>\n";
-					&makeTemplateCSubSubpage($title.":".$foo[$i+1],$deepLink,$foo[$i],$bar,$filepath);
+					#make content local
+					if($foo[$i] !~ m/websiteContent/){
+						system("wget -q -O /tmp/".$bar." ".$foo[$i]);
+					}
+					#load local content
+					if($foo[$i] =~ m/websiteContent/){
+						print $SUBPAGE "<p><a href='",$bar,"\'>",$foo[$i+1],"</a></p>\n";
+						&makeTemplateCSubSubpage($title.":".$foo[$i+1],$deepLink,$foo[$i],$bar,$filepath);
+					}
+					else{
+						print $SUBPAGE "<p><a href='",$bar,"\'>",$foo[$i+1],"</a></p>\n";
+						&makeTemplateCSubSubpage($title.":".$foo[$i+1],$deepLink,"../../../../../../../../../../tmp/".$bar,$bar,$filepath);
+					}
 				}
 				else{
 					print $SUBPAGE "<p><a href=\'",$foo[$i],"\'>",$foo[$i+1],"</a></p>\n";
 				}
+
 			}
 		}
 			
@@ -399,7 +420,15 @@ sub makeTemplateCSubSubpage()
 	print $SUBPAGE "<div class=\'content\'>\n";
 	print $SUBPAGE "<div style=\'text-align:left;\'>\n";
 	my $PROJECT;
-	open ($PROJECT,"< ../".$textURL) || die;
+	#open ($PROJECT,"< ../".$textURL) || die($textURL);
+	if(!open ($PROJECT,"< ../".$textURL)){
+		print $title,"\n";
+		print $deepLink,"\n";
+		print $textURL,"\n";
+		print $fileName,"\n";
+		print $filepath,"\n";
+		die;
+	}
 	while(<$PROJECT>){
 		if(m/asfunction:_root.jumpToURLNewWindow,/){
 			s/asfunction:_root.jumpToURLNewWindow,//g;
@@ -411,6 +440,7 @@ sub makeTemplateCSubSubpage()
 			s/[&]amp;/\//g;
 		}
 		print $SUBPAGE $_,"<br/>";
+		#print $_,"<br/>";
 	}
 	close($PROJECT);
 	print $SUBPAGE "</div>\n";
