@@ -35,13 +35,20 @@
 	</biography>
 	<biography>
 		<order>5</order>
+		<title>Sylvia Lindtner</title>
+		<deepLink>lindtner</deepLink>
+		<imageSourceURL>websiteContent/weAreLuci/biographies/gradstudents/lindtner/lindtner.jpg</imageSourceURL>
+		<sectionDataURL>websiteContent/weAreLuci/biographies/gradstudents/lindtner/menuItems.html</sectionDataURL>
+	</biography>
+	<biography>
+		<order>6</order>
 		<title>Nick Noack</title>
 		<deepLink>nnoack</deepLink>
 		<imageSourceURL>websiteContent/weAreLuci/biographies/gradstudents/nnoack/nnoack.jpg</imageSourceURL>
 		<sectionDataURL>websiteContent/weAreLuci/biographies/gradstudents/nnoack/menuItems.html</sectionDataURL>
 	</biography>
 	<biography>
-		<order>6</order>
+		<order>7</order>
 		<title>Zubin Tiku</title>
 		<deepLink>ztiku</deepLink>
 		<sectionDataURL>websiteContent/weAreLuci/biographies/gradstudents/ztiku/menuItems.html</sectionDataURL>
