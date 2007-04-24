@@ -28,23 +28,23 @@
 	<project>
 		<order>3</order>
 		<indent>1</indent>
+		<title>Nomatic (for presence)</title>
+		<imageSourceURL>websiteContent/weAreLuci/projects/nomatic/nomaticPresence/laptopUserInHall.jpg</imageSourceURL>
+		<imageLinkURL>http://www.flickr.com/photos/shapeshift/85220007/</imageLinkURL>
+		<deepLink>nomaticPresence</deepLink>
+		<sectionDataURL>websiteContent/weAreLuci/projects/nomatic/nomaticPresence/menuItems.html</sectionDataURL>
+		<textURL>websiteContent/weAreLuci/projects/nomatic/nomaticPresence/overview.html</textURL>
+		<launchURL></launchURL>
+	</project>
+	<project>
+		<order>4</order>
+		<indent>1</indent>
 		<title>Nomatic*Aid</title>
 		<imageSourceURL>websiteContent/weAreLuci/projects/nomatic/nomaticAid/africa.jpg</imageSourceURL>
 		<imageLinkURL>http://www.flickr.com/photos/bohane/64495034/</imageLinkURL>
 		<deepLink>nomaticAid</deepLink>
 		<sectionDataURL>websiteContent/weAreLuci/projects/nomatic/nomaticAid/menuItems.html</sectionDataURL>
 		<textURL>websiteContent/weAreLuci/projects/nomatic/nomaticAid/overview.html</textURL>
-	</project>
-	<project>
-		<order>4</order>
-		<indent>1</indent>
-		<title>Nomatic*Gaim</title>
-		<imageSourceURL>websiteContent/weAreLuci/projects/nomatic/nomaticGaim/laptopUserInHall.jpg</imageSourceURL>
-		<imageLinkURL>http://www.flickr.com/photos/shapeshift/85220007/</imageLinkURL>
-		<deepLink>nomaticGaim</deepLink>
-		<sectionDataURL>websiteContent/weAreLuci/projects/nomatic/nomaticGaim/menuItems.html</sectionDataURL>
-		<textURL>websiteContent/weAreLuci/projects/nomatic/nomaticGaim/overview.html</textURL>
-		<launchURL></launchURL>
 	</project>
 	<project>
 		<order>5</order>

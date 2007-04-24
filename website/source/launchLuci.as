@@ -2217,14 +2217,14 @@ function undispatchTemplate(type:String,duration:Number)
 //Comment this out if it's being run from in a web browser
 //Launch
 if(launchFromWebsite == false){
-	animateOpen("projects&nomaticGaim");
+	animateOpen("projects&nomaticPresence");
 	//animateOpen();
 }
 else{
 	ExternalInterface.call("jsStartFromActionScript", undefined);
 }
 //animateOpen();
-//animateOpen("projects&nomaticGaim");
+//animateOpen("projects&nomaticPresence");
 
 
 //var x:String = "abc&def&ghi";
