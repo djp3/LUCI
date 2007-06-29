@@ -10,18 +10,26 @@
 	</biography>
 	<biography>
 		<order>1</order>
+		<title>Danish Khan</title>
+		<imageSourceURL>websiteContent/weAreLuci/biographies/undergrads/dkhan/bioImage.jpg</imageSourceURL>
+		<sectionDataURL>websiteContent/weAreLuci/biographies/undergrads/dkhan/menuItems.html</sectionDataURL>
+		<textURL>websiteContent/weAreLuci/biographies/undergrads/dkhan/contact.html</textURL>
+		<deepLink>dkhan</deepLink>
+	</biography>
+	<biography>
+		<order>2</order>
 		<title>Kah Liu</title>
 		<deepLink>kahliu</deepLink>
 		<sectionDataURL>websiteContent/weAreLuci/biographies/undergrads/kahliu/menuItems.html</sectionDataURL>
 	</biography>
 	<biography>
-		<order>2</order>
+		<order>3</order>
 		<title>Nathaniel Marrocco</title>
 		<imageSourceURL>websiteContent/weAreLuci/biographies/undergrads/nmarrocc/bioImage.jpg</imageSourceURL>
 		<deepLink>nmarrocc</deepLink>
 	</biography>
 	<biography>
-		<order>3</order>
+		<order>4</order>
 		<title>Daniel Hwang</title>
 		<deepLink>dkhwang</deepLink>
 		<sectionDataURL>websiteContent/weAreLuci/biographies/undergrads/dkhwang/menuItems.html</sectionDataURL>
