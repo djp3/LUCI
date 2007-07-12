@@ -49,12 +49,22 @@
 	<project>
 		<order>5</order>
 		<indent>0</indent>
+		<title>CONRAD</title>
+		<deepLink>CONRAD</deepLink>
+		<sectionDataURL>websiteContent/weAreLuci/projects/CONRAD/menuItems.html</sectionDataURL>
+		<imageSourceURL>websiteContent/weAreLuci/projects/CONRAD/headlineImage.jpg</imageSourceURL>
+		<imageLinkURL>http://www.flickr.com/photos/recompose/96976482/</imageLinkURL>
+		<textURL>websiteContent/weAreLuci/projects/CONRAD/overview.html</textURL>
+	</project>
+	<project>
+		<order>6</order>
+		<indent>0</indent>
 		<title>Project Ambient</title>
 		<deepLink>projectAmbient</deepLink>
 		<textURL>websiteContent/weAreLuci/projects/projectAmbient/overview.html</textURL>
 	</project>
 	<project>
-		<order>6</order>
+		<order>7</order>
 		<indent>1</indent>
 		<title>Temporality+Rhythms</title>
 		<deepLink>temporality</deepLink>
@@ -64,7 +74,7 @@
 		<imageLinkURL>http://drzaius.ics.uci.edu/meta/ambient/index.html</imageLinkURL>
 	</project>
 	<project>
-		<order>7</order>
+		<order>8</order>
 		<indent>1</indent>
 		<title>SignalPlay</title>
 		<deepLink>signalPlay</deepLink>
@@ -74,7 +84,7 @@
 		<imageLinkURL>http://drzaius.ics.uci.edu/meta/ambient/index.html</imageLinkURL>
 	</project>
 	<project>
-		<order>8</order>
+		<order>9</order>
 		<indent>1</indent>
 		<title>Nimio</title>
 		<deepLink>nimio</deepLink>
@@ -84,7 +94,7 @@
 		<imageLinkURL>http://drzaius.ics.uci.edu/meta/ambient/index.html</imageLinkURL>
 	</project>
 	<project>
-		<order>9</order>
+		<order>10</order>
 		<indent>1</indent>
 		<title>HotSpot Clocks</title>
 		<deepLink>hotspot</deepLink>
