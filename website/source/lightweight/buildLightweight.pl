@@ -77,6 +77,7 @@ sub makeSidebarSA()
 	my $url = $_[2];
 
 	print $OUTFILE "<div class='sidebar'><div class='content'><b>LUCI Blog</b>\n";
+	print $url,"\n";
 	my $doc = $parser->parsefile($url);
 	foreach my $items ($doc->getElementsByTagName('item')){
 		my $linkURL = $items->getElementsByTagName('link')->item(0)->getFirstChild->getNodeValue;
@@ -113,11 +114,13 @@ sub makeTemplateAPage()
 	my $title = $_[2];
 	my $sidebar = $_[3];
 
-	if( $sidebar->hasChildNodes() != 0) {
-		my $sidebarType = $sidebar->getElementsByTagName('type')->item(0)->getFirstChild->getNodeValue;
-		my $sidebarTitle = $sidebar->getElementsByTagName('title')->item(0)->getFirstChild->getNodeValue;
-		my $sidebarURL = $sidebar->getElementsByTagName('url')->item(0)->getFirstChild->getNodeValue;
-		&makeSidebar($OUTFILE,$sidebarType,$sidebarTitle,$sidebarURL);
+	if($sidebar){
+		if( $sidebar->hasChildNodes() != 0) {
+			my $sidebarType = $sidebar->getElementsByTagName('type')->item(0)->getFirstChild->getNodeValue;
+			my $sidebarTitle = $sidebar->getElementsByTagName('title')->item(0)->getFirstChild->getNodeValue;
+			my $sidebarURL = $sidebar->getElementsByTagName('url')->item(0)->getFirstChild->getNodeValue;
+			&makeSidebar($OUTFILE,$sidebarType,$sidebarTitle,$sidebarURL);
+		}
 	}
 
 	print $OUTFILE "<div class='container'>\n";
@@ -463,6 +466,7 @@ sub makeSubpage()
 	my $OUTFILE;
 	open($OUTFILE, "> $deepLink/index.html")||die;
 
+	#print $template->getElementsByTagName('title')->item(0)->getFirstChild->getNodeValue ,"\n";
 	if($template->getElementsByTagName('type')->item(0)->getFirstChild->getNodeValue eq "A"){
 		&outputHTMLHeader($OUTFILE,"../",$deepLink);
 		&makeTemplateAPage($OUTFILE,$root->getElementsByTagName('template')->item(0)->getElementsByTagName('url')->item(0)->getFirstChild->getNodeValue,$title.":".$templateTitle,$root->getElementsByTagName('sidebar'));

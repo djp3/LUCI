@@ -84,6 +84,65 @@
 		</clickable>
 		<breakBelow/>
 	</menuItem>
+	<menuItem>
+		<title>REPOSITORY</title>
+		<order>8</order>
+		<indent>0</indent>
+		<clickable>
+			<deepLink>repository</deepLink>
+			<template>
+				<type>A</type>
+				<title>REPOSITORY</title>
+				<url>websiteContent/repository/repositoryOverview.xml</url>
+			</template>
+		</clickable>
+	</menuItem>
+	<menuItem>
+		<title>CODE</title>
+		<order>9</order>
+		<indent>1</indent>
+		<clickable>
+			<deepLink>code</deepLink>
+			<template>
+				<type>A</type>
+				<title>REPOSITORY:CODE</title>
+				<url>websiteContent/repository/code/codeRepository.xml</url>
+			</template>
+			<sidebar>
+				<type>SRSS2</type>
+				<title>REPOSITORY FEED</title>
+				<url>http://djp3-pc2.ics.uci.edu/wiki/index.php?title=Special:Recentchanges&amp;days=30&amp;feed=rss</url>
+			</sidebar>
+		</clickable>
+	</menuItem>
+	<menuItem>
+		<title>DATA</title>
+		<order>10</order>
+		<indent>1</indent>
+		<clickable>
+			<deepLink>data</deepLink>
+			<template>
+				<type>A</type>
+				<title>REPOSITORY:DATA</title>
+				<url>websiteContent/overview/overviewContent.xml</url>
+			</template>
+		</clickable>
+		<breakBelow/>
+	</menuItem>
+	<menuItem>
+		<title>TECHNICAL REPORTS</title>
+		<order>11</order>
+		<indent>1</indent>
+		<clickable>
+			<deepLink>techreports</deepLink>
+			<template>
+				<type>A</type>
+				<title>REPOSITORY:TECH REPORTS</title>
+				<url>websiteContent/overview/overviewContent.xml</url>
+			</template>
+		</clickable>
+		<breakBelow/>
+	</menuItem>
 	<!--
 	<menuItem>
 		<title>COURSES</title>
@@ -91,40 +150,6 @@
 		<indent>1</indent>
 		<clickable>
 		</clickable>
-	</menuItem>
-	<menuItem>
-		<title>BIOS</title>
-		<order>4</order>
-		<indent>1</indent>
-		<clickable>
-		</clickable>
-		<breakBelow/>
-	</menuItem>
-	<menuItem>
-		<title>NEWS</title>
-		<order>5</order>
-	</menuItem>
-	<menuItem>
-		<title>LOCAL</title>
-		<order>6</order>
-		<indent>1</indent>
-		<clickable>
-		</clickable>
-	</menuItem>
-	<menuItem>
-		<title>REGIONAL</title>
-		<order>7</order>
-		<indent>1</indent>
-		<clickable>
-		</clickable>
-	</menuItem>
-	<menuItem>
-		<title>WORLD</title>
-		<order>8</order>
-		<indent>1</indent>
-		<clickable>
-		</clickable>
-		<breakBelow/>
 	</menuItem>
 	<menuItem>
 		<title>DATA REPOSITORY</title>

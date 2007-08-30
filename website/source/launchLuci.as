@@ -2132,6 +2132,76 @@ var document:XML = new XML();
 	document.load(deSandboxURL(URL));
 }
 
+function templateSRSS2(title,URL,bomb)
+{
+var document:XML = new XML();
+
+	loadSidebarTitle(title,false,0.5);
+	
+	document.ignoreWhite = true;
+	document.onLoad = function(success:Boolean){
+		if(success){
+			if(document.firstChild.nodeName == "rss"){
+				var runningText:String = "";
+				var i:String;
+				var myArray:Array = document.childNodes;
+				myArray = document.firstChild.childNodes;
+				for (i in myArray){
+					var lastDate:String = "";
+					if(myArray[i].nodeName == "item"){
+						var title:String = "";
+						var url:String = "";
+						var subject:String = "";
+						var date:String = "";
+						var j:String;
+						var myArray2:Array = myArray[i].childNodes;
+						for (j in myArray2){
+							if(myArray2[j].nodeName == "title"){
+								title = myArray2[j].firstChild.nodeValue;
+							}
+							else if(myArray2[j].nodeName == "link"){
+								url = myArray2[j].firstChild.nodeValue;
+							}
+							else if(myArray2[j].nodeName == "dc:date"){
+								date = myArray2[j].firstChild.nodeValue;
+							}
+							else if(myArray2[j].nodeName == "dc:subject"){
+								subject = myArray2[j].firstChild.nodeValue;
+							}
+							else if(myArray2[j].nodeName == "dc:creator"){
+							}
+							else if(myArray2[j].nodeName == "description"){
+							}
+							else{
+								trace(">> unknown thing :"+myArray2[j].nodeName);
+							}
+						}
+						if(lastDate != date.split("T",1)[0]){
+							lastDate = date.split("T",1)[0];
+							runningText= "<p>"+lastDate+"</p><p><a href=\"asfunction:_root.jumpToURLSameWindow,"+url+"\">"+title+"</a></p><br/>" +runningText;
+						}
+						else{
+							runningText="&nbsp;&nbsp;&nbsp;<a href=\"asfunction:_root.jumpToURLSameWindow,"+url+"\">"+title+"</a><br>"+runningText;
+						}
+					}
+					//trace(">> "+runningText);
+				}
+				loadSidebarText(runningText,false,0.5);
+
+			}
+			else{
+				trace(">> Unknown element in templateSRSS2 "+document.firstChild.nodeName);
+			}
+		}
+		else{
+			trace(">> Trouble loading XML in templateSRSS2");
+		}
+		triggerBomb(bomb);
+
+	}
+	document.load(deSandboxURL(URL));
+}
+
 
 function clearTemplateSA(duration:Number)
 {
@@ -2177,6 +2247,9 @@ function dispatchTemplate(type:String,title:String,URL:String,bomb:MovieClip,dee
 		}
 		else if(type=="SA"){
 			templateSA(title,URL,bomb,deepLink,duration);
+		}
+		else if(type=="SRSS2"){
+			templateSRSS2(title,URL,bomb,deepLink,duration);
 		}
 		else if(type=="B"){
 			templateB(title,URL,bomb,deepLink,duration);
