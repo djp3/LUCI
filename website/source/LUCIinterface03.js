@@ -8,10 +8,10 @@ function jsAvailable() {
 //}
 
 function jsDebug(x) {
-   	var foo = document.getElementById("form");
-    var child = document.createElement("div");
-	child.innerHTML = "Debug: "+x;
-	foo.appendChild(child);
+   //	var foo = document.getElementById("form");
+    //var child = document.createElement("div");
+	//child.innerHTML = "Debug: "+x;
+	//foo.appendChild(child);
 }
 
 function jsUpdateLocation(x,level) {

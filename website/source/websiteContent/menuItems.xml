@@ -53,13 +53,26 @@
 		</clickable>
 	</menuItem>
 	<menuItem>
-		<title>STUDENTS</title>
+		<title>RESEARCHERS</title>
 		<order>5</order>
+		<indent>2</indent>
+		<clickable>
+			<deepLink>bioResearchers</deepLink>
+			<template>
+				<type>C</type>
+				<title>WE ARE LUCI: BIOGRAPHIES: RESEARCHERS</title>
+				<url>websiteContent/weAreLuci/biographies/researchers.xml</url>
+			</template>
+		</clickable>
+	</menuItem>
+	<menuItem>
+		<title>STUDENTS</title>
+		<order>6</order>
 		<indent>2</indent>
 	</menuItem>
 	<menuItem>
 		<title>GRADUATE</title>
-		<order>6</order>
+		<order>7</order>
 		<indent>3</indent>
 		<clickable>
 			<deepLink>bioGrads</deepLink>
@@ -72,7 +85,7 @@
 	</menuItem>
 	<menuItem>
 		<title>UNDERGRADUATE</title>
-		<order>7</order>
+		<order>8</order>
 		<indent>3</indent>
 		<clickable>
 			<deepLink>bioUndergrads</deepLink>
@@ -86,7 +99,7 @@
 	</menuItem>
 	<menuItem>
 		<title>REPOSITORY</title>
-		<order>8</order>
+		<order>9</order>
 		<indent>0</indent>
 		<clickable>
 			<deepLink>repository</deepLink>
@@ -99,7 +112,7 @@
 	</menuItem>
 	<menuItem>
 		<title>CODE</title>
-		<order>9</order>
+		<order>10</order>
 		<indent>1</indent>
 		<clickable>
 			<deepLink>code</deepLink>
@@ -110,11 +123,12 @@
 			</template>
 			<sidebar>
 				<type>SRSS2</type>
-				<title>REPOSITORY FEED</title>
-				<url>http://djp3-pc2.ics.uci.edu/wiki/index.php?title=Special:Recentchanges&amp;days=30&amp;feed=rss</url>
+				<title>NOMATIC*IM FEED</title>
+				<url>http://djp3-pc2.ics.uci.edu/LUCICodeRepository/nomaticIM/timeline?changeset=on&amp;max=50&amp;daysback=90&amp;format=rss</url>
 			</sidebar>
 		</clickable>
 	</menuItem>
+	<!--
 	<menuItem>
 		<title>DATA</title>
 		<order>10</order>
@@ -142,7 +156,7 @@
 			</template>
 		</clickable>
 		<breakBelow/>
-	</menuItem>
+	</menuItem>-->
 	<!--
 	<menuItem>
 		<title>COURSES</title>

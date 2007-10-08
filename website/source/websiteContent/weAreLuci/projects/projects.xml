@@ -11,6 +11,15 @@
 	<project>
 		<order>1</order>
 		<indent>0</indent>
+		<title>Technology Garden</title>
+		<deepLink>techgarden</deepLink>
+		<sectionDataURL>websiteContent/weAreLuci/projects/techgarden/menuItems.html</sectionDataURL>
+		<textURL>websiteContent/weAreLuci/projects/techgarden/overview.html</textURL>
+		<imageSourceURL>websiteContent/weAreLuci/projects/techgarden/headlineImage.jpg</imageSourceURL>
+	</project>
+	<project>
+		<order>2</order>
+		<indent>0</indent>
 		<title>undersound</title>
 		<deepLink>undersound</deepLink>
 		<sectionDataURL>websiteContent/weAreLuci/projects/undersound/menuItems.html</sectionDataURL>
@@ -19,25 +28,25 @@
 		<imageLinkURL>http://www.undersound.org/</imageLinkURL>
 	</project>
 	<project>
-		<order>2</order>
+		<order>3</order>
 		<indent>0</indent>
 		<title>Nomatic</title>
 		<deepLink>nomatic</deepLink>
 		<textURL>websiteContent/weAreLuci/projects/nomatic/overview.html</textURL>
 	</project>
 	<project>
-		<order>3</order>
+		<order>4</order>
 		<indent>1</indent>
-		<title>Nomatic (for presence)</title>
-		<imageSourceURL>websiteContent/weAreLuci/projects/nomatic/nomaticPresence/laptopUserInHall.jpg</imageSourceURL>
+		<title>Nomatic*IM</title>
+		<imageSourceURL>websiteContent/weAreLuci/projects/nomatic/nomaticIM/laptopUserInHall.jpg</imageSourceURL>
 		<imageLinkURL>http://www.flickr.com/photos/shapeshift/85220007/</imageLinkURL>
-		<deepLink>nomaticPresence</deepLink>
-		<sectionDataURL>websiteContent/weAreLuci/projects/nomatic/nomaticPresence/menuItems.html</sectionDataURL>
-		<textURL>websiteContent/weAreLuci/projects/nomatic/nomaticPresence/overview.html</textURL>
+		<deepLink>nomaticIM</deepLink>
+		<sectionDataURL>websiteContent/weAreLuci/projects/nomatic/nomaticIM/menuItems.html</sectionDataURL>
+		<textURL>websiteContent/weAreLuci/projects/nomatic/nomaticIM/overview.html</textURL>
 		<launchURL></launchURL>
 	</project>
 	<project>
-		<order>4</order>
+		<order>5</order>
 		<indent>1</indent>
 		<title>Nomatic*Aid</title>
 		<imageSourceURL>websiteContent/weAreLuci/projects/nomatic/nomaticAid/africa.jpg</imageSourceURL>
@@ -47,7 +56,7 @@
 		<textURL>websiteContent/weAreLuci/projects/nomatic/nomaticAid/overview.html</textURL>
 	</project>
 	<project>
-		<order>5</order>
+		<order>6</order>
 		<indent>0</indent>
 		<title>CONRAD</title>
 		<deepLink>CONRAD</deepLink>
@@ -56,14 +65,14 @@
 		<textURL>websiteContent/weAreLuci/projects/CONRAD/overview.html</textURL>
 	</project>
 	<project>
-		<order>6</order>
+		<order>7</order>
 		<indent>0</indent>
 		<title>Project Ambient</title>
 		<deepLink>projectAmbient</deepLink>
 		<textURL>websiteContent/weAreLuci/projects/projectAmbient/overview.html</textURL>
 	</project>
 	<project>
-		<order>7</order>
+		<order>8</order>
 		<indent>1</indent>
 		<title>Temporality+Rhythms</title>
 		<deepLink>temporality</deepLink>
@@ -73,7 +82,7 @@
 		<imageLinkURL>http://drzaius.ics.uci.edu/meta/ambient/index.html</imageLinkURL>
 	</project>
 	<project>
-		<order>8</order>
+		<order>9</order>
 		<indent>1</indent>
 		<title>SignalPlay</title>
 		<deepLink>signalPlay</deepLink>
@@ -83,7 +92,7 @@
 		<imageLinkURL>http://drzaius.ics.uci.edu/meta/ambient/index.html</imageLinkURL>
 	</project>
 	<project>
-		<order>9</order>
+		<order>10</order>
 		<indent>1</indent>
 		<title>Nimio</title>
 		<deepLink>nimio</deepLink>
@@ -93,7 +102,7 @@
 		<imageLinkURL>http://drzaius.ics.uci.edu/meta/ambient/index.html</imageLinkURL>
 	</project>
 	<project>
-		<order>10</order>
+		<order>11</order>
 		<indent>1</indent>
 		<title>HotSpot Clocks</title>
 		<deepLink>hotspot</deepLink>
