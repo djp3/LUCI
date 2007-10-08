@@ -1,0 +1,62 @@
+<biographies>
+	<biography>
+		<order>0</order>
+		<title>Tosin Aiyelokun</title>
+		<deepLink>oaiyelok</deepLink>
+		<sectionDataURL>websiteContent/weAreLuci/biographies/gradstudents/oaiyelok/menuItems.html</sectionDataURL>
+	</biography>
+	<biography>
+		<order>1</order>
+		<title>Johanna Brewer</title>
+		<deepLink>johannab</deepLink>
+		<sectionDataURL>websiteContent/weAreLuci/biographies/gradstudents/johannab/menuItems.html</sectionDataURL>
+	</biography>
+	<biography>
+		<order>2</order>
+		<title>Judy Chen</title>
+		<deepLink>judychen</deepLink>
+		<sectionDataURL>websiteContent/weAreLuci/biographies/gradstudents/judychen/menuItems.html</sectionDataURL>
+	</biography>
+	<biography>
+		<order>3</order>
+		<title>Sharon Xianghua Ding</title>
+		<deepLink>dingx</deepLink>
+		<imageSourceURL>websiteContent/weAreLuci/biographies/gradstudents/dingx/dingx.jpg</imageSourceURL>
+		<sectionDataURL>websiteContent/weAreLuci/biographies/gradstudents/dingx/menuItems.html</sectionDataURL>
+		<launchURL></launchURL>
+	</biography>
+	<biography>
+		<order>4</order>
+		<title>Eric Kabisch</title>
+		<deepLink>ekabisch</deepLink>
+		<imageSourceURL>http://e.fluxt.com/luci/ek_web/bioImage.jpg</imageSourceURL>
+		<sectionDataURL>http://e.fluxt.com/luci/ek_web/menuItems.html</sectionDataURL>
+		<textURL>http://e.fluxt.com/luci/ek_web/contact.html</textURL>
+	</biography>
+	<biography>
+		<order>5</order>
+		<title>Silvia Lindtner</title>
+		<deepLink>lindtner</deepLink>
+		<imageSourceURL>websiteContent/weAreLuci/biographies/gradstudents/lindtner/lindtner.jpg</imageSourceURL>
+		<sectionDataURL>websiteContent/weAreLuci/biographies/gradstudents/lindtner/menuItems.html</sectionDataURL>
+	</biography>
+	<biography>
+		<order>6</order>
+		<title>Nick Noack</title>
+		<deepLink>nnoack</deepLink>
+		<imageSourceURL>websiteContent/weAreLuci/biographies/gradstudents/nnoack/nnoack.jpg</imageSourceURL>
+		<sectionDataURL>websiteContent/weAreLuci/biographies/gradstudents/nnoack/menuItems.html</sectionDataURL>
+	</biography>
+	<biography>
+		<order>7</order>
+		<title>Zubin Tiku</title>
+		<deepLink>ztiku</deepLink>
+		<sectionDataURL>websiteContent/weAreLuci/biographies/gradstudents/ztiku/menuItems.html</sectionDataURL>
+	</biography>
+	<biography>
+		<order>7</order>
+		<title>Amanda Williams</title>
+		<deepLink>amandamw</deepLink>
+		<sectionDataURL>websiteContent/weAreLuci/biographies/gradstudents/amandamw/menuItems.html</sectionDataURL>
+	</biography>
+</biographies>
