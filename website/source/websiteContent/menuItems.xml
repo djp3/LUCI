@@ -121,11 +121,6 @@
 				<title>REPOSITORY:CODE</title>
 				<url>websiteContent/repository/code/codeRepository.xml</url>
 			</template>
-			<sidebar>
-				<type>SRSS2</type>
-				<title>NOMATIC*IM FEED</title>
-				<url>http://djp3-pc2.ics.uci.edu/LUCICodeRepository/nomaticIM/timeline?changeset=on&amp;max=50&amp;daysback=90&amp;format=rss</url>
-			</sidebar>
 		</clickable>
 	</menuItem>
 	<!--
