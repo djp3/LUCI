@@ -1,0 +1,31 @@
+body {
+	background-color: #CCCCCC;
+	text-align: center;
+}
+
+a {
+	text-decoration:underline;
+}
+
+a:link {
+	color: #0033CC;
+	}
+
+a:visited {
+	color: #0000CC;
+	}
+
+a:active {
+	color: #0033CC;
+	}
+
+a:hover {
+	color: #006699;
+	}
+
+h1, h2, h3 {
+	margin: 0px;
+	padding: 0px;
+	font-weight: normal;
+	}
+

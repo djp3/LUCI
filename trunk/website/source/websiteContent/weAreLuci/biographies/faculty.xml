@@ -1,0 +1,72 @@
+<biographies>
+	<biography>
+		<order>0</order>
+		<title>Steve Cramer</title>
+		<deepLink>cramer</deepLink>
+		<imageSourceURL>websiteContent/weAreLuci/biographies/faculty/cramer/bioImage.jpg</imageSourceURL>
+		<imageLinkURL>http://www.ucihs.uci.edu/anatomy/cramerbio.html</imageLinkURL>
+		<sectionDataURL>websiteContent/weAreLuci/biographies/faculty/cramer/menuItems.html</sectionDataURL>
+		<textURL>websiteContent/weAreLuci/biographies/faculty/cramer/contact.html</textURL>
+	</biography>
+	<biography>
+		<order>1</order>
+		<title>Paul Dourish</title>
+		<deepLink>jpd</deepLink>
+		<imageSourceURL>websiteContent/weAreLuci/biographies/faculty/jpd/bioImage.jpg</imageSourceURL>
+		<imageLinkURL>http://www.ics.uci.edu/~jpd</imageLinkURL>
+		<sectionDataURL>websiteContent/weAreLuci/biographies/faculty/jpd/menuItems.html</sectionDataURL>
+		<textURL>websiteContent/weAreLuci/biographies/faculty/jpd/contact.html</textURL>
+	</biography>
+	<biography>
+		<order>2</order>
+		<title>Nikil Dutt</title>
+		<deepLink>dutt</deepLink>
+		<imageSourceURL>websiteContent/weAreLuci/biographies/faculty/dutt/bioImage.jpg</imageSourceURL>
+		<imageLinkURL>http://www.ics.uci.edu/~dutt</imageLinkURL>
+		<sectionDataURL>websiteContent/weAreLuci/biographies/faculty/dutt/menuItems.html</sectionDataURL>
+		<textURL>websiteContent/weAreLuci/biographies/faculty/dutt/contact.html</textURL>
+	</biography>
+	<biography>
+		<order>3</order>
+		<title>Tony Givargis</title>
+		<deepLink>givargis</deepLink>
+		<imageSourceURL>websiteContent/weAreLuci/biographies/faculty/givargis/bioImage.jpg</imageSourceURL>
+		<imageLinkURL>http://www.ics.uci.edu/~givargis</imageLinkURL>
+		<sectionDataURL>websiteContent/weAreLuci/biographies/faculty/givargis/menuItems.html</sectionDataURL>
+		<textURL>websiteContent/weAreLuci/biographies/faculty/givargis/contact.html</textURL>
+	</biography>
+	<biography>
+		<order>4</order>
+		<title>Crista Lopes</title>
+		<deepLink>lopes</deepLink>
+		<imageSourceURL>websiteContent/weAreLuci/biographies/faculty/lopes/bioImage.jpg</imageSourceURL>
+		<imageLinkURL>http://www.ics.uci.edu/~lopes</imageLinkURL>
+		<sectionDataURL>websiteContent/weAreLuci/biographies/faculty/lopes/menuItems.html</sectionDataURL>
+	</biography>
+	<biography>
+		<order>5</order>
+		<title>Bonnie Nardi</title>
+		<deepLink>nardi</deepLink>
+		<imageSourceURL>websiteContent/weAreLuci/biographies/faculty/nardi/bioImage.jpg</imageSourceURL>
+		<imageLinkURL>http://www.ics.uci.edu/~nardi</imageLinkURL>
+		<sectionDataURL>websiteContent/weAreLuci/biographies/faculty/nardi/menuItems.html</sectionDataURL>
+	</biography>
+	<biography>
+		<order>6</order>
+		<title>Donald J Patterson</title>
+		<imageSourceURL>websiteContent/weAreLuci/biographies/faculty/djp3/bioImage.jpg</imageSourceURL>
+		<deepLink>djp3</deepLink>
+		<sectionDataURL>websiteContent/weAreLuci/biographies/faculty/djp3/menuItems.html</sectionDataURL>
+		<textURL>websiteContent/weAreLuci/biographies/faculty/djp3/contact.html</textURL>
+		<launchURL></launchURL>
+	</biography>
+	<biography>
+		<order>7</order>
+		<title>Bill Tomlinson</title>
+		<deepLink>wmt</deepLink>
+		<imageSourceURL>websiteContent/weAreLuci/biographies/faculty/wmt/bioImage.jpg</imageSourceURL>
+		<imageLinkURL>http://www.ics.uci.edu/~wmt</imageLinkURL>
+		<sectionDataURL>websiteContent/weAreLuci/biographies/faculty/wmt/menuItems.html</sectionDataURL>
+		<textURL>websiteContent/weAreLuci/biographies/faculty/wmt/contact.html</textURL>
+	</biography>
+</biographies>

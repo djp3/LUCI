@@ -1,0 +1,9 @@
+MIDlet-1: PhotoMidlet, , PhotoMidlet
+MIDlet-2: PhotoMidlet2, , photopresence.PhotoMidlet2
+MIDlet-Jar-Size: 7806
+MIDlet-Jar-URL: PresencePhoto.jar
+MIDlet-Name: PresencePhoto
+MIDlet-Vendor: Vendor
+MIDlet-Version: 1.0
+MicroEdition-Configuration: CLDC-1.1
+MicroEdition-Profile: MIDP-2.0
