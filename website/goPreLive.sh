@@ -25,6 +25,7 @@ echo +++Transferring files to temp_html
 echo +++
 
 rsync -e ssh --progress -az -L --delete --delete-excluded --exclude="**.svn**" publish/ 'djp3@calla.ics.uci.edu:/home/djp3/temp_html/'
+#rsync -e ssh --progress -az -L --delete --delete-excluded --exclude="**.svn**" publish/ /Users/djp3/Sites
 
 echo +++
 echo +++Changing permissions
@@ -46,5 +47,5 @@ ssh djp3@calla.ics.uci.edu
 echo "+++"
 echo "+++Check validity of links"
 echo "+++"
-echo "Commented out"
-#open "http://validator.w3.org/checklink?uri=http%3A%2F%2Fluci.ics.uci.edu%2Flightweight&hide_type=all&recursive=on&depth=4&check=Check"
+#echo "Commented out"
+open "http://validator.w3.org/checklink?uri=http%3A%2F%2Fluci.ics.uci.edu%2Flightweight&hide_type=all&recursive=on&depth=4&check=Check"
