@@ -1,13 +1,13 @@
 function callMovie() { 
 	if (navigator.appName.indexOf('Microsoft') != -1) { 
-		return window['LUCIinterfaceSafari'];
+		return window['LUCIInterface'];
 	}
 	else { 
-		if(document['LUCIinterfaceFirefox'].animateOpen == null){
-			return(document['LUCIinterfaceSafari']);
+		if(document['LUCIInterface'].animateOpen == null){
+			return(document['LUCIInterface']);
 		}
 		else{
-			return(document['LUCIinterfaceFirefox']);
+			return(document['LUCIInterface']);
 		}
-   } 
+	} 
 }; 
