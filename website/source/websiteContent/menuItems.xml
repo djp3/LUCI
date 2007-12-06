@@ -35,13 +35,26 @@
 		</clickable>
 	</menuItem>
 	<menuItem>
-		<title>BIOGRAPHIES</title>
+		<title>COURSES</title>
 		<order>3</order>
+		<indent>1</indent>
+		<clickable>
+			<deepLink>courses</deepLink>
+			<template>
+				<type>B</type>
+				<title>WE ARE LUCI: COURSES</title>
+				<url>websiteContent/weAreLuci/courses/courses.xml</url>
+			</template>
+		</clickable>
+	</menuItem>
+	<menuItem>
+		<title>BIOGRAPHIES</title>
+		<order>4</order>
 		<indent>1</indent>
 	</menuItem>
 	<menuItem>
 		<title>FACULTY</title>
-		<order>4</order>
+		<order>5</order>
 		<indent>2</indent>
 		<clickable>
 			<deepLink>bioFaculty</deepLink>
@@ -54,7 +67,7 @@
 	</menuItem>
 	<menuItem>
 		<title>RESEARCHERS</title>
-		<order>5</order>
+		<order>6</order>
 		<indent>2</indent>
 		<clickable>
 			<deepLink>bioResearchers</deepLink>
@@ -67,12 +80,12 @@
 	</menuItem>
 	<menuItem>
 		<title>STUDENTS</title>
-		<order>6</order>
+		<order>7</order>
 		<indent>2</indent>
 	</menuItem>
 	<menuItem>
 		<title>GRADUATE</title>
-		<order>7</order>
+		<order>8</order>
 		<indent>3</indent>
 		<clickable>
 			<deepLink>bioGrads</deepLink>
@@ -85,7 +98,7 @@
 	</menuItem>
 	<menuItem>
 		<title>UNDERGRADUATE</title>
-		<order>8</order>
+		<order>9</order>
 		<indent>3</indent>
 		<clickable>
 			<deepLink>bioUndergrads</deepLink>
@@ -99,7 +112,7 @@
 	</menuItem>
 	<menuItem>
 		<title>REPOSITORY</title>
-		<order>9</order>
+		<order>10</order>
 		<indent>0</indent>
 		<clickable>
 			<deepLink>repository</deepLink>
@@ -112,7 +125,7 @@
 	</menuItem>
 	<menuItem>
 		<title>CODE</title>
-		<order>10</order>
+		<order>11</order>
 		<indent>1</indent>
 		<clickable>
 			<deepLink>code</deepLink>

@@ -1,0 +1,109 @@
+<projects>
+	<project>
+		<order>0</order>
+		<indent>0</indent>
+		<title>UCI Course Catalog</title>
+		<deepLink>coursecatalog</deepLink>
+		<textURL>websiteContent/weAreLuci/courses/coursecatalog/overview.html</textURL>
+		<imageSourceURL>websiteContent/weAreLuci/courses/coursecatalog/headlineImage.jpg</imageSourceURL>
+	</project>
+	<project>
+		<order>1</order>
+		<indent>0</indent>
+		<title>Undergraduate</title>
+		<deepLink>undergraduate</deepLink>
+		<textURL>websiteContent/weAreLuci/courses/coursecatalog/overview.html</textURL>
+	</project>
+	<project>
+		<order>2</order>
+		<indent>1</indent>
+		<title>Informatics 131</title>
+		<deepLink>inf131</deepLink>
+		<textURL>websiteContent/weAreLuci/courses/inf131/overview.html</textURL>
+	</project>
+	<project>
+		<order>3</order>
+		<indent>1</indent>
+		<title>Informatics 132</title>
+		<deepLink>inf132</deepLink>
+		<textURL>websiteContent/weAreLuci/courses/inf132/overview.html</textURL>
+	</project>
+	<project>
+		<order>4</order>
+		<indent>1</indent>
+		<title>Informatics 161</title>
+		<deepLink>inf161</deepLink>
+		<textURL>websiteContent/weAreLuci/courses/inf161/overview.html</textURL>
+	</project>
+	<project>
+		<order>5</order>
+		<indent>1</indent>
+		<title>Informatics 190</title>
+		<deepLink>inf190</deepLink>
+		<textURL>websiteContent/weAreLuci/courses/inf190/overview.html</textURL>
+		<launchURL></launchURL>
+	</project>
+	<project>
+		<order>6</order>
+		<indent>0</indent>
+		<title>Graduate</title>
+		<deepLink>graduate</deepLink>
+		<textURL>websiteContent/weAreLuci/courses/coursecatalog/overview.html</textURL>
+	</project>
+	<project>
+		<order>7</order>
+		<indent>1</indent>
+		<title>Informatics 231</title>
+		<deepLink>inf231</deepLink>
+		<textURL>websiteContent/weAreLuci/courses/inf231/overview.html</textURL>
+	</project>
+	<project>
+		<order>8</order>
+		<indent>1</indent>
+		<title>Informatics 235</title>
+		<deepLink>inf235</deepLink>
+		<textURL>websiteContent/weAreLuci/courses/inf235/overview.html</textURL>
+	</project>
+	<project>
+		<order>9</order>
+		<indent>1</indent>
+		<title>Informatics 241</title>
+		<deepLink>inf241</deepLink>
+		<textURL>websiteContent/weAreLuci/courses/inf241/overview.html</textURL>
+	</project>
+	<project>
+		<order>10</order>
+		<indent>1</indent>
+		<title>Informatics 242</title>
+		<deepLink>inf242</deepLink>
+		<textURL>websiteContent/weAreLuci/courses/inf242/overview.html</textURL>
+	</project>
+	<project>
+		<order>11</order>
+		<indent>1</indent>
+		<title>Informatics 244</title>
+		<deepLink>inf244</deepLink>
+		<textURL>websiteContent/weAreLuci/courses/inf244/overview.html</textURL>
+	</project>
+	<project>
+		<order>12</order>
+		<indent>1</indent>
+		<title>ICS 277</title>
+		<deepLink>inf277</deepLink>
+		<textURL>websiteContent/weAreLuci/courses/ics277/overview.html</textURL>
+	</project>
+	<project>
+		<order>13</order>
+		<indent>1</indent>
+		<title>Informatics 295</title>
+		<deepLink>inf295patterson</deepLink>
+		<textURL>websiteContent/weAreLuci/courses/inf295patterson/overview.html</textURL>
+	</project>
+	<project>
+		<order>14</order>
+		<indent>1</indent>
+		<title>Informatics 295</title>
+		<deepLink>inf295hayes</deepLink>
+		<textURL>websiteContent/weAreLuci/courses/inf295hayes/overview.html</textURL>
+	</project>
+</projects>
