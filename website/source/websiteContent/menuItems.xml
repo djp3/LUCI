@@ -114,14 +114,6 @@
 		<title>REPOSITORY</title>
 		<order>10</order>
 		<indent>0</indent>
-		<clickable>
-			<deepLink>repository</deepLink>
-			<template>
-				<type>A</type>
-				<title>REPOSITORY</title>
-				<url>websiteContent/repository/repositoryOverview.xml</url>
-			</template>
-		</clickable>
 	</menuItem>
 	<menuItem>
 		<title>CODE</title>
@@ -133,6 +125,19 @@
 				<type>A</type>
 				<title>REPOSITORY:CODE</title>
 				<url>websiteContent/repository/code/codeRepository.xml</url>
+			</template>
+		</clickable>
+	</menuItem>
+	<menuItem>
+		<title>TECH REPORTS</title>
+		<order>12</order>
+		<indent>1</indent>
+		<clickable>
+			<deepLink>techreports</deepLink>
+			<template>
+				<type>A</type>
+				<title>REPOSITORY:TECH REPORTS</title>
+				<url>websiteContent/repository/techreports/techreports.xml</url>
 			</template>
 		</clickable>
 	</menuItem>
