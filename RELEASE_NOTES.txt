@@ -1,3 +1,5 @@
+v1.7 Added tech report section
+
 v1.6 Added courses section
 
 v1.5 Added content:
