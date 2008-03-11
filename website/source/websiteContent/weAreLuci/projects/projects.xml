@@ -111,4 +111,11 @@
 		<imageSourceURL>websiteContent/weAreLuci/projects/projectAmbient/hotspot/headlineImage.jpg</imageSourceURL>
 		<imageLinkURL>http://drzaius.ics.uci.edu/meta/ambient/index.html</imageLinkURL>
 	</project>
+	<project>
+		<order>12</order>
+		<indent>0</indent>
+		<title>Informatics 190</title>
+		<deepLink>inf190</deepLink>
+		<textURL>websiteContent/weAreLuci/courses/inf190/overview.html</textURL>
+	</project>
 </projects>

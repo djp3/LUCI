@@ -1,3 +1,27 @@
+v1.7 Added tech report section
+
+v1.6 Added courses section
+
+v1.5 Added content:
+	Grad Students:
+		Eric Baumer
+	Code Repository
+		SALi
+		CONRAD
+
+v1.4 Added content:
+	Faculty:
+		Bonnie Nardi
+	Researchers:
+		Charlotte Lee
+	Projects:
+		The Technology Garden
+		Nomatic*IM (project rename)
+
+v1.3 Fixed the clickable areas on the project menu.
+	 Added some menu locking to prevent click-happy users from screwing things
+	 up.
+
 v1.3 Fixed the clickable areas on the project menu.
 	 Added some menu locking to prevent click-happy users from screwing things
 	 up.
