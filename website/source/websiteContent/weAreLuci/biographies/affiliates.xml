@@ -1,0 +1,36 @@
+<biographies>
+	<biography>
+		<order>0</order>
+		<title>Tosin Aiyelokun</title>
+		<deepLink>oaiyelok</deepLink>
+		<sectionDataURL>websiteContent/weAreLuci/biographies/affiliates/oaiyelok/menuItems.html</sectionDataURL>
+		<launchURL></launchURL>
+	</biography>
+	<biography>
+		<order>1</order>
+		<title>Zubin Tiku</title>
+		<deepLink>ztiku</deepLink>
+		<sectionDataURL>websiteContent/weAreLuci/biographies/affiliates/ztiku/menuItems.html</sectionDataURL>
+	</biography>
+	<biography>
+		<order>2</order>
+		<title>Danish Khan</title>
+		<imageSourceURL>websiteContent/weAreLuci/biographies/affiliates/dkhan/bioImage.jpg</imageSourceURL>
+		<sectionDataURL>websiteContent/weAreLuci/biographies/affiliates/dkhan/menuItems.html</sectionDataURL>
+		<textURL>websiteContent/weAreLuci/biographies/affiliates/dkhan/contact.html</textURL>
+		<deepLink>dkhan</deepLink>
+	</biography>
+	<biography>
+		<order>3</order>
+		<title>Nathaniel Marrocco</title>
+		<imageSourceURL>websiteContent/weAreLuci/biographies/affiliates/nmarrocc/bioImage.jpg</imageSourceURL>
+		<sectionDataURL>websiteContent/weAreLuci/biographies/affiliates/nmarrocc/menuItems.html</sectionDataURL>
+		<deepLink>nmarrocc</deepLink>
+	</biography>
+	<biography>
+		<order>4</order>
+		<title>Daniel Hwang</title>
+		<deepLink>dkhwang</deepLink>
+		<sectionDataURL>websiteContent/weAreLuci/biographies/affiliates/dkhwang/menuItems.html</sectionDataURL>
+	</biography>
+</biographies>

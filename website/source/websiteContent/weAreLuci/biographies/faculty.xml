@@ -1,6 +1,15 @@
 <biographies>
 	<biography>
 		<order>0</order>
+		<title>Yunan Chen</title>
+		<deepLink>yunan</deepLink>
+		<imageSourceURL>websiteContent/weAreLuci/biographies/faculty/yunan/bioImage.jpg</imageSourceURL>
+		<imageLinkURL>http://www.ics.uci.edu/~yunanc/Site/About_Me.html</imageLinkURL>
+		<sectionDataURL>websiteContent/weAreLuci/biographies/faculty/yunan/menuItems.html</sectionDataURL>
+		<textURL>websiteContent/weAreLuci/biographies/faculty/yunan/contact.html</textURL>
+	</biography>
+	<biography>
+		<order>1</order>
 		<title>Steve Cramer</title>
 		<deepLink>cramer</deepLink>
 		<imageSourceURL>websiteContent/weAreLuci/biographies/faculty/cramer/bioImage.jpg</imageSourceURL>
@@ -9,7 +18,7 @@
 		<textURL>websiteContent/weAreLuci/biographies/faculty/cramer/contact.html</textURL>
 	</biography>
 	<biography>
-		<order>1</order>
+		<order>2</order>
 		<title>Paul Dourish</title>
 		<deepLink>jpd</deepLink>
 		<imageSourceURL>websiteContent/weAreLuci/biographies/faculty/jpd/bioImage.jpg</imageSourceURL>
@@ -18,7 +27,7 @@
 		<textURL>websiteContent/weAreLuci/biographies/faculty/jpd/contact.html</textURL>
 	</biography>
 	<biography>
-		<order>2</order>
+		<order>3</order>
 		<title>Nikil Dutt</title>
 		<deepLink>dutt</deepLink>
 		<imageSourceURL>websiteContent/weAreLuci/biographies/faculty/dutt/bioImage.jpg</imageSourceURL>
@@ -27,7 +36,7 @@
 		<textURL>websiteContent/weAreLuci/biographies/faculty/dutt/contact.html</textURL>
 	</biography>
 	<biography>
-		<order>3</order>
+		<order>4</order>
 		<title>Tony Givargis</title>
 		<deepLink>givargis</deepLink>
 		<imageSourceURL>websiteContent/weAreLuci/biographies/faculty/givargis/bioImage.jpg</imageSourceURL>
@@ -36,7 +45,7 @@
 		<textURL>websiteContent/weAreLuci/biographies/faculty/givargis/contact.html</textURL>
 	</biography>
 	<biography>
-		<order>4</order>
+		<order>5</order>
 		<title>Gillian Hayes</title>
 		<deepLink>hayesg</deepLink>
 		<imageSourceURL>websiteContent/weAreLuci/biographies/faculty/hayesg/bioImage.jpg</imageSourceURL>
@@ -46,7 +55,7 @@
 		<textURL>websiteContent/weAreLuci/biographies/faculty/hayesg/contact.html</textURL>
 	</biography>
 	<biography>
-		<order>5</order>
+		<order>6</order>
 		<title>Crista Lopes</title>
 		<deepLink>lopes</deepLink>
 		<imageSourceURL>websiteContent/weAreLuci/biographies/faculty/lopes/bioImage.jpg</imageSourceURL>
@@ -54,7 +63,7 @@
 		<sectionDataURL>websiteContent/weAreLuci/biographies/faculty/lopes/menuItems.html</sectionDataURL>
 	</biography>
 	<biography>
-		<order>6</order>
+		<order>7</order>
 		<title>Bonnie Nardi</title>
 		<deepLink>nardi</deepLink>
 		<imageSourceURL>websiteContent/weAreLuci/biographies/faculty/nardi/bioImage.jpg</imageSourceURL>
@@ -62,8 +71,8 @@
 		<sectionDataURL>websiteContent/weAreLuci/biographies/faculty/nardi/menuItems.html</sectionDataURL>
 	</biography>
 	<biography>
-		<order>7</order>
-		<title>Donald J Patterson</title>
+		<order>8</order>
+		<title>Donald J. Patterson</title>
 		<imageSourceURL>websiteContent/weAreLuci/biographies/faculty/djp3/bioImage.jpg</imageSourceURL>
 		<deepLink>djp3</deepLink>
 		<sectionDataURL>websiteContent/weAreLuci/biographies/faculty/djp3/menuItems.html</sectionDataURL>
@@ -71,7 +80,7 @@
 		<launchURL></launchURL>
 	</biography>
 	<biography>
-		<order>8</order>
+		<order>9</order>
 		<title>Bill Tomlinson</title>
 		<deepLink>wmt</deepLink>
 		<imageSourceURL>websiteContent/weAreLuci/biographies/faculty/wmt/bioImage.jpg</imageSourceURL>
