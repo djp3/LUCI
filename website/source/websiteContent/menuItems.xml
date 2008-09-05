@@ -108,16 +108,29 @@
 				<url>websiteContent/weAreLuci/biographies/undergradstudents.xml</url>
 			</template>
 		</clickable>
+	</menuItem>
+	<menuItem>
+		<title>AFFILIATES</title>
+		<order>10</order>
+		<indent>2</indent>
+		<clickable>
+			<deepLink>bioAffliates</deepLink>
+			<template>
+				<type>C</type>
+				<title>WE ARE LUCI: BIOGRAPHIES: AFFILIATES</title>
+				<url>websiteContent/weAreLuci/biographies/affiliates.xml</url>
+			</template>
+		</clickable>
 		<breakBelow/>
 	</menuItem>
 	<menuItem>
 		<title>REPOSITORY</title>
-		<order>10</order>
+		<order>11</order>
 		<indent>0</indent>
 	</menuItem>
 	<menuItem>
 		<title>CODE</title>
-		<order>11</order>
+		<order>12</order>
 		<indent>1</indent>
 		<clickable>
 			<deepLink>code</deepLink>
@@ -130,7 +143,7 @@
 	</menuItem>
 	<menuItem>
 		<title>TECH REPORTS</title>
-		<order>12</order>
+		<order>13</order>
 		<indent>1</indent>
 		<clickable>
 			<deepLink>techreports</deepLink>
