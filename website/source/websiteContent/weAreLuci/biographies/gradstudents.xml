@@ -28,6 +28,12 @@
 	</biography>
 	<biography>
 		<order>4</order>
+		<title>Lilly Irani</title>
+		<deepLink>lilly</deepLink>
+		<sectionDataURL>websiteContent/weAreLuci/biographies/gradstudents/lilly/menuItems.html</sectionDataURL>
+	</biography>
+	<biography>
+		<order>5</order>
 		<title>Eric Kabisch</title>
 		<deepLink>ekabisch</deepLink>
 		<imageSourceURL>http://e.fluxt.com/luci/ek_web/bioImage.jpg</imageSourceURL>
@@ -35,27 +41,27 @@
 		<textURL>http://e.fluxt.com/luci/ek_web/contact.html</textURL>
 	</biography>
 	<biography>
-		<order>5</order>
+		<order>6</order>
 		<title>Silvia Lindtner</title>
 		<deepLink>lindtner</deepLink>
 		<imageSourceURL>websiteContent/weAreLuci/biographies/gradstudents/lindtner/lindtner.jpg</imageSourceURL>
 		<sectionDataURL>websiteContent/weAreLuci/biographies/gradstudents/lindtner/menuItems.html</sectionDataURL>
 	</biography>
 	<biography>
-		<order>6</order>
+		<order>7</order>
 		<title>Kah Liu</title>
 		<deepLink>kahliu</deepLink>
 		<sectionDataURL>websiteContent/weAreLuci/biographies/gradstudents/kahliu/menuItems.html</sectionDataURL>
 	</biography>
 	<biography>
-		<order>7</order>
+		<order>8</order>
 		<title>Nick Noack</title>
 		<deepLink>nnoack</deepLink>
 		<imageSourceURL>websiteContent/weAreLuci/biographies/gradstudents/nnoack/nnoack.jpg</imageSourceURL>
 		<sectionDataURL>websiteContent/weAreLuci/biographies/gradstudents/nnoack/menuItems.html</sectionDataURL>
 	</biography>
 	<biography>
-		<order>8</order>
+		<order>9</order>
 		<title>Amanda Williams</title>
 		<deepLink>amandamw</deepLink>
 		<sectionDataURL>websiteContent/weAreLuci/biographies/gradstudents/amandamw/menuItems.html</sectionDataURL>
