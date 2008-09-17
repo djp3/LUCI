@@ -35,7 +35,7 @@
 		</clickable>
 	</menuItem>
 	<menuItem>
-		<title>COURSES</title>
+		<title>ACADEMICS</title>
 		<order>3</order>
 		<indent>1</indent>
 		<clickable>
@@ -114,7 +114,7 @@
 		<order>10</order>
 		<indent>2</indent>
 		<clickable>
-			<deepLink>bioAffliates</deepLink>
+			<deepLink>bioAffiliates</deepLink>
 			<template>
 				<type>C</type>
 				<title>WE ARE LUCI: BIOGRAPHIES: AFFILIATES</title>

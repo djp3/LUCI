@@ -53,54 +53,61 @@
 	<project>
 		<order>7</order>
 		<indent>1</indent>
+		<title>Guidelines</title>
+		<deepLink>gradGuidelines</deepLink>
+		<textURL>websiteContent/weAreLuci/courses/gradGuidelines/overview.html</textURL>
+	</project>
+	<project>
+		<order>8</order>
+		<indent>1</indent>
 		<title>Informatics 231</title>
 		<deepLink>inf231</deepLink>
 		<textURL>websiteContent/weAreLuci/courses/inf231/overview.html</textURL>
 	</project>
 	<project>
-		<order>8</order>
+		<order>9</order>
 		<indent>1</indent>
 		<title>Informatics 235</title>
 		<deepLink>inf235</deepLink>
 		<textURL>websiteContent/weAreLuci/courses/inf235/overview.html</textURL>
 	</project>
 	<project>
-		<order>9</order>
+		<order>10</order>
 		<indent>1</indent>
 		<title>Informatics 241</title>
 		<deepLink>inf241</deepLink>
 		<textURL>websiteContent/weAreLuci/courses/inf241/overview.html</textURL>
 	</project>
 	<project>
-		<order>10</order>
+		<order>11</order>
 		<indent>1</indent>
 		<title>Informatics 242</title>
 		<deepLink>inf242</deepLink>
 		<textURL>websiteContent/weAreLuci/courses/inf242/overview.html</textURL>
 	</project>
 	<project>
-		<order>11</order>
+		<order>12</order>
 		<indent>1</indent>
 		<title>Informatics 244</title>
 		<deepLink>inf244</deepLink>
 		<textURL>websiteContent/weAreLuci/courses/inf244/overview.html</textURL>
 	</project>
 	<project>
-		<order>12</order>
+		<order>13</order>
 		<indent>1</indent>
 		<title>ICS 277</title>
 		<deepLink>inf277</deepLink>
 		<textURL>websiteContent/weAreLuci/courses/ics277/overview.html</textURL>
 	</project>
 	<project>
-		<order>13</order>
+		<order>14</order>
 		<indent>1</indent>
 		<title>Informatics 295</title>
 		<deepLink>inf295patterson</deepLink>
 		<textURL>websiteContent/weAreLuci/courses/inf295patterson/overview.html</textURL>
 	</project>
 	<project>
-		<order>14</order>
+		<order>15</order>
 		<indent>1</indent>
 		<title>Informatics 295</title>
 		<deepLink>inf295hayes</deepLink>
