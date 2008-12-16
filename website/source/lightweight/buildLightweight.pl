@@ -1,4 +1,4 @@
-#!/usr/bin/perl -w
+#!/usr/bin/perl -w -I/Users/djp3/perl/lib/perl5/site_perl
 use strict;
 use XML::DOM;
 
