@@ -55,13 +55,20 @@
 	</biography>
 	<biography>
 		<order>8</order>
+		<title>David Nguyen</title>
+		<deepLink>dhn</deepLink>
+		<imageSourceURL>websiteContent/weAreLuci/biographies/gradstudents/dhn/dhn.jpg</imageSourceURL>
+		<sectionDataURL>websiteContent/weAreLuci/biographies/gradstudents/dhn/menuItems.html</sectionDataURL>
+	</biography>
+	<biography>
+		<order>9</order>
 		<title>Nick Noack</title>
 		<deepLink>nnoack</deepLink>
 		<imageSourceURL>websiteContent/weAreLuci/biographies/gradstudents/nnoack/nnoack.jpg</imageSourceURL>
 		<sectionDataURL>websiteContent/weAreLuci/biographies/gradstudents/nnoack/menuItems.html</sectionDataURL>
 	</biography>
 	<biography>
-		<order>9</order>
+		<order>10</order>
 		<title>Amanda Williams</title>
 		<deepLink>amandamw</deepLink>
 		<sectionDataURL>websiteContent/weAreLuci/biographies/gradstudents/amandamw/menuItems.html</sectionDataURL>
