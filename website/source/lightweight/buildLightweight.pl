@@ -18,6 +18,7 @@ sub outputHTMLHeader()
 	print $OUTFILE "<html>\n";
 	print $OUTFILE "<head>\n";
 	print $OUTFILE "<meta http-equiv=\"Content-Type\" content=\"text/html;charset=utf-8\" />\n";
+	print $OUTFILE "<meta name=\"keywords\" content=\"research, teaching, university, california, irvine, ubiquitous, pervasive, mobile, informatics, computer science,  computing, Paul Dourish, Gillian Hayes, Donald J.  Patterson, Bonnie Nardi, Crista Lopes, innovation, collaboration, hci, human, computer, interaction\"/>\n";
 	print $OUTFILE "<title>Light Weight: LUCI: The Laboratory for Ubiquitous Computing and Interaction at UCI</title>\n";
 	print $OUTFILE "<link rel='stylesheet' href='http://luci.ics.uci.edu/blog/styles-site.css' type='text/css' />\n";
 	print $OUTFILE "</head>\n";

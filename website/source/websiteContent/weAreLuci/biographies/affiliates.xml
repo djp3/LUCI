@@ -4,13 +4,12 @@
 		<title>Tosin Aiyelokun</title>
 		<deepLink>oaiyelok</deepLink>
 		<sectionDataURL>websiteContent/weAreLuci/biographies/affiliates/oaiyelok/menuItems.html</sectionDataURL>
-		<launchURL></launchURL>
 	</biography>
 	<biography>
 		<order>1</order>
-		<title>Zubin Tiku</title>
-		<deepLink>ztiku</deepLink>
-		<sectionDataURL>websiteContent/weAreLuci/biographies/affiliates/ztiku/menuItems.html</sectionDataURL>
+		<title>Daniel Hwang</title>
+		<deepLink>dkhwang</deepLink>
+		<sectionDataURL>websiteContent/weAreLuci/biographies/affiliates/dkhwang/menuItems.html</sectionDataURL>
 	</biography>
 	<biography>
 		<order>2</order>
@@ -22,15 +21,23 @@
 	</biography>
 	<biography>
 		<order>3</order>
+		<title>Charlotte P. Lee</title>
+		<imageSourceURL>websiteContent/weAreLuci/biographies/affiliates/cplee/bioImage.jpg</imageSourceURL>
+		<deepLink>cplee</deepLink>
+		<sectionDataURL>websiteContent/weAreLuci/biographies/affiliates/cplee/menuItems.html</sectionDataURL>
+		<launchURL></launchURL>
+	</biography>
+	<biography>
+		<order>4</order>
 		<title>Nathaniel Marrocco</title>
 		<imageSourceURL>websiteContent/weAreLuci/biographies/affiliates/nmarrocc/bioImage.jpg</imageSourceURL>
 		<sectionDataURL>websiteContent/weAreLuci/biographies/affiliates/nmarrocc/menuItems.html</sectionDataURL>
 		<deepLink>nmarrocc</deepLink>
 	</biography>
 	<biography>
-		<order>4</order>
-		<title>Daniel Hwang</title>
-		<deepLink>dkhwang</deepLink>
-		<sectionDataURL>websiteContent/weAreLuci/biographies/affiliates/dkhwang/menuItems.html</sectionDataURL>
+		<order>5</order>
+		<title>Zubin Tiku</title>
+		<deepLink>ztiku</deepLink>
+		<sectionDataURL>websiteContent/weAreLuci/biographies/affiliates/ztiku/menuItems.html</sectionDataURL>
 	</biography>
 </biographies>

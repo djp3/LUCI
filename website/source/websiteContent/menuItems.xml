@@ -65,6 +65,7 @@
 			</template>
 		</clickable>
 	</menuItem>
+	<!--
 	<menuItem>
 		<title>RESEARCHERS</title>
 		<order>6</order>
@@ -78,14 +79,15 @@
 			</template>
 		</clickable>
 	</menuItem>
+	-->
 	<menuItem>
 		<title>STUDENTS</title>
-		<order>7</order>
+		<order>6</order>
 		<indent>2</indent>
 	</menuItem>
 	<menuItem>
 		<title>GRADUATE</title>
-		<order>8</order>
+		<order>7</order>
 		<indent>3</indent>
 		<clickable>
 			<deepLink>bioGrads</deepLink>
@@ -98,7 +100,7 @@
 	</menuItem>
 	<menuItem>
 		<title>UNDERGRADUATE</title>
-		<order>9</order>
+		<order>8</order>
 		<indent>3</indent>
 		<clickable>
 			<deepLink>bioUndergrads</deepLink>
@@ -111,7 +113,7 @@
 	</menuItem>
 	<menuItem>
 		<title>AFFILIATES</title>
-		<order>10</order>
+		<order>9</order>
 		<indent>2</indent>
 		<clickable>
 			<deepLink>bioAffiliates</deepLink>
@@ -125,12 +127,12 @@
 	</menuItem>
 	<menuItem>
 		<title>REPOSITORY</title>
-		<order>11</order>
+		<order>10</order>
 		<indent>0</indent>
 	</menuItem>
 	<menuItem>
 		<title>CODE</title>
-		<order>12</order>
+		<order>11</order>
 		<indent>1</indent>
 		<clickable>
 			<deepLink>code</deepLink>
@@ -143,7 +145,7 @@
 	</menuItem>
 	<menuItem>
 		<title>TECH REPORTS</title>
-		<order>13</order>
+		<order>12</order>
 		<indent>1</indent>
 		<clickable>
 			<deepLink>techreports</deepLink>
