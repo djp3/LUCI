@@ -365,6 +365,7 @@ sub makeTemplateCSubpage()
 					(my $bar) = $foo[$i] =~ m/\/([^\/]*)$/;
 					#make content local
 					if($foo[$i] !~ m/websiteContent/){
+						print STDERR $foo[$i],"\n";
 						system("wget -q -O /tmp/".$bar." ".$foo[$i]);
 					}
 					#load local content

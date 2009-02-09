@@ -9,8 +9,9 @@
 		<order>1</order>
 		<title>Garnet Hertz</title>
 		<deepLink>hertz</deepLink>
-		<imageSourceURL>http://conceptlab.com/lucicontent/bioImage.jpg</imageSourceURL>
-		<imageSourceURL>http://conceptlab.com/lucicontent/menuItems.html</imageSourceURL>
+		<imageSourceURL>http://www.conceptlab.com/lucicontent/bioImage.jpg</imageSourceURL>
+		<sectionDataURL>http://www.conceptlab.com/lucicontent/menuItems.html</sectionDataURL>
+		<textURL>http://www.conceptlab.com/lucicontent/contact.html</textURL>
 	</biography>
 	<biography>
 		<order>2</order>
