@@ -7,12 +7,19 @@
 	</biography>
 	<biography>
 		<order>1</order>
+		<title>Garnet Hertz</title>
+		<deepLink>hertz</deepLink>
+		<imageSourceURL>http://conceptlab.com/lucicontent/bioImage.jpg</imageSourceURL>
+		<imageSourceURL>http://conceptlab.com/lucicontent/menuItems.html</imageSourceURL>
+	</biography>
+	<biography>
+		<order>2</order>
 		<title>Daniel Hwang</title>
 		<deepLink>dkhwang</deepLink>
 		<sectionDataURL>websiteContent/weAreLuci/biographies/affiliates/dkhwang/menuItems.html</sectionDataURL>
 	</biography>
 	<biography>
-		<order>2</order>
+		<order>3</order>
 		<title>Danish Khan</title>
 		<imageSourceURL>websiteContent/weAreLuci/biographies/affiliates/dkhan/bioImage.jpg</imageSourceURL>
 		<sectionDataURL>websiteContent/weAreLuci/biographies/affiliates/dkhan/menuItems.html</sectionDataURL>
@@ -20,7 +27,7 @@
 		<deepLink>dkhan</deepLink>
 	</biography>
 	<biography>
-		<order>3</order>
+		<order>4</order>
 		<title>Charlotte P. Lee</title>
 		<imageSourceURL>websiteContent/weAreLuci/biographies/affiliates/cplee/bioImage.jpg</imageSourceURL>
 		<deepLink>cplee</deepLink>
@@ -28,14 +35,14 @@
 		<launchURL></launchURL>
 	</biography>
 	<biography>
-		<order>4</order>
+		<order>5</order>
 		<title>Nathaniel Marrocco</title>
 		<imageSourceURL>websiteContent/weAreLuci/biographies/affiliates/nmarrocc/bioImage.jpg</imageSourceURL>
 		<sectionDataURL>websiteContent/weAreLuci/biographies/affiliates/nmarrocc/menuItems.html</sectionDataURL>
 		<deepLink>nmarrocc</deepLink>
 	</biography>
 	<biography>
-		<order>5</order>
+		<order>6</order>
 		<title>Zubin Tiku</title>
 		<deepLink>ztiku</deepLink>
 		<sectionDataURL>websiteContent/weAreLuci/biographies/affiliates/ztiku/menuItems.html</sectionDataURL>
