@@ -1,11 +1,51 @@
 <biographies>
 	<biography>
 		<order>0</order>
+		<title>David Dinh</title>
+		<imageSourceURL>http://www.conceptlab.com/lucicontent/dinh-bioImage.jpg</imageSourceURL>
+		<textURL>http://www.conceptlab.com/lucicontent/dinh-contact.html</textURL>
+		<sectionDataURL>http://www.conceptlab.com/lucicontent/dinh-menuItems.html</sectionDataURL>
+		<deepLink>ddinh</deepLink>
+	</biography>
+	<biography>
+		<order>1</order>
+		<title>Chris Guevara</title>
+		<imageSourceURL>http://www.conceptlab.com/lucicontent/guevara-bioImage.jpg</imageSourceURL>
+		<textURL>http://www.conceptlab.com/lucicontent/guevara-contact.html</textURL>
+		<sectionDataURL>http://www.conceptlab.com/lucicontent/guevara-menuItems.htmll</sectionDataURL>
+		<deepLink>cguevara</deepLink>
+	</biography>
+	<biography>
+		<order>2</order>
 		<title>Sam Kaufman</title>
 		<imageSourceURL>websiteContent/weAreLuci/biographies/undergrads/skaufman/bioImage.jpg</imageSourceURL>
 		<sectionDataURL>websiteContent/weAreLuci/biographies/undergrads/skaufman/menuItems.html</sectionDataURL>
 		<textURL>websiteContent/weAreLuci/biographies/undergrads/skaufman/contact.html</textURL>
 		<deepLink>skaufman</deepLink>
 		<launchURL></launchURL>
+	</biography>
+	<biography>
+		<order>3</order>
+		<title>Erik Olson</title>
+		<imageSourceURL>http://www.conceptlab.com/lucicontent/olson-bioImage.jpg</imageSourceURL>
+		<textURL>http://www.conceptlab.com/lucicontent/olson-contact.html</textURL>
+		<sectionDataURL>http://www.conceptlab.com/lucicontent/olson-menuItems.html</sectionDataURL>
+		<deepLink>eolson</deepLink>
+	</biography>
+	<biography>
+		<order>4</order>
+		<title>Richard Vu</title>
+		<imageSourceURL>http://www.conceptlab.com/lucicontent/vu-bioImage.jpg</imageSourceURL>
+		<textURL>http://www.conceptlab.com/lucicontent/vu-contact.html</textURL>
+		<sectionDataURL>http://www.conceptlab.com/lucicontent/vu-menuItems.html</sectionDataURL>
+		<deepLink>rvu</deepLink>
+	</biography>
+	<biography>
+		<order>5</order>
+		<title>Matthew Wong</title>
+		<imageSourceURL>http://www.conceptlab.com/lucicontent/wong-bioImage.jpg</imageSourceURL>
+		<textURL>http://www.conceptlab.com/lucicontent/wong-contact.html</textURL>
+		<sectionDataURL>http://www.conceptlab.com/lucicontent/wong-menuItems.html</sectionDataURL>
+		<deepLink>mwong</deepLink>
 	</biography>
 </biographies>
