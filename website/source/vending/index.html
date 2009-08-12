@@ -1,83 +1,189 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta name="keywords" content="research, teaching, university, california, irvine, ubiquitous, pervasive, mobile, informatics, computer science, computing, Paul Dourish, Gillian Hayes, Donald J.  Patterson, Bonnie Nardi, Crista Lopes, innovation, collaboration, hci, human, computer, interaction, vending"/>
-<title>Vending @ LUCI: The Laboratory for Ubiquitous Computing and Interaction at UCI</title>
-<link rel='stylesheet' href='http://luci.ics.uci.edu/blog/styles-site.css' type='text/css' />
-<link rel='stylesheet' href=' Jit/Examples/css/base.css' type='text/css' />
-<link rel='stylesheet' href=' Jit/Examples/css/Other.css' type='text/css' />
-
-
-<script language="javascript" type="text/javascript" src="Jit/jit-yc.js"></script>
-
-<script src='datagraph.js' type='text/javascript'></script>
-
-</head>
-<body onload="init();">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="keywords" content="research, teaching, university, california, irvine, ubiquitous, pervasive, mobile, informatics, computer science, computing, Paul Dourish, Gillian Hayes, Donald J.  Patterson, Bonnie Nardi, Crista Lopes, innovation, collaboration, hci, human, computer, interaction, vending" />
+    <title>Vending @ LUCI: The Laboratory for Ubiquitous Computing and Interaction at UCI</title>
+    <link rel="stylesheet" href="http://luci.ics.uci.edu/blog/styles-site.css" type="text/css" />
+    <link rel="stylesheet" href=" Jit/Examples/css/base.css" type="text/css" />
+    <link rel="stylesheet" href=" Jit/Examples/css/Other.css" type="text/css" />
+    <script language="javascript" type="text/javascript" src="Jit/jit-yc.js"></script>
+    <script src="datagraph.js" type="text/javascript"></script>
+  </head>
+  <body onload="init();">
 <!--<body>-->
-<div class='container'>
-<div class='banner'>
-<div class='bannerblock'>
-<table>
-<tr>
-<td style='padding:20px;margin:20px'>
-<img src='../lightweight/LUCIhorzTight.jpg' alt='LUCI logo'/>
-</td>
-<td style='padding:20px;margin:20px'>
-<img src='machine.jpg' height="100px" alt='The Vending Machine'/>
-</td>
+<div class="container">
+<div class="banner">
+<div class="bannerblock">
+<table><tr><td style="padding:20px;margin:20px">
+<img src="../lightweight/LUCIhorzTight.jpg" alt="LUCI logo" /></td>
+<td style="padding:20px;margin:20px">
+<img src="machine.jpg" height="100px" alt="The Vending Machine" /></td>
 <td>
 <h3>Vending @ LUCI </h3>
 </td>
-</tr>
-</table>
-</div>
+</tr></table></div>
 </div>
 </div>
 
-<div class='container'>
-<div class='content'>
+<div class="container">
+<div class="content">
 
-<div class='storyTitle'>
+<div class="storyTitle">
 Data for the vending machine 
 </div>
-<div class='storyContent'>
+<div class="storyContent">
 <div style="padding:20px">
 <div id="infovis"></div>    
 <div id="log"></div>
 </div>
 </div>
 
-<div class='storyTitle'>
+<div class="storyTitle">
 Choose stuff for the vending machine 
 </div>
-<div class='storyContent'>
+<div class="storyContent">
 <div style="padding:20px">
-<table>
-<tr>
-<td>
-<form method="post" action="http://poll.pollcode.com/jdS"><table border="0"
-width="150"
-style="background-color:#EEEEEE;color:#000000;font-family:'Arial';font-size:13px;"
-cellspacing="0" cellpadding="2"><tr><td colspan="2"
-style="padding:2px;"><strong>What snacks do you want in the vending machine?</strong></td></tr><tr><td width="5"><input type="checkbox" name="answer" value="1"></td><td style="padding:2px;">Chex Mix</td></tr><tr><td width="5"><input type="checkbox" name="answer" value="2"></td><td style="padding:2px;">Rollos</td></tr><tr><td width="5"><input type="checkbox" name="answer" value="3"></td><td style="padding:2px;">Peanut Butter M and M's</td></tr><tr><td width="5"><input type="checkbox" name="answer" value="4"></td><td style="padding:2px;">Sun Chips</td></tr><tr><td width="5"><input type="checkbox" name="answer" value="5"></td><td style="padding:2px;">Pretzels</td></tr><tr><td width="5"><input type="checkbox" name="answer" value="6"></td><td style="padding:2px;">Pretzel sticks</td></tr><tr><td width="5"><input type="checkbox" name="answer" value="7"></td><td style="padding:2px;">Doritos</td></tr><tr><td width="5"><input type="checkbox" name="answer" value="8"></td><td style="padding:2px;">Salt and Vinegar Chips</td></tr><tr><td width="5"><input type="checkbox" name="answer" value="9"></td><td style="padding:2px;">BBQ Chips</td></tr><tr><td width="5"><input type="checkbox" name="answer" value="10"></td><td style="padding:2px;">Oreo's</td></tr><tr><td colspan="2"><center><input type="submit" value="Vote">&nbsp;&nbsp;<input type="submit" name="view" value="View"></center></td></tr><tr><td bgcolor="white" colspan="2" align="right"><font size="1" color="black">pollcode.com <a href="http://pollcode.com/">free polls</a></font></td></tr></table></form>
-</td>
-<td>
-<form method="post" action="http://poll.pollcode.com/Fz1g"><table border="0" width="150" style="background-color:#EEEEEE;color:#000000;font-family:'Arial';font-size:13px;" cellspacing="0" cellpadding="2"><tr><td colspan="2" style="padding:2px;"><strong>What drinks do you want?</strong></td></tr><tr><td width="5"><input type="checkbox" name="answer" value="1"></td><td style="padding:2px;">Coke</td></tr><tr><td width="5"><input type="checkbox" name="answer" value="2"></td><td style="padding:2px;">Pepsi</td></tr><tr><td width="5"><input type="checkbox" name="answer" value="3"></td><td style="padding:2px;">Diet Coke</td></tr><tr><td width="5"><input type="checkbox" name="answer" value="4"></td><td style="padding:2px;">Coke Zero</td></tr><tr><td width="5"><input type="checkbox" name="answer" value="5"></td><td style="padding:2px;">Diet Pepsi</td></tr><tr><td width="5"><input type="checkbox" name="answer" value="6"></td><td style="padding:2px;">Mountain Dew</td></tr><tr><td width="5"><input type="checkbox" name="answer" value="7"></td><td style="padding:2px;">Iced tea</td></tr><tr><td width="5"><input type="checkbox" name="answer" value="8"></td><td style="padding:2px;">Vitamin Water</td></tr><tr><td width="5"><input type="checkbox" name="answer" value="9"></td><td style="padding:2px;">Monster</td></tr><tr><td width="5"><input type="checkbox" name="answer" value="10"></td><td style="padding:2px;">Red Bull</td></tr><tr><td colspan="2"><center><input type="submit" value="Vote">&nbsp;&nbsp;<input type="submit" name="view" value="View"></center></td></tr><tr><td bgcolor="white" colspan="2" align="right"><font size="1" color="black">pollcode.com <a href="http://pollcode.com/">free polls</a></font></td></tr></table></form>
+<table><tr><td>
+<form method="post" action="http://poll.pollcode.com/jdS">
+<table border="0" width="150" style="background-color:#EEEEEE;color:#000000;font-family:'Arial';font-size:13px;" cellspacing="0" cellpadding="2"><tr>
+<td colspan="2" style="padding:2px;">
+<strong>What snacks do you want in the vending machine?
+</strong>
 </td>
 </tr>
-</table>
-</div>
+<tr>
+<td width="5">
+<input type="checkbox" name="answer" value="1" /></td>
+<td style="padding:2px;">Chex Mix
+</td>
+</tr>
+<tr>
+<td width="5">
+<input type="checkbox" name="answer" value="2" /></td>
+<td style="padding:2px;">Rollos
+</td>
+</tr>
+<tr>
+<td width="5">
+<input type="checkbox" name="answer" value="3" />
+</td>
+<td style="padding:2px;">Peanut Butter M and M's </td>
+</tr>
+<tr>
+<td width="5">
+<input type="checkbox" name="answer" value="4" /></td>
+<td style="padding:2px;">Sun Chips
+</td>
+</tr><tr><td width="5">
+<input type="checkbox" name="answer" value="5" /></td>
+<td style="padding:2px;">Pretzels
+</td>
+</tr><tr><td width="5">
+<input type="checkbox" name="answer" value="6" /></td>
+<td style="padding:2px;">Pretzel sticks
+</td>
+</tr><tr><td width="5">
+<input type="checkbox" name="answer" value="7" /></td>
+<td style="padding:2px;">Doritos
+</td>
+</tr><tr><td width="5">
+<input type="checkbox" name="answer" value="8" /></td>
+<td style="padding:2px;">Salt and Vinegar Chips
+</td>
+</tr><tr><td width="5">
+<input type="checkbox" name="answer" value="9" /></td>
+<td style="padding:2px;">BBQ Chips
+</td>
+</tr><tr><td width="5">
+<input type="checkbox" name="answer" value="10" /></td>
+<td style="padding:2px;">Oreo's
+</td>
+</tr><tr><td colspan="2">
+<center>
+<input type="submit" value="Vote" />  
+<input type="submit" name="view" value="View" /></center>
+</td>
+</tr><tr><td bgcolor="white" colspan="2" align="right">
+<font size="1" color="black">pollcode.com 
+<a href="http://pollcode.com/">free polls
+</a>
+</font>
+</td>
+</tr></table></form>
+
+</td>
+
+<td>
+
+<form method="post" action="http://poll.pollcode.com/Fz1g">
+<table border="0" width="150" style="background-color:#EEEEEE;color:#000000;font-family:'Arial';font-size:13px;" cellspacing="0" cellpadding="2"><tr><td colspan="2" style="padding:2px;">
+<strong>What drinks do you want?
+</strong>
+</td>
+</tr><tr><td width="5">
+<input type="checkbox" name="answer" value="1" /></td>
+<td style="padding:2px;">Coke
+</td>
+</tr><tr><td width="5">
+<input type="checkbox" name="answer" value="2" /></td>
+<td style="padding:2px;">Pepsi
+</td>
+</tr><tr><td width="5">
+<input type="checkbox" name="answer" value="3" /></td>
+<td style="padding:2px;">Diet Coke
+</td>
+</tr><tr><td width="5">
+<input type="checkbox" name="answer" value="4" /></td>
+<td style="padding:2px;">Coke Zero
+</td>
+</tr><tr><td width="5">
+<input type="checkbox" name="answer" value="5" /></td>
+<td style="padding:2px;">Diet Pepsi
+</td>
+</tr><tr><td width="5">
+<input type="checkbox" name="answer" value="6" /></td>
+<td style="padding:2px;">Mountain Dew
+</td>
+</tr><tr><td width="5">
+<input type="checkbox" name="answer" value="7" /></td>
+<td style="padding:2px;">Iced tea
+</td>
+</tr><tr><td width="5">
+<input type="checkbox" name="answer" value="8" /></td>
+<td style="padding:2px;">Vitamin Water
+</td>
+</tr><tr><td width="5">
+<input type="checkbox" name="answer" value="9" /></td>
+<td style="padding:2px;">Monster
+</td>
+</tr><tr><td width="5">
+<input type="checkbox" name="answer" value="10" /></td>
+<td style="padding:2px;">Red Bull
+</td>
+</tr><tr><td colspan="2">
+<center>
+<input type="submit" value="Vote" />  
+<input type="submit" name="view" value="View" /></center>
+</td>
+</tr><tr><td bgcolor="white" colspan="2" align="right">
+<font size="1" color="black">pollcode.com 
+<a href="http://pollcode.com/">free polls
+</a>
+</font>
+</td>
+</tr></table></form>
+
+</td>
+</tr></table></div>
 </div>
 
 
 </div>
 </div>
-<script src='http://www.google-analytics.com/urchin.js' type='text/javascript'></script>
-<script type='text/javascript'>
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script><script type="text/javascript"><![CDATA[<![CDATA[
 	uacct = 'UA-338915-2'
 	urchinTracker();
-</script>
-</body>
+]]]]><![CDATA[>]]></script></body>
 </html>
