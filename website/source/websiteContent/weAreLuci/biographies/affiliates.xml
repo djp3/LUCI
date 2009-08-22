@@ -7,6 +7,12 @@
 	</biography>
 	<biography>
 		<order>1</order>
+		<title>Johanna Brewer</title>
+		<deepLink>johannab</deepLink>
+		<sectionDataURL>websiteContent/weAreLuci/biographies/affiliates/johannab/menuItems.html</sectionDataURL>
+	</biography>
+	<biography>
+		<order>2</order>
 		<title>Garnet Hertz</title>
 		<deepLink>hertz</deepLink>
 		<imageSourceURL>http://www.conceptlab.com/lucicontent/bioImage.jpg</imageSourceURL>
@@ -14,13 +20,13 @@
 		<textURL>http://www.conceptlab.com/lucicontent/contact.html</textURL>
 	</biography>
 	<biography>
-		<order>2</order>
+		<order>3</order>
 		<title>Daniel Hwang</title>
 		<deepLink>dkhwang</deepLink>
 		<sectionDataURL>websiteContent/weAreLuci/biographies/affiliates/dkhwang/menuItems.html</sectionDataURL>
 	</biography>
 	<biography>
-		<order>3</order>
+		<order>4</order>
 		<title>Danish Khan</title>
 		<imageSourceURL>websiteContent/weAreLuci/biographies/affiliates/dkhan/bioImage.jpg</imageSourceURL>
 		<sectionDataURL>websiteContent/weAreLuci/biographies/affiliates/dkhan/menuItems.html</sectionDataURL>
@@ -28,7 +34,7 @@
 		<deepLink>dkhan</deepLink>
 	</biography>
 	<biography>
-		<order>4</order>
+		<order>5</order>
 		<title>Charlotte P. Lee</title>
 		<imageSourceURL>websiteContent/weAreLuci/biographies/affiliates/cplee/bioImage.jpg</imageSourceURL>
 		<deepLink>cplee</deepLink>
@@ -36,14 +42,27 @@
 		<launchURL></launchURL>
 	</biography>
 	<biography>
-		<order>5</order>
+		<order>6</order>
+		<title>Kah Liu</title>
+		<deepLink>kahliu</deepLink>
+		<sectionDataURL>websiteContent/weAreLuci/biographies/affiliates/kahliu/menuItems.html</sectionDataURL>
+	</biography>
+	<biography>
+		<order>7</order>
 		<title>Nathaniel Marrocco</title>
 		<imageSourceURL>websiteContent/weAreLuci/biographies/affiliates/nmarrocc/bioImage.jpg</imageSourceURL>
 		<sectionDataURL>websiteContent/weAreLuci/biographies/affiliates/nmarrocc/menuItems.html</sectionDataURL>
 		<deepLink>nmarrocc</deepLink>
 	</biography>
 	<biography>
-		<order>6</order>
+		<order>8</order>
+		<title>Nick Noack</title>
+		<deepLink>nnoack</deepLink>
+		<imageSourceURL>websiteContent/weAreLuci/biographies/affiliates/nnoack/nnoack.jpg</imageSourceURL>
+		<sectionDataURL>websiteContent/weAreLuci/biographies/affiliates/nnoack/menuItems.html</sectionDataURL>
+	</biography>
+	<biography>
+		<order>9</order>
 		<title>Zubin Tiku</title>
 		<deepLink>ztiku</deepLink>
 		<sectionDataURL>websiteContent/weAreLuci/biographies/affiliates/ztiku/menuItems.html</sectionDataURL>
