@@ -1,10 +1,68 @@
 <biographies>
 	<biography>
 		<order>0</order>
-		<title>Janet Vertesi</title>
+		<title>RESEARCHERS</title>
+		<deepLink>RESEARCHERS</deepLink>
+	</biography>
+	<biography>
+		<order>1</order>
+		<title>  Amy Henckel</title>
+		<imageSourceURL>websiteContent/weAreLuci/biographies/researchers/amy/bioImage.jpg</imageSourceURL>
+		<deepLink>amy</deepLink>
+		<sectionDataURL>websiteContent/weAreLuci/biographies/researchers/amy/menuItems.html</sectionDataURL>
+	</biography>
+	<biography>
+		<order>2</order>
+		<title>POST DOCS</title>
+		<deepLink>POSTDOCS</deepLink>
+	</biography>
+	<biography>
+		<order>3</order>
+		<title>  Eric Baumer</title>
+		<deepLink>ebaumer</deepLink>
+		<imageSourceURL>websiteContent/weAreLuci/biographies/researchers/ebaumer/ebaumer.jpg</imageSourceURL>
+		<sectionDataURL>websiteContent/weAreLuci/biographies/researchers/ebaumer/menuItems.html</sectionDataURL>
+	</biography>
+	<biography>
+		<order>4</order>
+		<title>  Derek Lyons</title>
+		<imageSourceURL>websiteContent/weAreLuci/biographies/researchers/derek/bioImage.jpg</imageSourceURL>
+		<deepLink>derek</deepLink>
+		<sectionDataURL>websiteContent/weAreLuci/biographies/researchers/derek/menuItems.html</sectionDataURL>
+	</biography>
+	<biography>
+		<order>5</order>
+		<title>  Irina Shklovski</title>
+		<imageSourceURL>websiteContent/weAreLuci/biographies/researchers/irina/bioImage.jpg</imageSourceURL>
+		<deepLink>irina</deepLink>
+		<sectionDataURL>websiteContent/weAreLuci/biographies/researchers/irina/menuItems.html</sectionDataURL>
+	</biography>
+	<biography>
+		<order>6</order>
+		<title>  Monica Tentori</title>
+		<imageSourceURL>websiteContent/weAreLuci/biographies/researchers/monica/bioImage.jpg</imageSourceURL>
+		<deepLink>monica</deepLink>
+		<sectionDataURL>websiteContent/weAreLuci/biographies/researchers/monica/menuItems.html</sectionDataURL>
+	</biography>
+	<biography>
+		<order>7</order>
+		<title>  Janet Vertesi</title>
 		<imageSourceURL>websiteContent/weAreLuci/biographies/researchers/janet/bioImage.jpg</imageSourceURL>
 		<deepLink>janet</deepLink>
 		<sectionDataURL>websiteContent/weAreLuci/biographies/researchers/janet/menuItems.html</sectionDataURL>
+	</biography>
+	<biography>
+		<order>8</order>
+		<title>ARTIST-IN-RESIDENCE</title>
+		<deepLink>ARTISTINRESIDENCE</deepLink>
+	</biography>
+	<biography>
+		<order>9</order>
+		<title>  Garnet Hertz</title>
+		<deepLink>hertz</deepLink>
+		<imageSourceURL>http://www.conceptlab.com/lucicontent/bioImage.jpg</imageSourceURL>
+		<sectionDataURL>http://www.conceptlab.com/lucicontent/menuItems.html</sectionDataURL>
+		<textURL>http://www.conceptlab.com/lucicontent/contact.html</textURL>
 		<launchURL></launchURL>
 	</biography>
 </biographies>
