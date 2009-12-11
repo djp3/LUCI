@@ -64,6 +64,14 @@
 	</biography>
 	<biography>
 		<order>7</order>
+		<title>Melissa Mazmanian</title>
+		<deepLink>melmaz</deepLink>
+		<imageSourceURL>websiteContent/weAreLuci/biographies/faculty/melmaz/bioImage.jpg</imageSourceURL>
+		<imageLinkURL>http://www.ics.uci.edu/~mmazmani</imageLinkURL>
+		<sectionDataURL>websiteContent/weAreLuci/biographies/faculty/melmaz/menuItems.html</sectionDataURL>
+	</biography>
+	<biography>
+		<order>8</order>
 		<title>Bonnie Nardi</title>
 		<deepLink>nardi</deepLink>
 		<imageSourceURL>websiteContent/weAreLuci/biographies/faculty/nardi/bioImage.jpg</imageSourceURL>
@@ -71,7 +79,7 @@
 		<sectionDataURL>websiteContent/weAreLuci/biographies/faculty/nardi/menuItems.html</sectionDataURL>
 	</biography>
 	<biography>
-		<order>8</order>
+		<order>9</order>
 		<title>Donald J. Patterson</title>
 		<imageSourceURL>websiteContent/weAreLuci/biographies/faculty/djp3/bioImage.jpg</imageSourceURL>
 		<deepLink>djp3</deepLink>
@@ -80,7 +88,7 @@
 		<launchURL></launchURL>
 	</biography>
 	<biography>
-		<order>9</order>
+		<order>10</order>
 		<title>Bill Tomlinson</title>
 		<deepLink>wmt</deepLink>
 		<imageSourceURL>websiteContent/weAreLuci/biographies/faculty/wmt/bioImage.jpg</imageSourceURL>
