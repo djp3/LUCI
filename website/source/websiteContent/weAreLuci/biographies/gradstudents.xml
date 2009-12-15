@@ -1,8 +1,16 @@
 <biographies>
 	<biography>
 		<order>0</order>
+		<title>Sushil Bajracharya</title>
+		<deepLink>sushil</deepLink>
+		<imageSourceURL>websiteContent/weAreLuci/biographies/gradstudents/sushil/bioImage.jpg</imageSourceURL>
+		<sectionDataURL>websiteContent/weAreLuci/biographies/gradstudents/sushil/menuItems.html</sectionDataURL>
+	</biography>
+	<biography>
+		<order>0</order>
 		<title>Judy Chen</title>
 		<deepLink>judychen</deepLink>
+		<imageSourceURL>websiteContent/weAreLuci/biographies/gradstudents/sushil/bioImage.jpg</imageSourceURL>
 		<sectionDataURL>websiteContent/weAreLuci/biographies/gradstudents/judychen/menuItems.html</sectionDataURL>
 	</biography>
 	<biography>
