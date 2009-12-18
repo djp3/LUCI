@@ -17,7 +17,7 @@
 		<order>2</order>
 		<title>Judy Chen</title>
 		<deepLink>judychen</deepLink>
-		<imageSourceURL>websiteContent/weAreLuci/biographies/gradstudents/sushil/bioImage.jpg</imageSourceURL>
+		<imageSourceURL>websiteContent/weAreLuci/biographies/gradstudents/judychen/bioImage.jpg</imageSourceURL>
 		<sectionDataURL>websiteContent/weAreLuci/biographies/gradstudents/judychen/menuItems.html</sectionDataURL>
 	</biography>
 	<biography>
@@ -43,19 +43,33 @@
 	</biography>
 	<biography>
 		<order>6</order>
+		<title>Junius Gunaratne</title>
+		<deepLink>junius</deepLink>
+		<imageSourceURL>websiteContent/weAreLuci/biographies/gradstudents/junius/bioImage.jpg</imageSourceURL>
+		<sectionDataURL>websiteContent/weAreLuci/biographies/gradstudents/junius/menuItems.html</sectionDataURL>
+	</biography>
+	<biography>
+		<order>7</order>
+		<title>Sen Hirano</title>
+		<deepLink>sen</deepLink>
+		<imageSourceURL>websiteContent/weAreLuci/biographies/gradstudents/sen/bioImage.jpg</imageSourceURL>
+		<sectionDataURL>websiteContent/weAreLuci/biographies/gradstudents/sen/menuItems.html</sectionDataURL>
+	</biography>
+	<biography>
+		<order>8</order>
 		<title>Vrishti Gulati</title>
 		<deepLink>vrishti</deepLink>
 		<imageSourceURL>websiteContent/weAreLuci/biographies/gradstudents/vrishti/bioImage.jpg</imageSourceURL>
 		<sectionDataURL>websiteContent/weAreLuci/biographies/gradstudents/vrishti/menuItems.html</sectionDataURL>
 	</biography>
 	<biography>
-		<order>7</order>
+		<order>9</order>
 		<title>Lilly Irani</title>
 		<deepLink>lilly</deepLink>
 		<sectionDataURL>websiteContent/weAreLuci/biographies/gradstudents/lilly/menuItems.html</sectionDataURL>
 	</biography>
 	<biography>
-		<order>8</order>
+		<order>10</order>
 		<title>Eric Kabisch</title>
 		<deepLink>ekabisch</deepLink>
 		<imageSourceURL>http://e.fluxt.com/luci/ek_web/bioImage.jpg</imageSourceURL>
@@ -63,28 +77,28 @@
 		<textURL>http://e.fluxt.com/luci/ek_web/contact.html</textURL>
 	</biography>
 	<biography>
-		<order>9</order>
+		<order>11</order>
 		<title>Silvia Lindtner</title>
 		<deepLink>lindtner</deepLink>
 		<imageSourceURL>websiteContent/weAreLuci/biographies/gradstudents/lindtner/lindtner.jpg</imageSourceURL>
 		<sectionDataURL>websiteContent/weAreLuci/biographies/gradstudents/lindtner/menuItems.html</sectionDataURL>
 	</biography>
 	<biography>
-		<order>10</order>
+		<order>12</order>
 		<title>Mohamad Monibi</title>
 		<deepLink>mmonibi</deepLink>
 		<imageSourceURL>websiteContent/weAreLuci/biographies/gradstudents/mmonibi/mo.jpg</imageSourceURL>
 		<sectionDataURL>websiteContent/weAreLuci/biographies/gradstudents/mmonibi/menuItems.html</sectionDataURL>
 	</biography>
 	<biography>
-		<order>11</order>
+		<order>13</order>
 		<title>David Nguyen</title>
 		<deepLink>dhn</deepLink>
 		<imageSourceURL>websiteContent/weAreLuci/biographies/gradstudents/dhn/dhn.jpg</imageSourceURL>
 		<sectionDataURL>websiteContent/weAreLuci/biographies/gradstudents/dhn/menuItems.html</sectionDataURL>
 	</biography>
 	<biography>
-		<order>12</order>
+		<order>14</order>
 		<title>Amanda Williams</title>
 		<deepLink>amandamw</deepLink>
 		<sectionDataURL>websiteContent/weAreLuci/biographies/gradstudents/amandamw/menuItems.html</sectionDataURL>
