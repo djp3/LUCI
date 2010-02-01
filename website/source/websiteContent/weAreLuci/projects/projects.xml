@@ -62,7 +62,6 @@
 		<imageSourceURL>websiteContent/weAreLuci/projects/web/headlineImage.jpg</imageSourceURL>
 	</project>
 	<project>
-		<launchURL></launchURL>
 		<order>7</order>
 		<indent>1</indent>
 		<title>Karuna Tree</title>
@@ -70,6 +69,7 @@
 		<sectionDataURL>websiteContent/weAreLuci/projects/karunatree/menuItems.html</sectionDataURL>
 		<textURL>websiteContent/weAreLuci/projects/karunatree/overview.html</textURL>
 		<imageSourceURL>websiteContent/weAreLuci/projects/karunatree/headlineImage.jpg</imageSourceURL>
+		<launchURL></launchURL>
 	</project>
 	<project>
 		<order>8</order>
@@ -83,12 +83,16 @@
 	<project>
 		<order>9</order>
 		<indent>0</indent>
+		<textURL>.</textURL>
+		<deepLink>9</deepLink>
 		<title>_______________</title>
 	</project>
 	<project>
 		<order>10</order>
 		<indent>0</indent>
 		<title>ARCHIVED PROJECTS</title>
+		<textURL>.</textURL>
+		<deepLink>10</deepLink>
 	</project>
 	<project>
 		<order>11</order>
