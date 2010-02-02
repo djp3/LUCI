@@ -9,12 +9,21 @@
 	<project>
 		<order>1</order>
 		<indent>0</indent>
+		<title>mopix</title>
+		<deepLink>mopix</deepLink>
+		<sectionDataURL>websiteContent/weAreLuci/projects/mopix/menuItems.html</sectionDataURL>
+		<textURL>websiteContent/weAreLuci/projects/mopix/overview.html</textURL>
+		<imageSourceURL>websiteContent/weAreLuci/projects/mopix/headlineImage.jpg</imageSourceURL>
+	</project>
+	<project>
+		<order>2</order>
+		<indent>0</indent>
 		<title>Nomatic</title>
 		<deepLink>nomatic</deepLink>
 		<textURL>websiteContent/weAreLuci/projects/nomatic/overview.html</textURL>
 	</project>
 	<project>
-		<order>2</order>
+		<order>3</order>
 		<indent>1</indent>
 		<title>Nomatic*IM</title>
 		<imageSourceURL>websiteContent/weAreLuci/projects/nomatic/nomaticIM/laptopUserInHall.jpg</imageSourceURL>
@@ -24,7 +33,7 @@
 		<textURL>websiteContent/weAreLuci/projects/nomatic/nomaticIM/overview.html</textURL>
 	</project>
 	<project>
-		<order>3</order>
+		<order>4</order>
 		<indent>1</indent>
 		<title>Nomatic*Aid</title>
 		<imageSourceURL>websiteContent/weAreLuci/projects/nomatic/nomaticAid/africa.jpg</imageSourceURL>
@@ -34,7 +43,7 @@
 		<textURL>websiteContent/weAreLuci/projects/nomatic/nomaticAid/overview.html</textURL>
 	</project>
 	<project>
-		<order>4</order>
+		<order>5</order>
 		<indent>1</indent>
 		<title>Technology Garden</title>
 		<deepLink>techgarden</deepLink>
@@ -43,7 +52,7 @@
 		<imageSourceURL>websiteContent/weAreLuci/projects/techgarden/headlineImage.jpg</imageSourceURL>
 	</project>
 	<project>
-		<order>5</order>
+		<order>6</order>
 		<indent>1</indent>
 		<title>Temporality+Rhythms</title>
 		<deepLink>temporality</deepLink>
@@ -53,7 +62,7 @@
 		<imageLinkURL>http://drzaius.ics.uci.edu/meta/ambient/index.html</imageLinkURL>
 	</project>
 	<project>
-		<order>6</order>
+		<order>7</order>
 		<indent>0</indent>
 		<title>Web Based Projects</title>
 		<deepLink>web</deepLink>
@@ -62,7 +71,7 @@
 		<imageSourceURL>websiteContent/weAreLuci/projects/web/headlineImage.jpg</imageSourceURL>
 	</project>
 	<project>
-		<order>7</order>
+		<order>8</order>
 		<indent>1</indent>
 		<title>Karuna Tree</title>
 		<deepLink>karunatree</deepLink>
@@ -72,7 +81,7 @@
 		<launchURL></launchURL>
 	</project>
 	<project>
-		<order>8</order>
+		<order>9</order>
 		<indent>0</indent>
 		<title>Code Projects</title>
 		<deepLink>code</deepLink>
@@ -92,21 +101,21 @@
 	</project>
 	-->
 	<project>
-		<order>9</order>
+		<order>10</order>
 		<indent>0</indent>
 		<textURL>.</textURL>
-		<deepLink>9</deepLink>
+		<deepLink>10</deepLink>
 		<title>_______________</title>
 	</project>
 	<project>
-		<order>10</order>
+		<order>11</order>
 		<indent>0</indent>
 		<title>ARCHIVED PROJECTS</title>
 		<textURL>.</textURL>
-		<deepLink>10</deepLink>
+		<deepLink>11</deepLink>
 	</project>
 	<project>
-		<order>11</order>
+		<order>12</order>
 		<indent>1</indent>
 		<title>SALi</title>
 		<deepLink>sali</deepLink>
@@ -115,7 +124,7 @@
 		<imageSourceURL>websiteContent/weAreLuci/projects/SALi/headlineImage.jpg</imageSourceURL>
 	</project>
 	<project>
-		<order>12</order>
+		<order>13</order>
 		<indent>1</indent>
 		<title>undersound</title>
 		<deepLink>undersound</deepLink>
@@ -125,7 +134,7 @@
 		<imageLinkURL>http://www.undersound.org/</imageLinkURL>
 	</project>
 	<project>
-		<order>13</order>
+		<order>14</order>
 		<indent>1</indent>
 		<title>CONRAD</title>
 		<deepLink>CONRAD</deepLink>
@@ -134,7 +143,7 @@
 		<textURL>websiteContent/weAreLuci/projects/CONRAD/overview.html</textURL>
 	</project>
 	<project>
-		<order>14</order>
+		<order>15</order>
 		<indent>1</indent>
 		<title>Project Ambient</title>
 		<deepLink>projectAmbient</deepLink>
@@ -142,7 +151,7 @@
 		<sectionDataURL>websiteContent/weAreLuci/projects/projectAmbient/menuItems.html</sectionDataURL>
 	</project>
 	<project>
-		<order>15</order>
+		<order>16</order>
 		<indent>2</indent>
 		<title>SignalPlay</title>
 		<deepLink>signalPlay</deepLink>
@@ -152,7 +161,7 @@
 		<imageLinkURL>http://drzaius.ics.uci.edu/meta/ambient/index.html</imageLinkURL>
 	</project>
 	<project>
-		<order>16</order>
+		<order>17</order>
 		<indent>2</indent>
 		<title>Nimio</title>
 		<deepLink>nimio</deepLink>
@@ -162,7 +171,7 @@
 		<imageLinkURL>http://drzaius.ics.uci.edu/meta/ambient/index.html</imageLinkURL>
 	</project>
 	<project>
-		<order>17</order>
+		<order>18</order>
 		<indent>2</indent>
 		<title>HotSpot Clocks</title>
 		<deepLink>hotspot</deepLink>
