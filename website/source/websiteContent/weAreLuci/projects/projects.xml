@@ -74,12 +74,23 @@
 	<project>
 		<order>8</order>
 		<indent>0</indent>
+		<title>Code Projects</title>
+		<deepLink>code</deepLink>
+		<sectionDataURL>websiteContent/weAreLuci/projects/code/menuItems.html</sectionDataURL>
+		<textURL>websiteContent/weAreLuci/projects/code/overview.html</textURL>
+		<imageSourceURL>websiteContent/weAreLuci/projects/code/headlineImage.jpg</imageSourceURL>
+	</project>
+	<!--
+	<project>
+		<order>8</order>
+		<indent>0</indent>
 		<title>Blogs</title>
 		<deepLink>blogs</deepLink>
 		<sectionDataURL>websiteContent/weAreLuci/projects/blogs/menuItems.html</sectionDataURL>
 		<textURL>websiteContent/weAreLuci/projects/blogs/overview.html</textURL>
 		<imageSourceURL>websiteContent/weAreLuci/projects/blogs/headlineImage.jpg</imageSourceURL>
 	</project>
+	-->
 	<project>
 		<order>9</order>
 		<indent>0</indent>
