@@ -85,20 +85,34 @@
 	</biography>
 	<biography>
 		<order>12</order>
+		<title>Soyoung Li</title>
+		<deepLink>soyoungli</deepLink>
+		<imageSourceURL>websiteContent/weAreLuci/biographies/gradstudents/soyoungli/bioImage.jpg</imageSourceURL>
+		<sectionDataURL>websiteContent/weAreLuci/biographies/gradstudents/soyoungli/menuItems.html</sectionDataURL>
+	</biography>
+	<biography>
+		<order>13</order>
+		<title>Leslie Liu</title>
+		<deepLink>leslie</deepLink>
+		<imageSourceURL>websiteContent/weAreLuci/biographies/gradstudents/leslie/bioImage.jpg</imageSourceURL>
+		<sectionDataURL>websiteContent/weAreLuci/biographies/gradstudents/leslie/menuItems.html</sectionDataURL>
+	</biography>
+	<biography>
+		<order>14</order>
 		<title>Silvia Lindtner</title>
 		<deepLink>lindtner</deepLink>
 		<imageSourceURL>websiteContent/weAreLuci/biographies/gradstudents/lindtner/lindtner.jpg</imageSourceURL>
 		<sectionDataURL>websiteContent/weAreLuci/biographies/gradstudents/lindtner/menuItems.html</sectionDataURL>
 	</biography>
 	<biography>
-		<order>13</order>
+		<order>15</order>
 		<title>Mohamad Monibi</title>
 		<deepLink>mmonibi</deepLink>
 		<imageSourceURL>websiteContent/weAreLuci/biographies/gradstudents/mmonibi/mo.jpg</imageSourceURL>
 		<sectionDataURL>websiteContent/weAreLuci/biographies/gradstudents/mmonibi/menuItems.html</sectionDataURL>
 	</biography>
 	<biography>
-		<order>14</order>
+		<order>16</order>
 		<title>David Nguyen</title>
 		<deepLink>dhn</deepLink>
 		<imageSourceURL>websiteContent/weAreLuci/biographies/gradstudents/dhn/dhn.jpg</imageSourceURL>
@@ -106,9 +120,31 @@
 		<launchURL></launchURL>
 	</biography>
 	<biography>
-		<order>15</order>
-		<title>Amanda Williams</title>
-		<deepLink>amandamw</deepLink>
-		<sectionDataURL>websiteContent/weAreLuci/biographies/gradstudents/amandamw/menuItems.html</sectionDataURL>
+		<order>17</order>
+		<title>Joel Ossher</title>
+		<deepLink>joelo</deepLink>
+		<imageSourceURL>websiteContent/weAreLuci/biographies/gradstudents/joelo/bioImage.jpg</imageSourceURL>
+		<sectionDataURL>websiteContent/weAreLuci/biographies/gradstudents/joelo/menuItems.html</sectionDataURL>
+	</biography>
+	<biography>
+		<order>18</order>
+		<title>Sun Young Park </title>
+		<deepLink>sunyoung</deepLink>
+		<imageSourceURL>websiteContent/weAreLuci/biographies/gradstudents/sunyoung/bioImage.jpg</imageSourceURL>
+		<sectionDataURL>websiteContent/weAreLuci/biographies/gradstudents/sunyoung/menuItems.html</sectionDataURL>
+	</biography>
+	<biography>
+		<order>19</order>
+		<title>Six Silberman</title>
+		<deepLink>six</deepLink>
+		<imageSourceURL>websiteContent/weAreLuci/biographies/gradstudents/six/bioImage.jpg</imageSourceURL>
+		<sectionDataURL>websiteContent/weAreLuci/biographies/gradstudents/six/menuItems.html</sectionDataURL>
+	</biography>
+	<biography>
+		<order>20</order>
+		<title>Michael Yeganyan</title>
+		<deepLink>michaely</deepLink>
+		<imageSourceURL>websiteContent/weAreLuci/biographies/gradstudents/michaely/bioImage.jpg</imageSourceURL>
+		<sectionDataURL>websiteContent/weAreLuci/biographies/gradstudents/michaely/menuItems.html</sectionDataURL>
 	</biography>
 </biographies>
