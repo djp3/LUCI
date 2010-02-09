@@ -82,6 +82,15 @@
 	</project>
 	<project>
 		<order>9</order>
+		<indent>1</indent>
+		<title>Turkopticon</title>
+		<deepLink>turkopticon</deepLink>
+		<sectionDataURL>websiteContent/weAreLuci/projects/turkopticon/menuItems.html</sectionDataURL>
+		<textURL>websiteContent/weAreLuci/projects/turkopticon/overview.html</textURL>
+		<imageSourceURL>websiteContent/weAreLuci/projects/turkopticon/headlineImage.jpg</imageSourceURL>
+	</project>
+	<project>
+		<order>10</order>
 		<indent>0</indent>
 		<title>Code Projects</title>
 		<deepLink>code</deepLink>
@@ -101,21 +110,21 @@
 	</project>
 	-->
 	<project>
-		<order>10</order>
+		<order>11</order>
 		<indent>0</indent>
 		<textURL>.</textURL>
 		<deepLink>10</deepLink>
 		<title>_______________</title>
 	</project>
 	<project>
-		<order>11</order>
+		<order>12</order>
 		<indent>0</indent>
 		<title>ARCHIVED PROJECTS</title>
 		<textURL>.</textURL>
 		<deepLink>11</deepLink>
 	</project>
 	<project>
-		<order>12</order>
+		<order>13</order>
 		<indent>1</indent>
 		<title>SALi</title>
 		<deepLink>sali</deepLink>
@@ -124,7 +133,7 @@
 		<imageSourceURL>websiteContent/weAreLuci/projects/SALi/headlineImage.jpg</imageSourceURL>
 	</project>
 	<project>
-		<order>13</order>
+		<order>14</order>
 		<indent>1</indent>
 		<title>undersound</title>
 		<deepLink>undersound</deepLink>
@@ -134,7 +143,7 @@
 		<imageLinkURL>http://www.undersound.org/</imageLinkURL>
 	</project>
 	<project>
-		<order>14</order>
+		<order>15</order>
 		<indent>1</indent>
 		<title>CONRAD</title>
 		<deepLink>CONRAD</deepLink>
@@ -143,7 +152,7 @@
 		<textURL>websiteContent/weAreLuci/projects/CONRAD/overview.html</textURL>
 	</project>
 	<project>
-		<order>15</order>
+		<order>16</order>
 		<indent>1</indent>
 		<title>Project Ambient</title>
 		<deepLink>projectAmbient</deepLink>
@@ -151,7 +160,7 @@
 		<sectionDataURL>websiteContent/weAreLuci/projects/projectAmbient/menuItems.html</sectionDataURL>
 	</project>
 	<project>
-		<order>16</order>
+		<order>17</order>
 		<indent>2</indent>
 		<title>SignalPlay</title>
 		<deepLink>signalPlay</deepLink>
@@ -161,7 +170,7 @@
 		<imageLinkURL>http://drzaius.ics.uci.edu/meta/ambient/index.html</imageLinkURL>
 	</project>
 	<project>
-		<order>17</order>
+		<order>18</order>
 		<indent>2</indent>
 		<title>Nimio</title>
 		<deepLink>nimio</deepLink>
@@ -171,7 +180,7 @@
 		<imageLinkURL>http://drzaius.ics.uci.edu/meta/ambient/index.html</imageLinkURL>
 	</project>
 	<project>
-		<order>18</order>
+		<order>19</order>
 		<indent>2</indent>
 		<title>HotSpot Clocks</title>
 		<deepLink>hotspot</deepLink>
