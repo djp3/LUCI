@@ -2075,13 +2075,12 @@ var document:XML = new XML();
 				var runningText:String = "";
 				var i:String;
 				var myArray:Array = document.childNodes;
-				myArray = document.firstChild.childNodes;
+				myArray = document.firstChild.firstChild.childNodes;
 				for (i in myArray){
 					var lastDate:String = "";
 					if(myArray[i].nodeName == "item"){
 						var title:String = "";
 						var url:String = "";
-						var subject:String = "";
 						var date:String = "";
 						var j:String;
 						var myArray2:Array = myArray[i].childNodes;
@@ -2092,22 +2091,32 @@ var document:XML = new XML();
 							else if(myArray2[j].nodeName == "link"){
 								url = myArray2[j].firstChild.nodeValue;
 							}
-							else if(myArray2[j].nodeName == "dc:date"){
+							else if(myArray2[j].nodeName == "pubDate"){
 								date = myArray2[j].firstChild.nodeValue;
 							}
-							else if(myArray2[j].nodeName == "dc:subject"){
-								subject = myArray2[j].firstChild.nodeValue;
+							else if(myArray2[j].nodeName == "creator"){
+							}
+							else if(myArray2[j].nodeName == "category"){
+							}
+							else if(myArray2[j].nodeName == "guid"){
 							}
 							else if(myArray2[j].nodeName == "dc:creator"){
 							}
 							else if(myArray2[j].nodeName == "description"){
 							}
+							else if(myArray2[j].nodeName == "contents:encoded"){
+							}
+							else if(myArray2[j].nodeName == "wfw:commentRss"){
+							}
+							else if(myArray2[j].nodeName == "slash:comments"){
+							}
 							else{
 								trace(">> unknown thing :"+myArray2[j].nodeName);
 							}
 						}
-						if(lastDate != date.split("T",1)[0]){
-							lastDate = date.split("T",1)[0];
+						date = date.substring(0,date.indexOf("2010"));
+						if(lastDate != date){
+							lastDate = date;
 							runningText= "<p>"+lastDate+"</p><p><a href=\"asfunction:_root.jumpToURLSameWindow,"+url+"\">"+title+"</a></p><br/>" +runningText;
 						}
 						else{
@@ -2290,8 +2299,8 @@ function undispatchTemplate(type:String,duration:Number)
 //Comment this out if it's being run from in a web browser
 //Launch
 if(launchFromWebsite == false){
-	animateOpen("projects&nomaticPresence");
-	//animateOpen();
+	//animateOpen("projects&nomaticPresence");
+	animateOpen();
 }
 else{
 	ExternalInterface.call("jsStartFromActionScript", undefined);
