@@ -1,3 +1,5 @@
+v1.8 Fixed RSS feed
+
 v1.7 Added tech report section
 
 v1.6 Added courses section
