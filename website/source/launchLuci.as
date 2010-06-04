@@ -2071,7 +2071,7 @@ var document:XML = new XML();
 	document.ignoreWhite = true;
 	document.onLoad = function(success:Boolean){
 		if(success){
-			if(document.firstChild.nodeName == "rdf:RDF"){
+			if(document.firstChild.nodeName == "rss"){
 				var runningText:String = "";
 				var i:String;
 				var myArray:Array = document.childNodes;

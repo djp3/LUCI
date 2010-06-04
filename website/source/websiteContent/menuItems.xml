@@ -12,7 +12,7 @@
 			<sidebar>
 				<type>SA</type>
 				<title>LUCI BLOG</title>
-				<url>http://luci.ics.uci.edu/blog/index.rdf</url>
+				<url>http://luci.ics.uci.edu/blog/?feed=rss2</url>
 			</sidebar>
 		</clickable>
 		<breakBelow/>
