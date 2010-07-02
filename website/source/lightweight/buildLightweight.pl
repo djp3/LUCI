@@ -144,6 +144,8 @@ sub makeTemplateAPage()
 	open ($TEMPLATE,"< ../".$url) || die;
 	while(<$TEMPLATE>){
 			s/asfunction:_root.jumpToURLNewWindow,//g;
+			#The line below was added to make the tech report links work
+			s/(websiteContent\/repository\/techreports)/..\/..\/$1/g;
 			print $OUTFILE $_;
 	}
 	close($TEMPLATE);
