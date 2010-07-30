@@ -22,61 +22,68 @@
 	</biography>
 	<biography>
 		<order>3</order>
+		<title>Marisa Cohn</title>
+		<deepLink>marisa</deepLink>
+		<imageSourceURL>websiteContent/weAreLuci/biographies/gradstudents/marisa/marisa.jpg</imageSourceURL>
+		<sectionDataURL>websiteContent/weAreLuci/biographies/gradstudents/marisa/menuItems.html</sectionDataURL>
+	</biography>
+	<biography>
+		<order>4</order>
 		<title>Meg Cramer</title>
 		<deepLink>meg</deepLink>
 		<imageSourceURL>websiteContent/weAreLuci/biographies/gradstudents/meg/bioImage.jpg</imageSourceURL>
 	</biography>
 	<biography>
-		<order>4</order>
+		<order>5</order>
 		<title>Sharon Xianghua Ding</title>
 		<deepLink>dingx</deepLink>
 		<imageSourceURL>websiteContent/weAreLuci/biographies/gradstudents/dingx/dingx.jpg</imageSourceURL>
 		<sectionDataURL>websiteContent/weAreLuci/biographies/gradstudents/dingx/menuItems.html</sectionDataURL>
 	</biography>
 	<biography>
-		<order>5</order>
+		<order>6</order>
 		<title>Yasser Ganjisaffar</title>
 		<deepLink>yasser</deepLink>
 		<imageSourceURL>websiteContent/weAreLuci/biographies/gradstudents/yasser/bioImage.jpg</imageSourceURL>
 		<sectionDataURL>websiteContent/weAreLuci/biographies/gradstudents/yasser/menuItems.html</sectionDataURL>
 	</biography>
 	<biography>
-		<order>6</order>
+		<order>7</order>
 		<title>Vrishti Gulati</title>
 		<deepLink>vrishti</deepLink>
 		<imageSourceURL>websiteContent/weAreLuci/biographies/gradstudents/vrishti/bioImage.jpg</imageSourceURL>
 		<sectionDataURL>websiteContent/weAreLuci/biographies/gradstudents/vrishti/menuItems.html</sectionDataURL>
 	</biography>
 	<biography>
-		<order>7</order>
+		<order>8</order>
 		<title>Junius Gunaratne</title>
 		<deepLink>junius</deepLink>
 		<imageSourceURL>websiteContent/weAreLuci/biographies/gradstudents/junius/bioImage.jpg</imageSourceURL>
 		<sectionDataURL>websiteContent/weAreLuci/biographies/gradstudents/junius/menuItems.html</sectionDataURL>
 	</biography>
 	<biography>
-		<order>8</order>
+		<order>9</order>
 		<title>Sidney Harrison</title>
 		<deepLink>sidney</deepLink>
 		<imageSourceURL>websiteContent/weAreLuci/biographies/gradstudents/sidney/bioImage.jpg</imageSourceURL>
 		<sectionDataURL>websiteContent/weAreLuci/biographies/gradstudents/sidney/menuItems.html</sectionDataURL>
 	</biography>
 	<biography>
-		<order>9</order>
+		<order>10</order>
 		<title>Sen Hirano</title>
 		<deepLink>sen</deepLink>
 		<imageSourceURL>websiteContent/weAreLuci/biographies/gradstudents/sen/bioImage.jpg</imageSourceURL>
 		<sectionDataURL>websiteContent/weAreLuci/biographies/gradstudents/sen/menuItems.html</sectionDataURL>
 	</biography>
 	<biography>
-		<order>10</order>
+		<order>11</order>
 		<title>Lilly Irani</title>
 		<deepLink>lilly</deepLink>
 		<imageSourceURL>websiteContent/weAreLuci/biographies/gradstudents/lilly/bioImage.jpg</imageSourceURL>
 		<sectionDataURL>websiteContent/weAreLuci/biographies/gradstudents/lilly/menuItems.html</sectionDataURL>
 	</biography>
 	<biography>
-		<order>11</order>
+		<order>12</order>
 		<title>Eric Kabisch</title>
 		<deepLink>ekabisch</deepLink>
 		<imageSourceURL>http://e.fluxt.com/luci/ek_web/bioImage.jpg</imageSourceURL>
@@ -84,35 +91,35 @@
 		<textURL>http://e.fluxt.com/luci/ek_web/contact.html</textURL>
 	</biography>
 	<biography>
-		<order>12</order>
+		<order>13</order>
 		<title>Soyoung Li</title>
 		<deepLink>soyoungli</deepLink>
 		<imageSourceURL>websiteContent/weAreLuci/biographies/gradstudents/soyoungli/bioImage.jpg</imageSourceURL>
 		<sectionDataURL>websiteContent/weAreLuci/biographies/gradstudents/soyoungli/menuItems.html</sectionDataURL>
 	</biography>
 	<biography>
-		<order>13</order>
+		<order>14</order>
 		<title>Leslie Liu</title>
 		<deepLink>leslie</deepLink>
 		<imageSourceURL>websiteContent/weAreLuci/biographies/gradstudents/leslie/bioImage.jpg</imageSourceURL>
 		<sectionDataURL>websiteContent/weAreLuci/biographies/gradstudents/leslie/menuItems.html</sectionDataURL>
 	</biography>
 	<biography>
-		<order>14</order>
+		<order>15</order>
 		<title>Silvia Lindtner</title>
 		<deepLink>lindtner</deepLink>
 		<imageSourceURL>websiteContent/weAreLuci/biographies/gradstudents/lindtner/lindtner.jpg</imageSourceURL>
 		<sectionDataURL>websiteContent/weAreLuci/biographies/gradstudents/lindtner/menuItems.html</sectionDataURL>
 	</biography>
 	<biography>
-		<order>15</order>
+		<order>16</order>
 		<title>Mohamad Monibi</title>
 		<deepLink>mmonibi</deepLink>
 		<imageSourceURL>websiteContent/weAreLuci/biographies/gradstudents/mmonibi/mo.jpg</imageSourceURL>
 		<sectionDataURL>websiteContent/weAreLuci/biographies/gradstudents/mmonibi/menuItems.html</sectionDataURL>
 	</biography>
 	<biography>
-		<order>16</order>
+		<order>17</order>
 		<title>David Nguyen</title>
 		<deepLink>dhn</deepLink>
 		<imageSourceURL>websiteContent/weAreLuci/biographies/gradstudents/dhn/dhn.jpg</imageSourceURL>
@@ -120,28 +127,28 @@
 		<launchURL></launchURL>
 	</biography>
 	<biography>
-		<order>17</order>
+		<order>18</order>
 		<title>Joel Ossher</title>
 		<deepLink>joelo</deepLink>
 		<imageSourceURL>websiteContent/weAreLuci/biographies/gradstudents/joelo/bioImage.jpg</imageSourceURL>
 		<sectionDataURL>websiteContent/weAreLuci/biographies/gradstudents/joelo/menuItems.html</sectionDataURL>
 	</biography>
 	<biography>
-		<order>18</order>
+		<order>19</order>
 		<title>Sun Young Park </title>
 		<deepLink>sunyoung</deepLink>
 		<imageSourceURL>websiteContent/weAreLuci/biographies/gradstudents/sunyoung/bioImage.jpg</imageSourceURL>
 		<sectionDataURL>websiteContent/weAreLuci/biographies/gradstudents/sunyoung/menuItems.html</sectionDataURL>
 	</biography>
 	<biography>
-		<order>19</order>
+		<order>20</order>
 		<title>Six Silberman</title>
 		<deepLink>six</deepLink>
 		<imageSourceURL>websiteContent/weAreLuci/biographies/gradstudents/six/bioImage.jpg</imageSourceURL>
 		<sectionDataURL>websiteContent/weAreLuci/biographies/gradstudents/six/menuItems.html</sectionDataURL>
 	</biography>
 	<biography>
-		<order>20</order>
+		<order>21</order>
 		<title>Michael Yeganyan</title>
 		<deepLink>michaely</deepLink>
 		<imageSourceURL>websiteContent/weAreLuci/biographies/gradstudents/michaely/bioImage.jpg</imageSourceURL>
