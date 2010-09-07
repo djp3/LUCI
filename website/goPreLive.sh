@@ -33,17 +33,20 @@ echo +++
 
 ssh djp3@luci.ics.uci.edu chmod -R a+r temp_html
 
-echo +++
-echo +++Shifting to calla, Authenticate to sesweb
-echo +++ This is all wrong
-echo +++
+#echo +++
+#echo +++Shifting to calla, Authenticate to sesweb
+#echo +++ This is all wrong
+#echo +++
+#echo +++Execute this:
+#echo "+++ gsu sesweb;exit;"
+#echo "+++ cd;cd htdocs/LUCI;./copyContent.sh;exit;"
+#echo +++ 
 echo +++Execute this:
-echo "+++ gsu sesweb;exit;"
-echo "+++ cd;cd htdocs/LUCI;./copyContent.sh;exit;"
+echo "+++ goLive.sh;"
 echo +++ 
 
 #echo "Commented out"
-ssh djp3@calla.ics.uci.edu
+ssh djp3@djp3-pc8.ics.uci.edu
 
 echo "+++"
 echo "+++Check validity of links"
