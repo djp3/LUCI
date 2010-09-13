@@ -7,18 +7,33 @@
 	</biography>
 	<biography>
 		<order>1</order>
+		<title>  Eric Baumer</title>
+		<deepLink>ebaumer</deepLink>
+		<imageSourceURL>websiteContent/weAreLuci/biographies/affiliates/ebaumer/ebaumer.jpg</imageSourceURL>
+		<sectionDataURL>websiteContent/weAreLuci/biographies/affiliates/ebaumer/menuItems.html</sectionDataURL>
+		<textURL>websiteContent/weAreLuci/biographies/affiliates/ebaumer/contact.html</textURL>
+	</biography>
+	<biography>
+		<order>2</order>
 		<title>Johanna Brewer</title>
 		<deepLink>johannab</deepLink>
 		<sectionDataURL>websiteContent/weAreLuci/biographies/affiliates/johannab/menuItems.html</sectionDataURL>
 	</biography>
 	<biography>
-		<order>2</order>
+		<order>3</order>
+		<title>  Amy Henckel</title>
+		<imageSourceURL>websiteContent/weAreLuci/biographies/affiliates/amy/bioImage.jpg</imageSourceURL>
+		<deepLink>amy</deepLink>
+		<sectionDataURL>websiteContent/weAreLuci/biographies/affiliates/amy/menuItems.html</sectionDataURL>
+	</biography>
+	<biography>
+		<order>4</order>
 		<title>Daniel Hwang</title>
 		<deepLink>dkhwang</deepLink>
 		<sectionDataURL>websiteContent/weAreLuci/biographies/affiliates/dkhwang/menuItems.html</sectionDataURL>
 	</biography>
 	<biography>
-		<order>3</order>
+		<order>5</order>
 		<title>Danish Khan</title>
 		<imageSourceURL>websiteContent/weAreLuci/biographies/affiliates/dkhan/bioImage.jpg</imageSourceURL>
 		<sectionDataURL>websiteContent/weAreLuci/biographies/affiliates/dkhan/menuItems.html</sectionDataURL>
@@ -26,14 +41,14 @@
 		<deepLink>dkhan</deepLink>
 	</biography>
 	<biography>
-		<order>4</order>
+		<order>6</order>
 		<title>Jahnavi Kondragunta</title>
 		<deepLink>jahnavi</deepLink>
 		<imageSourceURL>websiteContent/weAreLuci/biographies/affiliates/jahnavi/bioImage.jpg</imageSourceURL>
 		<sectionDataURL>websiteContent/weAreLuci/biographies/affiliates/jahnavi/menuItems.html</sectionDataURL>
 	</biography>
 	<biography>
-		<order>5</order>
+		<order>7</order>
 		<title>Charlotte P. Lee</title>
 		<imageSourceURL>websiteContent/weAreLuci/biographies/affiliates/cplee/bioImage.jpg</imageSourceURL>
 		<deepLink>cplee</deepLink>
@@ -41,62 +56,76 @@
 		<launchURL></launchURL>
 	</biography>
 	<biography>
-		<order>6</order>
+		<order>8</order>
 		<title>Pheobe Lin</title>
 		<deepLink>phoebe</deepLink>
 		<imageSourceURL>websiteContent/weAreLuci/biographies/affiliates/phoebe/bioImage.jpg</imageSourceURL>
 		<sectionDataURL>websiteContent/weAreLuci/biographies/affiliates/phoebe/menuItems.html</sectionDataURL>
 	</biography>
 	<biography>
-		<order>7</order>
+		<order>9</order>
 		<title>Kah Liu</title>
 		<deepLink>kahliu</deepLink>
 		<imageSourceURL>websiteContent/weAreLuci/biographies/affiliates/kahliu/bioImage.jpg</imageSourceURL>
 		<sectionDataURL>websiteContent/weAreLuci/biographies/affiliates/kahliu/menuItems.html</sectionDataURL>
 	</biography>
 	<biography>
-		<order>8</order>
+		<order>10</order>
 		<title>Gabriela Marcu</title>
 		<deepLink>gabi</deepLink>
 		<imageSourceURL>websiteContent/weAreLuci/biographies/affiliates/gabi/bioImage.jpg</imageSourceURL>
 		<sectionDataURL>websiteContent/weAreLuci/biographies/affiliates/gabi/menuItems.html</sectionDataURL>
 	</biography>
 	<biography>
-		<order>9</order>
+		<order>11</order>
 		<title>Nathaniel Marrocco</title>
 		<imageSourceURL>websiteContent/weAreLuci/biographies/affiliates/nmarrocc/bioImage.jpg</imageSourceURL>
 		<sectionDataURL>websiteContent/weAreLuci/biographies/affiliates/nmarrocc/menuItems.html</sectionDataURL>
 		<deepLink>nmarrocc</deepLink>
 	</biography>
 	<biography>
-		<order>10</order>
+		<order>12</order>
 		<title>Nick Noack</title>
 		<deepLink>nnoack</deepLink>
 		<imageSourceURL>websiteContent/weAreLuci/biographies/affiliates/nnoack/nnoack.jpg</imageSourceURL>
 		<sectionDataURL>websiteContent/weAreLuci/biographies/affiliates/nnoack/menuItems.html</sectionDataURL>
 	</biography>
 	<biography>
-		<order>11</order>
+		<order>13</order>
+		<title>  Irina Shklovski</title>
+		<imageSourceURL>websiteContent/weAreLuci/biographies/affiliates/irina/bioImage.jpg</imageSourceURL>
+		<deepLink>irina</deepLink>
+		<sectionDataURL>websiteContent/weAreLuci/biographies/affiliates/irina/menuItems.html</sectionDataURL>
+	</biography>
+	<biography>
+		<order>14</order>
 		<title>Mohan Singh</title>
 		<deepLink>mohan</deepLink>
 		<imageSourceURL>websiteContent/weAreLuci/biographies/affiliates/mohan/bioImage.jpg</imageSourceURL>
 		<sectionDataURL>websiteContent/weAreLuci/biographies/affiliates/mohan/menuItems.html</sectionDataURL>
 	</biography>
 	<biography>
-		<order>12</order>
+		<order>15</order>
 		<title>Justin Tang</title>
 		<deepLink>justintang</deepLink>
 		<imageSourceURL>websiteContent/weAreLuci/biographies/affiliates/justintang/bioImage.jpg</imageSourceURL>
 		<sectionDataURL>websiteContent/weAreLuci/biographies/affiliates/justintang/menuItems.html</sectionDataURL>
 	</biography>
 	<biography>
-		<order>13</order>
+		<order>16</order>
 		<title>Zubin Tiku</title>
 		<deepLink>ztiku</deepLink>
 		<sectionDataURL>websiteContent/weAreLuci/biographies/affiliates/ztiku/menuItems.html</sectionDataURL>
 	</biography>
 	<biography>
-		<order>14</order>
+		<order>17</order>
+		<title>  Janet Vertesi</title>
+		<imageSourceURL>websiteContent/weAreLuci/biographies/affiliates/janet/bioImage.jpg</imageSourceURL>
+		<deepLink>janet</deepLink>
+		<sectionDataURL>websiteContent/weAreLuci/biographies/affiliates/janet/menuItems.html</sectionDataURL>
+	</biography>
+	<biography>
+		<order>18</order>
 		<title>Amanda Williams</title>
 		<deepLink>amandamw</deepLink>
 		<sectionDataURL>websiteContent/weAreLuci/biographies/affiliates/amandamw/menuItems.html</sectionDataURL>
