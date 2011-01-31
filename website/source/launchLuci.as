@@ -2114,7 +2114,7 @@ var document:XML = new XML();
 								trace(">> unknown thing :"+myArray2[j].nodeName);
 							}
 						}
-						date = date.substring(0,date.indexOf("2010"));
+						date = date.substring(0,date.indexOf("201"));
 						if(lastDate != date){
 							lastDate = date;
 							runningText= "<p>"+lastDate+"</p><p><a href=\"asfunction:_root.jumpToURLSameWindow,"+url+"\">"+title+"</a></p><br/>" +runningText;
