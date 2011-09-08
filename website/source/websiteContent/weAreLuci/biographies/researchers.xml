@@ -27,9 +27,9 @@
 		<order>3</order>
 		<title>  Stephen Voida</title>
 		<deepLink>svoida</deepLink>
-		<imageSourceURL>http://www.conceptlab.com/lucicontent/bioImage.jpg</imageSourceURL>
-		<sectionDataURL>http://www.conceptlab.com/lucicontent/menuItems.html</sectionDataURL>
-		<textURL>http://www.conceptlab.com/lucicontent/contact.html</textURL>
+		<imageSourceURL>websiteContent/weAreLuci/biographies/researchers/svoida/bioImage.jpg</imageSourceURL>
+		<sectionDataURL>https://students.ics.uci.edu/~svoida/luci/menu.html</sectionDataURL>
+		<textURL>https://students.ics.uci.edu/~svoida/luci/contact.html</textURL>
 		<launchURL></launchURL>
 	</biography>
 	<biography>
