@@ -4,41 +4,18 @@
 		<title>RESEARCHERS</title>
 		<deepLink>RESEARCHERS</deepLink>
 	</biography>-->
-	<biography>
+	<!--<biography>
 		<order>0</order>
 		<title>POST DOCS</title>
 		<deepLink>POSTDOCS</deepLink>
-	</biography>
+	</biography>-->
 	<biography>
-		<order>1</order>
-		<title>  Derek Lyons</title>
-		<imageSourceURL>websiteContent/weAreLuci/biographies/researchers/derek/bioImage.jpg</imageSourceURL>
-		<deepLink>derek</deepLink>
-		<sectionDataURL>websiteContent/weAreLuci/biographies/researchers/derek/menuItems.html</sectionDataURL>
-	</biography>
-	<biography>
-		<order>2</order>
-		<title>  Monica Tentori</title>
-		<imageSourceURL>websiteContent/weAreLuci/biographies/researchers/monica/bioImage.jpg</imageSourceURL>
-		<deepLink>monica</deepLink>
-		<sectionDataURL>websiteContent/weAreLuci/biographies/researchers/monica/menuItems.html</sectionDataURL>
-	</biography>
-	<biography>
-		<order>3</order>
-		<title>  Stephen Voida</title>
-		<deepLink>svoida</deepLink>
-		<imageSourceURL>websiteContent/weAreLuci/biographies/researchers/svoida/bioImage.jpg</imageSourceURL>
-		<sectionDataURL>https://students.ics.uci.edu/~svoida/luci/menu.html</sectionDataURL>
-		<textURL>https://students.ics.uci.edu/~svoida/luci/contact.html</textURL>
-		<launchURL></launchURL>
-	</biography>
-	<biography>
-		<order>4</order>
+		<order>0</order>
 		<title>ARTIST-IN-RESIDENCE</title>
 		<deepLink>ARTISTINRESIDENCE</deepLink>
 	</biography>
 	<biography>
-		<order>5</order>
+		<order>1</order>
 		<title>  Garnet Hertz</title>
 		<deepLink>hertz</deepLink>
 		<imageSourceURL>http://www.conceptlab.com/lucicontent/bioImage.jpg</imageSourceURL>

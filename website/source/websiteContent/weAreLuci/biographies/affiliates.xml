@@ -53,7 +53,6 @@
 		<imageSourceURL>websiteContent/weAreLuci/biographies/affiliates/cplee/bioImage.jpg</imageSourceURL>
 		<deepLink>cplee</deepLink>
 		<sectionDataURL>websiteContent/weAreLuci/biographies/affiliates/cplee/menuItems.html</sectionDataURL>
-		<launchURL></launchURL>
 	</biography>
 	<biography>
 		<order>8</order>
@@ -71,61 +70,84 @@
 	</biography>
 	<biography>
 		<order>10</order>
+		<title>Derek Lyons</title>
+		<imageSourceURL>websiteContent/weAreLuci/biographies/affiliates/derek/bioImage.jpg</imageSourceURL>
+		<deepLink>derek</deepLink>
+		<sectionDataURL>websiteContent/weAreLuci/biographies/affiliates/derek/menuItems.html</sectionDataURL>
+	</biography>
+	<biography>
+		<order>11</order>
 		<title>Gabriela Marcu</title>
 		<deepLink>gabi</deepLink>
 		<imageSourceURL>websiteContent/weAreLuci/biographies/affiliates/gabi/bioImage.jpg</imageSourceURL>
 		<sectionDataURL>websiteContent/weAreLuci/biographies/affiliates/gabi/menuItems.html</sectionDataURL>
 	</biography>
 	<biography>
-		<order>11</order>
+		<order>12</order>
 		<title>Nathaniel Marrocco</title>
 		<imageSourceURL>websiteContent/weAreLuci/biographies/affiliates/nmarrocc/bioImage.jpg</imageSourceURL>
 		<sectionDataURL>websiteContent/weAreLuci/biographies/affiliates/nmarrocc/menuItems.html</sectionDataURL>
 		<deepLink>nmarrocc</deepLink>
 	</biography>
 	<biography>
-		<order>12</order>
+		<order>13</order>
 		<title>Nick Noack</title>
 		<deepLink>nnoack</deepLink>
 		<imageSourceURL>websiteContent/weAreLuci/biographies/affiliates/nnoack/nnoack.jpg</imageSourceURL>
 		<sectionDataURL>websiteContent/weAreLuci/biographies/affiliates/nnoack/menuItems.html</sectionDataURL>
 	</biography>
 	<biography>
-		<order>13</order>
+		<order>14</order>
 		<title>  Irina Shklovski</title>
 		<imageSourceURL>websiteContent/weAreLuci/biographies/affiliates/irina/bioImage.jpg</imageSourceURL>
 		<deepLink>irina</deepLink>
 		<sectionDataURL>websiteContent/weAreLuci/biographies/affiliates/irina/menuItems.html</sectionDataURL>
 	</biography>
 	<biography>
-		<order>14</order>
+		<order>15</order>
 		<title>Mohan Singh</title>
 		<deepLink>mohan</deepLink>
 		<imageSourceURL>websiteContent/weAreLuci/biographies/affiliates/mohan/bioImage.jpg</imageSourceURL>
 		<sectionDataURL>websiteContent/weAreLuci/biographies/affiliates/mohan/menuItems.html</sectionDataURL>
 	</biography>
 	<biography>
-		<order>15</order>
+		<order>16</order>
 		<title>Justin Tang</title>
 		<deepLink>justintang</deepLink>
 		<imageSourceURL>websiteContent/weAreLuci/biographies/affiliates/justintang/bioImage.jpg</imageSourceURL>
 		<sectionDataURL>websiteContent/weAreLuci/biographies/affiliates/justintang/menuItems.html</sectionDataURL>
 	</biography>
 	<biography>
-		<order>16</order>
+		<order>17</order>
+		<title>Monica Tentori</title>
+		<imageSourceURL>websiteContent/weAreLuci/biographies/affiliates/monica/bioImage.jpg</imageSourceURL>
+		<deepLink>monica</deepLink>
+		<sectionDataURL>websiteContent/weAreLuci/biographies/affiliates/monica/menuItems.html</sectionDataURL>
+	</biography>
+	<biography>
+		<order>18</order>
 		<title>Zubin Tiku</title>
 		<deepLink>ztiku</deepLink>
 		<sectionDataURL>websiteContent/weAreLuci/biographies/affiliates/ztiku/menuItems.html</sectionDataURL>
 	</biography>
 	<biography>
-		<order>17</order>
-		<title>  Janet Vertesi</title>
+		<order>19</order>
+		<title>Janet Vertesi</title>
 		<imageSourceURL>websiteContent/weAreLuci/biographies/affiliates/janet/bioImage.jpg</imageSourceURL>
 		<deepLink>janet</deepLink>
 		<sectionDataURL>websiteContent/weAreLuci/biographies/affiliates/janet/menuItems.html</sectionDataURL>
 	</biography>
 	<biography>
-		<order>18</order>
+		<order>20</order>
+		<title>Stephen Voida</title>
+		<deepLink>svoida</deepLink>
+		<imageSourceURL>websiteContent/weAreLuci/biographies/affiliates/svoida/bioImage.jpg</imageSourceURL>
+		<sectionDataURL>http://stephen.voida.com/luci/menu.html</sectionDataURL>
+		<textURL>http://stephen.voida.com/luci/contact.html</textURL>
+		<launchURL></launchURL>
+	</biography>
+	<biography>
+		<order>21</order>
 		<title>Amanda Williams</title>
 		<deepLink>amandamw</deepLink>
 		<sectionDataURL>websiteContent/weAreLuci/biographies/affiliates/amandamw/menuItems.html</sectionDataURL>
