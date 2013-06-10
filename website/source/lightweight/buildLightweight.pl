@@ -1,6 +1,7 @@
-#!/usr/bin/perl -w -I/Users/djp3/perl/lib/perl5/site_perl
+#!/opt/local/bin/perl -w -I/Users/djp3/perl/lib/perl5/site_perl
 use strict;
 use XML::DOM;
+use Digest::SHA qw(sha1);
 
 $| = 1;
 
@@ -78,13 +79,13 @@ sub makeSidebarSA()
 	my $url = $_[2];
 
 	print $OUTFILE "<div class='sidebar'><div class='content'><b>LUCI Blog</b>\n";
-	print $url,"\n";
+	print STDERR "    Handling Sidebar Template SA ".$url."\n";
 	my $doc = $parser->parsefile($url);
 	foreach my $items ($doc->getElementsByTagName('item')){
 		my $linkURL = $items->getElementsByTagName('link')->item(0)->getFirstChild->getNodeValue;
 		my $title = $items->getElementsByTagName('title')->item(0)->getFirstChild->getNodeValue;
-		print $OUTFILE "<p><a href='".$linkURL."'>".$title."</a></p>\n";
 		#print $linkURL,":",$title,"\n";
+		print $OUTFILE "<p><a href='".$linkURL."'>".$title."</a></p>\n";
 	}
 	print $OUTFILE "</div></div>\n";
 }
@@ -265,6 +266,7 @@ sub makeTemplateCPage()
 	my $filepath = $_[3];
 	my $previousDeeplink = $_[4];
 	my $sidebar = $_[5];
+	print STDERR "  Handling Template C ".$url."\n";
 
 	if( ($sidebar) && ($sidebar->hasChildNodes() != 0)) {
 		my $sidebarType = $sidebar->getElementsByTagName('type')->item(0)->getFirstChild->getNodeValue;
@@ -322,6 +324,12 @@ sub makeTemplateCSubpage()
 	my $filepath = $_[3];
 	my $SUBPAGE;
 
+	print STDERR "  Handling Template C Subpage ".$textURL."\n";
+	#print STDERR "   ".$title."\n";
+	#print STDERR "   ".$deepLink."\n";
+	#print STDERR "   ".$textURL."\n";
+	#print STDERR "   ".$filepath."\n";
+
 
 	
 	my $filepathDeepLink = $deepLink;
@@ -367,7 +375,10 @@ sub makeTemplateCSubpage()
 					(my $bar) = $foo[$i] =~ m/\/([^\/]*)$/;
 					#make content local
 					if($foo[$i] !~ m/websiteContent/){
-						print STDERR $foo[$i],"\n";
+						if($bar =~ m/^\s*$/){
+							$bar = unpack("H*", sha1($foo[$i])).".html";
+						}
+						print STDERR "   Attempting to get ".$foo[$i]." and put it here ".$bar."\n";
 						system("wget -q -O /tmp/".$bar." ".$foo[$i]);
 					}
 					#load local content
@@ -394,6 +405,7 @@ sub makeTemplateCSubpage()
 	print $SUBPAGE "</div>\n";
 	&outputHTMLFooter($SUBPAGE);
 	close($SUBPAGE);
+	#print STDERR "  Done Handling Template C Subpage\n";
 }
 
 sub makeTemplateCSubSubpage()
@@ -404,6 +416,13 @@ sub makeTemplateCSubSubpage()
 	my $fileName = $_[3];
 	my $filepath = $_[4];
 	my $SUBPAGE;
+
+	print STDERR "  Handling Template C Sub Sub page ".$textURL."\n";
+	#print STDERR "   ".$title."\n";
+	#print STDERR "   ".$deepLink."\n";
+	#print STDERR "   ".$textURL."\n";
+	#print STDERR "   ".$fileName."\n";
+	#print STDERR "   ".$filepath."\n";
 	
 	my $filepathDeepLink = $deepLink;
 	$filepathDeepLink =~ s/[&]/\//g;
@@ -455,6 +474,7 @@ sub makeTemplateCSubSubpage()
 	print $SUBPAGE "</div>\n";
 	&outputHTMLFooter($SUBPAGE);
 	close($SUBPAGE);
+	#print STDERR "  Done Handling Template C Sub Sub page\n";
 }
 
 
@@ -515,6 +535,7 @@ open($OUTFILE, "> index.html")||die;
 print $OUTFILE "<div class='container'>\n";
 print $OUTFILE "<div class='content'>\n";
 foreach my $menuItems ($doc->getElementsByTagName('menuItem')){
+	print STDERR "Handling ".$menuItems->getElementsByTagName('title')->item(0)->getFirstChild->getNodeValue."\n";
 	my @indent = $menuItems->getElementsByTagName('indent');
 	my $indent=0;
 	if($#indent != -1){
@@ -536,8 +557,7 @@ foreach my $menuItems ($doc->getElementsByTagName('menuItem')){
 		&makeSubpage($title,$clickable[0]);
 
 		foreach my $deepLinks ($clickable[0]->getElementsByTagName('deepLink')){
-			print $OUTFILE "<a
-			href='".$deepLinks->getFirstChild->getNodeValue."/index.html'>$title</a>\n";
+			print $OUTFILE "<a href='".$deepLinks->getFirstChild->getNodeValue."/index.html'>$title</a>\n";
 		}
 	}
 	else{
