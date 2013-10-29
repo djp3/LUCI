@@ -25,7 +25,6 @@ echo +++Transferring files to temp_html
 echo +++
 
 rsync -e ssh --progress -az -L --delete --delete-excluded --exclude="**.svn**" publish/ 'djp3@luci.ics.uci.edu:/home/djp3/temp_html/'
-#rsync -e ssh --progress -az -L --delete --delete-excluded --exclude="**.svn**" publish/ /Users/djp3/Sites
 
 echo +++
 echo +++Changing permissions
