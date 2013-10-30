@@ -1,0 +1,1506 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:atom="http://www.w3.org/2005/Atom" xml:lang="en-US" version="2.0">
+	<channel>
+		<itunes:new-feed-url>http://luci.ics.uci.edu/blog/?feed=podcast</itunes:new-feed-url>
+                <atom:link href="http://luci.ics.uci.edu/blog/index.xml" rel="self" type="application/rss+xml" />
+		<title>The Laboratory for Ubiquitous Computing and Interaction:LUCI Blog</title>
+		<!--<link>http://luci.ics.uci.edu/blog/</link>-->
+		<link>http://luci.ics.uci.edu/blog2</link>
+		<language>en-us</language>
+		<copyright>Copyright 2010</copyright>
+		<pubDate>Mon, 10 May 2010 09:45:55 -0800</pubDate>
+		<itunes:subtitle>LUCI::Informatics::Bren School of ICS::UCIrvine</itunes:subtitle>
+		<itunes:author>Laboratory for Ubiquitous Computing and Interaction</itunes:author>
+		<itunes:summary>LUCI is the Laboratory for Ubiquitous Computing and Interaction in the Department of Informatics in the Donald Bren School for Information and Computer Sciences at the University of California at Irvine (UCI)</itunes:summary>
+		<itunes:owner>
+			<itunes:name>Don Patterson</itunes:name>
+			<itunes:email>djp3@ics.uci.edu</itunes:email>
+		</itunes:owner>
+		<!--<itunes:image>http://luci.ics.uci.edu/blog/archives/logo300by300.jpg</itunes:image>-->
+               <itunes:image href="http://luci.ics.uci.edu/blog/archives/logo300by300.jpg" />
+               <!--<itunes:link rel="image" type="video/jpeg" href="http://luci.ics.uci.edu/blog/archives/logo300by300.jpg"></itunes:link>-->
+                <itunes:category text="Education">
+	             <itunes:category text="Higher Education" />
+	        </itunes:category>
+<itunes:category text="Technology">
+	<itunes:category text="Tech News" />
+	</itunes:category>
+				<description>LUCI is the Laboratory for Ubiquitous Computing and Interaction in the Department of Informatics in the Donald Bren School for Information and Computer Sciences at the University of California at Irvine (UCI)</description>
+		<lastBuildDate>Thu, 29 Apr 2010 12:03:01 -0800</lastBuildDate>
+		<generator>http://www.movabletype.org/?v=3.31</generator>
+		<docs>http://blogs.law.harvard.edu/tech/rss</docs> 
+                <itunes:explicit>no</itunes:explicit>
+
+					<item>
+				<title>Congratulations Dr. Ding!</title>
+				<itunes:author>LUCI</itunes:author>
+				<itunes:subtitle> Congratulations to Dr. Xianghua Ding who just turned in her Ph.D. thesis to the powers that be! Great Job Sharon!</itunes:subtitle>
+				<itunes:summary> Congratulations to Dr. Xianghua Ding who just turned in her Ph.D. thesis to the powers that be! Great Job Sharon!</itunes:summary>
+				
+				<guid>http://luci.ics.uci.edu/blog/archives/2010/04/congratulations_101.html</guid>
+				<pubDate>Thu, 29 Apr 2010 12:03:01 -0800</pubDate>
+				<link>http://luci.ics.uci.edu/blog/archives/2010/04/congratulations_101.html</link>
+				<description><![CDATA[<table>
+<tr>
+<td><img alt="IMG_0032.JPG" src="http://luci.ics.uci.edu/blog/archives/2010/04/29/IMG_0032.JPG" width="200" height="*" />
+</td>
+<td>
+<p>
+Congratulations to Dr. Xianghua Ding who just turned in her Ph.D. thesis to the powers that be!  Great Job Sharon!
+</p>
+</td>
+</tr>
+</table>
+]]></description>
+				<category>News:Regional</category>
+				
+			</item>
+					<item>
+				<title>Documenting Observations of Daily Living for Chronic Health Conditions</title>
+				<itunes:author>LUCI</itunes:author>
+				<itunes:subtitle> Prof. Gillian Hayes recently gave a talk at Microsoft Research. The abstract is below and a video of the talk is available here Documenting</itunes:subtitle>
+				<itunes:summary> Prof. Gillian Hayes recently gave a talk at Microsoft Research. The abstract is below and a video of the talk is available here Documenting Observations of Daily Living for Chronic Health Conditions - Microsoft Research &quot;Improvements in modern healthcare have allowed many formerly fatal conditions to become survivable but chronic. At the same time, new technologies enable the movement of care away from clinics and into homes and schools. In this talk, I will use my research in technologies for chronic care across in two domains, autism and premature infancy, to illustrate how ubiquitous and collaborative computing systems and applications may enable new forms of patient care and empowerment. In particular, I will describe a vision for using Observations of Daily Living (ODLs) to diagnose and monitor the health of children both in the short-term and over a lifetime. The combination of remote sensing and record-keeping technologies with the infrastructure of Personal Health Records (PHR) and Electronic Medical Records (EMR) has the potentially to improve health outcomes for children with chronic conditions. At the same time, these new technologies raise questions about the collection of data in terms of both usability and usefulness of these systems as well as</itunes:summary>
+				
+				<guid>http://luci.ics.uci.edu/blog/archives/2010/04/documenting_obs_1.html</guid>
+				<pubDate>Thu, 29 Apr 2010 09:07:10 -0800</pubDate>
+				<link>http://luci.ics.uci.edu/blog/archives/2010/04/documenting_obs_1.html</link>
+				<description><![CDATA[<table>
+<tr>
+<td>
+<img alt="QuickTime%20PlayerScreenSnapz001.png" src="http://luci.ics.uci.edu/blog/archives/2010/04/29/QuickTime%20PlayerScreenSnapz001.png" width="300" height="*" />
+</td>
+<td>
+<p>Prof. Gillian Hayes recently gave a talk at Microsoft Research.  The abstract is below and a video of the talk is available <a href="http://research.microsoft.com/apps/video/default.aspx?id=121512">here</a>
+</p>
+<p>
+<a title="Documenting Observations of Daily Living for Chronic Health Conditions - Microsoft Research" href="http://research.microsoft.com/apps/video/default.aspx?id=121512">Documenting Observations of Daily Living for Chronic Health Conditions - Microsoft Research</a>
+</p>
+<p class="quote">
+"Improvements in modern healthcare have allowed many formerly fatal conditions to become survivable but chronic. At the same time, new technologies enable the movement of care away from clinics and into homes and schools. In this talk, I will use my research in technologies for chronic care across in two domains, autism and premature infancy, to illustrate how ubiquitous and collaborative computing systems and applications may enable new forms of patient care and empowerment. In particular, I will describe a vision for using Observations of Daily Living (ODLs) to diagnose and monitor the health of children both in the short-term and over a lifetime. The combination of remote sensing and record-keeping technologies with the infrastructure of Personal Health Records (PHR) and Electronic Medical Records (EMR) has the potentially to improve health outcomes for children with chronic conditions. At the same time, these new technologies raise questions about the collection of data in terms of both usability and usefulness of these systems as well as concerns around information privacy and surveillance."
+</p>
+
+</td>
+</tr>
+</table>]]></description>
+				<category>Video Rebroadcast</category>
+				
+			</item>
+					<item>
+				<title>Congratulations Lilly! (Fulbright Scholarship)</title>
+				<itunes:author>LUCI</itunes:author>
+				<itunes:subtitle> Congratulations to Informatics graduate student Lilly Irani on receiving a Fulbright Scholarship for her research in India on transnational technological design practice. The Fulbright</itunes:subtitle>
+				<itunes:summary> Congratulations to Informatics graduate student Lilly Irani on receiving a Fulbright Scholarship for her research in India on transnational technological design practice. The Fulbright award is given from money appropriated by the U.S. Congress and awarded by a 12 member, presidentially appointed board. More on the program can be found here.</itunes:summary>
+				
+				<guid>http://luci.ics.uci.edu/blog/archives/2010/04/congratulations_100.html</guid>
+				<pubDate>Wed, 21 Apr 2010 10:38:27 -0800</pubDate>
+				<link>http://luci.ics.uci.edu/blog/archives/2010/04/congratulations_100.html</link>
+				<description><![CDATA[<table>
+<tr>
+<td>
+<img alt="FirefoxScreenSnapz001.png" src="http://luci.ics.uci.edu/blog/archives/2010/04/21/FirefoxScreenSnapz001.png" width="178" height="64" />
+</td>
+<td>
+<p>Congratulations to Informatics graduate student Lilly Irani on receiving a Fulbright Scholarship for her research in India on transnational technological design practice.  The Fulbright award is given from money appropriated by the U.S. Congress and awarded by a 12 member, presidentially appointed board.</p>
+<p>More on the program can be found <a href="http://www.cies.org/us_scholars/us_awards/">here</a>.</p>
+</td>
+</tr>
+</table>]]></description>
+				<category>News:World</category>
+				
+			</item>
+					<item>
+				<title>BetterCarbon</title>
+				<itunes:author>LUCI</itunes:author>
+				<itunes:subtitle> Be on the lookout for a UCI press release on Joel Ross (Informatics grad student) and Prof. Bill Tomlinson&apos;s project BetterCarbon. They are slated</itunes:subtitle>
+				<itunes:summary> Be on the lookout for a UCI press release on Joel Ross (Informatics grad student) and Prof. Bill Tomlinson&apos;s project BetterCarbon. They are slated to be the UCI flavor of the day soon.... As a side note: everyone involved is very happy to perpetuate the image of grad student sitting in the dark, living by the glow of the LCD. Since that is what it looks like to be in Southern California after all...</itunes:summary>
+				
+				<guid>http://luci.ics.uci.edu/blog/archives/2010/04/bettercarbon.html</guid>
+				<pubDate>Tue, 13 Apr 2010 12:38:17 -0800</pubDate>
+				<link>http://luci.ics.uci.edu/blog/archives/2010/04/bettercarbon.html</link>
+				<description><![CDATA[<table>
+<tr>
+<td><img alt="carbon.jpg" src="http://luci.ics.uci.edu/blog/archives/2010/03/24/carbon.jpg" width="472" height="315" />
+</td>
+<td>
+<p>Be on the lookout for a UCI press release on Joel Ross (Informatics grad student) and Prof. Bill Tomlinson's project <a href="http://bettercarbon.com/">BetterCarbon</a>.  They are slated to be the UCI flavor of the day soon....</p>
+<p>As a side note: everyone involved is very happy to perpetuate the image of grad student sitting in the dark, living by the glow of the LCD.  Since that is what it looks like to be in Southern California after all...
+</p>
+</td>
+</tr>
+</table>]]></description>
+				<category>News: Local</category>
+				
+			</item>
+					<item>
+				<title>Lilly talks Turk at the Commonwealth Club Panel</title>
+				<itunes:author>LUCI</itunes:author>
+				<itunes:subtitle> Our own Lilly Irani, Informatics graduate student spoke on March 3 at a Commonwealth Club panel in San Fancisco. The panel brought together people</itunes:subtitle>
+				<itunes:summary> Our own Lilly Irani, Informatics graduate student spoke on March 3 at a Commonwealth Club panel in San Fancisco. The panel brought together people from business, NGOs, and research to discuss the ethics and possibilities of crowdsourcing platforms such as Mechanical Turk, Crowdflower, and Samasource.</itunes:summary>
+				
+				<guid>http://luci.ics.uci.edu/blog/archives/2010/03/lilly_talks_tur.html</guid>
+				<pubDate>Tue, 30 Mar 2010 17:34:31 -0800</pubDate>
+				<link>http://luci.ics.uci.edu/blog/archives/2010/03/lilly_talks_tur.html</link>
+				<description><![CDATA[<table>
+<tr>
+<td>
+<object width="480" height="295"><param name="movie" value="http://www.youtube.com/v/lxyUaWSblaA&hl=en_US&fs=1&rel=0"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/lxyUaWSblaA&hl=en_US&fs=1&rel=0" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="480" height="295"></embed></object>
+</p>
+</td>
+<td>
+<p>Our own Lilly Irani, Informatics graduate student spoke on March 3 at a Commonwealth Club panel in San Fancisco.  The panel brought together people from business, NGOs, and research to discuss the ethics and possibilities of crowdsourcing platforms such as Mechanical Turk, Crowdflower, and Samasource. 
+</p>
+</td>
+</tr>
+</table>]]></description>
+				<category>Video Rebroadcast</category>
+				
+			</item>
+					<item>
+				<title>Aliso Beach Photos</title>
+				<itunes:author>LUCI</itunes:author>
+				<itunes:subtitle> Everyone from LUCI who could make it. Ben sent out his photos from Friday&apos;s dinner on the beach for prospective grad students to the</itunes:subtitle>
+				<itunes:summary> Everyone from LUCI who could make it. Ben sent out his photos from Friday&apos;s dinner on the beach for prospective grad students to the Informatics Department. It was beautiful weather, great Mexican food, and a fun time to chat with everyone and their significant others. Thanks to Melissa Mazmanian, Jim Jones and everyone else who pitched in a hand to help make it happen! Slideshow here</itunes:summary>
+				
+				<guid>http://luci.ics.uci.edu/blog/archives/2010/03/aliso_beach_pho.html</guid>
+				<pubDate>Mon, 22 Mar 2010 16:27:12 -0800</pubDate>
+				<link>http://luci.ics.uci.edu/blog/archives/2010/03/aliso_beach_pho.html</link>
+				<description><![CDATA[<table>
+<tr>
+<td>
+<img alt="iPhotoScreenSnapz004.png" src="http://luci.ics.uci.edu/blog/archives/2010/03/22/iPhotoScreenSnapz004.png" width="400" height="504" /><br/>
+Everyone from LUCI who could make it.
+</td>
+<td>
+<p>Ben sent out his photos from Friday's dinner on the beach for prospective grad students to the Informatics Department.  It was beautiful weather, great Mexican food, and a fun time to chat with everyone and their significant others.  Thanks to Melissa Mazmanian, Jim Jones and everyone else who pitched in a hand to help make it happen!</p>
+<p>Slideshow <a href="http://cmd.shutterfly.com/commands/pictures/slideshow?site=ddjjpp33&amp;page=ddjjpp33&amp;album=28">here</a></p>
+</td>
+</tr>
+</table>
+]]></description>
+				<category>Just for fun</category>
+				
+			</item>
+					<item>
+				<title>storygarden</title>
+				<itunes:author>LUCI</itunes:author>
+				<itunes:subtitle> This website seems like something that our lab would create or use in the course of our research &quot;StoryGarden is a web-based tool for</itunes:subtitle>
+				<itunes:summary> This website seems like something that our lab would create or use in the course of our research &quot;StoryGarden is a web-based tool for gathering and analyzing a large number of stories contributed by the public. The content of the stories, along with some associated survey questions, are processed in an automated semantic computing process for an immediate, interactive display for the lay public, and in a more thorough manual process for expert analysis. More from:storygarden |</itunes:summary>
+				
+				<guid>http://luci.ics.uci.edu/blog/archives/2010/03/storygarden.html</guid>
+				<pubDate>Tue, 16 Mar 2010 13:00:47 -0800</pubDate>
+				<link>http://luci.ics.uci.edu/blog/archives/2010/03/storygarden.html</link>
+				<description><![CDATA[<table>
+<tr>
+<td>
+<img src="http://www.storygarden.ca/sites/default/files/Thought_baloons2.jpg" alt="storygarden"/>
+</td>
+<td>
+<p>This website seems like something that our lab would create or use in the course of our research</p>
+<p class="quote">
+"StoryGarden is a web-based tool for gathering and analyzing a large number of stories contributed by the public. The content of the stories, along with some associated survey questions, are processed in an automated semantic computing process for an immediate, interactive display for the lay public, and in a more thorough manual process for expert analysis.
+</p>
+<p>More from:<a title="storygarden |" href="http://www.storygarden.ca/">storygarden |</a>
+</p>
+</td>
+</tr>
+</table>]]></description>
+				<category>Creative Expression</category>
+				
+			</item>
+					<item>
+				<title>Greening through IT</title>
+				<itunes:author>LUCI</itunes:author>
+				<itunes:subtitle> Bill&apos;s book is out. From:Calit2@UCI: &quot;Calit2 academic affiliate Bill Tomlinson, and his new book, &quot;Greening through IT: Information Technology for Environmental Sustainability,&quot; were featured</itunes:subtitle>
+				<itunes:summary> Bill&apos;s book is out. From:Calit2@UCI: &quot;Calit2 academic affiliate Bill Tomlinson, and his new book, &quot;Greening through IT: Information Technology for Environmental Sustainability,&quot; were featured this week on “Tech Therapy,” a popular podcast produced by the Chronicle for Higher Education. &quot; From Amazon: &quot;Environmental issues often span long periods of time, far-flung areas, and labyrinthine layers of complexity. In Greening through IT, Bill Tomlinson investigates how the tools and techniques of information technology (IT) can help us tackle environmental problems at such vast scales. Tomlinson describes theoretical, technological, and social aspects of a growing interdisciplinary approach to sustainability, &quot;Green IT,&quot; offering both a human-centered framework for understanding Green IT systems and specific examples and case studies of Green IT in action.&quot;</itunes:summary>
+				
+				<guid>http://luci.ics.uci.edu/blog/archives/2010/03/greening_throug.html</guid>
+				<pubDate>Fri, 12 Mar 2010 21:49:54 -0800</pubDate>
+				<link>http://luci.ics.uci.edu/blog/archives/2010/03/greening_throug.html</link>
+				<description><![CDATA[<table>
+<tr>
+<td>
+<img src="http://ecx.images-amazon.com/images/I/41PetXfdiTL._SL500_AA240_.jpg" alt="Greening through IT"/>
+</td>
+<td>
+<p>Bill's book is out.  From:<a title="Calit2@UCI" href="http://www.calit2.uci.edu/calit2-newsroom/itemdetail.aspx?cguid=589ab45a-b25f-44a6-b477-69e2f96232e6">Calit2@UCI</a>:
+</p>
+<p class="quote">
+"Calit2 academic affiliate Bill Tomlinson, and his new book, "Greening through IT: Information Technology for Environmental Sustainability," were featured this week on “Tech Therapy,” a popular podcast produced by the Chronicle for Higher Education. "
+</p>
+<p>From <a href="http://www.amazon.com/Greening-through-Information-Environmental-Sustainability/dp/0262013932/ref=sr_1_1?ie=UTF8&amp;s=books&amp;qid=1268459236&amp;sr=8-1">Amazon</a>:</p>
+<p class="quote">
+"Environmental issues often span long periods of time, far-flung areas, and labyrinthine layers of complexity. In Greening through IT, Bill Tomlinson investigates how the tools and techniques of information technology (IT) can help us tackle environmental problems at such vast scales. Tomlinson describes theoretical, technological, and social aspects of a growing interdisciplinary approach to sustainability, "Green IT," offering both a human-centered framework for understanding Green IT systems and specific examples and case studies of Green IT in action."
+</p>
+</td>
+</tr>
+</table>]]></description>
+				<category>News:World</category>
+				
+			</item>
+					<item>
+				<title>Improving care for low-birth-weight infants</title>
+				<itunes:author>LUCI</itunes:author>
+				<itunes:subtitle> Woot! Gillian is the flavor of the day! &quot;Researchers at UC Irvine and the Charles Drew University of Medicine &amp; Science (CDU) will monitor</itunes:subtitle>
+				<itunes:summary> Woot! Gillian is the flavor of the day! &quot;Researchers at UC Irvine and the Charles Drew University of Medicine &amp; Science (CDU) will monitor the day-to-day health of low-birth-weight babies and their parents as part of a comprehensive initiative designed to combat chronic illnesses associated with low-weight births. Gillian Hayes, UCI informatics professor, and Karen Cheng, CDU psychiatry &amp; human behavior professor, were awarded a $480,000 grant from the Robert Wood Johnson Foundation (RWJF) to explore how recorded observations of daily living (ODLs) can be used to improve clinical care for low-weight babies.&quot; More from: UC Irvine News Release: Improving care for low-birth-weight infants :: UC Irvine TODAY</itunes:summary>
+				
+				<guid>http://luci.ics.uci.edu/blog/archives/2010/03/improving_care.html</guid>
+				<pubDate>Wed, 10 Mar 2010 13:35:19 -0800</pubDate>
+				<link>http://luci.ics.uci.edu/blog/archives/2010/03/improving_care.html</link>
+				<description><![CDATA[<table>
+<tr>
+<td>
+<img src="http://today.uci.edu/news/2010/03/images/Autismteach_090831_01_c228x152.jpg" alt="Gillian R. Hayes"/>
+</td>
+<td>
+<p>Woot!  Gillian is the flavor of the day!</p>
+<p class="quote">
+"Researchers at UC Irvine and the Charles Drew University of Medicine & Science (CDU) will monitor the day-to-day health of low-birth-weight babies and their parents as part of a comprehensive initiative designed to combat chronic illnesses associated with low-weight births.
+</p>
+<p class="quote">
+Gillian Hayes, UCI informatics professor, and Karen Cheng, CDU psychiatry & human behavior professor, were awarded a $480,000 grant from the Robert Wood Johnson Foundation (RWJF) to explore how recorded observations of daily living (ODLs) can be used to improve clinical care for low-weight babies."
+</p>
+<p>More from: <a title="UC Irvine News Release: Improving care for low-birth-weight infants :: UC Irvine TODAY" href="http://today.uci.edu/news/2010/03/nr_RDFAutism_100304.php">UC Irvine News Release: Improving care for low-birth-weight infants :: UC Irvine TODAY</a>
+</p>
+</td>
+</tr>
+</table>]]></description>
+				<category>News:Regional</category>
+				
+			</item>
+					<item>
+				<title>Provocative Counter Thinking About the Digital Native</title>
+				<itunes:author>LUCI</itunes:author>
+				<itunes:subtitle> Photo courtesy of @superamit The Economist posted an article challenging the current memes about &quot;Digital Natives&quot;. I appreciated their healthy dose of skepticism. &quot;There</itunes:subtitle>
+				<itunes:summary> Photo courtesy of @superamit The Economist posted an article challenging the current memes about &quot;Digital Natives&quot;. I appreciated their healthy dose of skepticism. &quot;There is also a feeling of superficiality about much online youth activism. Any teenager can choose to join a Facebook group supporting the opposition in Iran or the liberation of Tibet, but such engagement is likely to be shallow. A recent study by the Pew Research Center, an American think-tank, found that internet users aged 18-24 were the least likely of all age groups to e-mail a public official or make an online political donation. But when it came to using the web to share political news or join political causes on social networks, they were far ahead of everyone else. Rather than genuinely being more politically engaged, they may simply wish to broadcast their activism to their peers. As with the idea that digital natives learn and work in new ways, there may be less going on here than meets the eye. &quot; Monitor: The net generation, unplugged | The Economist</itunes:summary>
+				
+				<guid>http://luci.ics.uci.edu/blog/archives/2010/03/provocative_cou.html</guid>
+				<pubDate>Mon, 08 Mar 2010 11:01:33 -0800</pubDate>
+				<link>http://luci.ics.uci.edu/blog/archives/2010/03/provocative_cou.html</link>
+				<description><![CDATA[<table>
+<tr>
+<td>
+<img src="http://farm3.static.flickr.com/2378/1970458177_0af56eed07_m.jpg" alt="cyber cafe"/>
+<br/>Photo courtesy of <a href="http://www.flickr.com/photos/superamit/1970458177/">@superamit</a>
+</td>
+<td>
+<p>
+The Economist posted an article challenging the current memes about "Digital Natives".  I appreciated their healthy dose of skepticism.
+</p>
+<p class="quote">
+"There is also a feeling of superficiality about much online youth activism. Any teenager can choose to join a Facebook group supporting the opposition in Iran or the liberation of Tibet, but such engagement is likely to be shallow. A recent study by the Pew Research Center, an American think-tank, found that internet users aged 18-24 were the least likely of all age groups to e-mail a public official or make an online political donation. But when it came to using the web to share political news or join political causes on social networks, they were far ahead of everyone else. Rather than genuinely being more politically engaged, they may simply wish to broadcast their activism to their peers. As with the idea that digital natives learn and work in new ways, there may be less going on here than meets the eye. "
+</p>
+
+<a title="Monitor: The net generation, unplugged | The Economist" href="http://www.economist.com/science-technology/technology-quarterly/displaystory.cfm?story_id=15582279&fsrc=rss">Monitor: The net generation, unplugged | The Economist</a>
+</td>
+</tr>
+</table>]]></description>
+				<category>News:World</category>
+				
+			</item>
+					<item>
+				<title>UBICOMP vs Augmented Reality</title>
+				<itunes:author>LUCI</itunes:author>
+				<itunes:subtitle> Bo Begole presents a nice discussion of the wide variety of terms used in the field of computing today. In particular he dissects the</itunes:subtitle>
+				<itunes:summary> Bo Begole presents a nice discussion of the wide variety of terms used in the field of computing today. In particular he dissects the differences between UBICOMP and AR &quot;# AR depends on machine perception technologies to detect the identity and physical configuration of objects relative to each other. It aims to project information alongside a physical object. # Ubicomp does not necessarily require that the information be displayed alongside one’s perception of the real-world items. Ubicomp uses machine perception to incorporate inputs that are not necessarily explicitly entered by human operators — such as physical states of motion (running, walking, driving, or riding?), attentional demands of the situation (driving in traffic or sitting on a train?), other people’s attributes (roles, demographics, or psychographics), and more. It further encompasses electronic information about things outside of one’s physical environment, perhaps adapting the presentation based on the attentional (driving in heavy traffic) and physical (arms full) demands of the user. Read the entire discussion at the PARC blog</itunes:summary>
+				
+				<guid>http://luci.ics.uci.edu/blog/archives/2010/03/ubicomp_vs_augm.html</guid>
+				<pubDate>Thu, 04 Mar 2010 09:06:23 -0800</pubDate>
+				<link>http://luci.ics.uci.edu/blog/archives/2010/03/ubicomp_vs_augm.html</link>
+				<description><![CDATA[<table>
+<tr>
+<td>
+<img src="http://blogs.parc.com/files/2010/03/ubicomp_venn-300x300.jpg" alt="ubicomp"/>
+</td>
+<td>
+<p>Bo Begole presents a nice discussion of the wide variety of terms used in the field of computing today.  In particular he dissects the differences between UBICOMP and AR</p>
+<p class="quote">
+"# AR depends on machine perception technologies to detect the identity and physical configuration of objects relative to each other. It aims to project information alongside a physical object.<br/><br/>
+
+# Ubicomp does not necessarily require that the information be displayed alongside one’s perception of the real-world items. Ubicomp uses machine perception to incorporate inputs that are not necessarily explicitly entered by human operators — such as physical states of motion (running, walking, driving, or riding?), attentional demands of the situation (driving in traffic or sitting on a train?), other people’s attributes (roles, demographics, or psychographics), and more. It further encompasses electronic information about things outside of one’s physical environment, perhaps adapting the presentation based on the attentional (driving in heavy traffic) and physical (arms full) demands of the user.
+</p>
+<p>
+Read the entire discussion at the <a title="Defining ubiquitous computing vs. augmented reality - PARC blog" href="http://blogs.parc.com/blog/2010/03/defining-ubiquitous-computing-vs-augmented-reality/">PARC blog</a>
+</p>
+</td>
+</tr>
+</table>
+]]></description>
+				<category>Commentary</category>
+				
+			</item>
+					<item>
+				<title>Congratulations Nithya! (Advancement to Candidacy)</title>
+				<itunes:author>LUCI</itunes:author>
+				<itunes:subtitle> Congratulations to Informatics Ph.D. Student Nithya Sambasivan for passing her advancement to candidacy exam! Intermediated Technology Use in Developing Communities Abstract: We describe a</itunes:subtitle>
+				<itunes:summary> Congratulations to Informatics Ph.D. Student Nithya Sambasivan for passing her advancement to candidacy exam! Intermediated Technology Use in Developing Communities Abstract: We describe a prevalent mode of information access in low-income communities of the developing world — intermediated interactions. They enable persons for whom technology is inaccessible due to non-literacy, lack of technology-operation skills, financial constraints and so on, to benefit from technologies through digitally skilled users — thus, expanding the reach of technologies. Reporting the results of our ethnography in two urban slums of Bangalore, India, we present three distinct intermediated interactions: inputting intent into the device in proximate enabling, interpretation of device output in proximate translation, and both input of intent and interpretation of output in surrogate usage. We present some requirements and challenges in interface design of these interactions and explain how they are different from direct interactions. We then explain the broader effects of these interactions on low-income communities, and present some implications for design. Committee: Bonnie Nardi (chair), Ed Cutrell (Microsoft), Bill Maurer, Donald Patterson, Alladi Venkatesh</itunes:summary>
+				
+				<guid>http://luci.ics.uci.edu/blog/archives/2010/03/congratulations_99.html</guid>
+				<pubDate>Wed, 03 Mar 2010 10:34:37 -0800</pubDate>
+				<link>http://luci.ics.uci.edu/blog/archives/2010/03/congratulations_99.html</link>
+				<description><![CDATA[<table>
+<tr>
+<td>
+<img alt="nithya.png" src="http://luci.ics.uci.edu/blog/archives/2010/03/03/nithya.png" width="300" height="*" />
+
+</td>
+<td>
+<p>
+Congratulations to Informatics Ph.D. Student Nithya Sambasivan for passing her advancement to candidacy exam!
+</p>
+<p>
+Intermediated Technology Use in Developing Communities
+</p>
+<p>
+Abstract: We describe a prevalent mode of information access in low-income communities of the developing world — 
+intermediated interactions. They enable persons for whom 
+technology is inaccessible due to non-literacy, lack of 
+technology-operation skills, financial constraints and so on, to 
+benefit from technologies through digitally skilled users — 
+thus, expanding the reach of technologies. Reporting the 
+results of our ethnography in two urban slums of Bangalore, 
+India, we present three distinct intermediated interactions: 
+inputting intent into the device in proximate enabling, 
+interpretation of device output in proximate translation, and 
+both input of intent and interpretation of output in surrogate 
+usage. We present some requirements and challenges in 
+interface design of these interactions and explain how they are 
+different from direct interactions. We then explain the broader 
+effects of these interactions on low-income communities, and 
+present some implications for design.
+</p>
+<p>
+Committee: Bonnie Nardi (chair), Ed Cutrell (Microsoft), Bill Maurer, Donald Patterson, Alladi Venkatesh</p>
+</td>
+</tr>
+</table>]]></description>
+				<category>News: Local</category>
+				
+			</item>
+					<item>
+				<title>Congratulations Monica! (IEEE Intelligent Systems paper)</title>
+				<itunes:author>LUCI</itunes:author>
+				<itunes:subtitle> Photo courtesy of paulworthington Congratulations to Informatics Post-Doc Monica Tentori on having her paper, &apos;An agent-based middleware for the design of activity-aware applications&apos; accepted</itunes:subtitle>
+				<itunes:summary> Photo courtesy of paulworthington Congratulations to Informatics Post-Doc Monica Tentori on having her paper, &apos;An agent-based middleware for the design of activity-aware applications&apos; accepted to IEEE Intelligent Systems.</itunes:summary>
+				
+				<guid>http://luci.ics.uci.edu/blog/archives/2010/03/congratulations_98.html</guid>
+				<pubDate>Tue, 02 Mar 2010 11:16:57 -0800</pubDate>
+				<link>http://luci.ics.uci.edu/blog/archives/2010/03/congratulations_98.html</link>
+				<description><![CDATA[<table>
+<tr>
+<td>
+<img src='http://luci.ics.uci.edu/blog/archives/penAndPaper.jpg' width='240' height='*' alt='picture photo'/><br/>
+Photo courtesy of <a href=\'http://www.flickr.com/photos/paulworthington/82648953/\'>paulworthington</a>
+</td>
+<td>
+<p>
+Congratulations to Informatics Post-Doc Monica Tentori on having her paper,
+<b>'An agent-based middleware for the design of activity-aware applications'</b> accepted to IEEE Intelligent Systems.
+</p>
+</td>
+</tr>
+</table>
+]]></description>
+				<category>News:World</category>
+				
+			</item>
+					<item>
+				<title>Congratulations Monica! (Pervasive Health 2010 paper)</title>
+				<itunes:author>LUCI</itunes:author>
+				<itunes:subtitle> Photo courtesy of paulworthington Congratulations to Informatics Post-Doc Monica Tentori on having her paper, &apos;Artifacts’ Roaming Beats Recognition for the Estimation of Care Activities</itunes:subtitle>
+				<itunes:summary> Photo courtesy of paulworthington Congratulations to Informatics Post-Doc Monica Tentori on having her paper, &apos;Artifacts’ Roaming Beats Recognition for the Estimation of Care Activities in a Nursing Home&apos; accepted to Pervasive Health 2010.</itunes:summary>
+				
+				<guid>http://luci.ics.uci.edu/blog/archives/2010/03/congratulations_97.html</guid>
+				<pubDate>Tue, 02 Mar 2010 11:16:13 -0800</pubDate>
+				<link>http://luci.ics.uci.edu/blog/archives/2010/03/congratulations_97.html</link>
+				<description><![CDATA[<table>
+<tr>
+<td>
+<img src='http://luci.ics.uci.edu/blog/archives/penAndPaper.jpg' width='240' height='*' alt='picture photo'/><br/>
+Photo courtesy of <a href=\'http://www.flickr.com/photos/paulworthington/82648953/\'>paulworthington</a>
+</td>
+<td>
+<p>
+Congratulations to Informatics Post-Doc Monica Tentori on having her paper,
+<b>'Artifacts’ Roaming Beats Recognition for the Estimation of Care Activities in a Nursing Home'</b> accepted to Pervasive Health 2010.
+</p>
+</td>
+</tr>
+</table>
+]]></description>
+				<category>News:World</category>
+				
+			</item>
+					<item>
+				<title>Plasma is the new tag cloud</title>
+				<itunes:author>LUCI</itunes:author>
+				<itunes:subtitle> Plasma is a cool new way to do animated tag clouds. It&apos;s being applied as a way to get a snap shot of AIDS</itunes:subtitle>
+				<itunes:summary> Plasma is a cool new way to do animated tag clouds. It&apos;s being applied as a way to get a snap shot of AIDS research. &quot;Plasma is an interactive network of links and tags that belongs to a on-going research on aids, from an integral and holistic point of view.&quot;</itunes:summary>
+				
+				<guid>http://luci.ics.uci.edu/blog/archives/2010/03/plasma_is_the_n_1.html</guid>
+				<pubDate>Tue, 02 Mar 2010 09:33:51 -0800</pubDate>
+				<link>http://luci.ics.uci.edu/blog/archives/2010/03/plasma_is_the_n_1.html</link>
+				<description><![CDATA[<table>
+<tr>
+<td>
+<img alt="visualization.png" src="http://luci.ics.uci.edu/blog/archives/2010/03/02/visualization.png" width="400" height="258" />
+</td>
+<td>
+<p><a title="" href="http://moebio.com/plasma/">Plasma</a> is a cool new way to do animated tag clouds.  It's being applied as a way to get a snap shot of AIDS research.
+</p>
+<p class="quote">
+"Plasma is an interactive network of links and tags that belongs to a on-going research on aids, from an integral and holistic point of view."
+</p>
+</td>
+</tr>
+</table>
+
+
+]]></description>
+				<category>Creative Expression</category>
+				
+			</item>
+					<item>
+				<title>Congratulations Justin and Don! (UMAP 2010 paper)</title>
+				<itunes:author>LUCI</itunes:author>
+				<itunes:subtitle> Photo courtesy of paulworthington Congratulations to Informatics Master&apos;s Student Justin Tang and Informatics Faculty Member Don Patterson on having their paper, &apos;Twitter, Sensors and</itunes:subtitle>
+				<itunes:summary> Photo courtesy of paulworthington Congratulations to Informatics Master&apos;s Student Justin Tang and Informatics Faculty Member Don Patterson on having their paper, &apos;Twitter, Sensors and UI: Robust Context Modeling for Interruption Management &apos; accepted to UMAP 2010. Abstract: &quot;In this paper, we present the results of a two-month ﬁeld study of ﬁfteen people using a software tool designed to model changes in a user’s availability. The software uses status update messages, as well as sensors, to detect changes in context. When changes are identified using a novel Kullback-Leibler Divergence algorithm, users are prompted to broadcast their current contexts to their social networks. The user interface method by which the alert is delivered is evaluated in order to minimize the impact on the user’s work ﬂow. By carefully coupling both algorithms and user interfaces, interruptions made by the software tool can be made valuable to the user. &quot;</itunes:summary>
+				
+				<guid>http://luci.ics.uci.edu/blog/archives/2010/03/congratulations_96.html</guid>
+				<pubDate>Tue, 02 Mar 2010 08:39:31 -0800</pubDate>
+				<link>http://luci.ics.uci.edu/blog/archives/2010/03/congratulations_96.html</link>
+				<description><![CDATA[<table>
+<tr>
+<td>
+<img src='http://luci.ics.uci.edu/blog/archives/penAndPaper.jpg' width='240' height='*' alt='picture photo'/><br/>
+Photo courtesy of <a href=\'http://www.flickr.com/photos/paulworthington/82648953/\'>paulworthington</a>
+</td>
+<td>
+<p>
+Congratulations to Informatics Master's Student Justin Tang and Informatics Faculty Member Don Patterson on having their paper,
+<b>'Twitter, Sensors and UI: Robust Context  Modeling for Interruption Management '</b> accepted to UMAP 2010.
+</p>
+<p class="quote">
+Abstract: "In this paper, we present the results of a two-month ﬁeld study of ﬁfteen people using a software tool designed to model changes in a user’s availability. The software uses status update messages, as well as sensors, to detect changes in context. When changes are identified using a novel Kullback-Leibler Divergence algorithm, users are prompted to broadcast their current contexts to their social networks. The user interface method by which the alert is delivered is evaluated in order to minimize the impact on the user’s work ﬂow. By carefully coupling both algorithms and user interfaces, interruptions made by the software tool can be made valuable to the user. "
+</p>
+</td>
+</tr>
+</table>
+]]></description>
+				<category>News:World</category>
+				
+			</item>
+					<item>
+				<title>Puma introduces a Solar-Powered Phone</title>
+				<itunes:author>LUCI</itunes:author>
+				<itunes:subtitle> Puma is set to launch a solar-powered phone in a few days. The solar panel is integrated into the back of the phone. Rather</itunes:subtitle>
+				<itunes:summary> Puma is set to launch a solar-powered phone in a few days. The solar panel is integrated into the back of the phone. Rather than plugging it in at night, you have to leave it on the window sill during the day. The promotion page is here</itunes:summary>
+				
+				<guid>http://luci.ics.uci.edu/blog/archives/2010/02/puma_introduces.html</guid>
+				<pubDate>Wed, 24 Feb 2010 12:19:05 -0800</pubDate>
+				<link>http://luci.ics.uci.edu/blog/archives/2010/02/puma_introduces.html</link>
+				<description><![CDATA[<img alt="FirefoxScreenSnapz001.png" src="http://luci.ics.uci.edu/blog/archives/2010/02/24/FirefoxScreenSnapz001.png" width="260" height="226" /><br/>
+<p>Puma is set to launch a solar-powered phone in a few days.  The solar panel is integrated into the back of the phone.  Rather than plugging it in at night, you have to leave it on the window sill during the day.</p>
+<p>The promotion page is <a href="http://pumaphone.com/">here</a></p>]]></description>
+				<category>News:Gadget</category>
+				
+			</item>
+					<item>
+				<title>Science Reports on &quot;Limits of Predictability in Human Mobility&quot;</title>
+				<itunes:author>LUCI</itunes:author>
+				<itunes:subtitle> It is not often that a study like this makes it into a journal like Science &quot;A range of applications, from predicting the spread</itunes:subtitle>
+				<itunes:summary> It is not often that a study like this makes it into a journal like Science &quot;A range of applications, from predicting the spread of human and electronic viruses to city planning and resource management in mobile communications, depend on our ability to foresee the whereabouts and mobility of individuals, raising a fundamental question: To what degree is human behavior predictable? Here we explore the limits of predictability in human dynamics by studying the mobility patterns of anonymized mobile phone users. By measuring the entropy of each individual’s trajectory, we find a 93% potential predictability in user mobility across the whole user base. Despite the significant differences in the travel patterns, we find a remarkable lack of variability in predictability, which is largely independent of the distance users cover on a regular basis.&quot; The whole article is available here:Limits of Predictability in Human Mobility -- Song et al. 327 (5968): 1018 -- Science</itunes:summary>
+				
+				<guid>http://luci.ics.uci.edu/blog/archives/2010/02/science_reports.html</guid>
+				<pubDate>Wed, 24 Feb 2010 10:45:55 -0800</pubDate>
+				<link>http://luci.ics.uci.edu/blog/archives/2010/02/science_reports.html</link>
+				<description><![CDATA[<table>
+<tr>
+<td>
+<img alt="PreviewScreenSnapz001.png" src="http://luci.ics.uci.edu/blog/archives/2010/02/24/PreviewScreenSnapz001.png" width="448" height="235" />
+
+</td>
+<td>
+<p>It is not often that a study like this makes it into a journal like Science</p>
+<p class="quote">
+"A range of applications, from predicting the spread of human and electronic viruses to city planning and resource management in mobile communications, depend on our ability to foresee the whereabouts and mobility of individuals, raising a fundamental question: To what degree is human behavior predictable? Here we explore the limits of predictability in human dynamics by studying the mobility patterns of anonymized mobile phone users. By measuring the entropy of each individual’s trajectory, we find a 93% potential predictability in user mobility across the whole user base. Despite the significant differences in the travel patterns, we find a remarkable lack of variability in predictability, which is largely independent of the distance users cover on a regular basis."
+</p>
+<p>The whole article is available here:<a title="Limits of Predictability in Human Mobility -- Song et al. 327 (5968): 1018 -- Science" href="http://www.sciencemag.org/cgi/content/full/327/5968/1018">Limits of Predictability in Human Mobility -- Song et al. 327 (5968): 1018 -- Science</a>
+</p>
+</td>
+</tr>
+</table>]]></description>
+				<category>News:World</category>
+				
+			</item>
+					<item>
+				<title>Visualize your foursquare data</title>
+				<itunes:author>LUCI</itunes:author>
+				<itunes:subtitle> &quot;CheckoutCheckins allows you to create a heat map of your Foursquare checkins. Once you log-in to the map with your Foursquare account it uses</itunes:subtitle>
+				<itunes:summary> &quot;CheckoutCheckins allows you to create a heat map of your Foursquare checkins. Once you log-in to the map with your Foursquare account it uses the places you&apos;ve been to generate maps, charts, graphs, and stats. CheckoutCheckins plots your last 50 entries using Google Maps and overlays a heat map of your most recent activity. The site also produces pie charts that provide a graphic presentation of your most often visited locations. Google Maps Mania: Foursquare on Google Maps via Google Maps Mania</itunes:summary>
+				
+				<guid>http://luci.ics.uci.edu/blog/archives/2010/02/visualize_your.html</guid>
+				<pubDate>Tue, 23 Feb 2010 13:22:26 -0800</pubDate>
+				<link>http://luci.ics.uci.edu/blog/archives/2010/02/visualize_your.html</link>
+				<description><![CDATA[<table>
+<tr>
+<td>
+<img src="http://2.bp.blogspot.com/_0Q-vLFn_PCk/S4PID0Z9zDI/AAAAAAAAFXQ/gttlb95vbcU/s400/earth.jpg" alt="heatmap"/>
+</td>
+<td>
+<p class="quote">
+"CheckoutCheckins allows you to create a heat map of your Foursquare checkins. Once you log-in to the map with your Foursquare account it uses the places you've been to generate maps, charts, graphs, and stats.
+</p>
+<p class="quote">
+CheckoutCheckins plots your last 50 entries using Google Maps and overlays a heat map of your most recent activity. The site also produces pie charts that provide a graphic presentation of your most often visited locations.
+</p>
+<a title="Google Maps Mania: Foursquare on Google Maps" href="http://googlemapsmania.blogspot.com/2010/02/foursquare-on-google-maps.html?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A GoogleMapsMania %28Google Maps Mania%29">Google Maps Mania: Foursquare on Google Maps</a>
+</td>
+</tr>
+</table>
+<p>via <a href="http://googlemapsmania.blogspot.com/2010/02/foursquare-on-google-maps.html?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+GoogleMapsMania+%28Google+Maps+Mania%29">Google Maps Mania</a></p>
+]]></description>
+				<category>Creative Expression</category>
+				
+			</item>
+					<item>
+				<title>Erasing your digital footprint</title>
+				<itunes:author>LUCI</itunes:author>
+				<itunes:subtitle>Two sites that automate the process of removing yourself from the Internet Web 2.0 suicide machine: &quot;Tired of your Social Network? Liberate your newbie friends</itunes:subtitle>
+				<itunes:summary>Two sites that automate the process of removing yourself from the Internet Web 2.0 suicide machine: &quot;Tired of your Social Network? Liberate your newbie friends with a Web2.0 suicide! This machine lets you delete all your energy sucking social-networking profiles, kill your fake virtual friends, and completely do away with your Web2.0 alterego. The machine is just a metaphor for the website which moddr_ is hosting; the belly of the beast where the web2.0 suicide scripts are maintained. Our service currently runs with Facebook, Myspace, Twitter and LinkedIn! Commit NOW!&quot; seppukoo:&quot;You are more than your virtual identity «Virtual life» is an - often - abused term used to describe the whole of one person online activities. But as media communications let our second/online/offline identities overflowing into real life - and vice-versa - the distinctions between the real and the virtual are becoming, more and more confused. Which is virtual? And where&apos;s the real? Beyond all those questions only a fact remains: that our privacy, our profiles, our identities, our relationships, they are all - fake and/or real - entirely exploited for a sole purpose: to be sold as a product. But are those lives really worth to be experienced?&quot;</itunes:summary>
+				
+				<guid>http://luci.ics.uci.edu/blog/archives/2010/02/erasing_your_di.html</guid>
+				<pubDate>Wed, 17 Feb 2010 15:44:20 -0800</pubDate>
+				<link>http://luci.ics.uci.edu/blog/archives/2010/02/erasing_your_di.html</link>
+				<description><![CDATA[<p>Two sites that automate the process of removing yourself from the Internet</p>
+<p><a href="http://suicidemachine.org/">Web 2.0 suicide machine</a>: "Tired of your Social Network?<br/><br/>
+Liberate your newbie friends with a Web2.0 suicide! This machine lets you delete all your energy sucking social-networking profiles, kill your fake virtual friends, and completely do away with your Web2.0 alterego. The machine is just a metaphor for the website which moddr_ is hosting; the belly of the beast where the web2.0 suicide scripts are maintained. Our service currently runs with Facebook, Myspace, Twitter and LinkedIn! Commit NOW!"</p>
+<p><a href="http://www.seppukoo.com/">seppukoo</a>:"You are more than your virtual identity<br/<br/>
+«Virtual life» is an - often - abused term used to describe the whole of one person online activities. But as media communications let our second/online/offline identities overflowing into real life - and vice-versa - the distinctions between the real and the virtual are becoming, more and more confused. Which is virtual? And where's the real? Beyond all those questions only a fact remains: that our privacy, our profiles, our identities, our relationships, they are all - fake and/or real - entirely exploited for a sole purpose: to be sold as a product. But are those lives really worth to be experienced?"</p>
+
+]]></description>
+				<category>News:World</category>
+				
+			</item>
+					<item>
+				<title>PleaseRobMe.com</title>
+				<itunes:author>LUCI</itunes:author>
+				<itunes:subtitle> &quot;More than a social statement than an actual utility for aspiring Colton Harris-Moore* copycats, a new site called Please Rob Me has popped up</itunes:subtitle>
+				<itunes:summary> &quot;More than a social statement than an actual utility for aspiring Colton Harris-Moore* copycats, a new site called Please Rob Me has popped up to expose the potential pratfalls of the geolocation craze: If you&apos;re pushing a &quot;check-in&quot; from Gowalla, Brightkite, or Foursquare to a local restaurant out to your public Twitter stream, you&apos;re broadcasting that you aren&apos;t home. Which could be taken to mean that your home is ripe for burglary.&quot; The dark side of geo: PleaseRobMe.com | The Social - CNET News</itunes:summary>
+				
+				<guid>http://luci.ics.uci.edu/blog/archives/2010/02/pleaserobmecom.html</guid>
+				<pubDate>Wed, 17 Feb 2010 11:56:59 -0800</pubDate>
+				<link>http://luci.ics.uci.edu/blog/archives/2010/02/pleaserobmecom.html</link>
+				<description><![CDATA[<p class="quote">
+"More than a social statement than an actual utility for aspiring Colton Harris-Moore* copycats, a new site called Please Rob Me has popped up to expose the potential pratfalls of the geolocation craze: If you're pushing a "check-in" from Gowalla, Brightkite, or Foursquare to a local restaurant out to your public Twitter stream, you're broadcasting that you aren't home. Which could be taken to mean that your home is ripe for burglary."
+</p>
+<p>
+<a title="The dark side of geo: PleaseRobMe.com | The Social - CNET News" href="http://news.cnet.com/8301-13577_3-10454981-36.html">The dark side of geo: PleaseRobMe.com | The Social - CNET News</a>
+</p>]]></description>
+				<category>Creative Expression</category>
+				
+			</item>
+					<item>
+				<title>CACM blog: Thinking Globally, Thinking Locally: Infrastructures for Collaboration</title>
+				<itunes:author>LUCI</itunes:author>
+				<itunes:subtitle> Photo courtesy of fernandopelillo &quot;Lilly studies infrastructures necessary to support design teams that operate out of India and work with clients who are also</itunes:subtitle>
+				<itunes:summary> Photo courtesy of fernandopelillo &quot;Lilly studies infrastructures necessary to support design teams that operate out of India and work with clients who are also in Europe and the United States. Lilly started with seven weeks of immersive fieldwork observing a Delhi-based design team. She lived in the homes of her participants and went to work with them daily. As a researcher, she mostly observed, but she also helped with small tasks around the office, shopping for office supplies and tools, and photographing and filming user research done by the firm. Something Lilly found in her initial fieldwork is that short digital films (e.g. posted on vimeo) can help in communicating with foreign design research clients. In the words of Lilly, “You can post films on vimeo and really engage someone 12,000 miles away in a way that you can&apos;t with a document or a phone call. If a picture is worth a 1000 words, a film is worth 10000 and it’s a lot more likely, if the film is good, that the intended viewer (the client) will watch it all the way through. &quot; Read the rest here: Thinking Globally, Thinking Locally: Infrastructures for Collaboration | Computers And Society</itunes:summary>
+				
+				<guid>http://luci.ics.uci.edu/blog/archives/2010/02/cacm_blog_think.html</guid>
+				<pubDate>Thu, 11 Feb 2010 14:14:04 -0800</pubDate>
+				<link>http://luci.ics.uci.edu/blog/archives/2010/02/cacm_blog_think.html</link>
+				<description><![CDATA[<table>
+<tr>
+<td>
+<img src ="http://farm4.static.flickr.com/3016/2296487076_67e0dea873_o.jpg" alt="Picture completely unrelated to Lilly's research"/><br/>
+Photo courtesy of <a href="http://www.flickr.com/photos/fernandopelillo/2296487076/">fernandopelillo</a>
+</td>
+<td>
+
+<p class="quote">"Lilly studies infrastructures necessary to support design teams that operate out of India and work with clients who are also in Europe and the United States. Lilly started with seven weeks of immersive fieldwork observing a Delhi-based design team. She lived in the homes of her participants and went to work with them daily.  As a researcher, she mostly observed, but she also helped with small tasks around the office, shopping for office supplies and tools, and photographing and filming user research done by the firm.  Something Lilly found in her initial fieldwork is that short digital films (e.g. posted on vimeo)  can help in communicating with foreign design research clients.  In the words of Lilly, “You can post films on vimeo and really engage someone 12,000 miles away in a way that you can't with a document or a phone call. If a picture is worth a 1000 words, a film is worth 10000 and it’s a lot more likely, if the film is good, that the intended viewer (the client) will watch it all the way through. "</p>
+<p>Read the rest here:
+<a title="Thinking Globally, Thinking Locally: Infrastructures for Collaboration | Computers And Society | Communications of the ACM" href="http://cacm.acm.org/browse-by-subject/computers-and-society/73324-thinking-globally-thinking-locally-infrastructures-for-collaboration/fulltext">Thinking Globally, Thinking Locally: Infrastructures for Collaboration | Computers And Society | Communications of the ACM</a>
+</p>
+</td>
+</tr>
+</table>]]></description>
+				<category>News:World</category>
+				
+			</item>
+					<item>
+				<title>Harnessing Hacking: Inspiring Girls to get Creative with Computing</title>
+				<itunes:author>LUCI</itunes:author>
+				<itunes:subtitle> by Gillian Hayes &quot;The term “hacking” has, over time, had many different interpretations. Most recently, it has been associated with an emerging movement of</itunes:subtitle>
+				<itunes:summary><![CDATA[ by Gillian Hayes "The term “hacking” has, over time, had many different interpretations. Most recently, it has been associated with an emerging movement of creative technological design celebrating ingenuity, appropriation, and repurposing, a blend of hardware and software design practices that adopt and adapt systems and components to new ends their originators might never have imagined." Read the rest at: NCWIT : News &amp; Events : Blog]]></itunes:summary>
+				
+				<guid>http://luci.ics.uci.edu/blog/archives/2010/02/harnessing_hack.html</guid>
+				<pubDate>Wed, 10 Feb 2010 10:09:35 -0800</pubDate>
+				<link>http://luci.ics.uci.edu/blog/archives/2010/02/harnessing_hack.html</link>
+				<description><![CDATA[<table>
+<tr>
+<td>
+<img src="http://www.ncwit.org/images/i/4436_girls1.png" alt="Girls Inc."/>
+</td>
+<td>
+<p>
+by Gillian Hayes
+</p>
+<p class="quote">
+"The term “hacking” has, over time, had many different interpretations. Most recently, it has been associated with an emerging movement of creative technological design celebrating ingenuity, appropriation, and repurposing, a blend of hardware and software design practices that adopt and adapt systems and components to new ends their originators might never have imagined."
+</p>
+<p>Read the rest at:
+<a title="NCWIT : News &amp; Events : Blog" href="http://ncwit.org/news.blog.php?action=display&editorial_id=524">NCWIT : News &amp; Events : Blog</a>
+</p>
+</td>
+</tr>
+</table>]]></description>
+				<category>Commentary</category>
+				
+			</item>
+					<item>
+				<title>Congratulations Gabi!</title>
+				<itunes:author>LUCI</itunes:author>
+				<itunes:subtitle> Congratulations to Gabriela Marcu who was awarded a Microsoft Graduate Women&apos;s scholarship. Thanks STAR</itunes:subtitle>
+				<itunes:summary> Congratulations to Gabriela Marcu who was awarded a Microsoft Graduate Women&apos;s scholarship. Thanks STAR</itunes:summary>
+				
+				<guid>http://luci.ics.uci.edu/blog/archives/2010/02/congratulations_95.html</guid>
+				<pubDate>Thu, 04 Feb 2010 21:18:41 -0800</pubDate>
+				<link>http://luci.ics.uci.edu/blog/archives/2010/02/congratulations_95.html</link>
+				<description><![CDATA[<table>
+<tr>
+<td>
+<img src="http://www.cs.cmu.edu/~gmarcu/About_files/shapeimage_1.png" alt="Gabriela Marcu"/>
+</td>
+<td>
+<p>
+Congratulations to <a href="http://www.cs.cmu.edu/~gmarcu/About.html">Gabriela Marcu</a> who was awarded a Microsoft Graduate Women's scholarship.</p>
+
+<p><i>Thanks <a title="STAR Alumna Gabi Marcu awarded Microsoft Graduate Women’s Scholarship :: STAR :: Social and Technological Action Research Group" href="http://www.star-uci.org/2010/02/03/star-alumna-gabi-marcu-awarded-microsoft-graduate-womens-scholarship/">STAR</a></i>
+</p>
+</td>
+</tr>
+</table>
+
+]]></description>
+				<category>News: Local</category>
+				
+			</item>
+					<item>
+				<title>Congratulations Sam and Judy! (CHI 2010—microblogging workshop paper)</title>
+				<itunes:author>LUCI</itunes:author>
+				<itunes:subtitle> Photo courtesy of HubSpot Congratulations to Samuel J. Kaufman, Judy Chen—Dept of Informatics on having their paper, &apos;Where We Twitter&apos; accepted to CHI 2010—microblogging</itunes:subtitle>
+				<itunes:summary> Photo courtesy of HubSpot Congratulations to Samuel J. Kaufman, Judy Chen—Dept of Informatics on having their paper, &apos;Where We Twitter&apos; accepted to CHI 2010—microblogging workshop. &quot;Users who enter new spaces, especially urban spaces, naturally explore. Increasingly, exploration is augmented by mobile, digital information systems such as mobile phone versions of Google Maps or Yelp. These system&apos;s provide statistics, logistical information, and service reviews written for a general audience, but do not typically inform the user about the personalities of space occupants (the character and culture of a space), recent happenings and other kinds of local knowledge. The system described herein hopes to do just that--provide a novel method for the &quot;colorful&quot; understanding of places, drawing from newly-available corpora of geotagged tweets.</itunes:summary>
+				
+				<guid>http://luci.ics.uci.edu/blog/archives/2010/02/congratulations_94.html</guid>
+				<pubDate>Tue, 02 Feb 2010 08:04:56 -0800</pubDate>
+				<link>http://luci.ics.uci.edu/blog/archives/2010/02/congratulations_94.html</link>
+				<description><![CDATA[<table>
+<tr>
+<td>
+<img src='http://farm4.static.flickr.com/3245/3111238226_722c72d9a1_m.jpg' width='240' height='*' alt='picture photo'/><br/>
+Photo courtesy of <a href=\"http://www.flickr.com/photos/hubspot/3111238226/\">HubSpot</a>
+</td>
+<td>
+<p>
+Congratulations to Samuel J. Kaufman, Judy Chen—Dept of Informatics on having their paper, <b>'Where We Twitter'</b> accepted to CHI 2010—microblogging workshop.
+</p>
+<p class="quote">
+"Users who enter new spaces, especially urban spaces, naturally explore. Increasingly, exploration is augmented by mobile, digital information systems such as mobile phone versions of Google Maps or Yelp. These system's provide statistics, logistical information, and service reviews written for a general audience, but do not typically inform the user about the personalities of space occupants (the character and culture of a space), recent happenings and other kinds of local knowledge. The system described herein hopes to do just that--provide a novel method for the "colorful" understanding of places, drawing from newly-available corpora of geotagged tweets.
+</p>
+
+</td>
+</tr>
+</table>
+]]></description>
+				<category>News:World</category>
+				
+			</item>
+					<item>
+				<title>Patterson profiled in UCI media</title>
+				<itunes:author>LUCI</itunes:author>
+				<itunes:subtitle> &quot;Social media is everywhere – Facebook, Twitter, YouTube, My Space, blogs. Making sense of this online networking universe is Donald Patterson, UC Irvine assistant</itunes:subtitle>
+				<itunes:summary> &quot;Social media is everywhere – Facebook, Twitter, YouTube, My Space, blogs. Making sense of this online networking universe is Donald Patterson, UC Irvine assistant professor of informatics.&quot; UC Irvine Feature: Social media</itunes:summary>
+				
+				<guid>http://luci.ics.uci.edu/blog/archives/2010/02/patterson_profi.html</guid>
+				<pubDate>Mon, 01 Feb 2010 17:03:12 -0800</pubDate>
+				<link>http://luci.ics.uci.edu/blog/archives/2010/02/patterson_profi.html</link>
+				<description><![CDATA[<table>
+<tr>
+<td>
+<img src="http://www.uci.edu/features/2010/02/images/socialmedia_100119_sz_a472x315.jpg" alt="freaky picture of don"/>
+</td>
+<td>
+<p class="quote">
+"Social media is everywhere – Facebook, Twitter, YouTube, My Space, blogs. Making sense of this online networking universe is Donald Patterson, UC Irvine assistant professor of informatics."
+</p>
+<a title="UC Irvine Feature: Social media" href="http://www.uci.edu/features/2010/02/feature_socialmedia_100201.php">UC Irvine Feature: Social media</a>
+</td>
+</tr>
+</table>
+
+]]></description>
+				<category>News: Local</category>
+				
+			</item>
+					<item>
+				<title>Engineers Race to Restore Communications after Haiti Quake</title>
+				<itunes:author>LUCI</itunes:author>
+				<itunes:subtitle> Photo courtesy of GAIN USA Below is an excerpt from an interesting article about the race to restore network connectivity in Haiti. A few</itunes:subtitle>
+				<itunes:summary> Photo courtesy of GAIN USA Below is an excerpt from an interesting article about the race to restore network connectivity in Haiti. A few interesting points: There is one undersea cable out of Haiti. Because of that ISPs were already using satellite. First responders brought network with them. The effort now is on expanding access to net to everyone. &quot;Late last week, the Geneva-based International Telecommunications Union dispatched engineers to assess the damage to telecom infrastructure along with 100 satellite terminals—and the personnel to operate them—in an effort to help coordinate rescue efforts. According to a press release, “ITU will also set up a Qualcomm Deployable Base Station (QDBS), a reliable, responsive and complete cellular system designed to enable vital wireless communications aimed at strengthening response and recovery mechanisms in a disaster zone.” Read more: IEEE Spectrum</itunes:summary>
+				
+				<guid>http://luci.ics.uci.edu/blog/archives/2010/01/engineers_race.html</guid>
+				<pubDate>Thu, 21 Jan 2010 09:14:26 -0800</pubDate>
+				<link>http://luci.ics.uci.edu/blog/archives/2010/01/engineers_race.html</link>
+				<description><![CDATA[<table>
+<tr>
+<td>
+<img src="http://farm3.static.flickr.com/2789/4292712713_f44965a5a2_m.jpg" alt="haiti earthquake photo"/><br/>Photo courtesy of <a href="http://www.flickr.com/photos/gainusa/4292712713/">GAIN USA</a>
+</td>
+<td>
+<p>Below is an excerpt from an interesting article about the race to restore network connectivity in Haiti.  A few interesting points: There is one undersea cable out of Haiti.  Because of that ISPs were already using satellite.  First responders brought network with them.  The effort now is on expanding access to net to everyone.
+</p>
+
+<p class="quote">
+"Late last week, the Geneva-based International Telecommunications Union dispatched engineers to assess the damage to telecom infrastructure along with 100 satellite terminals—and the personnel to operate them—in an effort to help coordinate rescue efforts. According to a press release, “ITU will also set up a Qualcomm Deployable Base Station (QDBS), a reliable, responsive and complete cellular system designed to enable vital wireless communications aimed at strengthening response and recovery mechanisms in a disaster zone.”
+</p>
+<p>
+Read more:
+<a title="IEEE Spectrum: Engineers Race to Restore Communications after Haiti Quake" href="http://spectrum.ieee.org/tech-talk/telecom/internet/engineers-race-to-restore-communications-after-haiti-quake">IEEE Spectrum</a>
+</p>
+</td>
+</tr>
+</table>]]></description>
+				<category>News:World</category>
+				
+			</item>
+					<item>
+				<title>Win a Multi-Touch TableTop Interface</title>
+				<itunes:author>LUCI</itunes:author>
+				<itunes:subtitle> From Smart Technologies: &quot;The challenge We&apos;re looking for innovative multitouch applications for our SMART Table. We already have some applications that help students learn</itunes:subtitle>
+				<itunes:summary> From Smart Technologies: &quot;The challenge We&apos;re looking for innovative multitouch applications for our SMART Table. We already have some applications that help students learn to read, do math problems and more, and we know you can create others that children will want to get their hands on. So take a look at our SMART Table videos and get the creative juices flowing. And don&apos;t worry about not having a SMART Table to test your application – we can help you build a table emulator. Prizes The grand prize for the contest is a SMART Table. We&apos;ll also promote your application on the SMART website for one year, giving you the potential to establish a revenue stream.&quot; More info here. If anyone wants to put together a team for the LUCI lab, email the mailing list.</itunes:summary>
+				
+				<guid>http://luci.ics.uci.edu/blog/archives/2010/01/win_a_multitouc.html</guid>
+				<pubDate>Wed, 20 Jan 2010 11:21:15 -0800</pubDate>
+				<link>http://luci.ics.uci.edu/blog/archives/2010/01/win_a_multitouc.html</link>
+				<description><![CDATA[<table>
+<tr>
+<td>
+<img alt="smart.png" src="http://luci.ics.uci.edu/blog/archives/2010/01/20/smart.png" width="267" height="198" />
+</td>
+<td>
+<p>
+From Smart Technologies:
+</p>
+<p class="quote">
+"<b>The challenge</b><br/>
+
+We're looking for innovative multitouch applications for our SMART Table. We already have some applications that help students learn to read, do math problems and more, and we know you can create others that children will want to get their hands on. So take a look at our SMART Table videos and get the creative juices flowing. And don't worry about not having a SMART Table to test your application – we can help you build a table emulator.
+</p>
+<p class="quote">
+<b>Prizes</b><br/>
+
+The grand prize for the contest is a SMART Table. We'll also promote your application on the SMART website for one year, giving you the potential to establish a revenue stream."
+</p>
+<p>More info <a href="http://smarttech.com/multitouch">here</a>.  If anyone wants to put together a team for the LUCI lab, email the mailing list.
+</p>
+</td>
+</tr>
+</table>]]></description>
+				<category>Grants, Jobs, Contests Etc.</category>
+				
+			</item>
+					<item>
+				<title>Congratulations Joel, Nitin, and Bill! (ISSST 2010 paper)</title>
+				<itunes:author>LUCI</itunes:author>
+				<itunes:subtitle> Photo courtesy of paulworthington Congratulations to Informatics graduate student Joel Ross, Computer Science undergraduate student Nitin Shantharam, and Informatics faculty Bill Tomlinson on having</itunes:subtitle>
+				<itunes:summary> Photo courtesy of paulworthington Congratulations to Informatics graduate student Joel Ross, Computer Science undergraduate student Nitin Shantharam, and Informatics faculty Bill Tomlinson on having their paper, &apos;Collaborative Filtering and Carbon Footprint Calculation&apos; accepted to ISSST 2010. This paper describes the design of the Better Carbon calculator, a carbon footprint calculator which uses collaborative filtering and location-based calculation to provide an individual footprint estimate while simultaneously affecting and improving the estimates for other people in a user&apos;s community.</itunes:summary>
+				
+				<guid>http://luci.ics.uci.edu/blog/archives/2010/01/congratulations_93.html</guid>
+				<pubDate>Mon, 18 Jan 2010 11:19:54 -0800</pubDate>
+				<link>http://luci.ics.uci.edu/blog/archives/2010/01/congratulations_93.html</link>
+				<description><![CDATA[<table>
+<tr>
+<td>
+<img src='http://luci.ics.uci.edu/blog/archives/penAndPaper.jpg' width='240' height='*' alt='picture photo'/><br/>
+Photo courtesy of <a href=\'http://www.flickr.com/photos/paulworthington/82648953/\'>paulworthington</a>
+</td>
+<td>
+<p>
+Congratulations to Informatics graduate student Joel Ross, Computer Science undergraduate student Nitin Shantharam, and Informatics faculty Bill Tomlinson on having their paper,
+<b>'Collaborative Filtering and Carbon Footprint Calculation'</b> accepted to ISSST 2010.
+</p>
+<p>
+This paper describes the design of the Better Carbon calculator, a carbon footprint calculator which uses collaborative filtering and location-based calculation to provide an individual footprint estimate while simultaneously affecting and improving the estimates for other people in a user's community.
+</p>
+</td>
+</tr>
+</table>
+]]></description>
+				<category>News:World</category>
+				
+			</item>
+					<item>
+				<title>Sharks sending text messages to alert beachgoers</title>
+				<itunes:author>LUCI</itunes:author>
+				<itunes:subtitle> Photo courtesy of artolog Telegraph &quot;More than 70 white pointers have been tagged by scientists is Western Australia in a world first trial that</itunes:subtitle>
+				<itunes:summary> Photo courtesy of artolog Telegraph &quot;More than 70 white pointers have been tagged by scientists is Western Australia in a world first trial that will send beach lifesavers a text message when one of the predators swims close to the Perth shoreline.&quot;</itunes:summary>
+				
+				<guid>http://luci.ics.uci.edu/blog/archives/2010/01/sharks_sending.html</guid>
+				<pubDate>Wed, 06 Jan 2010 12:21:16 -0800</pubDate>
+				<link>http://luci.ics.uci.edu/blog/archives/2010/01/sharks_sending.html</link>
+				<description><![CDATA[<table>
+<tr>
+<td>
+<img src="http://farm3.static.flickr.com/2366/1693491849_0231a45bdf_m.jpg" alt="shark art"/><br/>
+Photo courtesy of <a href="http://www.flickr.com/photos/artolog/1693491849/">artolog</a>
+</td>
+<td>
+<p class="quote"
+<a title="Great white sharks tracked by tags and text messages - Telegraph" href="http://www.telegraph.co.uk/earth/wildlife/6909254/Great-white-sharks-tracked-by-tags-and-text-messages.html">Telegraph</a><br/>
+
+"More than 70 white pointers have been tagged by scientists is Western Australia in a world first trial that will send beach lifesavers a text message when one of the predators swims close to the Perth shoreline."
+</p>
+</td>
+</tr>
+</table>]]></description>
+				<category>News:World</category>
+				
+			</item>
+					<item>
+				<title>Congratulations Eric, Jordan, and Bill! (CHI 2010 paper)</title>
+				<itunes:author>LUCI</itunes:author>
+				<itunes:subtitle> Photo courtesy of paulworthington Congratulations to Informatics post-doc Eric P. S. Baumer, Informatics undergraduate alumnus Jordan Sinclain, and Informatics professor Bill Tomlinson on having</itunes:subtitle>
+				<itunes:summary> Photo courtesy of paulworthington Congratulations to Informatics post-doc Eric P. S. Baumer, Informatics undergraduate alumnus Jordan Sinclain, and Informatics professor Bill Tomlinson on having their paper, &apos;&quot;America Is Like Metamucil:&quot; Fostering Critical and Creative Thinking about Metaphor in Political Blogs&apos; accepted to CHI 2010. Blogs are becoming an increasingly important medium—socially, academically, and politically. Much research has involved analyzing blogs, but less work has considered how such analytic techniques might be incorporated into tools for blog readers. A new tool, metaViz, analyzes political blogs for potential conceptual metaphors and presents them to blog readers. This paper presents a study exploring the types of critical and creative thinking fostered by metaViz as evidenced by user comments and discussion on the system. These results indicate the effectiveness of various system features at fostering critical thinking and creativity, specifically in terms of deep, structural reasoning about metaphors and creatively extending existing metaphors. Furthermore, the results carry broader implications beyond blogs and politics about exploring alternate configurations between computation and human thought. Get a copy of this paper here: http://ericbaumer.com/publications/pap1573-baumer.pdf</itunes:summary>
+				
+				<guid>http://luci.ics.uci.edu/blog/archives/2010/01/congratulations_92.html</guid>
+				<pubDate>Tue, 05 Jan 2010 12:43:48 -0800</pubDate>
+				<link>http://luci.ics.uci.edu/blog/archives/2010/01/congratulations_92.html</link>
+				<description><![CDATA[<table>
+<tr>
+<td>
+<img src='http://luci.ics.uci.edu/blog/archives/penAndPaper.jpg' width='240' height='*' alt='picture photo'/><br/>
+Photo courtesy of <a href=\'http://www.flickr.com/photos/paulworthington/82648953/\'>paulworthington</a>
+</td>
+<td>
+<p>
+Congratulations to Informatics post-doc Eric P. S. Baumer, Informatics undergraduate alumnus Jordan Sinclain, and Informatics professor Bill Tomlinson on having their paper,
+<b>'"America Is Like Metamucil:" Fostering Critical and Creative Thinking about Metaphor in Political Blogs'</b> accepted to CHI 2010.
+</p>
+<p>
+Blogs are becoming an increasingly important medium—socially, academically, and politically. Much research has involved analyzing blogs, but less work has considered how such analytic techniques might be incorporated into tools for blog readers. A new tool, metaViz, analyzes political blogs for potential conceptual metaphors and presents them to blog readers. This paper presents a study exploring the types of critical and creative thinking fostered by metaViz as evidenced by user comments and discussion on the system. These results indicate the effectiveness of various system features at fostering critical thinking and creativity, specifically in terms of deep, structural reasoning about metaphors and creatively extending existing metaphors. Furthermore, the results carry broader implications beyond blogs and politics about exploring alternate configurations between computation and human thought.
+</p>
+<p>
+Get a copy of this paper here: <a href="http://ericbaumer.com/publications/pap1573-baumer.pdf">http://ericbaumer.com/publications/pap1573-baumer.pdf</a>
+</p>
+</td>
+</tr>
+</table>
+]]></description>
+				<category>News:World</category>
+				
+			</item>
+					<item>
+				<title>Mini-Projector in the wild</title>
+				<itunes:author>LUCI</itunes:author>
+				<itunes:subtitle> I spotted this mini-projector in the wild in the toy section of Target. This should help fuel some of the frenzy over studying mini-projectors</itunes:subtitle>
+				<itunes:summary> I spotted this mini-projector in the wild in the toy section of Target. This should help fuel some of the frenzy over studying mini-projectors that has taken over part of the UBICOMP/CHI communities.</itunes:summary>
+				
+				<guid>http://luci.ics.uci.edu/blog/archives/2009/12/miniprojector_i.html</guid>
+				<pubDate>Mon, 28 Dec 2009 11:32:11 -0800</pubDate>
+				<link>http://luci.ics.uci.edu/blog/archives/2009/12/miniprojector_i.html</link>
+				<description><![CDATA[<table>
+<tr>
+<td>
+<img alt="miniprojector.JPG" src="http://luci.ics.uci.edu/blog/archives/2009/12/28/miniprojector.JPG" width="400" />
+</td>
+<td>
+<p>I spotted this mini-projector in the wild in the toy section of Target.  This should help fuel some of the frenzy over studying mini-projectors that has taken over part of the UBICOMP/CHI communities.
+</p>
+</td>
+</tr>
+</table>
+]]></description>
+				<category>News:Gadget</category>
+				
+			</item>
+					<item>
+				<title>Congratulations Jed, Caitie and Gillian! (CSCW 2010 paper)</title>
+				<itunes:author>LUCI</itunes:author>
+				<itunes:subtitle> Photo courtesy of paulworthington Congratulations to Informatics grad student Jed Brubaker, Computer Science grad student Caitlin Lustig and Informatics faculty member Gillian Hayes on</itunes:subtitle>
+				<itunes:summary> Photo courtesy of paulworthington Congratulations to Informatics grad student Jed Brubaker, Computer Science grad student Caitlin Lustig and Informatics faculty member Gillian Hayes on having their paper, &apos;PatientsLikeMe: Empowerment and Representation in a Patient-Centered Social Network&apos; accepted to CSCW 2010. &quot;We examine the patient networking site PatientsLikeMe relative to current trends in medicine toward patient-centered care and empowerment. We focus on both patient and institutional demands for personal medical data. Given PatientsLikeMe’s mixture of social networking and health management tools, we consider the role of online health communities in the changing patient/provider relationship, and the use of patient-provided medical data.&quot;</itunes:summary>
+				
+				<guid>http://luci.ics.uci.edu/blog/archives/2009/12/congratulations_91.html</guid>
+				<pubDate>Wed, 23 Dec 2009 09:49:46 -0800</pubDate>
+				<link>http://luci.ics.uci.edu/blog/archives/2009/12/congratulations_91.html</link>
+				<description><![CDATA[<table>
+<tr>
+<td>
+<img src='http://luci.ics.uci.edu/blog/archives/penAndPaper.jpg' width='240' height='*' alt='picture photo'/><br/>
+Photo courtesy of <a href=\'http://www.flickr.com/photos/paulworthington/82648953/\'>paulworthington</a>
+</td>
+<td>
+<p>
+Congratulations to Informatics grad student Jed Brubaker, Computer Science grad student Caitlin Lustig and Informatics faculty member Gillian Hayes on having their paper,
+<b>'PatientsLikeMe: Empowerment and Representation in a Patient-Centered Social Network'</b> accepted to CSCW 2010.
+</p>
+<p class="quote">
+"We examine the patient networking site PatientsLikeMe relative to current trends in medicine toward patient-centered care and empowerment. We focus on both patient and institutional demands for personal medical data. Given PatientsLikeMe’s mixture of social networking and health management tools, we consider the role of online health communities in the changing patient/provider relationship, and the use of patient-provided medical data."
+</p>
+
+</td>
+</tr>
+</table>
+]]></description>
+				<category>News:World</category>
+				
+			</item>
+					<item>
+				<title>Congratulations Leslie and Gillian! (CSCW 2010 paper)</title>
+				<itunes:author>LUCI</itunes:author>
+				<itunes:subtitle> Photo courtesy of paulworthington Congratulations to Congratulations to Informatics grad student Leslie Liu and Informatics faculy Gillian Hayes on having their paper, &apos;Evaluating the</itunes:subtitle>
+				<itunes:summary> Photo courtesy of paulworthington Congratulations to Congratulations to Informatics grad student Leslie Liu and Informatics faculy Gillian Hayes on having their paper, &apos;Evaluating the Usefulness and Usability of Collaborative Personal Health Record Systems&apos; accepted to CSCW 2010. &quot;Personal health record systems (PHR) have great potential to improve both health documentation and patient care. The introduction and adoption of these systems, however, have been relatively slow. In this work, through usability evaluations and clinician interviews, we evaluated the usability of, usefulness of, and the ability to communicate and share information through PHR. We describe the results of our evaluation, which demonstrate how a combination of usability, functionality, and socio-cultural influences are impeding PHR adoption and use.&quot;</itunes:summary>
+				
+				<guid>http://luci.ics.uci.edu/blog/archives/2009/12/congratulations_90.html</guid>
+				<pubDate>Tue, 22 Dec 2009 08:48:44 -0800</pubDate>
+				<link>http://luci.ics.uci.edu/blog/archives/2009/12/congratulations_90.html</link>
+				<description><![CDATA[<table>
+<tr>
+<td>
+<img src='http://luci.ics.uci.edu/blog/archives/penAndPaper.jpg' width='240' height='*' alt='picture photo'/><br/>
+Photo courtesy of <a href=\'http://www.flickr.com/photos/paulworthington/82648953/\'>paulworthington</a>
+</td>
+<td>
+<p>
+Congratulations to Congratulations to Informatics grad student Leslie Liu and Informatics faculy Gillian Hayes on having their paper,
+<b>'Evaluating the Usefulness and Usability of Collaborative Personal Health Record Systems'</b> accepted to CSCW 2010.
+</p>
+<p class="quote">
+"Personal health record systems (PHR) have great potential to improve both health documentation and patient care. The introduction and adoption of these systems, however, have been relatively slow. In this work, through usability evaluations and clinician interviews, we evaluated the usability of, usefulness of, and the ability to communicate and share information through PHR. We describe the results of our evaluation, which demonstrate how a combination of usability, functionality, and socio-cultural influences are impeding PHR adoption and use."
+</p>
+
+</td>
+</tr>
+</table>
+]]></description>
+				<category>News:World</category>
+				
+			</item>
+					<item>
+				<title><![CDATA[Congratulations Don, Susan and Tosin! (Journal of Information Technologies &amp; International Development paper)]]></title>
+				<itunes:author>LUCI</itunes:author>
+				<itunes:subtitle> Photo courtesy of paulworthington Congratulations to Informatics faculty members Don Patterson and Susan Sim, and former Informatics grad student Tosin Aiyelokun on having their</itunes:subtitle>
+				<itunes:summary><![CDATA[ Photo courtesy of paulworthington Congratulations to Informatics faculty members Don Patterson and Susan Sim, and former Informatics grad student Tosin Aiyelokun on having their paper, 'Overcoming Blind Spots in Interaction Design: A Case Study in Designing for African AIDS Orphan Care Communities' accepted to the Journal of Information Technologies &amp; International Development. Abstract: The process of designing technological systems for the developing world is a challenging task. In a project that we undertook in the summer of 2007 using an iterative design process, we attempted to develop delay-tolerant networking technology on mobile phones to support workers at AIDS orphanages in Zambia and South Africa. Despite extensive preparations and research, we found that conditions on the ground were radically different from what we had anticipated, and we had to quickly re-group and redefine our strategic goals. This experience made us realize that, for this type of design, resiliency and contingency planning were the most valuable tools in our interaction design toolbox. In response to changing conditions, we rapidly prototyped a different mobile telephony application called Nomatic*AID that provides a feedback loop among donors, non-governmental organizations (NGOs), and field workers. In this paper, we reflect on the redirection of our work]]></itunes:summary>
+				
+				<guid>http://luci.ics.uci.edu/blog/archives/2009/12/congratulations_89.html</guid>
+				<pubDate>Fri, 18 Dec 2009 16:22:37 -0800</pubDate>
+				<link>http://luci.ics.uci.edu/blog/archives/2009/12/congratulations_89.html</link>
+				<description><![CDATA[<table>
+<tr>
+<td>
+<img src='http://luci.ics.uci.edu/blog/archives/penAndPaper.jpg' width='240' height='*' alt='picture photo'/><br/>
+Photo courtesy of <a href=\'http://www.flickr.com/photos/paulworthington/82648953/\'>paulworthington</a>
+</td>
+<td>
+<p>
+Congratulations to Informatics faculty members Don Patterson and Susan Sim, and former Informatics grad student Tosin Aiyelokun on having their paper,
+<b>'Overcoming Blind Spots in Interaction Design: A Case Study in Designing for African AIDS Orphan Care Communities'</b> accepted to the Journal of Information Technologies &amp; International Development.
+</p>
+<p>Abstract:</p>
+<p class="quote">
+The process of designing technological systems for the developing world is a challenging task. In a project that we undertook in the summer of 2007 using an iterative design process, we attempted to develop delay-tolerant networking technology on mobile phones to support workers at AIDS orphanages in Zambia and South Africa. Despite extensive preparations and research, we found that conditions on the ground were radically different from what we had anticipated, and we had to quickly re-group and redefine our strategic goals. This experience made us realize that, for this type of design, resiliency and contingency planning were the most valuable tools in our interaction design toolbox. In response to changing conditions, we rapidly prototyped a different mobile telephony application called Nomatic*AID that provides a feedback loop among donors, non-governmental organizations (NGOs), and field workers. In this paper, we reflect on the redirection of our work once we reached our field site and our resulting acceptance of design blind spots. We present lessons we learned to help practitioners meet their goals in the presence of considerable and obvious design distance."
+</p>
+<p>
+Get a copy of this paper here: <a href="http://itidjournal.org/itid/article/view/424/192">http://itidjournal.org/itid/article/view/424/192</a>
+</p>
+</td>
+</tr>
+</table>
+]]></description>
+				<category>News:World</category>
+				
+			</item>
+					<item>
+				<title>Radical new device available for Christmas</title>
+				<itunes:author>LUCI</itunes:author>
+				<itunes:subtitle> &quot;With the holiday shopping season officially under way, millions of consumers proceeded to their nearest commercial centers this week in hopes of acquiring the</itunes:subtitle>
+				<itunes:summary> &quot;With the holiday shopping season officially under way, millions of consumers proceeded to their nearest commercial centers this week in hopes of acquiring the latest, and therefore most desirable, personal device.&quot; Read more about it here: New Device Desirable, Old Device Undesirable Photo courtesy of hfabulous</itunes:summary>
+				
+				<guid>http://luci.ics.uci.edu/blog/archives/2009/12/radical_new_dev.html</guid>
+				<pubDate>Thu, 17 Dec 2009 11:28:44 -0800</pubDate>
+				<link>http://luci.ics.uci.edu/blog/archives/2009/12/radical_new_dev.html</link>
+				<description><![CDATA[<table>
+<tr>
+<td>
+
+<p class="quote">
+"With the holiday shopping season officially under way, millions of consumers proceeded to their nearest commercial centers this week in hopes of acquiring the latest, and therefore most desirable, personal device."
+</p>
+<p>
+Read more about it here:
+<a title="New Device Desirable, Old Device Undesirable | The Onion - America's Finest News Source" href="http://www.theonion.com/content/news/new_device_desirable_old_device">New Device Desirable, Old Device Undesirable</a>
+</p>
+</td>
+<td>
+<img src="http://farm1.static.flickr.com/23/27694015_5e394cb43e_m.jpg" alt="device buyer"/><br/>
+Photo courtesy of <a href="http://www.flickr.com/photos/henryfaber/27694015/">hfabulous</a>
+</td>
+</tr>
+</table>]]></description>
+				<category>Just for fun</category>
+				
+			</item>
+					<item>
+				<title>Nissan Leaf Electric Car has some interesting interactions</title>
+				<itunes:author>LUCI</itunes:author>
+				<itunes:subtitle> The Technology Review has an interesting report out about how the all-electric Nissan Leaf will be helping transition drivers from a gas-based fuel infrastructure</itunes:subtitle>
+				<itunes:summary> The Technology Review has an interesting report out about how the all-electric Nissan Leaf will be helping transition drivers from a gas-based fuel infrastructure to an electric one. It is particularly interesting to notice how email, mobile and location-aware applications become part of a user&apos;s interactions with the car: &quot;The Leaf&apos;s dashboard display will show remaining battery life, the location of charging stations, and which stations are within range. When the car gets low on power, the driver can put it into a &quot;limp&quot; mode so it drives at the most-efficient speed to ensure it gets there.&quot; Once the driver plugs a car into a charging station, Nissan sends e-mail updates on how the charge is progressing, and when it&apos;s done. And finally, the owner can use a mobile device to switch on the car&apos;s electric air-conditioner or heater before detaching it from the charging station, so as not to waste battery life after pulling away.</itunes:summary>
+				
+				<guid>http://luci.ics.uci.edu/blog/archives/2009/12/nissan_leaf_ele.html</guid>
+				<pubDate>Tue, 15 Dec 2009 08:26:48 -0800</pubDate>
+				<link>http://luci.ics.uci.edu/blog/archives/2009/12/nissan_leaf_ele.html</link>
+				<description><![CDATA[<table>
+<tr>
+<td>
+<img src="http://www.technologyreview.com/files/35485/nissan_x220.jpg" alt="leaf dashboard"/>
+</td>
+<td>
+<p >The <a title="Technology Review: Nissan's Leaf: Charged with Information" href="http://www.technologyreview.com/communications/24209/">Technology Review</a> has an interesting report out about how the all-electric Nissan Leaf will be helping transition drivers from a gas-based fuel infrastructure to an electric one.  It is particularly interesting to notice how email, mobile and location-aware applications become part of a user's interactions with the car:</p>
+<p class="quote">
+"The Leaf's dashboard display will show remaining battery life, the location of charging stations, and which stations are within range. When the car gets low on power, the driver can put it into a "limp" mode so it drives at the most-efficient speed to ensure it gets there."
+</p>
+<p class="quote">
+Once the driver plugs a car into a charging station, Nissan sends e-mail updates on how the charge is progressing, and when it's done. And finally, the owner can use a mobile device to switch on the car's electric air-conditioner or heater before detaching it from the charging station, so as not to waste battery life after pulling away.</p>
+</td>
+</tr>
+</table>]]></description>
+				<category>News:Gadget</category>
+				
+			</item>
+					<item>
+				<title>LUCI Lab Annual Report</title>
+				<itunes:author>LUCI</itunes:author>
+				<itunes:subtitle> The 2008-2009 LUCI Lab Annual Report is now available in the tech reports section of the LUCI website. Direct Link &quot;The Laboratory for Ubiquitous</itunes:subtitle>
+				<itunes:summary> The 2008-2009 LUCI Lab Annual Report is now available in the tech reports section of the LUCI website. Direct Link &quot;The Laboratory for Ubiquitous Computing and Interaction ended the 2008-2009 school year with many significant accomplishments and a strong and innovative research program. LUCI is a growing research center with an increasing international impact and presence. LUCI claims 7 informatics faculty as core members and an additional 4 faculty members as affiliated members. We have 2 full-time researchers, an artist-in-residence, 4 post-docs, 28 graduate students and approximately 13 undergraduate students affiliated with the lab.&quot;</itunes:summary>
+				
+				<guid>http://luci.ics.uci.edu/blog/archives/2009/12/luci_lab_annual.html</guid>
+				<pubDate>Fri, 11 Dec 2009 14:54:05 -0800</pubDate>
+				<link>http://luci.ics.uci.edu/blog/archives/2009/12/luci_lab_annual.html</link>
+				<description><![CDATA[<table>
+<tr>
+<td>
+<img alt="PreviewScreenSnapz001.png" src="http://luci.ics.uci.edu/blog/archives/2009/12/11/PreviewScreenSnapz001.png" width="136" height="268" />
+</td>
+<td>
+<p>
+The 2008-2009 LUCI Lab Annual Report is now available in the <a href="http://luci.ics.uci.edu/#techreports">tech reports</a> section of the LUCI website.  <a href="http://luci.ics.uci.edu/websiteContent/repository/techreports/2009/LUCI-2009-003.pdf">Direct Link</a>
+</p>
+<p class="quote">
+"The Laboratory for Ubiquitous Computing and Interaction ended the 2008-2009 school year with many significant accomplishments and a strong and innovative research program.   LUCI is a growing research center with an increasing international impact and presence.
+</p>
+<p class="quote">
+LUCI claims 7 informatics faculty as core members and an additional 4 faculty members as affiliated members.  We have 2 full-time researchers, an artist-in-residence,  4 post-docs,  28 graduate students and approximately 13 undergraduate students affiliated with the lab."
+</p>
+</td>
+</tr>
+</table>
+]]></description>
+				<category>News: Local</category>
+				
+			</item>
+					<item>
+				<title>It&apos;s the hearth! (Happy Holidays!) Updated</title>
+				<itunes:author>LUCI</itunes:author>
+				<itunes:subtitle> Happy Holidays to all the LUCI followers. At our holiday party yesterday our newest faculty member, Melissa Mazmanian, brought some sort of grown-up version</itunes:subtitle>
+				<itunes:summary> Happy Holidays to all the LUCI followers. At our holiday party yesterday our newest faculty member, Melissa Mazmanian, brought some sort of grown-up version of the EZ bake oven to the White Elephant Gift Exchange. Next time you are in the lab, pull up a chair and warm yourself at our new hearth. It&apos;s the hearth! on Flickr - Photo Sharing!</itunes:summary>
+				
+				<guid>http://luci.ics.uci.edu/blog/archives/2009/12/its_the_hearth.html</guid>
+				<pubDate>Fri, 11 Dec 2009 10:07:17 -0800</pubDate>
+				<link>http://luci.ics.uci.edu/blog/archives/2009/12/its_the_hearth.html</link>
+				<description><![CDATA[<table>
+<tr>
+<td>
+<img src="http://farm3.static.flickr.com/2781/4172475247_28fbeeb961_m.jpg" alt="hearth"/>
+</td>
+<td>
+<p>
+Happy Holidays to all the LUCI followers.  At our holiday party yesterday our newest faculty member, Melissa Mazmanian, brought some sort of grown-up version of the EZ bake oven to the White Elephant Gift Exchange.  Next time you are in the lab, pull up a chair and warm yourself at our new hearth.
+</p>
+<p>
+<a title="It's the hearth! on Flickr - Photo Sharing!" href="http://www.flickr.com/photos/pdourish/4172475247/">It's the hearth! on Flickr - Photo Sharing!</a>
+</p>
+</td>
+<td>
+<object width="320" height="265"><param name="movie" value="http://www.youtube.com/v/WbzIefRJ0N8&hl=en_US&fs=1&"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/WbzIefRJ0N8&hl=en_US&fs=1&" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="320" height="265"></embed></object>
+</td>
+</tr>
+</table>
+]]></description>
+				<category>Just for fun</category>
+				
+			</item>
+					<item>
+				<title>Congratulations Joel!  (Globalizing Cognitive Labor: The Changing Demographics of Amazon Mechanical Turk) (Advancement to Candidacy)</title>
+				<itunes:author>LUCI</itunes:author>
+				<itunes:subtitle> Photo courtesy of eye2eye Congratulations to Joel Ross on passing his advancement to candidacy exam! Thesis: Globalizing Cognitive Labor: The Changing Demographics of Amazon</itunes:subtitle>
+				<itunes:summary> Photo courtesy of eye2eye Congratulations to Joel Ross on passing his advancement to candidacy exam! Thesis: Globalizing Cognitive Labor: The Changing Demographics of Amazon Mechanical Turk Abstract: Amazon Mechanical Turk is an online system for crowdsourcing cognitive labor. In this system, tasks are distributed to a population of thousands of anonymous workers, who complete this work for particularly small amounts of money. By making it cheap and easy to gather lots of workers, Mechanical is becoming increasingly popular as a platform for researchers and developers to perform user studies and experiments, as well as a basis for other information systems. Nevertheless, the low rate of pay for these jobs has led many to see Mechanical Turk as a system for exploiting the time and labor of low-income workers. In order to better understand this successful example of crowdsourcing, as well as its effect on workers and how work is performed, we surveyed the demographic make-up and usage behaviors of the anonymous &apos;Turkers&apos; who complete these tasks. In this talk, I describe how the Turker population has changed over time, detailing a shift from a primarily moderate-income, US-based work-force towards an increasingly international group with a significant population of young,</itunes:summary>
+				
+				<guid>http://luci.ics.uci.edu/blog/archives/2009/12/congratulations_88.html</guid>
+				<pubDate>Thu, 10 Dec 2009 07:22:14 -0800</pubDate>
+				<link>http://luci.ics.uci.edu/blog/archives/2009/12/congratulations_88.html</link>
+				<description><![CDATA[<table>
+        <tr>
+                <td>
+                        <img src="http://farm1.static.flickr.com/82/247583501_311f0f6156_m_d.jpg" alt="Flickr Image"><br/>
+                        Photo courtesy of <a href="http://www.flickr.com/photos/eye2eye/247583501/">eye2eye</a>
+                </td>
+                <td>
+                        <p>
+Congratulations to Joel Ross on passing his advancement to candidacy exam!</p>
+<p><b>
+Thesis: Globalizing Cognitive Labor: The Changing Demographics of Amazon Mechanical Turk</b>
+</p>
+<p>
+Abstract:<br/>
+<br/>
+Amazon Mechanical Turk is an online system for crowdsourcing cognitive labor. In this system, tasks are distributed to a population of thousands of anonymous workers, who complete this work for particularly small amounts of money. By making it cheap and easy to gather lots of workers, Mechanical is becoming increasingly popular as a platform for researchers and developers to perform user studies and experiments, as well as a basis for other information systems. Nevertheless, the low rate of pay for these jobs has led many to see Mechanical Turk as a system for exploiting the time and labor of low-income workers. In order to better understand this successful example of crowdsourcing, as well as its effect on workers and how work is performed, we surveyed the demographic make-up and usage behaviors of the anonymous 'Turkers' who complete these tasks. In this talk, I describe how the Turker population has changed over time, detailing a shift from a primarily moderate-income, US-based work-force towards an increasingly international group with a significant population of young, well-educated Indian workers. This change in the international make-up of the Turker population points to how crowdsourced cognitive labor--an increasingly common site of human effort--may be disconnected from the location and the context (both social and otherwise) of its use. This decontextualization may have profound impacts on how people work and cooperate in an increasingly networked and global world.
+<br/>
+<br/>
+Committee:<br/>
+<br/>
+
+Bill Tomlinson (chair)<br/>
+
+Paul Dourish<br/>
+
+Gloria Mark<br/>
+
+Ramesh Jain<br/>
+
+Vidyanad Choudhary (Paul Merage School of Business)<br/>
+</p>
+
+                </td>
+        </tr>
+</table>
+]]></description>
+				<category>News: Local</category>
+				
+			</item>
+					<item>
+				<title>Scalable Virtual Worlds</title>
+				<itunes:author>LUCI</itunes:author>
+				<itunes:subtitle> From Prof. Crista Lopes: I&apos;d like to let you know of this talk next week. All welcome. WHEN: Thursday, December 17, 12:30 - 1:30pm</itunes:subtitle>
+				<itunes:summary> From Prof. Crista Lopes: I&apos;d like to let you know of this talk next week. All welcome. WHEN: Thursday, December 17, 12:30 - 1:30pm WHERE: Bren Hall, #5011 WHO: Mic Bowman, Principal Engineer, Intel Research HOST: Crista Lopes, ICS &amp; Calit2 Scalable Virtual Worlds At the core of most virtual world applications is a quadratic computation of the set of interactions among avatars (users) and a shared scene. The computation and associated communication of the results represents a fundamental barrier to scaling experiences in these applications. The common solution to the problem is to limit the interaction among avatars through spatial subdivision or sharding. With both approaches, the content and shape of the interaction is driven by the limits of the simulation. In this talk we will describe a virtual world architecture that is designed to scale interactions among avatars and the scene without the limits imposed by current subdivision approaches. We use distributed systems technologies to balance the simulation load dynamically and to optimize network communication. We apply graphics technologies to limit the amount of network traffic that is generated for every client. And we apply information theory to reduce the overall computation that is required. A prototype</itunes:summary>
+				
+				<guid>http://luci.ics.uci.edu/blog/archives/2009/12/scalable_virtua.html</guid>
+				<pubDate>Wed, 09 Dec 2009 12:07:20 -0800</pubDate>
+				<link>http://luci.ics.uci.edu/blog/archives/2009/12/scalable_virtua.html</link>
+				<description><![CDATA[<p>
+From Prof. Crista Lopes:
+</p>
+<p>
+I'd like to let you know of this talk next week. All welcome.
+</p>
+<p>
+WHEN: Thursday, December 17, 12:30 - 1:30pm<br/>
+WHERE: Bren Hall, #5011<br/>
+WHO: Mic Bowman, Principal Engineer, Intel Research<br/>
+HOST: Crista Lopes, ICS & Calit2<br/>
+<br/>
+<b>Scalable Virtual Worlds</b>
+</p>
+<p>
+At the core of most virtual world applications is a quadratic computation of the set of interactions among avatars (users) and a shared scene. The computation and associated communication of the results represents a fundamental barrier to scaling experiences in these applications. The common solution to the problem is to limit the interaction among avatars through spatial subdivision or sharding. With both approaches, the content and shape of the interaction is driven by the limits of the simulation. In this talk we will describe a virtual world architecture that is designed to scale interactions among avatars and the scene without the limits imposed by current subdivision approaches. We use distributed systems technologies to balance the simulation load dynamically and to optimize network communication. We apply graphics technologies to limit the amount of network traffic that is generated for every client. And we apply information theory to reduce the overall computation that is required. A prototype of the architecture based on OpenSim, an open source virtual world platform, demonstrates significant scalability improvements over existing approaches.
+</p>
+<p>
+BIOGRAPHY:<br/>
+<br/>
+Mic Bowman is a principal engineer in Intel Labs and manages the Virtual World Infrastructure group.  Bowman received his BS from the University of Montana, and his MS and PhD in Computer Science from the University of Arizona. Bowman joined Intel’s Personal Information Management group in 1999. While at Intel, He developed personal information retrieval applications, context-based communication systems, and middleware services for mobile applications. In addition, he led the team that built and deployed the first version of PlanetLab, a global testbed for networking research. Prior to joining Intel he worked at Transarc Corp. where he led research teams at that developed distributed search services for the Web, distributed file systems, and naming systems. </p>]]></description>
+				<category>Talk Announcement</category>
+				
+			</item>
+					<item>
+				<title>Congratulations Judy! (NordiCHI 2008 paper)</title>
+				<itunes:author>LUCI</itunes:author>
+				<itunes:subtitle> Photo courtesy of paulworthington Congratulations to Informatics graduate student Judy Chen and Microsoft researcher Alex Taylor on having their paper, entrigue: Re-picturing the Home</itunes:subtitle>
+				<itunes:summary> Photo courtesy of paulworthington Congratulations to Informatics graduate student Judy Chen and Microsoft researcher Alex Taylor on having their paper, entrigue: Re-picturing the Home accepted to NordiCHI 2008. This paper re-examines awareness through the design and deployment of a simple, lightweight photo display that captures the comings and goings in a home. Get a copy of this paper here: http://portal.acm.org/citation.cfm?id=1463215</itunes:summary>
+				
+				<guid>http://luci.ics.uci.edu/blog/archives/2009/12/congratulations_87.html</guid>
+				<pubDate>Wed, 09 Dec 2009 07:00:28 -0800</pubDate>
+				<link>http://luci.ics.uci.edu/blog/archives/2009/12/congratulations_87.html</link>
+				<description><![CDATA[<table>
+<tr>
+<td>
+<img src='http://luci.ics.uci.edu/blog/archives/penAndPaper.jpg' width='240' height='*' alt='picture photo'/><br/>
+Photo courtesy of <a href=\'http://www.flickr.com/photos/paulworthington/82648953/\'>paulworthington</a>
+</td>
+<td>
+<p>
+Congratulations to Informatics graduate student Judy Chen and Microsoft researcher Alex Taylor on having their paper,
+<b>entrigue: Re-picturing the Home</b> accepted to NordiCHI 2008.
+</p>
+<p>
+This paper re-examines awareness through the design and deployment of a simple, lightweight photo display that captures the comings and goings in a home.
+</p>
+<p>
+Get a copy of this paper here: <a href="http://portal.acm.org/citation.cfm?id=1463215">http://portal.acm.org/citation.cfm?id=1463215</a>
+</p>
+</td>
+</tr>
+</table>
+]]></description>
+				<category>News:World</category>
+				
+			</item>
+					<item>
+				<title>Congratulations Judy! (HCI International 2009 paper)</title>
+				<itunes:author>LUCI</itunes:author>
+				<itunes:subtitle> Photo courtesy of paulworthington Congratulations to Informatics graduate student Judy Chen, Stanford graduate student Shailo Rao, and Google researchers Robin Jeffries and Rick Boardman</itunes:subtitle>
+				<itunes:summary> Photo courtesy of paulworthington Congratulations to Informatics graduate student Judy Chen, Stanford graduate student Shailo Rao, and Google researchers Robin Jeffries and Rick Boardman on having their paper, &quot;You&apos;ve Got IMs!&quot; How People Manage Concurrent Instant Messages accepted to HCI International 2009. This paper a two-part study investigating how people manage multiple simultaneous instant messaging conversations. Get a copy of this paper here: http://www.springerlink.com/content/n38062x718007966/</itunes:summary>
+				
+				<guid>http://luci.ics.uci.edu/blog/archives/2009/12/congratulations_86.html</guid>
+				<pubDate>Tue, 08 Dec 2009 14:59:08 -0800</pubDate>
+				<link>http://luci.ics.uci.edu/blog/archives/2009/12/congratulations_86.html</link>
+				<description><![CDATA[<table>
+<tr>
+<td>
+<img src='http://luci.ics.uci.edu/blog/archives/penAndPaper.jpg' width='240' height='*' alt='picture photo'/><br/>
+Photo courtesy of <a href=\'http://www.flickr.com/photos/paulworthington/82648953/\'>paulworthington</a>
+</td>
+<td>
+<p>
+Congratulations to Informatics graduate student Judy Chen, Stanford graduate student Shailo Rao, and Google researchers Robin Jeffries and Rick Boardman on having their paper,
+<b>"You've Got IMs!" How People Manage Concurrent Instant Messages</b> accepted to HCI International 2009.
+</p>
+<p>
+This paper a two-part study investigating how people manage multiple simultaneous instant messaging conversations.
+</p>
+<p>
+Get a copy of this paper here: <a href="http://www.springerlink.com/content/n38062x718007966/">http://www.springerlink.com/content/n38062x718007966/</a>
+</p>
+</td>
+</tr>
+</table>]]></description>
+				<category>News:World</category>
+				
+			</item>
+					<item>
+				<title>DARPA Network Challenge</title>
+				<itunes:author>LUCI</itunes:author>
+				<itunes:subtitle> If you see a red balloon from DARPA&apos;s network challenge, report it through this link - run by MIT - and LUCI lab will</itunes:subtitle>
+				<itunes:summary> If you see a red balloon from DARPA&apos;s network challenge, report it through this link - run by MIT - and LUCI lab will get some $$ and credit. http://balloon.media.mit.edu/luci/</itunes:summary>
+				
+				<guid>http://luci.ics.uci.edu/blog/archives/2009/12/darpa_network_c.html</guid>
+				<pubDate>Sat, 05 Dec 2009 08:35:08 -0800</pubDate>
+				<link>http://luci.ics.uci.edu/blog/archives/2009/12/darpa_network_c.html</link>
+				<description><![CDATA[<table>
+<tr>
+<td>
+<img src="https://networkchallenge.darpa.mil/images/balloon_flying.jpg"/>
+</td>
+<td>
+If you see a red balloon from DARPA's network challenge, report it through this link - run by MIT - and LUCI lab will get some $$ and credit.
+<br/>
+<a href="http://balloon.media.mit.edu/luci/">http://balloon.media.mit.edu/luci/</a>
+</td>
+</tr>
+</table>]]></description>
+				<category>Grants, Jobs, Contests Etc.</category>
+				
+			</item>
+					<item>
+				<title>Progress Bar on Stop Light Wins Design Award</title>
+				<itunes:author>LUCI</itunes:author>
+				<itunes:subtitle> red dot online: design concept - winners 2009 &quot;Eko Light is a traffic light whose purpose is to promote safer driving and less fuel</itunes:subtitle>
+				<itunes:summary> red dot online: design concept - winners 2009 &quot;Eko Light is a traffic light whose purpose is to promote safer driving and less fuel consumption, while at the same time helping the environment by reducing carbon emissions and improving traffic flow. Eko Light can be easily installed into existing traffic light systems without much effort.&quot;</itunes:summary>
+				
+				<guid>http://luci.ics.uci.edu/blog/archives/2009/12/progress_bar_on.html</guid>
+				<pubDate>Tue, 01 Dec 2009 14:56:22 -0800</pubDate>
+				<link>http://luci.ics.uci.edu/blog/archives/2009/12/progress_bar_on.html</link>
+				<description><![CDATA[<table>
+<tr>
+<td>
+<img src="http://www.red-dot.sg/concept/porfolio/o_e/03PIC/R003_2.jpg">
+</td>
+<td>
+<p>
+<a title="red dot online: design concept - winners 2009" href="http://www.red-dot.sg/concept/porfolio/o_e/PS/R003.htm">red dot online: design concept - winners 2009</a>
+</p>
+<p class="quote">
+"Eko Light is a traffic light whose purpose is to promote safer driving and less fuel consumption, while at the same time helping the environment by reducing carbon emissions and improving traffic flow. Eko Light can be easily installed into existing traffic light systems without much effort."
+</p>
+</td>
+</tr>
+</table>]]></description>
+				<category>Creative Expression</category>
+				
+			</item>
+					<item>
+				<title>Law Enforcement Back Channel to Cell-Phone Locatoin Data Revealed</title>
+				<itunes:author>LUCI</itunes:author>
+				<itunes:subtitle>Zoinks! &quot;Sprint Nextel provided law enforcement agencies with its customers&apos; (GPS) location information over 8 million times between September 2008 and October 2009. This massive</itunes:subtitle>
+				<itunes:summary>Zoinks! &quot;Sprint Nextel provided law enforcement agencies with its customers&apos; (GPS) location information over 8 million times between September 2008 and October 2009. This massive disclosure of sensitive customer information was made possible due to the roll-out by Sprint of a new, special web portal for law enforcement officers. The evidence documenting this surveillance program comes in the form of an audio recording of Sprint&apos;s Manager of Electronic Surveillance, who described it during a panel discussion at a wiretapping and interception industry conference, held in Washington DC in October of 2009.&quot; Source: slight paranoia: 8 Million Reasons for Real Surveillance Oversight I think the thing that makes this noteworthy is the portal. If such a thing really does exist, then it lowers the barrier to getting cell-phone based location on people to such a degree that the potential for abuse is much higher. The next barrier that would make abuse easier would be if the portal simultaneously sourced from multiple carriers besides Sprint. I have a curious feeling that this will result in more bizarre social behavior than it will in violations of civil liberties: Now off-duty cops will be showing up at all of the same clubs as Paris</itunes:summary>
+				
+				<guid>http://luci.ics.uci.edu/blog/archives/2009/12/law_enforcement_1.html</guid>
+				<pubDate>Tue, 01 Dec 2009 14:09:59 -0800</pubDate>
+				<link>http://luci.ics.uci.edu/blog/archives/2009/12/law_enforcement_1.html</link>
+				<description><![CDATA[<p>Zoinks!</p>
+
+<p class="quote">
+"Sprint Nextel provided law enforcement agencies with its customers' (GPS) location information over 8 million times between September 2008 and October 2009. This massive disclosure of sensitive customer information was made possible due to the roll-out by Sprint of a new, special web portal for law enforcement officers.
+</p>
+<p class="quote">
+The evidence documenting this surveillance program comes in the form of an audio recording of Sprint's Manager of Electronic Surveillance, who described it during a panel discussion at a wiretapping and interception industry conference, held in Washington DC in October of 2009."
+</p>
+<p class="quote">
+Source:
+<a title="slight paranoia: 8 Million Reasons for Real Surveillance Oversight" href="http://paranoia.dubfire.net/2009/12/8-million-reasons-for-real-surveillance.html">slight paranoia: 8 Million Reasons for Real Surveillance Oversight</a>
+</p>
+<p>I think the thing that makes this noteworthy is the portal.  If such a thing really does exist, then it lowers the barrier to getting cell-phone based location on people to such a degree that the potential for abuse is much higher.  The next barrier that would make abuse easier would be if the portal simultaneously sourced from multiple carriers besides Sprint.</p>
+<p>I have a curious feeling that this will result in more bizarre social behavior than it will in violations of civil liberties:  Now off-duty cops will be showing up at all of the same clubs as Paris Hilton,  information about Tiger Woods' latest travels will be leaked to TMZ, and important people will stop owning phones and opt to use their assistant's phones instead. </p>
+<p> The Grameen phone ladies are coming to the U.S., but for very different reasons.</p>
+]]></description>
+				<category>News:Regional</category>
+				
+			</item>
+					<item>
+				<title>FedEx SenseAware</title>
+				<itunes:author>LUCI</itunes:author>
+				<itunes:subtitle> FedEx has released a sensor board that is connected by mobile phone network and is designed to monitor sensitive cargo that would be harmed</itunes:subtitle>
+				<itunes:summary> FedEx has released a sensor board that is connected by mobile phone network and is designed to monitor sensitive cargo that would be harmed by environmental stress. It seems like a good gadget to know about if you ever want to track something globally without too much effort. $120/month From the website copy: SenseAware powered by FedEx SenseAware can monitor items that are: Unique or rare — such as samples from clinical trials. Temperature sensitive — such as pharmaceuticals. Light sensitive — such as film or art Time critical or location critical — such as human tissue and organs. Highly controlled or regulated — such as materials requiring chain-of-custody certification. Biohazardous or dangerous — such as explosives. Highly valuable — such as medical equipment.</itunes:summary>
+				
+				<guid>http://luci.ics.uci.edu/blog/archives/2009/11/fedex_senseawar.html</guid>
+				<pubDate>Thu, 26 Nov 2009 08:03:47 -0800</pubDate>
+				<link>http://luci.ics.uci.edu/blog/archives/2009/11/fedex_senseawar.html</link>
+				<description><![CDATA[<table>
+<tr>
+<td>
+<img src="http://www.senseaware.com/SA20091116v1/images/so_box_1.jpg" alt="box open"/>
+</td>
+<td>
+<p>FedEx has released a sensor board that is connected by mobile phone network and is designed to monitor sensitive cargo that would be harmed by environmental stress.  It seems like a good gadget to know about if you ever want to track something globally without too much effort.  $120/month</p>
+<p>From the website copy:</p>
+<p><a title="SenseAware powered by FedEx" href="http://www.senseaware.com/SA20091116v1/overview.html?PID=1">SenseAware powered by FedEx</a>
+SenseAware can monitor items that are:
+<ul>
+<li> Unique or rare — such as samples from clinical trials.
+</li><li>Temperature sensitive — such as pharmaceuticals.
+ </li><li>Light sensitive — such as film or art
+ </li><li>Time critical or location critical — such as human tissue and organs.
+ </li><li>Highly controlled or regulated — such as materials requiring chain-of-custody certification.
+ </li><li>Biohazardous or dangerous — such as explosives.
+ </li><li>Highly valuable — such as medical equipment.
+</ul>
+</td>
+</tr>
+</table>]]></description>
+				<category>News:World</category>
+				
+			</item>
+					<item>
+				<title>Congratulations Eric K! (Digital Arts and Culture paper)</title>
+				<itunes:author>LUCI</itunes:author>
+				<itunes:subtitle> Congratulations to Informatics graduate student Eric Kabisch on having his paper, &apos;Mobile after-media, cultural narratives and the data Imaginary&apos; accepted to Digital Arts and</itunes:subtitle>
+				<itunes:summary> Congratulations to Informatics graduate student Eric Kabisch on having his paper, &apos;Mobile after-media, cultural narratives and the data Imaginary&apos; accepted to Digital Arts and Culture. Get a copy of this paper here: http://dac09.uci.edu/index.php</itunes:summary>
+				
+				<guid>http://luci.ics.uci.edu/blog/archives/2009/11/congratulations_85.html</guid>
+				<pubDate>Wed, 25 Nov 2009 08:28:59 -0800</pubDate>
+				<link>http://luci.ics.uci.edu/blog/archives/2009/11/congratulations_85.html</link>
+				<description><![CDATA[<table>
+<tr>
+<td>
+<img src='http://dac09.uci.edu/images/dac09logo_sm.jpg' width='*' height='*' alt='picture photo'/>
+</td>
+<td>
+<p>
+Congratulations to Informatics graduate student Eric Kabisch on having his paper,
+<b>'Mobile after-media, cultural narratives and the data Imaginary'</b> accepted to Digital Arts and Culture.
+</p>
+<p>
+Get a copy of this paper here: <a href="http://dac09.uci.edu/index.php">http://dac09.uci.edu/index.php</a>
+</p>
+</td>
+</tr>
+</table>
+]]></description>
+				<category>News:World</category>
+				
+			</item>
+					<item>
+				<title>Congratulations Don! (Optical Society of America Art in Science Contest)</title>
+				<itunes:author>LUCI</itunes:author>
+				<itunes:subtitle> Congratulations to Informatics faculty member Don Patterson on having won first place in the Optical Society of America Art in Science Contest with the</itunes:subtitle>
+				<itunes:summary> Congratulations to Informatics faculty member Don Patterson on having won first place in the Optical Society of America Art in Science Contest with the work, &apos;O-O&apos;. Statement: &quot;This style of visualization is usually used to display connections between different regions in DNA. This image however, was generated from the messages sent between users of a social networking site. By visualizing social data in the this way, we can see how people communicate, the roles that people play in the web of communication and we may reflect on how our social behavior is as much a part of us as our DNA. The outer ring has a color band for every unique user. The angle swept by the band corresponds to the number of messages sent by that user (the large ticks are 100’s) The connections in the middle show how often one user sends a message to another user. &quot; Learn more about the contest here: http://osa.ps.uci.edu/artinscience/index.html</itunes:summary>
+				
+				<guid>http://luci.ics.uci.edu/blog/archives/2009/11/congratulations_84.html</guid>
+				<pubDate>Tue, 24 Nov 2009 15:12:12 -0800</pubDate>
+				<link>http://luci.ics.uci.edu/blog/archives/2009/11/congratulations_84.html</link>
+				<description><![CDATA[<table>
+<tr>
+<td>
+<a href="http://luci.ics.uci.edu/blog/archives/2009/11/24/smallVerson.jpg"><img alt="smallVerson.jpg" src="http://luci.ics.uci.edu/blog/archives/2009/11/24/smallVerson.jpg" width="300" height="300" /></a>
+</td>
+<td>
+<p>
+Congratulations to Informatics faculty member Don Patterson on having won first place in the Optical Society of America Art in Science Contest with the work,
+<b>'O-O'</b>.
+</p>
+<p>
+Statement:
+"This style of visualization is usually used to display connections between different regions in DNA.  This image however, was generated from the messages sent between users of a social networking site.   By visualizing social data in the this way, we can see how people communicate, the roles that people play in the web of communication and we may reflect on how our social behavior is as much a part of us as our DNA. 
+</p>
+<p>
+	The outer ring has a color band for every unique user.  The angle swept by the band corresponds to the number of messages sent by that user (the large ticks are 100’s)  The connections in the middle show how often one user sends a message to another user. "
+</p>
+<p>
+Learn more about the contest here: <a href="http://osa.ps.uci.edu/artinscience/index.html">http://osa.ps.uci.edu/artinscience/index.html</a>
+</p>
+</td>
+</tr>
+</table>
+]]></description>
+				<category>News: Local</category>
+				
+			</item>
+					<item>
+				<title>Congratulations Dr. Williams! (final Ph.D. defense)</title>
+				<itunes:author>LUCI</itunes:author>
+				<itunes:subtitle> Congratulations Dr. Williams! Mobilizing Practice: Engaging Space, Technology and Design from a Thai Metropolis Abstract: The project of ubiquitous computing aims to embed computation</itunes:subtitle>
+				<itunes:summary> Congratulations Dr. Williams! Mobilizing Practice: Engaging Space, Technology and Design from a Thai Metropolis Abstract: The project of ubiquitous computing aims to embed computation into everyday spaces. As a practice that is heavily concerned with space and place, its stance towards mobility is sometimes conflicted — treating mobility by turns as a disruption or as an opportunity — and almost always conceiving of it as free and empowered. Conducted in industrial and academic research settings in places like Seattle, the San Francisco Bay Area, London, or Atlanta, ubicomp research tends to deal with the settings and mobilities that its usually upper-middle-class researchers actually encounter: the commute to work, the nuclear family’s stand-alone home, a walk through a city center. Based on a year of ethnographic field-work focusing on spatial and mobile practice in and around Bangkok, Thailand, I propose some alternative visions of mobility and production of space: the anchored mobilities of transnational retirees, the artistry of stability work in an always-mobile slum, the embodied and symbolic experiences of quotidian journeys through Bangkok. These practices, while enabled and mediated by information technologies, call into question some of the assumptions we make about place and mobility, and provoke us rethink</itunes:summary>
+				
+				<guid>http://luci.ics.uci.edu/blog/archives/2009/11/congratulations_83.html</guid>
+				<pubDate>Mon, 16 Nov 2009 15:54:11 -0800</pubDate>
+				<link>http://luci.ics.uci.edu/blog/archives/2009/11/congratulations_83.html</link>
+				<description><![CDATA[<table>
+<tr>
+<td>
+<img alt="photo.jpg" src="http://luci.ics.uci.edu/blog/archives/2009/11/16/photo.jpg" width="396" height="318" />
+</td>
+<td>
+<p>
+Congratulations Dr. Williams!
+</p>
+<p>
+Mobilizing Practice: Engaging Space, Technology and Design from a Thai Metropolis
+</p>
+<p>
+Abstract: The project of ubiquitous computing aims to embed computation into everyday spaces. As a practice that is heavily concerned with space and place, its stance towards mobility is sometimes conflicted — treating mobility by turns as a disruption or as an opportunity — and almost always conceiving of it as free and empowered. Conducted in industrial and academic research settings in places like Seattle, the San Francisco Bay Area, London, or Atlanta, ubicomp research tends to deal with the settings and mobilities that its usually upper-middle-class researchers actually encounter: the commute to work, the nuclear family’s stand-alone home, a walk through a city center.
+</p>
+<p>
+Based on a year of ethnographic field-work focusing on spatial and mobile practice in and around Bangkok, Thailand, I propose some alternative visions of mobility and production of space: the anchored mobilities of transnational retirees, the artistry of stability work in an always-mobile slum, the embodied and symbolic experiences of quotidian journeys through Bangkok. These practices, while enabled and mediated by information technologies, call into question some of the assumptions we make about place and mobility, and provoke us rethink what technological interactions we might design and how we can design them.
+</p>
+<p>
+Committee: Paul Dourish (chair), Don Patterson, Ken Anderson (Intel), Beatriz da Costa
+</p>
+</td>
+</tr>
+</table>]]></description>
+				<category>News: Local</category>
+				
+			</item>
+		
+	</channel>
+</rss>
+
+
+
+

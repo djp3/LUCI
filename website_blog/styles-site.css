@@ -1,0 +1,278 @@
+body {
+	margin: 10px;
+	background-color: rgb(255,255,255);
+	text-align: center;        
+	}
+
+a {
+	text-decoration: underline;
+	}
+
+a:link {
+	color: #006699;
+	}
+
+a:visited {
+	color: #006699;
+	}
+
+a:active {
+	color: #006699;
+	}
+
+a:hover {
+	color: #7C8A97;
+	}
+
+h1, h2, h3 {
+	margin: 0px;
+	padding: 0px;
+	font-weight: normal;
+	}
+
+
+.container {
+	position: static;
+
+	width: auto;
+	height: auto;
+
+
+	padding-top: 10px;
+	padding-left: 5px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+
+	margin-top:15px;
+
+	background-color: rgb(170,189,160);
+	background-image: url("cornerWhite.png");
+	background-repeat:no-repeat;
+	background-position: left top;
+
+	line-height: 140%;
+	text-align: left;
+	border-bottom:1px solid rgb(170,189,160);
+	}
+
+.banner {
+	font-family: Verdana, Arial, sans-serif;
+	color: #000000;
+	height:150px;
+	background-color: #FFFFFF;
+
+	background-image: url("cornerGreen.png");
+	background-repeat:no-repeat;
+	background-position: left top;
+	text-align: left;
+
+	margin-top:10px;
+	margin-left:0px;
+	margin-right:5px;
+	margin-bottom:10px;
+	padding:0px;
+	border-bottom:1px solid rgb(170,189,160);
+	}
+
+.bannerblock {
+	background-color: #FFFFFF;
+	text-size:normal;
+	padding-bottom:5px;
+	margin-top: 0px;
+	margin-left: 20px;;
+	margin-bottom: 0px;
+}
+
+
+
+.content {
+	background-color: rgb(170,189,160);
+
+	color: #000000;
+	font-family: Verdana, Arial, sans-serif;
+	font-size: small;
+	margin-bottom: 5px;
+
+	}
+
+.extended{
+		text-align:center;
+		font-style:bold;
+}
+
+.sidebar {
+	float:right;
+
+	padding: 10px;
+	margin-top:0px;
+	margin-right: 0px;
+
+	width: 200px;
+	height: auto;
+
+	background-color: rgb(166,98,41);
+	background-image: url("cornerWhite.png");
+	background-repeat:no-repeat;
+	background-position: left top;
+
+
+	line-height: 140%;
+	color: #333333;
+	font-family: Verdana, Arial, sans-serif;
+	font-size: x-small;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+
+
+.calendar {
+	background-color: #FFFFFF;
+	background-image: url("cornerOrange.png");
+	background-repeat:no-repeat;
+	background-position: left top;
+
+	padding: 2px;
+	margin-bottom: 30px;
+}
+
+.calendar table {
+	padding: 2px;
+	border-collapse: collapse;
+	border: 0px;
+	width: 100%;
+	}
+
+.calendar caption {
+	color: #666666;
+	font-family: Verdana, Arial, sans-serif;
+	font-size: x-small;
+	
+	text-align: center;
+	font-weight: bold;
+	
+	text-transform: uppercase;
+	
+	letter-spacing: .3em;
+	}
+
+.calendar th {
+	text-align: center;
+	font-weight: normal;
+	}
+
+.calendar td {
+	text-align: center;
+	}
+
+.search {
+	padding: 2px;
+	margin-bottom: 30px;
+	background-color: #FFFFFF;
+	background-image: url("cornerOrange.png");
+	background-repeat:no-repeat;
+	background-position: left top;
+	}
+
+.archives {
+	padding: 2px;
+	padding-left: 10px;
+
+	margin-bottom: 30px;
+	background-color: #FFFFFF;
+	background-image: url("cornerOrange.png");
+	background-repeat:no-repeat;
+	background-position: left top;
+
+	text-align:left;
+	}
+
+.recent {
+	padding: 2px;
+	padding-left:10px;
+
+	margin-bottom: 30px;
+
+	background-color: #FFFFFF;
+	background-image: url("cornerOrange.png");
+	background-repeat:no-repeat;
+	background-position: left top;
+	text-align:left;
+	}
+
+.syndicate {
+	padding: 2px;
+	margin-bottom: 30px;
+	background-color: #FFFFFF;
+	border: solid black 1px;
+	}
+
+.quote{
+		padding:10px;
+		line-height:95%;
+		font-style:italic;
+}
+.storyContent{
+	background-color: rgb(255,255,255);
+	font-size:100%;
+	line-height: 100%;
+	margin-left: 1px;
+	padding-left: 5px;
+	border: solid black 1px;
+}
+			
+.storyTitle{
+	font-size: 150%;
+	font-weight: normal;
+	margin-left: 5px;
+	color: #FFFFFF;
+}	
+
+.commentContent{
+	background-color: rgb(255,255,255);
+	font-size:75%;
+	line-height: 90%;
+	margin-left: 10px;
+	padding-left: 5px;
+        padding-bottom:5px;
+	border: solid black 1px;
+}
+
+.bannersidebar {
+	float:right;
+
+	padding-top: 10px;
+	padding-right: 10px;
+	padding-left: 10px;
+	padding-bottom: 0px;
+
+	margin-top: 20px;
+	margin-right: 0px;
+
+	width: 200px;
+	height: 140px;
+
+	background-color: rgb(166,98,41) ;
+	background-image: url("cornerWhite.png");
+	background-repeat:no-repeat;
+	background-position: left top;
+
+	top: 20px;
+	right: 20px;
+
+	line-height: 140%;
+	color: #333333;
+	font-family: Verdana, Arial, sans-serif;
+	font-size: x-small;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+.bannerinfo {
+	padding: 2px;
+	background-color: #FFFFFF;
+	background-image: url("cornerOrange.png");
+	background-repeat:no-repeat;
+	background-position: left top;
+	height:125px;
+}
