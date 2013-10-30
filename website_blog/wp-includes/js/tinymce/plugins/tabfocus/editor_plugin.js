@@ -1,0 +1,1 @@
+../../../../../../tinymce/www/plugins/tabfocus/editor_plugin.js

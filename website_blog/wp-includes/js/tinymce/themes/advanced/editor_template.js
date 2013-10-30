@@ -1,0 +1,1 @@
+../../../../../../tinymce/www/themes/advanced/editor_template.js

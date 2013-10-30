@@ -1,0 +1,1 @@
+../../php/simplepie/simplepie.inc

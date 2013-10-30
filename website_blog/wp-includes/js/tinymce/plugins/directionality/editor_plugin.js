@@ -1,0 +1,1 @@
+../../../../../../tinymce/www/plugins/directionality/editor_plugin.js

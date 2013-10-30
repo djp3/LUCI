@@ -1,0 +1,1 @@
+../../../../../../tinymce/www/plugins/media/editor_plugin.js

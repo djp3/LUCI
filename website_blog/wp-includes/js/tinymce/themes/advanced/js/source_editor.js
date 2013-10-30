@@ -1,0 +1,1 @@
+../../../../../../../tinymce/www/themes/advanced/js/source_editor.js

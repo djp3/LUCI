@@ -1,0 +1,1 @@
+../../../../../tinymce/www/utils/validate.js

@@ -1,0 +1,1 @@
+../../../../../../tinymce/www/plugins/inlinepopups/editor_plugin.js
