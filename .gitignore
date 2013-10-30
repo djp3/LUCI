@@ -1,3 +1,16 @@
+#Mac admin files
+.DS_Store
+**/.DS_Store
+
+#Really big file
 design/postCards/2011/luci postcard front.pdf
-website/source/websiteContent/weAreLuci/biographies/faculty/djp3/LocalCopy
-website/source/websiteContent/weAreLuci/biographies/faculty/djp3/LocalPresentations
+
+#Local files needed for publishing but not appropriate for repo
+website/source/websiteContent/weAreLuci/biographies/faculty/djp3/LocalCopy/*
+website/source/websiteContent/weAreLuci/biographies/faculty/djp3/LocalPresentations/*
+
+#vending accounting
+website/source/vending/*
+
+#generated files
+website/source/lightweight/*
