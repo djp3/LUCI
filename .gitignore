@@ -14,3 +14,5 @@ website/source/vending/*
 
 #generated files
 website/source/lightweight/*
+
+#wordpress blog files not needed for repository
